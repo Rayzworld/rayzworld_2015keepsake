@@ -591,6 +591,7 @@ a.custom-button span {
 	left: 30px;
 }	
 .logo img {
+	 border-radius: 50%;
 	display:block;
 	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
 	-khtml-opacity: 1;
