@@ -116,6 +116,8 @@
         		<a class="sb-toggle-submenu">Categories<span class="sb-caret"></span></a>
             	<ul class="sb-submenu">
 				  	
+				    <li><a href="/categories/iOS/" class="animsition-link">iOS<small>(1)</small></a></li>
+				    
 				    <li><a href="/categories/iOS第三方库/" class="animsition-link">iOS第三方库<small>(1)</small></a></li>
 				    
 				</ul>
@@ -208,7 +210,7 @@
                         <div class="center-me animateme" data-when="exit" data-from="0" data-to="0.6" data-opacity="0" data-translatey="100">
                             <div>
                             	
-                                <h2>I am a slow walker,but I never walk backwards.</h2>
+                                <h2>I am a slow walker. but I never walk backwards.</h2>
                                 <p></p>
 				    			
                                 <h2></h2>
@@ -235,16 +237,28 @@
         <div class="row col-md-offset-2">
             <div class="col-md-8">
     			<span class="post-meta">
-      <time datetime="2015-06-01T14:29:55.000Z" itemprop="datePublished">
+      <time datetime="2015-05-31T16:00:00.000Z" itemprop="datePublished">
           2015-06-01
       </time>
+    
+    
+    | 
+    <a href='/tags/iOS/'>iOS</a>,
+    
+    <a href='/tags/代码规范/'>代码规范</a>
+    
     
 </span>
                 <h1>iOS代码规范养成</h1>
             </div>
         </div>
         <div class="col-md-8 col-md-offset-2">
-      		
+      		<h3 id="类的头文件中尽量少的引用其他头文件">类的头文件中尽量少的引用其他头文件</h3><p>不需要知道类的全部细节，只需要知道类使用@class</p>
+<h3 id="使用语法糖，少用等价的方法">使用语法糖，少用等价的方法</h3><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSString</span> *exampleStr = <span class="string">@"example"</span>;</span><br><span class="line">  <span class="built_in">NSNumber</span> *exampleNum = @<span class="number">2.5</span>f;</span><br><span class="line">  <span class="comment">// 创建字典或数组时，务必确保值里不含nil</span></span><br><span class="line">  <span class="built_in">NSArray</span> *exampleArr = @[ <span class="string">@"1"</span>, <span class="string">@"2"</span>, <span class="string">@"3"</span>, <span class="string">@"4"</span> ];</span><br><span class="line">  <span class="comment">// object atIndex</span></span><br><span class="line">  <span class="built_in">NSString</span> *firstStr = exampleArr[<span class="number">1</span>];</span><br><span class="line"></span><br><span class="line">  <span class="built_in">NSDictionary</span> *cardDic = @&#123;</span><br><span class="line">    <span class="string">@"cards"</span> : @[</span><br><span class="line">      @&#123;</span><br><span class="line">        <span class="string">@"cardId"</span> : <span class="string">@"1234"</span>,</span><br><span class="line">        <span class="string">@"owner"</span> : <span class="string">@"1234"</span>,</span><br><span class="line">        <span class="string">@"title"</span> : <span class="string">@"沙滩上？"</span>,</span><br><span class="line">        <span class="string">@"description"</span> : <span class="string">@"怎样能找到沙滩上的小动物？"</span>,</span><br><span class="line">        <span class="string">@"color"</span> : <span class="string">@"FF44AA"</span>,</span><br><span class="line">        <span class="string">@"commentCount"</span> : @<span class="number">16</span>,</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="built_in">NSString</span> *cardId = cardDic[<span class="string">@"cardId"</span>];</span><br><span class="line">  <span class="comment">// 使用字面量语法创建出来的对象都是不可变的，若想要可变对象，需拷贝一份</span></span><br><span class="line">  <span class="built_in">NSMutableArray</span> *tempArr = [@[ <span class="string">@"1"</span>, <span class="string">@"2"</span>, <span class="string">@"3"</span>, <span class="string">@"4"</span> ] mutableCopy];</span><br><span class="line">  <span class="comment">// 修改可变数组内容，字典同理</span></span><br><span class="line">  tempArr[<span class="number">3</span>] = <span class="string">@"5"</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="少用#define预处理指令">少用#define预处理指令</h3><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// define只是替换字段，可重复定义，如果define在某头文件中，所有引用这头文件的类中kTimelineCards字段都会被替换</span></span><br><span class="line"><span class="preprocessor">#define kTimelineCards @<span class="title">"/cards"</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 常量名称命名，若只在.m中使用，常量前加‘k’，k means constants，若常量在类之外可见，通常以类名为前缀</span></span><br><span class="line"><span class="keyword">static</span> <span class="built_in">NSString</span> *<span class="keyword">const</span> kTimelineCards = <span class="string">@"/cards"</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="参考文献">参考文献</h3><p>1.<a href="http://book.douban.com/subject/25829244/" target="_blank" rel="external">Effective Objective C 2.0</a><br>2.<a href="https://github.com/NYTimes/objective-c-style-guide/blob/master/README_zh-Hans.md" target="_blank" rel="external">纽约时报 移动团队 Objective-C 规范指南</a></p>
+<h3 id="友情链接_感谢大CTO培养">友情链接 感谢大CTO培养</h3><p><a href="http://diwu.me" target="_blank" rel="external">WuDi Blog</a></p>
+
             <div class="clearfix"></div>
             <hr class="nogutter">
         </div>
