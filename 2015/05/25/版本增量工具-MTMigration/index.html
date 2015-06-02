@@ -346,10 +346,11 @@ var duoshuoQuery = {short_name:"duoshuo_name"};
 <script src="/js/plugins.min.js"></script><!-- Bootstrap core and concatenated plugins always load here -->
 <script src="/js/jquery.flexslider-min.js"></script><!-- Flexslider plugin -->
 <script src="/js/scripts.js"></script><!-- Theme scripts -->
-
+<script src="/js/marked.js"></script>
 <!-- Initiate flexslider plugin -->
 <script type="text/javascript">
     $(document).ready(function($) {
+      document.getElementById('mulu').innerHTML = marked('[TOC]');
       $('.flexslider').flexslider({
         animation: "fade",
         prevText: "",
