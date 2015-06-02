@@ -17,7 +17,7 @@
 <!--<![endif]-->
 
 <head>
-  <title>版本增量工具-MTMigration | Rayzworld</title>
+  <title>Category: Git | Rayzworld</title>
   <!-- Meta data -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -84,7 +84,7 @@
 </head>
 
 <!--
-<body class="post-template">
+<body class="home-template">
 -->
 <body id="index" class="lightnav animsition">
 
@@ -234,63 +234,37 @@
 
         <!-- ============================ END Hero Image =========================== -->
       
-<section id="intro">
+
+
+<section id="services">
     <div class="container">
-        <div class="row col-md-offset-2">
-            <div class="col-md-8">
-    			<span class="post-meta">
-      <time datetime="2015-05-24T16:00:00.000Z" itemprop="datePublished">
-          2015-05-25
-      </time>
-    
-    
-    | 
-    <a href='/tags/MTMigration/'>MTMigration</a>,
-    
-    <a href='/tags/版本增量工具/'>版本增量工具</a>
-    
-    
-</span>
-                <h1>版本增量工具-MTMigration</h1>
-            </div>
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <div class="row boxes">
+                    
+                    
+                        
+                        
+                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
+                            
+                              <h4 class="title"><a href="/2015/06/02/Git与SourceTree/">Git与SourceTree</a></h4>
+                            
+                            <p><time datetime="2015-06-01T16:00:00.000Z"><a href="/2015/06/02/Git与SourceTree/">2015-06-02</a></time></p>
+                        </div>
+                    
+                </div>
+            </div>    
         </div>
-        <div class="col-md-8 col-md-offset-2">
-      		<blockquote>
-<p>Manages blocks of code that need to run once on version updates in iOS apps. This could be anything from data normalization routines, “What’s New In This Version” screens, or bug fixes.<br><a href="https://github.com/mysterioustrousers/MTMigration" target="_blank" rel="external">GitHub地址</a></p>
-</blockquote>
-<h3 id="Talk_is_cheap-_Show_me_the_code"><em>Talk is cheap. Show me the code</em></h3><h4 id="之前的代码"><font color="orange">之前的代码</font></h4><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSDictionary</span> *infoDictionary = [[<span class="built_in">NSBundle</span> mainBundle] infoDictionary];</span><br><span class="line"><span class="built_in">NSString</span> *everVersion = [[<span class="built_in">NSUserDefaults</span> standardUserDefaults] valueForKey:<span class="string">@"AppVersion"</span>];</span><br><span class="line"><span class="built_in">NSString</span> *curVersion = infoDictionary[<span class="string">@"CFBundleShortVersionString"</span>];</span><br><span class="line"><span class="keyword">if</span> ([[<span class="built_in">NSUserDefaults</span> standardUserDefaults] boolForKey:<span class="string">@"firstLaunch"</span>] ||  </span><br><span class="line">([curVersion floatValue] &gt; [everVersion floatValue] ? <span class="literal">YES</span> : <span class="literal">NO</span>)) &#123;  </span><br><span class="line"><span class="comment">// write the code here     </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="使用MTMigration"><font color="orange">使用MTMigration</font></h4><figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">   <span class="collection">[MTMigration applicationUpdateBlock:<span class="comment">^&#123;</span><br><span class="line">// write the code here</span><br><span class="line">   &#125;</span>]</span><span class="comment">;</span></span><br></pre></td></tr></table></figure>
+    </div>
+</section> 
 
-            <div class="clearfix"></div>
-            <hr class="nogutter">
+<section id="statement">
+    <div class="container text-center wow fadeInUp" data-wow-delay="0.5s">
+        <div class="row">
+            <p>Duang...</p>
         </div>
-        <nav class="pagination" role="pagination">
-    
-    <a class="pull-left" href="/2015/06/01/iOS代码规范养成/" style="float: left;">
-        ← iOS代码规范养成
-    </a>
-    
-    
-</nav>
-
-        <div class="duoshuo">
-<div class="ds-thread" data-thread-key="2015/05/25/版本增量工具-MTMigration/" data-title="版本增量工具-MTMigration" data-url="https://rayzworld.github.io/2015/05/25/版本增量工具-MTMigration/"></div>
-<script type="text/javascript">
-var duoshuoQuery = {short_name:"duoshuo_name"};
-(function() {
-	var ds = document.createElement('script');
-	ds.type = 'text/javascript';ds.async = true;
-	ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-	ds.charset = 'UTF-8';
-	(document.getElementsByTagName('head')[0] 
-	 || document.getElementsByTagName('body')[0]).appendChild(ds);
-})();
-</script>
-</div>
     </div>
 </section>
-
-
       
 <!-- ============================ Footer =========================== -->
 

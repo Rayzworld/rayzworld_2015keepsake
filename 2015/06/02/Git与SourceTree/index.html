@@ -17,7 +17,7 @@
 <!--<![endif]-->
 
 <head>
-  <title>版本增量工具-MTMigration | Rayzworld</title>
+  <title>Git与SourceTree | Rayzworld</title>
   <!-- Meta data -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -239,42 +239,44 @@
         <div class="row col-md-offset-2">
             <div class="col-md-8">
     			<span class="post-meta">
-      <time datetime="2015-05-24T16:00:00.000Z" itemprop="datePublished">
-          2015-05-25
+      <time datetime="2015-06-01T16:00:00.000Z" itemprop="datePublished">
+          2015-06-02
       </time>
     
     
     | 
-    <a href='/tags/MTMigration/'>MTMigration</a>,
+    <a href='/tags/Git/'>Git</a>,
     
-    <a href='/tags/版本增量工具/'>版本增量工具</a>
+    <a href='/tags/SourceTree/'>SourceTree</a>
     
     
 </span>
-                <h1>版本增量工具-MTMigration</h1>
+                <h1>Git与SourceTree</h1>
             </div>
         </div>
         <div class="col-md-8 col-md-offset-2">
-      		<blockquote>
-<p>Manages blocks of code that need to run once on version updates in iOS apps. This could be anything from data normalization routines, “What’s New In This Version” screens, or bug fixes.<br><a href="https://github.com/mysterioustrousers/MTMigration" target="_blank" rel="external">GitHub地址</a></p>
+      		<h3 id="SourceTree"><a href="https://www.sourcetreeapp.com/" target="_blank" rel="external">SourceTree</a></h3><blockquote>
+<p>SourceTree 是 Windows 和Mac OS X 下免费的 Git 和 Hg 客户端，同时也是Mercurial和Subversion版本控制系统工具。支持创建、克隆、提交、push、pull 和合并等操作。<br>SourceTree拥有一个精美简洁的界面，大大简化了开发者与代码库之间的Git操作方式，这对于那些不熟悉Git命令的开发者来说非常实用。<br>SourceTree拥有完整的Git功能：<br>    通过一个简单的用户界面即可使用所有的Git命令<br>    通过一次单击，即可管理所有的Git库，无论是托管的还是本地的<br>    通过一次单击，即可进行commit、push、pull、merge等操作<br>    一些先进的功能，如补丁处理、rebase、shelve、cherry picking等<br>    可以连接到你托管在Bitbucket、Stash、Microsoft TFS或GitHub中的代码库</p>
 </blockquote>
-<h3 id="Talk_is_cheap-_Show_me_the_code"><em>Talk is cheap. Show me the code</em></h3><h4 id="之前的代码"><font color="orange">之前的代码</font></h4><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSDictionary</span> *infoDictionary = [[<span class="built_in">NSBundle</span> mainBundle] infoDictionary];</span><br><span class="line"><span class="built_in">NSString</span> *everVersion = [[<span class="built_in">NSUserDefaults</span> standardUserDefaults] valueForKey:<span class="string">@"AppVersion"</span>];</span><br><span class="line"><span class="built_in">NSString</span> *curVersion = infoDictionary[<span class="string">@"CFBundleShortVersionString"</span>];</span><br><span class="line"><span class="keyword">if</span> ([[<span class="built_in">NSUserDefaults</span> standardUserDefaults] boolForKey:<span class="string">@"firstLaunch"</span>] ||  </span><br><span class="line">([curVersion floatValue] &gt; [everVersion floatValue] ? <span class="literal">YES</span> : <span class="literal">NO</span>)) &#123;  </span><br><span class="line"><span class="comment">// write the code here     </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="使用MTMigration"><font color="orange">使用MTMigration</font></h4><figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">   <span class="collection">[MTMigration applicationUpdateBlock:<span class="comment">^&#123;</span><br><span class="line">// write the code here</span><br><span class="line">   &#125;</span>]</span><span class="comment">;</span></span><br></pre></td></tr></table></figure>
+<h3 id="Git">Git</h3><blockquote>
+<p>Git是一个开源的分布式版本控制系统，用以有效、高速的处理从很小到非常大的项目版本管理。</p>
+</blockquote>
+<p><strong>未完 待续….</strong></p>
 
             <div class="clearfix"></div>
             <hr class="nogutter">
         </div>
         <nav class="pagination" role="pagination">
     
-    <a class="pull-left" href="/2015/06/01/iOS代码规范养成/" style="float: left;">
-        ← iOS代码规范养成
-    </a>
     
+    <a class="pull-right" href="/2015/06/01/iOS代码规范养成/">
+        iOS代码规范养成 →
+    </a>
     
 </nav>
 
         <div class="duoshuo">
-<div class="ds-thread" data-thread-key="2015/05/25/版本增量工具-MTMigration/" data-title="版本增量工具-MTMigration" data-url="https://rayzworld.github.io/2015/05/25/版本增量工具-MTMigration/"></div>
+<div class="ds-thread" data-thread-key="2015/06/02/Git与SourceTree/" data-title="Git与SourceTree" data-url="https://rayzworld.github.io/2015/06/02/Git与SourceTree/"></div>
 <script type="text/javascript">
 var duoshuoQuery = {short_name:"duoshuo_name"};
 (function() {
