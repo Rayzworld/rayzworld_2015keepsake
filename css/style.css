@@ -490,6 +490,7 @@ a.custom-button span {
 	-moz-transition: all ease .2s;
 	-o-transition: all ease .2s;
 	transition: all ease .2s;
+	margin-top: -10px;
 }
 .logo img:hover {
 	display:block;
