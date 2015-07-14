@@ -1,0 +1,141 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  
+  <title>iOS错误积累 | Rayzworld</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  
+    <meta name="author" content="baihongrui">
+  
+  
+    <meta name="description" content="1.receiving collection element of type int is not an objective c object in iOS语法糖字典里value要是对象
+2.writetofile fail路径要存在文件夹 光有路径无文件夹写入失败
+3.- (BOOL)copyItemAtPath:(NSString )srcPath toPath:(NSString )dstP">
+  
+  <meta name="description" content="1.receiving collection element of type int is not an objective c object in iOS语法糖字典里value要是对象
+2.writetofile fail路径要存在文件夹 光有路径无文件夹写入失败
+3.- (BOOL)copyItemAtPath:(NSString )srcPath toPath:(NSString )dstP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS错误积累">
+<meta property="og:url" content="https://rayzworld.github.io/2015/06/10/iOS报错积累/index.html">
+<meta property="og:site_name" content="Rayzworld">
+<meta property="og:description" content="1.receiving collection element of type int is not an objective c object in iOS语法糖字典里value要是对象
+2.writetofile fail路径要存在文件夹 光有路径无文件夹写入失败
+3.- (BOOL)copyItemAtPath:(NSString )srcPath toPath:(NSString )dstP">
+<meta property="og:updated_time" content="2015-07-09T16:55:51.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS错误积累">
+<meta name="twitter:description" content="1.receiving collection element of type int is not an objective c object in iOS语法糖字典里value要是对象
+2.writetofile fail路径要存在文件夹 光有路径无文件夹写入失败
+3.- (BOOL)copyItemAtPath:(NSString )srcPath toPath:(NSString )dstP">
+  
+    <link rel="alternate" href="/atom.xml" title="Rayzworld" type="application/atom+xml">
+  
+  
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+</head>
+
+<body>
+  <div class="wrapper">
+    <header id="header">
+  <div class="title">
+    <h1><a href="/">Rayzworld</a></h1>
+    <p><a href="/">I am a slow walker,but I never walk backwards.</a></p>
+  </div>
+  <nav class="nav">
+    <ul>
+      
+        <li><a href="/">Home</a></li>
+      
+        <li><a href="/archives">Archives</a></li>
+      
+      
+        <li><a href="/atom.xml">RSS</a></li>
+      
+    </ul>
+    <div class="clearfix"></div>
+  </nav>
+  <div class="clearfix"></div>
+</header>
+    <div class="content"><article class="post">
+  <header>
+    
+      <div class="icon"></div>
+      <a href="/2015/06/10/iOS报错积累/">
+  <time datetime="2015-06-10T09:03:32.000Z">
+    2015-06-10
+  </time>
+</a>
+    
+    
+  
+    <h1 class="title">iOS错误积累</h1>
+  
+
+  </header>
+  
+  <div class="entry">
+    
+      <h4 id="1-receiving_collection_element_of_type_int_is_not_an_objective_c_object_in_iOS">1.receiving collection element of type int is not an objective c object in iOS</h4><p>语法糖字典里value要是对象</p>
+<h4 id="2-writetofile_fail">2.writetofile fail</h4><p>路径要存在文件夹 光有路径无文件夹写入失败</p>
+<h4 id="3-_(BOOL)copyItemAtPath:(NSString_)srcPath_toPath:(NSString_)dstPath_error:(NSError_**)error">3.- (BOOL)copyItemAtPath:(NSString <em>)srcPath toPath:(NSString </em>)dstPath error:(NSError **)error</h4><p>新路径下要有一个相同名字的文件 否则不成功</p>
+<h4 id="4-Message_from_debugger:_Terminated_due_to_Memory_Error">4.Message from debugger: Terminated due to Memory Error</h4><p>maybe内存分配的时候，突然间占用太多，太快，OS给你关掉了app。</p>
+<h4 id="5-Analyze提示:Value_stored_to_“xxx”is_never_read">5.Analyze提示:Value stored to “xxx”is never read</h4><p>变量没有被使用 </p>
+<h4 id="6-删除cell_uncaught_exception_‘NSInternalInconsistencyException’,_reason:_‘Invalid_update:_invalid_number_of_rows_in_section_0-_The_number_of_rows_contained_in_an_existing_section_after_the_update_(0)_must_be_equal_to_the_number_of_rows_contained_in_that_section_before_the_update_(3),_plus_or_minus_the_number_of_rows_inserted_or_deleted_from_that_section_(0_inserted,_1_deleted)_and_plus_or_minus_the_number_of_rows_moved_into_or_out_of_that_section_(0_moved_in,_0_moved_out)-’">6.删除cell uncaught exception ‘NSInternalInconsistencyException’, reason: ‘Invalid update: invalid number of rows in section 0.  The number of rows contained in an existing section after the update (0) must be equal to the number of rows contained in that section before the update (3), plus or minus the number of rows inserted or deleted from that section (0 inserted, 1 deleted) and plus or minus the number of rows moved into or out of that section (0 moved in, 0 moved out).’</h4><p>原因：deleteRowsAtIndexPaths后Section里面的rows数量，和系统调用numberOfRowsInSection时rows数量不一致<br>解决：先删掉数据 再删cell</p>
+
+    
+  </div>
+  <footer>
+    
+      
+  <div class="categories">
+    <a class="categories-link" href="/categories/iOS/">iOS</a>
+  </div>
+
+      
+  <div class="tags">
+    <a class="tags-link" href="/tags/crash/">crash</a>, <a class="tags-link" href="/tags/错误/">错误</a>
+  </div>
+
+    
+    <div class="clearfix"></div>
+  </footer>
+</article>
+
+</div>
+  </div>
+  <footer id="footer"><div class="copyright">
+  
+  &copy; 2015 <a href="/">baihongrui</a>
+  
+</div>
+<div class="theme-copyright">
+  Theme by <a href="https://github.com/orderedlist" target="_blank">orderedlist</a>
+   | 
+  Redesign by <a href="http://heroicyang.com/" target="_blank">Heroic Yang</a>
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<script src="/js/scale.fix.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+  (function($){
+    $('.fancybox').fancybox();
+  })(jQuery);
+</script>
+
+</body>
+</html>
