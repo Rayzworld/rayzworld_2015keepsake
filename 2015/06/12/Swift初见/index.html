@@ -1,0 +1,568 @@
+<!doctype html>
+<html class="theme-next use-motion ">
+<head>
+    
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+
+  <link href='//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.4"/>
+
+
+    <meta name="description" content="baihongrui's blog | baihongrui | iOS" />
+
+
+
+  <meta name="keywords" content="Swift," />
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.4" />
+
+
+<meta name="description" content="简单值􏱪􏱫􏰟􏰜􏰝􏰞􏰟􏱬􏲦􏲧􏳡􏲩􏰙􏱪􏱫􏰟􏱥􏰠􏰯􏰟􏱬􏲦􏲧􏲨􏲩􏰏􏱪􏱫􏰟􏰜􏰝􏰞􏰟􏱬􏲦􏲧􏳡􏲩􏰙􏱪􏱫􏰟􏱥􏰠􏰯􏰟􏱬􏲦􏲧􏲨􏲩􏰏􏱪􏱫􏰟􏰜􏰝􏰞􏰟􏱬􏲦􏲧􏳡􏲩􏰙􏱪􏱫􏰟􏱥􏰠􏰯􏰟􏱬􏲦􏲧􏲨􏲩􏰏􏱪􏱫􏰟􏰜􏰝􏰞􏰟􏱬􏲦􏲧􏳡􏲩􏰙􏱪􏱫􏰟􏱥􏰠􏰯􏰟�">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Swift初见">
+<meta property="og:url" content="https://rayzworld.github.io/2015/06/12/Swift初见/index.html">
+<meta property="og:site_name" content="Rayzworld">
+<meta property="og:description" content="简单值􏱪􏱫􏰟􏰜􏰝􏰞􏰟􏱬􏲦􏲧􏳡􏲩􏰙􏱪􏱫􏰟􏱥􏰠􏰯􏰟􏱬􏲦􏲧􏲨􏲩􏰏􏱪􏱫􏰟􏰜􏰝􏰞􏰟􏱬􏲦􏲧􏳡􏲩􏰙􏱪􏱫􏰟􏱥􏰠􏰯􏰟􏱬􏲦􏲧􏲨􏲩􏰏􏱪􏱫􏰟􏰜􏰝􏰞􏰟􏱬􏲦􏲧􏳡􏲩􏰙􏱪􏱫􏰟􏱥􏰠􏰯􏰟􏱬􏲦􏲧􏲨􏲩􏰏􏱪􏱫􏰟􏰜􏰝􏰞􏰟􏱬􏲦􏲧􏳡􏲩􏰙􏱪􏱫􏰟􏱥􏰠􏰯􏰟�">
+<meta property="og:updated_time" content="2015-07-09T17:00:27.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Swift初见">
+<meta name="twitter:description" content="简单值􏱪􏱫􏰟􏰜􏰝􏰞􏰟􏱬􏲦􏲧􏳡􏲩􏰙􏱪􏱫􏰟􏱥􏰠􏰯􏰟􏱬􏲦􏲧􏲨􏲩􏰏􏱪􏱫􏰟􏰜􏰝􏰞􏰟􏱬􏲦􏲧􏳡􏲩􏰙􏱪􏱫􏰟􏱥􏰠􏰯􏰟􏱬􏲦􏲧􏲨􏲩􏰏􏱪􏱫􏰟􏰜􏰝􏰞􏰟􏱬􏲦􏲧􏳡􏲩􏰙􏱪􏱫􏰟􏱥􏰠􏰯􏰟􏱬􏲦􏲧􏲨􏲩􏰏􏱪􏱫􏰟􏰜􏰝􏰞􏰟􏱬􏲦􏲧􏳡􏲩􏰙􏱪􏱫􏰟􏱥􏰠􏰯􏰟�">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: '',
+    sidebar: 'post'
+  };
+</script>
+
+    <title> Swift初见 // Rayzworld </title>
+</head>
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+<!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+
+
+
+
+<div class="container one-column page-post-detail">
+    <div class="headband"></div>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+        <div class="header-inner"><h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand" rel="start">
+      <span class="logo">
+        <i class="icon-logo"></i>
+      </span>
+      <span class="site-title">Rayzworld</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon icon-home"></i> <br />
+            首頁
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            <i class="menu-item-icon icon-archives"></i> <br />
+            歸檔
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            <i class="menu-item-icon icon-tags"></i> <br />
+            標籤
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+        </div>
+    </header>
+
+    <main id="main" class="main">
+        <div class="main-inner">
+            <div id="content" class="content">
+                
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              Swift初见
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          發表於
+          <time itemprop="dateCreated" datetime="2015-06-12T10:21:53+08:00" content="2015-06-12">
+            2015-06-12
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分類於
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/Swift/" itemprop="url" rel="index"><span itemprop="name">Swift</span></a></span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><h2 id="简单值">简单值</h2><p>􏱪􏱫􏰟􏰜􏰝􏰞􏰟􏱬􏲦􏲧􏳡􏲩􏰙􏱪􏱫􏰟􏱥􏰠􏰯􏰟􏱬􏲦􏲧􏲨􏲩􏰏􏱪􏱫􏰟􏰜􏰝􏰞􏰟􏱬􏲦􏲧􏳡􏲩􏰙􏱪􏱫􏰟􏱥􏰠􏰯􏰟􏱬􏲦􏲧􏲨􏲩􏰏􏱪􏱫􏰟􏰜􏰝􏰞􏰟􏱬􏲦􏲧􏳡􏲩􏰙􏱪􏱫􏰟􏱥􏰠􏰯􏰟􏱬􏲦􏲧􏲨􏲩􏰏􏱪􏱫􏰟􏰜􏰝􏰞􏰟􏱬􏲦􏲧􏳡􏲩􏰙􏱪􏱫􏰟􏱥􏰠􏰯􏰟􏱬􏲦􏲧􏲨􏲩􏰏􏱪􏱫􏰟􏰜􏰝􏰞􏰟􏱬􏲦􏲧􏳡􏲩􏰙􏱪􏱫􏰟􏱥􏰠􏰯􏰟􏱬􏲦􏲧􏲨􏲩􏰏<em>使用</em>let<em>来声明</em>常量<em>，使用</em>var<em>来声明变量。</em><br><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//一个常量的值，在编译的时候，并不需要有明确的值，但是你只能为它赋值一次。</span></span><br><span class="line"><span class="keyword">var</span> myVariable = <span class="number">42</span></span><br><span class="line"><span class="comment">//声明时类型是可选的，声明的同时赋值的话，编译器会自动推断类型。编译器推断出myVariable是一个整数（integer）因为它的初始值是整数。</span></span><br><span class="line">myVariable = <span class="number">50</span></span><br><span class="line"><span class="keyword">let</span> myConstant = <span class="number">42</span></span><br></pre></td></tr></table></figure></p>
+<p><em>常量或者变量的类型必须和你赋给它们的值一样。</em><br><em>如果初始值没有提供足够的信息（或者没有初始值），那你需要在变量后面声明类型，用冒号分割。</em><br><em>值永远不会被隐式转换为其他类型。如果你需要把一个值转换成其他类型，请显式转换。</em><br><em>有一种更简单的把值转换成字符串的方法：把值写到括号中，并且在括号之前写一个反斜杠。</em><br><figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="variable">apples =</span> <span class="number">3</span></span><br><span class="line"><span class="keyword">let</span> <span class="variable">oranges =</span> <span class="number">5</span></span><br><span class="line"><span class="keyword">let</span> <span class="variable">appleSummary =</span> <span class="string">"I have \(apples) apples."</span></span><br><span class="line"><span class="keyword">let</span> <span class="variable">fruitSummary =</span> <span class="string">"I have \(apples + oranges) pieces of fruit."</span></span><br></pre></td></tr></table></figure></p>
+<p><em>使用方括号[]来创建数组和字典，并使用下标或者键（key）来访问元素。</em><br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">var shoppingList = ["catfish", "water", "tulips", "blue paint"]</span><br><span class="line">shoppingList[1] = "bottle of water"</span><br><span class="line"></span><br><span class="line">var occupations = [</span><br><span class="line"><span class="code">    "Malcolm": "Captain",</span></span><br><span class="line"><span class="code">    "Kaylee": "Mechanic",</span></span><br><span class="line">]</span><br><span class="line">occupations["Jayne"] = "Public Relations"</span><br><span class="line">// <span class="emphasis">*要创建一个空数组或者字典，使用初始化语法。*</span></span><br><span class="line">let emptyArray = [<span class="link_label">String</span>](<span class="link_url"></span>)</span><br><span class="line">let emptyDictionary = [<span class="link_label">String: Float</span>](<span class="link_url"></span>)</span><br><span class="line">// <span class="emphasis">*如果类型信息可以被推断出来，你可以用[]和[:]来创建空数组和空字典——就像你声明变量或者给函数传参数的时候一样。*</span></span><br><span class="line">shoppingList = []</span><br><span class="line">occupations = [:]</span><br></pre></td></tr></table></figure></p>
+<h2 id="控制流">控制流</h2><p>使用if和switch来进行条件操作，使用for-in、for、while和do-while来进行循环。包裹条件和循环变量括号可以省略，但是语句体的大括号是必须的。<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">let individualScores = [75, 43, 103, 87, 12]</span><br><span class="line"><span class="keyword">var</span> teamScore = 0</span><br><span class="line"><span class="keyword">for</span> <span class="keyword">score</span> <span class="keyword">in</span> individualScores &#123;</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">score</span> &gt; 50 &#123;</span><br><span class="line">        teamScore += 3</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        teamScore += 1</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">print</span>(teamScore)</span><br></pre></td></tr></table></figure></p>
+<p><em>在if语句中，条件必须是一个布尔表达式——这意味着像if score { … }这样的代码将报错，而不会隐形地与 0 做对比。</em><br>你可以一起使用if和let来处理值缺失的情况。有些变量的值是可选的。一个可选的值可能是一个具体的值或者是nil，表示值缺失。在类型后面加一个问号来标记这个变量的值是可选的。<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> optionalString: <span class="type">String</span>? = <span class="string">"Hello"</span></span><br><span class="line"><span class="built_in">print</span>(optionalString == <span class="literal">nil</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> optionalName: <span class="type">String</span>? = <span class="string">"John Appleseed"</span></span><br><span class="line"><span class="keyword">var</span> greeting = <span class="string">"Hello!"</span></span><br><span class="line"><span class="keyword">if</span> <span class="keyword">let</span> name = optionalName &#123;</span><br><span class="line">    greeting = <span class="string">"Hello, <span class="subst">\(name)</span>"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>如果变量的可选值是nil，条件会判断为false，大括号中的代码会被跳过。如果不是nil，会将值赋给let后面的常量，这样代码块中就可以使用这个值了。</p>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Swift/" rel="tag">#Swift</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/06/15/集中式工作流/" rel="prev">集中式工作流</a>
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/06/10/iOS报错积累/" rel="next">iOS错误积累</a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+            </div>
+
+            
+
+            
+              <div class="comments" id="comments">
+                
+              </div>
+            
+        </div>
+
+        
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            本站概覽
+          </li>
+        </ul>
+      
+
+      <section class="site-overview">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/images/default_avatar.jpg" alt="baihongrui" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">baihongrui</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description">baihongrui's blog | baihongrui | iOS</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-name">文章</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            
+              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-name">分類</span>
+              
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">16</span>
+              <span class="site-state-item-name">標籤</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简单值"><span class="nav-number">1.</span> <span class="nav-text">简单值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#控制流"><span class="nav-number">2.</span> <span class="nav-text">控制流</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+    </main>
+
+    <footer id="footer" class="footer">
+        <div class="footer-inner">
+            <div class="copyright" >
+  
+  &copy; &nbsp; 
+  <span itemprop="copyrightYear">2015</span>
+  <span class="with-love">
+    <i class="icon-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">baihongrui</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 強力驅動
+</div>
+
+<div class="theme-info">
+  主題 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT
+  </a>
+</div>
+
+
+
+        </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+</div>
+
+<script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+    
+    
+
+  
+
+
+  
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.4"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.4"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.4" id="motion.global"></script>
+
+
+
+  <script type="text/javascript" src="/js/search-toggle.js"></script>
+
+
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.4" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+          var self = this;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      $(indicator).velocity('stop').velocity({
+        opacity: action === 'show' ? 0.4 : 0
+      }, { duration: 100 });
+    }
+
+  });
+</script>
+
+
+  <script type="text/javascript" id="sidebar.nav">
+    $(document).ready(function () {
+      var html = $('html');
+
+      $('.sidebar-nav li').on('click', function () {
+        var item = $(this);
+        var activeTabClassName = 'sidebar-nav-active';
+        var activePanelClassName = 'sidebar-panel-active';
+        if (item.hasClass(activeTabClassName)) {
+          return;
+        }
+
+        var currentTarget = $('.' + activePanelClassName);
+        var target = $('.' + item.data('target'));
+
+        currentTarget.velocity('transition.slideUpOut', 200, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', 200)
+            .addClass(activePanelClassName);
+        });
+
+        item.siblings().removeClass(activeTabClassName);
+        item.addClass(activeTabClassName);
+      });
+
+      $('.post-toc a').on('click', function (e) {
+        e.preventDefault();
+        var offset = $(escapeSelector(this.getAttribute('href'))).offset().top;
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        });
+      });
+
+      // Expand sidebar on post detail page by default, when post has a toc.
+      var $tocContent = $('.post-toc-content');
+      if (isDesktop() && CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          displaySidebar();
+        }
+      }
+    });
+  </script>
+
+
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        if (CONFIG.sidebar === 'always') {
+            displaySidebar();
+        }
+    });
+</script>
+
+
+
+
+
+
+
+
+<!-- lazyload -->
+<script type="text/javascript" src="/js/lazyload.js"></script>
+<script type="text/javascript">
+    jQuery(function () {
+        jQuery("#posts img").lazyload({
+            placeholder: "/images/loading.gif",
+            effect: "fadeIn"
+        });
+    });
+</script>
+</body>
+</html>
