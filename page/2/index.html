@@ -1,549 +1,317 @@
-<!DOCTYPE html>
-<!--[if lte IE 8 ]>
-<html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
-<![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!-->
-<!--
-***************  *      *     *
-      8          *    *       *
-      8          *  *         *
-      8          **           *
-      8          *  *         *
-      8          *    *       *
-      8          *      *     *
-      8          *        *   ***********    -----Theme By Kieran(http://go.kieran.top)
--->
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
-<!--<![endif]-->
-
+<!DOCTYPE HTML>
+<html>
 <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  
   <title>Rayzworld</title>
-  <!-- Meta data -->
-    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="generator" content="Rayzworld">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  
     <meta name="author" content="baihongrui">
-    <meta name="description" content="I am a slow walker,but I never walk backwards." />
-    <meta name="keywords" content="" />
-
-    <!-- Favicon, (keep icon in root folder) -->
-    <link rel="Shortcut Icon" href="/img/blogAvatar.jpg" type="image/ico">
-
+  
+  
+  <meta name="description" content="baihongrui&apos;s blog | baihongrui | iOS">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Rayzworld">
+<meta property="og:url" content="https://rayzworld.github.io/page/2/index.html">
+<meta property="og:site_name" content="Rayzworld">
+<meta property="og:description" content="baihongrui&apos;s blog | baihongrui | iOS">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Rayzworld">
+<meta name="twitter:description" content="baihongrui&apos;s blog | baihongrui | iOS">
+  
     <link rel="alternate" href="/atom.xml" title="Rayzworld" type="application/atom+xml">
-    <link rel="stylesheet" href="/css/all.css" media="screen" type="text/css">
-	
-    <link rel="stylesheet" href="/highlightjs/vs.css" type="text/css">
-    
-    
-
-    <!-- Custom stylesheet, (add custom styles here, always load last) -->
-    <!-- Load our stylesheet for IE8 -->
-    <!--[if IE 8]>
-    <link rel="stylesheet" type="text/css" href="/css/ie8.css" />
-    <![endif]-->
-
-    <!-- Google Webfonts (Monserrat 400/700, Open Sans 400/600) -->
-    <link href='//fonts.useso.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
-    <link href='//fonts.useso.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
-
-    <!-- Load our fonts individually if IE8+, to avoid faux bold & italic rendering -->
-    <!--[if IE]>
-    <link href='http://fonts.useso.com/css?family=Montserrat:400' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.useso.com/css?family=Montserrat:700' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.useso.com/css?family=Open+Sans:400' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.useso.com/css?family=Open+Sans:600' rel='stylesheet' type='text/css'>
-    <![endif]-->
-
-    <!-- jQuery | Load our jQuery, with an alternative source fallback to a local version if request is unavailable -->
-    <script src="/js/jquery-1.11.1.min.js"></script>
-    <script>window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>')</script>
-
-    <!-- Load these in the <head> for quicker IE8+ load times -->
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-    <script src="/js/html5shiv.min.js"></script>
-    <script src="/js/respond.min.js"></script>
-    <![endif]-->
-
-
-
-
-
-
-
-
-
-
   
   
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
   
-
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
   
-  <style>.col-md-8.col-md-offset-2.opening-statement img{display:none;}</style>
 </head>
 
-<!--
-<body class="home-template">
--->
-<body id="index" class="lightnav animsition">
-
-      <!-- ============================ Off-canvas navigation =========================== -->
-
-    <div class="sb-slidebar sb-right sb-style-overlay sb-momentum-scrolling">
-        <div class="sb-close" aria-label="Close Menu" aria-hidden="true">
-            <img src="/img/close.png" alt="Close"/>
-        </div>
-        <!-- Lists in Slidebars -->
-        <ul class="sb-menu">
-            <li><a href="/" class="animsition-link" title="Home">Home</a></li>
-            <li><a href="/archives" class="animsition-link" title="archive">archives</a></li>
-            <!-- Dropdown Menu -->
-			 
-            <li>
-                <a class="sb-toggle-submenu">Works<span class="sb-caret"></span></a>
-                <ul class="sb-submenu">
-                    
-                        <li><a href="/" target="_BLANK" class="animsition-link">UNKNOW</a></li>
-                    
-                        <li><a href="/atom.xml" target="_BLANK" class="animsition-link">UNKNOW</a></li>
-                    
-                </ul>
-            </li>
-            
-            
-        	<li>
-        		<a class="sb-toggle-submenu">Categories<span class="sb-caret"></span></a>
-            	<ul class="sb-submenu">
-				  	
-				    <li><a href="/categories/Git/" class="animsition-link">Git<small>(5)</small></a></li>
-				    
-				    <li><a href="/categories/Swift/" class="animsition-link">Swift<small>(1)</small></a></li>
-				    
-				    <li><a href="/categories/iOS/" class="animsition-link">iOS<small>(7)</small></a></li>
-				    
-				    <li><a href="/categories/iOS第三方库/" class="animsition-link">iOS第三方库<small>(1)</small></a></li>
-				    
-				</ul>
-        	</li>
-			
-            
-            <li>
-                <a class="sb-toggle-submenu">Links<span class="sb-caret"></span></a>
-                <ul class="sb-submenu">
-                    
-                    <li><a href="http://stackoverflow.com" class="animsition-link">stackoverflow</a></li>
-                    
-                    <li><a href="http://diwu.me" class="animsition-link">吴迪Blog</a></li>
-                    
-                    <li><a href="http://www.objccn.io/" class="animsition-link">objc中国</a></li>
-                    
-                    <li><a href="http://nshipster.cn/" class="animsition-link">NSHipster</a></li>
-                    
-                    <li><a href="http://www.raywenderlich.com" class="animsition-link">raywenderlich</a></li>
-                    
-                    <li><a href="http://blog.devtang.com/" class="animsition-link">唐巧</a></li>
-                    
-                    <li><a href="http://blog.sunnyxx.com/" class="animsition-link">sunnyxx</a></li>
-                    
-                    <li><a href="http://www.ruanyifeng.com/blog/" class="animsition-link">阮一峰的网络日志</a></li>
-                    
-                    <li><a href="http://www.liaoxuefeng.com/" class="animsition-link">廖雪峰的官方网站</a></li>
-                    
-                    <li><a href="http://blog.csdn.net/v_july_v/" class="animsition-link">结构之法 算法之道</a></li>
-                    
-                    <li><a href="http://coolshell.cn/" class="animsition-link">酷壳</a></li>
-                    
-                    <li><a href="http://go.kieran.top/" class="animsition-link">Kieran</a></li>
-                    
-                </ul>
-            </li>
-            
-        </ul>
-        <!-- Lists in Slidebars -->
-        <ul class="sb-menu secondary">
-            <li><a href="/about.html" class="animsition-link" title="about">About</a></li>
-            <li><a href="/atom.xml" class="animsition-link" title="rss">RSS</a></li>
-        </ul>
-    </div>
-    
-    <!-- ============================ END Off-canvas navigation =========================== -->
-
-    <!-- ============================ #sb-site Main Page Wrapper =========================== -->
-
-    <div id="sb-site">
-        <!-- #sb-site - All page content should be contained within this id, except the off-canvas navigation itself -->
-
-        <!-- ============================ Header & Logo bar =========================== -->
-
-        <div id="navigation" class="navbar navbar-fixed-top">
-            <div class="navbar-inner">
-                <div class="container">
-                    <!-- Nav logo -->
-                    <div class="logo">
-                        <a href="/" title="Logo" class="animsition-link">
-                         <img src="/img/blogAvatar.jpg" alt="Logo" width="50px;"/> 
-                        </a>
-                    </div>
-                    <!-- // Nav logo -->
-                    <!-- Info-bar -->
-                    <nav>
-                        <ul class="nav">
-                            <li><a href="/" class="animsition-link">Rayzworld</a></li>
-                            <li class="nolink"><span>Always </span>Creative.</li>
-                            
-                            <li><a href="https://github.com/Rayzworld" title="Github" target="_blank"><i class="icon-github"></i></a></li>
-                            
-                            
-                            <li><a href="https://twitter.com/" title="Twitter" target="_blank"><i class="icon-twitter"></i></a></li>
-                            
-                            
-                            <li><a href="https://www.facebook.com/" title="Facebook" target="_blank"><i class="icon-facebook"></i></a></li>
-                            
-                            
-                            <li><a href="https://google.com/" title="Google-Plus" target="_blank"><i class="icon-google-plus"></i></a></li>
-                            
-                            
-                            <li><a href="http://weibo.com/2421652200/" title="Sina-Weibo" target="_blank"><i class="icon-sina-weibo"></i></a></li>
-                            
-                            <li class="nolink"><span>Welcome!</span></li>
-                        </ul>
-                    </nav>
-                    <!--// Info-bar -->
-                </div>
-                <!-- // .container -->
-                <div class="learnmore sb-toggle-right">More</div>
-                <button type="button" class="navbar-toggle menu-icon sb-toggle-right" title="More">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar before"></span>
-                <span class="icon-bar main"></span>
-                <span class="icon-bar after"></span>
-                </button>
-            </div>
-            <!-- // .navbar-inner -->
-        </div>
-
-        <!-- ============================ Header & Logo bar =========================== -->
-
-        <!-- ============================ Hero Image =========================== -->
-
-        <section id="hero" class="scrollme">
-            <div class="container-fluid element-img" style="background: url(/img/lucky.jpg) no-repeat center center fixed">
-                <div class="row">
-                    <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 vertical-align cover boost text-center">
-                        <div class="center-me animateme" data-when="exit" data-from="0" data-to="0.6" data-opacity="0" data-translatey="100">
-                            <div>
-                            	
-                                <h2>I am a slow walker. but I never walk backwards.</h2>
-                                <p></p>
-				    			
-                                <h2></h2>
-                                <p></p>
-				    			
-
-                            </div>
-                        </div>
-                    </div>
-                    <!-- // .col-md-12 -->
-                </div>
-                <div class="herofade beige-dk"></div>
-            </div>
-        </section>
-
-        <!-- Height spacing helper -->
-        <div class="heightblock"></div>
-        <!-- // End height spacing helper -->
-
-        <!-- ============================ END Hero Image =========================== -->
-      <!-- ============================ Content =========================== -->
-
-<section id="intro">
-    <div class="container">
-        
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-4">
-                    <h3><a href="/2015/06/04/Slender寻找Xcode闲置资产与图标转换器Prepo/">Slender寻找Xcode闲置资产与图标转换器Prepo</a></h3>
-                    <span>
-                        <span class="post-meta">
-      <time datetime="2015-06-04T02:08:27.000Z" itemprop="datePublished">
-          2015-06-04
-      </time>
-    
-    
-    | 
-    <a href='/tags/Slender/'>Slender</a>,
-    
-    <a href='/tags/Xcode闲置/'>Xcode闲置</a>,
-    
-    <a href='/tags/图标转换/'>图标转换</a>
-    
-    
-</span>
-                    </span>
-                </div>
-                <div class="col-md-8">
-                    <p>
-                      
-                        Slender
-Slender for mac 是那些适合整齐的开发和设计之间罕见的工具之一。Slender for mac 会扫描你的Xcode中或Web项目，并提供资产正在使用的信息。暴露retina 问题，闲置资产，浪费的空间，和设计师的错误。Slender for mac 告诉你哪些资产文件不会被在Xcode项目中使用，同时你也看到哪些资产缺少他们的@1X同行，或者如果你的@2X图像有不正确的像素尺寸。不仅收缩你的 项目通过删除
-                      
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/2015/06/04/Slender寻找Xcode闲置资产与图标转换器Prepo/">Read More...</a>
-                    </p>
-                    
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-4">
-                    <h3><a href="/2015/06/03/point与px转换/">point与px转换</a></h3>
-                    <span>
-                        <span class="post-meta">
-      <time datetime="2015-06-03T12:48:46.000Z" itemprop="datePublished">
-          2015-06-03
-      </time>
-    
-    
-    | 
-    <a href='/tags/point/'>point</a>,
-    
-    <a href='/tags/px/'>px</a>
-    
-    
-</span>
-                    </span>
-                </div>
-                <div class="col-md-8">
-                    <p>
-                      
-                        　对于传统常规屏幕，1 point 映射物理屏幕1 pixel。对于Retina的高分屏，1point映射物理屏幕2 pixel。这样可以统一图形在同一种类不同型号设备上图形的大小。
-　所以在开发的时候，不区分常规屏幕还是Retina屏幕，在iPhone（3.5 inch）上都是（480 ，360）在Macbook（13 inch）上都是（1280 ，800）。
-在实际渲染到屏幕上时候，会有个scale 系数将 point 映射到物理 
-                      
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/2015/06/03/point与px转换/">Read More...</a>
-                    </p>
-                    
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-4">
-                    <h3><a href="/2015/06/02/Git与SourceTree/">Git与SourceTree了解</a></h3>
-                    <span>
-                        <span class="post-meta">
-      <time datetime="2015-06-01T16:00:00.000Z" itemprop="datePublished">
-          2015-06-02
-      </time>
-    
-    
-    | 
-    <a href='/tags/Git/'>Git</a>,
-    
-    <a href='/tags/SourceTree/'>SourceTree</a>
-    
-    
-</span>
-                    </span>
-                </div>
-                <div class="col-md-8">
-                    <p>
-                      
-                        Git
-Git是一个开源的分布式版本控制系统，用以有效、高速的处理从很小到非常大的项目版本管理。
-
-你就当它是一个游戏存档好了，打Boss使用本地，可以组队，你想存档的时候例如过了Boss把进度上传到服务器，可以从存档跳转进度想打那个副本进哪个副本。英语过硬练习请戳这里
-以下是Git Commit的标准注解：第1行：提交修改内容的摘要第2行：空行第3行以后：修改的理由
-SourceTree
-SourceTree 是 Windows 和M
-                      
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/2015/06/02/Git与SourceTree/">Read More...</a>
-                    </p>
-                    
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-4">
-                    <h3><a href="/2015/06/01/iOS代码规范养成/">iOS代码规范养成</a></h3>
-                    <span>
-                        <span class="post-meta">
-      <time datetime="2015-05-31T16:00:00.000Z" itemprop="datePublished">
-          2015-06-01
-      </time>
-    
-    
-    | 
-    <a href='/tags/iOS/'>iOS</a>,
-    
-    <a href='/tags/代码规范/'>代码规范</a>
-    
-    
-</span>
-                    </span>
-                </div>
-                <div class="col-md-8">
-                    <p>
-                      
-                        类的头文件中尽量少的引用其他头文件不需要知道类的全部细节，只需要知道类使用@class
-tableView中不要出现魔法数字123456789101112131415161718192021222324252627282930313233343536373839// 若tableview协议中使用section或row// 不允许出现（Eg：indexPath.secion == 1)魔法数字// 枚举命名使用前缀+枚举类型+属性/状态
-                      
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/2015/06/01/iOS代码规范养成/">Read More...</a>
-                    </p>
-                    
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-4">
-                    <h3><a href="/2015/05/25/版本增量工具-MTMigration/">版本增量工具-MTMigration</a></h3>
-                    <span>
-                        <span class="post-meta">
-      <time datetime="2015-05-24T16:00:00.000Z" itemprop="datePublished">
-          2015-05-25
-      </time>
-    
-    
-    | 
-    <a href='/tags/MTMigration/'>MTMigration</a>,
-    
-    <a href='/tags/版本增量工具/'>版本增量工具</a>
-    
-    
-</span>
-                    </span>
-                </div>
-                <div class="col-md-8">
-                    <p>
-                      
-                        
-Manages blocks of code that need to run once on version updates in iOS apps. This could be anything from data normalization routines, “What’s New In This Version” screens, or bug fixes.GitHub地址
-
-Talk is cheap. Show me t
-                      
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/2015/05/25/版本增量工具-MTMigration/">Read More...</a>
-                    </p>
-                    
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
-            </div>
-        </div>
-        
-        <nav class="pagination" role="pagination">
-          <a class="pull-left" href="/">← Newer Posts</a>
-          
-        </nav>
-    </div>
-</section>
-<section id="statement">
-    <div class="container text-center wow fadeInUp" data-wow-delay="0.5s">
-        <div class="row">
-            <p>Duang...</p>
-        </div>
-    </div>
-</section>
-<!-- ============================ END Content =========================== -->
-
+<body>
+  <div class="wrapper">
+    <header id="header">
+  <div class="title">
+    <h1><a href="/">Rayzworld</a></h1>
+    <p><a href="/">I am a slow walker,but I never walk backwards.</a></p>
+  </div>
+  <nav class="nav">
+    <ul>
       
-<!-- ============================ Footer =========================== -->
+        <li><a href="/">Home</a></li>
+      
+        <li><a href="/archives">Archives</a></li>
+      
+      
+        <li><a href="/atom.xml">RSS</a></li>
+      
+    </ul>
+    <div class="clearfix"></div>
+  </nav>
+  <div class="clearfix"></div>
+</header>
+    <div class="content">
 
-<footer>
-    <div class="container">
-            <div class="copy">
-                <p>
-                    &copy; 2014<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>, Content By baihongrui. All Rights Reserved.
-                </p>
-                <p>Theme By <a href="//go.kieran.top" style="color: #767D84">Kieran</a></p>
-            </div>
-            <div class="social">
-                <ul>
-                    
-                    <li><a href="https://github.com/Rayzworld" title="Github" target="_blank"><i class="icon-github"></i></a>&nbsp;</li>
-                    
-                    
-                    <li><a href="https://twitter.com/" title="Twitter" target="_blank"><i class="icon-twitter"></i></a>&nbsp;</li>
-                    
-                    
-                    <li><a href="https://www.facebook.com/" title="Facebook" target="_blank"><i class="icon-facebook"></i></a>&nbsp;</li>
-                    
-                    
-                    <li><a href="https://google.com/" title="Google-Plus" target="_blank"><i class="icon-google-plus"></i></a>&nbsp;</li>
-                    
-                    
-                    <li><a href="http://weibo.com/2421652200/" title="Sina-Weibo" target="_blank"><i class="icon-sina-weibo"></i></a>&nbsp;</li>
-                    
-                </ul>
-            </div>
-            <div class="clearfix"> </div>
-        </div>
-</footer>
 
-<!-- ============================ END Footer =========================== -->
-      <!-- Load our scripts -->
-        
-<!-- Resizable 'on-demand' full-height hero -->
+
+
+  
+    <article class="post">
+  <header>
+    
+      <div class="icon"></div>
+      <a href="/2015/06/04/Slender寻找Xcode闲置资产与图标转换器Prepo/">
+  <time datetime="2015-06-04T02:08:27.000Z">
+    2015-06-04
+  </time>
+</a>
+    
+    
+  
+    <h1 class="title"><a href="/2015/06/04/Slender寻找Xcode闲置资产与图标转换器Prepo/">Slender寻找Xcode闲置资产与图标转换器Prepo</a></h1>
+  
+
+  </header>
+  
+  <div class="entry">
+    
+      <h3 id="Slender">Slender</h3><blockquote>
+<p>Slender for mac 是那些适合整齐的开发和设计之间罕见的工具之一。Slender for mac 会扫描你的Xcode中或Web项目，并提供资产正在使用的信息。暴露retina 问题，闲置资产，浪费的空间，和设计师的错误。<br>Slender for mac 告诉你哪些资产文件不会被在Xcode项目中使用，同时你也看到哪些资产缺少他们的@1X同行，或者如果你的@2X图像有不正确的像素尺寸。不仅收缩你的 项目通过删除未使用的文件，它可以帮助他们更漂亮，而所有工作的非破坏性;一切都被保存到备份文件夹。<br><img src="/blogImage/hexo slender.png" alt="白洪瑞太帅了"></p>
+</blockquote>
+<h3 id="Prepo_如果你有个细致的设计师的话_maybe用不上">Prepo 如果你有个细致的设计师的话 maybe用不上  <img src="/blogImage/face/cry2.gif" alt="白洪瑞太帅了"></h3><p>我们设计只给了@3x的资源，@1x@2x我要使用Prepo切 %&gt;_&lt;%</p>
+<blockquote>
+<p>Prepo基于Mac和iOS的一款免费且方便的图标转化器，它可以帮助设计师快速的导出各种尺寸的图标。设计师通过Prepo把任何格式的图片文件转换成iOS可用的图片格式。此外，通过点击Prepo对话框底部“blogImagecopy plist”按钮，设计师可以轻松的把导出的文件复制到Xcode中，节省了设计师大量的工作时间。</p>
+<h4 id="主要特性：">主要特性：</h4><p>调节图像大小、转换图片格式<br>批量的处理@2x作品<br>自动的转换和重命名 @2x和@1x文件</p>
+</blockquote>
+<h4 id="了解更多图片、图标处理工具_请戳这里"><a href="http://www.csdn.net/article/2013-09-13/2816941-iOS-dev-tools-image-and-icons" target="_blank" rel="external">了解更多图片、图标处理工具 <strong>请戳这里</strong></a></h4><h4 id="最后补上常用图片资源命名规范，希望你们有一个贴心的设计师">最后补上常用图片资源命名规范，希望你们有一个贴心的设计师</h4><h4 id="iOS_及_Android_应用开发中，怎样命名和管理切图资源最科学？"><a href="http://www.zhihu.com/question/21348866" target="_blank" rel="external"><strong>iOS 及 Android 应用开发中，怎样命名和管理切图资源最科学？</strong></a></h4><p>命名模板为：缩写<em>主界面</em>功能部分<br>(一) 缩写：<br>ic ———————————icon<br>bg——————————-background<br>di———————————divider<br>sl———————————-selector<br>cl———————————-color<br>bt———————————button<br>ic主要用在app的图标<br>bg主要用于布局和子布局的背景<br>di主要用于分隔线，不仅包括Listview中的divider，还包括普通布局中的线<br>sl主要用于某一view多种状态，不仅包括Listview中的selector，还包括按钮的selector<br>cl主要用于颜色值<br>bt主要用于按钮的表示，有时我们会在ic和bt之间犹豫，简单的区分即是功能视图，如果一个view执行的时back或者confirm或者cancel的功能，则命名上则应该使用bt<br>(二) 主界面：<br>主要的功能页面，即app主要的Activity。对于Browser而言，例如BrowserActivity，BookmarkActivity，SettingActivity，AboutActivity。<br>(三) 功能部分：<br>即每一个主界面对应的功能区域，以BrowserActivity为例，包含的功能部分：1，titlebar，2，speedial 3，toolbar，4，menu等<br>在这里注意的是，功能的划分，是以在某一个界面所显示的内容特点来区分。例如，虽然，menu由toolbar来控制，但是不在toolbar下再细分。<br>(四) 后缀名<br>unit—————————————在使用xml的tilemode来配图片时，element图片使用此后缀<br>nor—————————————-图片的状态，代表普通状态<br>hl——————————————-图片的状态，代表高亮状态<br>press————————————-图片的状态，代表按下状态<br>select———————————图片的状态，代表其所占的view被选中<br>unselect—————————-图片的状态，代表其所占的view没有被选中</p>
+
+    
+  </div>
+  <footer class="end-sep">
+    
+      
+      
+    
+    <div class="clearfix"></div>
+  </footer>
+</article>
+
+
+  
+    <article class="[post]">
+  <header>
+    
+      <div class="icon"></div>
+      <a href="/2015/06/03/point与px转换/">
+  <time datetime="2015-06-03T12:48:46.000Z">
+    2015-06-03
+  </time>
+</a>
+    
+    
+  
+    <h1 class="title"><a href="/2015/06/03/point与px转换/">point与px转换</a></h1>
+  
+
+  </header>
+  
+  <div class="entry">
+    
+      <p>　对于传统常规屏幕，1 point 映射物理屏幕1 pixel。对于Retina的高分屏，1point映射物理屏幕2 pixel。这样可以统一图形在同一种类不同型号设备上图形的大小。</p>
+<p>　所以在开发的时候，不区分常规屏幕还是Retina屏幕，在iPhone（3.5 inch）上都是（480 ，360）在Macbook（13 inch）上都是（1280 ，800）。</p>
+<p>在实际渲染到屏幕上时候，会有个scale 系数将 point 映射到物理 pixel，在传统屏幕上factor是等于1，Retina屏幕上是等于2。</p>
+<p> 　　对于字体上的磅（pt）转换到苹果设备上的方法。首先，将pt 和 px单位都统一到英尺</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">pt</span>/<span class="number">72</span> = inch</span><br><span class="line">pixel/dpi = inch</span><br><span class="line">这样就可以简单的进行转换了</span><br><span class="line"><span class="keyword">pt</span> * dpi / <span class="number">72</span> = pixel</span><br></pre></td></tr></table></figure>
+<p>　　对于传统屏幕，Macbook屏幕的dpi 是96，iPhone屏幕的dpi 是163。对于Retina屏幕，Macbook屏幕的dpi 是192，iPhone屏幕的dpi 是326。但是对于开发来说，绘制的图形依然是在以point 为单位</p>
+<h4 id="pt_dpi_/_72_scale_=_point">pt <em> dpi / 72 </em> scale = point</h4><p>　　最后发现，这也是不区分传统屏幕还是Retina屏幕的。</p>
+<p>　　如果要保证Macbook和iPhone上的实际长度相同，肯定不能用相同的point ，需要通过上述的公式进行换算。还有一点注意的是iPhone模拟器是按照Macbook的dpi来的，而macbook的dpi时低于iPhone的，也就是说Macbook的像素点比iPhone的要大，所以iPhone模拟器要比真机要大。在模拟器上的长度会比实际来的短。</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">Points     Pixels    Ems     Percent </span><br><span class="line"><span class="number">6</span><span class="keyword">pt</span>        <span class="number">8</span>px      <span class="number">0.5</span><span class="keyword">em</span>     <span class="number">50</span>%    </span><br><span class="line"><span class="number">7</span><span class="keyword">pt</span>        <span class="number">9</span>px      <span class="number">0.55</span><span class="keyword">em</span>    <span class="number">55</span>%    </span><br><span class="line"><span class="number">7.5</span><span class="keyword">pt</span>      <span class="number">10</span>px     <span class="number">0.625</span><span class="keyword">em</span>   <span class="number">62.5</span>%    </span><br><span class="line"><span class="number">8</span><span class="keyword">pt</span>        <span class="number">11</span>px     <span class="number">0.7</span><span class="keyword">em</span>     <span class="number">70</span>%    </span><br><span class="line"><span class="number">9</span><span class="keyword">pt</span>        <span class="number">12</span>px     <span class="number">0.75</span><span class="keyword">em</span>    <span class="number">75</span>%    </span><br><span class="line"><span class="number">10</span><span class="keyword">pt</span>       <span class="number">13</span>px     <span class="number">0.8</span><span class="keyword">em</span>     <span class="number">80</span>%    </span><br><span class="line"><span class="number">10.5</span><span class="keyword">pt</span>     <span class="number">14</span>px     <span class="number">0.875</span><span class="keyword">em</span>   <span class="number">87.5</span>%    </span><br><span class="line"><span class="number">11</span><span class="keyword">pt</span>       <span class="number">15</span>px     <span class="number">0.95</span><span class="keyword">em</span>    <span class="number">95</span>%    </span><br><span class="line"><span class="number">12</span><span class="keyword">pt</span>       <span class="number">16</span>px     <span class="number">1</span><span class="keyword">em</span>       <span class="number">100</span>%    </span><br><span class="line"><span class="number">13</span><span class="keyword">pt</span>       <span class="number">17</span>px     <span class="number">1.05</span><span class="keyword">em</span>    <span class="number">105</span>%    </span><br><span class="line"><span class="number">13.5</span><span class="keyword">pt</span>     <span class="number">18</span>px     <span class="number">1.125</span><span class="keyword">em</span>   <span class="number">112.5</span>%    </span><br><span class="line"><span class="number">14</span><span class="keyword">pt</span>       <span class="number">19</span>px     <span class="number">1.2</span><span class="keyword">em</span>     <span class="number">120</span>%    </span><br><span class="line"><span class="number">14.5</span><span class="keyword">pt</span>     <span class="number">20</span>px     <span class="number">1.25</span><span class="keyword">em</span>    <span class="number">125</span>%    </span><br><span class="line"><span class="number">15</span><span class="keyword">pt</span>       <span class="number">21</span>px     <span class="number">1.3</span><span class="keyword">em</span>     <span class="number">130</span>%    </span><br><span class="line"><span class="number">16</span><span class="keyword">pt</span>       <span class="number">22</span>px     <span class="number">1.4</span><span class="keyword">em</span>     <span class="number">140</span>%    </span><br><span class="line"><span class="number">17</span><span class="keyword">pt</span>       <span class="number">23</span>px     <span class="number">1.45</span><span class="keyword">em</span>    <span class="number">145</span>%    </span><br><span class="line"><span class="number">18</span><span class="keyword">pt</span>       <span class="number">24</span>px     <span class="number">1.5</span><span class="keyword">em</span>     <span class="number">150</span>%    </span><br><span class="line"><span class="number">20</span><span class="keyword">pt</span>       <span class="number">26</span>px     <span class="number">1.6</span><span class="keyword">em</span>     <span class="number">160</span>%    </span><br><span class="line"><span class="number">22</span><span class="keyword">pt</span>       <span class="number">29</span>px     <span class="number">1.8</span><span class="keyword">em</span>     <span class="number">180</span>%    </span><br><span class="line"><span class="number">24</span><span class="keyword">pt</span>       <span class="number">32</span>px     <span class="number">2</span><span class="keyword">em</span>       <span class="number">200</span>%    </span><br><span class="line"><span class="number">26</span><span class="keyword">pt</span>       <span class="number">35</span>px     <span class="number">2.2</span><span class="keyword">em</span>     <span class="number">220</span>%    </span><br><span class="line"><span class="number">27</span><span class="keyword">pt</span>       <span class="number">36</span>px     <span class="number">2.25</span><span class="keyword">em</span>    <span class="number">225</span>%    </span><br><span class="line"><span class="number">28</span><span class="keyword">pt</span>       <span class="number">37</span>px     <span class="number">2.3</span><span class="keyword">em</span>     <span class="number">230</span>%    </span><br><span class="line"><span class="number">29</span><span class="keyword">pt</span>       <span class="number">38</span>px     <span class="number">2.35</span><span class="keyword">em</span>    <span class="number">235</span>%    </span><br><span class="line"><span class="number">30</span><span class="keyword">pt</span>       <span class="number">40</span>px     <span class="number">2.45</span><span class="keyword">em</span>    <span class="number">245</span>%    </span><br><span class="line"><span class="number">32</span><span class="keyword">pt</span>       <span class="number">42</span>px     <span class="number">2.55</span><span class="keyword">em</span>    <span class="number">255</span>%    </span><br><span class="line"><span class="number">34</span><span class="keyword">pt</span>       <span class="number">45</span>px     <span class="number">2.75</span><span class="keyword">em</span>    <span class="number">275</span>%    </span><br><span class="line"><span class="number">36</span><span class="keyword">pt</span>      <span class="number">48</span>px      <span class="number">3</span><span class="keyword">em</span>       <span class="number">300</span>%</span><br></pre></td></tr></table></figure>
+    
+  </div>
+  <footer class="end-sep">
+    
+      
+      
+    
+    <div class="clearfix"></div>
+  </footer>
+</article>
+
+
+  
+    <article class="[post]">
+  <header>
+    
+      <div class="icon"></div>
+      <a href="/2015/06/02/Git与SourceTree/">
+  <time datetime="2015-06-01T16:00:00.000Z">
+    2015-06-02
+  </time>
+</a>
+    
+    
+  
+    <h1 class="title"><a href="/2015/06/02/Git与SourceTree/">Git与SourceTree了解</a></h1>
+  
+
+  </header>
+  
+  <div class="entry">
+    
+      <h3 id="Git">Git</h3><blockquote>
+<p>Git是一个开源的分布式版本控制系统，用以有效、高速的处理从很小到非常大的项目版本管理。</p>
+</blockquote>
+<p>你就当它是一个游戏存档好了，打Boss使用本地，可以组队，你想存档的时候例如过了Boss把进度上传到服务器，可以从存档跳转进度想打那个副本进哪个副本。<br>英语过硬练习请戳<strong><a href="http://pcottle.github.io/learnGitBranching/" target="_blank" rel="external">这里</a></strong></p>
+<p>以下是Git Commit的标准注解：<br>第1行：提交修改内容的摘要<br>第2行：空行<br>第3行以后：修改的理由</p>
+<h3 id="SourceTree"><a href="https://www.sourcetreeapp.com/" target="_blank" rel="external">SourceTree</a></h3><blockquote>
+<p>SourceTree 是 Windows 和Mac OS X 下免费的 Git 和 Hg 客户端，同时也是Mercurial和Subversion版本控制系统工具。支持创建、克隆、提交、push、pull 和合并等操作。<br>SourceTree拥有一个精美简洁的界面，大大简化了开发者与代码库之间的Git操作方式，这对于那些不熟悉Git命令的开发者来说非常实用。<br>SourceTree拥有完整的Git功能：<br>    通过一个简单的用户界面即可使用所有的Git命令<br>    通过一次单击，即可管理所有的Git库，无论是托管的还是本地的<br>    通过一次单击，即可进行commit、push、pull、merge等操作<br>    一些先进的功能，如补丁处理、rebase、shelve、cherry picking等<br>    可以连接到你托管在Bitbucket、Stash、Microsoft TFS或GitHub中的代码库</p>
+</blockquote>
+<p><a href="http://backlogtool.com/git-guide/cn/intro/intro1_1.html" target="_blank" rel="external">Git入门SourceTree使用请戳</a></p>
+
+    
+  </div>
+  <footer class="end-sep">
+    
+      
+      
+    
+    <div class="clearfix"></div>
+  </footer>
+</article>
+
+
+  
+    <article class="[layout]">
+  <header>
+    
+      <div class="icon"></div>
+      <a href="/2015/06/01/iOS代码规范养成/">
+  <time datetime="2015-05-31T16:00:00.000Z">
+    2015-06-01
+  </time>
+</a>
+    
+    
+  
+    <h1 class="title"><a href="/2015/06/01/iOS代码规范养成/">iOS代码规范养成</a></h1>
+  
+
+  </header>
+  
+  <div class="entry">
+    
+      <h3 id="类的头文件中尽量少的引用其他头文件"><em>类的头文件中尽量少的引用其他头文件</em></h3><p>不需要知道类的全部细节，只需要知道类使用@class</p>
+<h3 id="tableView中不要出现魔法数字"><em>tableView中不要出现魔法数字</em></h3><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 若tableview协议中使用section或row</span></span><br><span class="line"><span class="comment">// 不允许出现（Eg：indexPath.secion == 1)魔法数字</span></span><br><span class="line"><span class="comment">// 枚举命名使用前缀+枚举类型+属性/状态 ，首字母和单词首字母大写</span></span><br><span class="line"><span class="comment">// SDK 现在有一个 宏来鼓励和促进使用固定类型定义 - NS_ENUM()</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">enum</span> : <span class="built_in">NSUInteger</span> &#123;</span><br><span class="line">    SectionAvatar,</span><br><span class="line">    SectionInfo,</span><br><span class="line">&#125; SectionType;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">enum</span> : <span class="built_in">NSUInteger</span> &#123;</span><br><span class="line">    InfoRowNickname,</span><br><span class="line">    InfoRowGender,</span><br><span class="line">    InfoRowBirthday,</span><br><span class="line">    InfoRowBabyGender,</span><br><span class="line">    InfoRowCity,</span><br><span class="line">&#125; InfoRowType;</span><br><span class="line"></span><br><span class="line">- (<span class="built_in">UITableViewCell</span> *)tableView:(<span class="built_in">UITableView</span> *)tableView cellForRowAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath &#123;</span><br><span class="line">    <span class="keyword">if</span> (indexPath<span class="variable">.section</span> == SectionAvatar) &#123;</span><br><span class="line">        SelfAvatarTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:SelfAvatarCellIdentifier forIndexPath:indexPath];</span><br><span class="line">        <span class="keyword">return</span> cell;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        SelfInfoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:SelfInfoCellIdentifier forIndexPath:indexPath];</span><br><span class="line">        <span class="keyword">switch</span> (indexPath<span class="variable">.row</span>) &#123;</span><br><span class="line">        <span class="keyword">case</span> InfoRowNickname:</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> InfoRowGender:</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> InfoRowBirthday: </span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> InfoRowBabyGender:</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">default</span>:</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> cell;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="少用#define预处理指令"><em>少用#define预处理指令</em></h3><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// define只是替换字段，可重复定义，如果define在某头文件中，所有引用这头文件的类中kTimelineCards字段都会被替换</span></span><br><span class="line"><span class="preprocessor">#define kTimelineCards @<span class="title">"/cards"</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 常量名称命名，若只在.m中使用，常量前加‘k’，k means constants，若常量在类之外可见，通常以类名为前缀</span></span><br><span class="line"><span class="keyword">static</span> <span class="built_in">NSString</span> *<span class="keyword">const</span> kTimelineCards = <span class="string">@"/cards"</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="属性property使用和声明"><em>属性property使用和声明</em></h3><p>应该<strong>始终</strong>使用点语法来访问或者修改属性，访问其他实例时首选括号。<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//推荐：</span></span><br><span class="line">view<span class="variable">.backgroundColor</span> = [<span class="built_in">UIColor</span> orangeColor];</span><br><span class="line">[<span class="built_in">UIApplication</span> sharedApplication]<span class="variable">.delegate</span>;</span><br><span class="line"><span class="comment">//反对</span></span><br><span class="line">[view setBackgroundColor:[<span class="built_in">UIColor</span> orangeColor]];</span><br><span class="line"><span class="built_in">UIApplication</span><span class="variable">.sharedApplication</span><span class="variable">.delegate</span>;</span><br></pre></td></tr></table></figure></p>
+<p><strong>全部</strong>使用property声明，不要出现以下混合声明情况<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">NoticeViewController</span> ()</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="keyword">float</span> keyboardHeight;</span><br><span class="line">  <span class="built_in">BOOL</span> loading;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">strong</span>, <span class="keyword">nonatomic</span>) <span class="built_in">NSArray</span> *array;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">strong</span>, <span class="keyword">nonatomic</span>) CardInfo *cardModel;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">assign</span>, <span class="keyword">nonatomic</span>) <span class="built_in">BOOL</span> isTextWrap;</span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="定高tableview的rowHeight"><em>定高tableview的rowHeight</em></h3><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// cell具有固定高度情况</span></span><br><span class="line"><span class="keyword">self</span><span class="variable">.tableView</span><span class="variable">.rowHeight</span> = <span class="number">100</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 具有多种 cell 高度</span></span><br><span class="line">- (<span class="built_in">CGFloat</span>)tableView:(<span class="built_in">UITableView</span> *)tableView heightForRowAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath &#123;</span><br><span class="line">    <span class="comment">// return <span class="doctag"><span class="keyword">xxx</span></span></span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="条件语句"><em>条件语句</em></h2><h3 id="尤达表达式（名字起源于星球大战中尤达大师的讲话方式，总是用倒装的语序）"><em>尤达表达式</em>（名字起源于星球大战中尤达大师的讲话方式，总是用倒装的语序）</h3><figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 不推荐</span></span><br><span class="line"><span class="keyword">if</span> (<span class="number">5</span> == <span class="keyword">count</span>) &#123;</span><br><span class="line">  </span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 推荐</span></span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">count</span> == <span class="number">5</span>) &#123;</span><br><span class="line">  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="nil_和_BOOL_检查"><em>nil 和 BOOL 检查</em></h4><p>一些 notous 库像这样检查对象是否为 nil：<br><figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="keyword">nil</span> == myValue) <span class="comment">&#123; ...</span></span><br></pre></td></tr></table></figure></p>
+<p>或许有人会提出这是错的，因为在 nil 作为一个常量的情况下，这样做就像 Yoda 表达式了。 但是一些程序员这么做的原因是为了避免调试的困难，看下面的代码：<br><figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="comment">(myValue == nil)</span> &#123; ...</span><br><span class="line"><span class="comment">// 如果敲错成这样：</span></span><br><span class="line"><span class="keyword">if</span> <span class="comment">(myValue = nil)</span> &#123; ...</span><br></pre></td></tr></table></figure></p>
+<p>这是合法的语句，但是即使你是一个丰富经验的程序员，即使盯着眼睛瞧上好多遍也很难调试出错误。但是如果把 nil 放在左边，因为它不能被赋值，所以就不会发生这样的错误。<br>为了避免这些奇怪的问题，可以用感叹号来作为运算符。因为 nil 是 解释到 NO，所以没必要在条件语句里面把它和其他值比较。同时，不要直接把它和 YES 比较，因为 YES 的定义是 1， 而 BOOL 是 8 bit的，实际上是 char 类型。<br><figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 推荐:</span></span><br><span class="line"><span class="keyword">if</span> <span class="comment">(someObject)</span> &#123; ...</span><br><span class="line"><span class="keyword">if</span> <span class="comment">(![someObject boolValue])</span> &#123; ...</span><br><span class="line"><span class="keyword">if</span> <span class="comment">(!someObject)</span> &#123; ...</span><br><span class="line"></span><br><span class="line"><span class="comment">// 不推荐:</span></span><br><span class="line"><span class="keyword">if</span> <span class="comment">(someObject == YES)</span> &#123; ... <span class="comment">// Wrong</span></span><br><span class="line"><span class="keyword">if</span> <span class="comment">(myRawValue == YES)</span> &#123; ... <span class="comment">// Never do this.</span></span><br><span class="line"><span class="keyword">if</span> <span class="comment">([someObject boolValue] == NO)</span> &#123; ...</span><br></pre></td></tr></table></figure></p>
+<h3 id="黄金大道"><em>黄金大道</em></h3><p>当编写条件语句的时候，不要嵌套 if 语句。多个 return 语句是 OK 的。这样可以避免 Cyclomatic 复杂性，并且让代码更加容易阅读。<br><figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 推荐:</span></span><br><span class="line"></span><br><span class="line">- <span class="params">(void)</span>someMethod &#123;</span><br><span class="line">  <span class="keyword">if</span> <span class="params">(![someOther boolValue])</span> &#123;</span><br><span class="line">      return;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">//Do something important</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 不推荐:</span></span><br><span class="line">- <span class="params">(void)</span>someMethod &#123;</span><br><span class="line">  <span class="keyword">if</span> <span class="params">([someOther boolValue])</span> &#123;</span><br><span class="line">    <span class="comment">//Do something important</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="三元运算符"><em>三元运算符</em></h3><p>三元运算符 ? 应该只用在它能让代码更加清楚的地方。<br><figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">// 推荐:</span><br><span class="line"><span class="literal">result</span> = a &gt; b ? x : y;</span><br><span class="line">// 不推荐:</span><br><span class="line"><span class="literal">result</span> = a &gt; b ? x = c &gt; d ? c : d : y;</span><br><span class="line">// 当三元运算符的第二个参数（<span class="keyword">if</span> 分支）返回和条件语句中已经检查的对象一样的对象的时候，下面的表达方式更灵巧：</span><br><span class="line">// 推荐:</span><br><span class="line"><span class="literal">result</span> = <span class="keyword">object</span> ? : [self createObject];</span><br><span class="line">// 不推荐:</span><br><span class="line"><span class="literal">result</span> = <span class="keyword">object</span> ? <span class="keyword">object</span> : [self createObject];</span><br></pre></td></tr></table></figure></p>
+<h3 id="错误运算符"><em>错误运算符</em></h3><p>当方法返回一个错误参数的引用的时候，检查返回值，而不是错误的变量。<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 推荐:</span></span><br><span class="line"><span class="built_in">NSError</span> *error = <span class="literal">nil</span>;</span><br><span class="line"><span class="keyword">if</span> (![<span class="keyword">self</span> trySomethingWithError:&amp;error]) &#123;</span><br><span class="line">    <span class="comment">// Handle Error</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>此外，一些苹果的 API 在成功的情况下会对 error 参数（如果它非 NULL）写入垃圾值（garbage values），所以如果检查 error 的值可能导致错误 （甚至崩溃）。</p>
+<h2 id="Case语句"><em>Case语句</em></h2><p>除非编译器强制要求，括号在 case 语句里面是不必要的。但是当一个 case 包含了多行语句的时候，需要加上括号。<br>有时候可以使用 fall-through 在不同的 case 里面执行同一段代码。一个 fall-through 是指移除 case 语句的 “break” 然后让下面的 case 继续执行。<br><figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span> (<span class="keyword">condition</span>) &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">    <span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">        <span class="comment">// code executed for values 1 and 2</span></span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">default</span>: </span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>当在 switch 语句里面使用一个可枚举的变量的时候，default 是不必要的。比如：<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span> (menuType) &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">ZOCEnumNone:</span></span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">ZOCEnumValue1:</span></span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">ZOCEnumValue2:</span></span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>此外，为了避免使用默认的 case，如果新的值加入到 enum，程序员会马上收到一个 warning 通知<br>Enumeration value ‘ZOCEnumValue3’ not handled in switch.（枚举类型 ‘ZOCEnumValue3’ 没有被 switch 处理）</p>
+<h2 id="命名"><em>命名</em></h2><p>尽可能遵守 Apple 的命名约定，尤其是和 <a href="https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/MemoryMgmt/Articles/MemoryMgmt.html" target="_blank" rel="external">内存管理规则</a> 相关的地方。<br>推荐使用长的、描述性的方法和变量名<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 推荐:</span></span><br><span class="line"><span class="built_in">UIButton</span> *settingsButton;</span><br><span class="line"><span class="comment">// 不推荐:</span></span><br><span class="line"><span class="built_in">UIButton</span> *setBut;</span><br></pre></td></tr></table></figure></p>
+<p>对于方法签名，在方法类型 (-/+ 符号)后应该要有一个空格。方法段之间也应该有一个空格（来符合 Apple 的规范）。在参数名称之前总是应该有一个描述性的关键词。<br>使用“and”命名的时候应当更加谨慎。它不应该用作阐明有多个参数，比如下面的initWithWidth:height: 例子：<br><figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 推荐:</span></span><br><span class="line">- <span class="params">(void)</span>setExampleText:<span class="params">(NSString *)</span><span class="built_in">text</span> image:<span class="params">(UIImage *)</span>image;</span><br><span class="line">- <span class="params">(void)</span>sendAction:<span class="params">(SEL)</span>aSelector to:<span class="params">(id)</span>anObject forAllCells:<span class="params">(BOOL)</span>flag;</span><br><span class="line">- <span class="params">(id)</span>viewWithTag:<span class="params">(NSInteger)</span>tag;</span><br><span class="line">- <span class="params">(instancetype)</span>initWithWidth:<span class="params">(CGFloat)</span>width height:<span class="params">(CGFloat)</span>height;</span><br><span class="line"><span class="comment">// 不推荐:</span></span><br><span class="line">- <span class="params">(void)</span>setT:<span class="params">(NSString *)</span><span class="built_in">text</span> i:<span class="params">(UIImage *)</span>image;</span><br><span class="line">- <span class="params">(void)</span>sendAction:<span class="params">(SEL)</span>aSelector :<span class="params">(id)</span>anObject :<span class="params">(BOOL)</span>flag;</span><br><span class="line">- <span class="params">(id)</span>taggedView:<span class="params">(NSInteger)</span>tag;</span><br><span class="line">- <span class="params">(instancetype)</span>initWithWidth:<span class="params">(CGFloat)</span>width andHeight:<span class="params">(CGFloat)</span>height;</span><br><span class="line">- <span class="params">(instancetype)</span>initWith:<span class="params">(int)</span>width and:<span class="params">(int)</span>height;  <span class="comment">// Never do this.</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="使用语法糖，少用等价的方法"><em>使用语法糖，少用等价的方法</em></h3><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSString</span> *exampleStr = <span class="string">@"example"</span>;</span><br><span class="line">  <span class="built_in">NSNumber</span> *exampleNum = @<span class="number">2.5</span>f;</span><br><span class="line">  <span class="comment">// 创建字典或数组时，务必确保值里不含nil</span></span><br><span class="line">  <span class="built_in">NSArray</span> *exampleArr = @[ <span class="string">@"1"</span>, <span class="string">@"2"</span>, <span class="string">@"3"</span>, <span class="string">@"4"</span> ];</span><br><span class="line">  <span class="comment">// object atIndex</span></span><br><span class="line">  <span class="built_in">NSString</span> *firstStr = exampleArr[<span class="number">1</span>];</span><br><span class="line"></span><br><span class="line">  <span class="built_in">NSDictionary</span> *cardDic = @&#123;</span><br><span class="line">    <span class="string">@"card"</span> : @[</span><br><span class="line">      @&#123;</span><br><span class="line">        <span class="string">@"cardId"</span> : <span class="string">@"1234"</span>,</span><br><span class="line">        <span class="string">@"owner"</span> : <span class="string">@"1234"</span>,</span><br><span class="line">        <span class="string">@"title"</span> : <span class="string">@"沙滩上？"</span>,</span><br><span class="line">        <span class="string">@"description"</span> : <span class="string">@"怎样能找到沙滩上的小动物？"</span>,</span><br><span class="line">        <span class="string">@"color"</span> : <span class="string">@"FF44AA"</span>,</span><br><span class="line">        <span class="string">@"commentCount"</span> : @<span class="number">16</span>,</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="built_in">NSString</span> *cardId = cardDic[<span class="string">@"cardId"</span>];</span><br><span class="line">  <span class="comment">// 使用字面量语法创建出来的对象都是不可变的，若想要可变对象，需拷贝一份</span></span><br><span class="line">  <span class="built_in">NSMutableArray</span> *tempArr = [@[ <span class="string">@"1"</span>, <span class="string">@"2"</span>, <span class="string">@"3"</span>, <span class="string">@"4"</span> ] mutableCopy];</span><br><span class="line">  <span class="comment">// 修改可变数组内容，字典同理</span></span><br><span class="line">  tempArr[<span class="number">3</span>] = <span class="string">@"5"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 下面的例子应该被避免:</span></span><br><span class="line"><span class="built_in">NSMutableArray</span> *aMutableArray = [@[] mutableCopy];</span><br><span class="line"><span class="comment">/* 上面的书写方式存在效率以及可读性的问题。效率方面，一个不必要的不可变变量被创建，并且马上被废弃了；这并不会让你的 App 变得更慢（除非这个方法会被很频繁地调用），但是确实没必要为了少打几个字而这样做。对于可读性来说，存在两个问题：第一个是当浏览代码并且看见 @[] 的时候你的脑海里马上会联系到 NSArray 的实例，但是在这种情形下你需要停下来思考下。另一个方面，一些新手看到后可能会对可变和不可变对象的分歧感到不舒服。他/她可能对创造一个可变对象的副本不是很熟悉（当然这并不是说这个知识不重要）。当然，这并不是说存在绝对的错误，只是可用性（包括可读性)有一些问题。 */</span></span><br></pre></td></tr></table></figure>
+<h2 id="类"><em>类</em></h2><h3 id="Initializer_和_dealloc"><em>Initializer 和 dealloc</em></h3><p>推荐的代码组织方式：将 dealloc 方法放在实现文件的最前面（直接在 @synthesize 以及 @dynamic 之后），init 应该放在 dealloc 之后。如果有多个初始化方法， designated initializer 应该放在第一个，secondary initializer 在之后紧随，这样逻辑性更好。 如今有了 ARC，dealloc 方法几乎不需要实现，不过把 init 和 dealloc 放在一起可以从视觉上强调它们是一对的。通常，在 init 方法中做的事情需要在 dealloc 方法中撤销。</p>
+<h3 id="参考文献"><em>参考文献</em></h3><p>1.<a href="http://book.douban.com/subject/25829244/" target="_blank" rel="external">Effective Objective C 2.0</a><br>2.<a href="https://github.com/NYTimes/objective-c-style-guide/blob/master/README_zh-Hans.md" target="_blank" rel="external">纽约时报 移动团队 Objective-C 规范指南</a><br>3.<a href="https://github.com/oa414/objc-zen-book-cn" target="_blank" rel="external">Zen and the Art of the Objective-C Craftsmanship</a></p>
+<h3 id="未完_待续…-"><strong>未完 待续….</strong></h3><h1 id="友情链接_感谢大CTO培养"><em>友情链接 感谢大CTO培养</em></h1><h1 id="Di_Wu"><a href="https://github.com/weekwood" target="_blank" rel="external"><strong>Di Wu</strong></a>              <img src="/blogImage/face/yeah.gif" alt="白洪瑞太帅了"></h1>
+    
+  </div>
+  <footer class="end-sep">
+    
+      
+      
+    
+    <div class="clearfix"></div>
+  </footer>
+</article>
+
+
+  
+    <article class="post">
+  <header>
+    
+      <div class="icon"></div>
+      <a href="/2015/05/25/版本增量工具-MTMigration/">
+  <time datetime="2015-05-24T16:00:00.000Z">
+    2015-05-25
+  </time>
+</a>
+    
+    
+  
+    <h1 class="title"><a href="/2015/05/25/版本增量工具-MTMigration/">版本增量工具-MTMigration</a></h1>
+  
+
+  </header>
+  
+  <div class="entry">
+    
+      <blockquote>
+<p>Manages blocks of code that need to run once on version updates in iOS apps. This could be anything from data normalization routines, “What’s New In This Version” screens, or bug fixes.<br><a href="https://github.com/mysterioustrousers/MTMigration" target="_blank" rel="external">GitHub地址</a></p>
+</blockquote>
+<h3 id="Talk_is_cheap-_Show_me_the_code"><em>Talk is cheap. Show me the code</em></h3><h4 id="之前的代码"><font color="orange">之前的代码</font></h4><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSDictionary</span> *infoDictionary = [[<span class="built_in">NSBundle</span> mainBundle] infoDictionary];</span><br><span class="line"><span class="built_in">NSString</span> *everVersion = [[<span class="built_in">NSUserDefaults</span> standardUserDefaults] valueForKey:<span class="string">@"AppVersion"</span>];</span><br><span class="line"><span class="built_in">NSString</span> *curVersion = infoDictionary[<span class="string">@"CFBundleShortVersionString"</span>];</span><br><span class="line"><span class="keyword">if</span> ([[<span class="built_in">NSUserDefaults</span> standardUserDefaults] boolForKey:<span class="string">@"firstLaunch"</span>] ||  </span><br><span class="line">([curVersion floatValue] &gt; [everVersion floatValue] ? <span class="literal">YES</span> : <span class="literal">NO</span>)) &#123;  </span><br><span class="line"><span class="comment">// write the code here     </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="使用MTMigration"><font color="orange">使用MTMigration</font></h4><figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">   <span class="collection">[MTMigration applicationUpdateBlock:<span class="comment">^&#123;</span><br><span class="line">// write the code here</span><br><span class="line">   &#125;</span>]</span><span class="comment">;</span></span><br></pre></td></tr></table></figure>
+
+    
+  </div>
+  <footer class="end-sep">
+    
+      
+      
+    
+    <div class="clearfix"></div>
+  </footer>
+</article>
+
+
+  
+
+  <nav id="pagination">
+  
+    <a href="/" class="prev">上一页</a>
+  
+  
+  <div class="clearfix"></div>
+</nav>
+
+</div>
+  </div>
+  <footer id="footer"><div class="copyright">
+  
+  &copy; 2015 <a href="/">baihongrui</a>
+  
+</div>
+<div class="theme-copyright">
+  Theme by <a href="https://github.com/orderedlist" target="_blank">orderedlist</a>
+   | 
+  Redesign by <a href="http://heroicyang.com/" target="_blank">Heroic Yang</a>
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<script src="/js/scale.fix.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
 <script type="text/javascript">
-    
-    var resizeHero = function () {
-        var hero = $(".cover,.heightblock"),
-            window1 = $(window);
-        hero.css({
-            "height": window1.height()
-        });
-    };
-    
-    resizeHero();
-    
-    $(window).resize(function () {
-        resizeHero();
-    });
-</script>
-<script src="/js/plugins.min.js"></script><!-- Bootstrap core and concatenated plugins always load here -->
-<script src="/js/jquery.flexslider-min.js"></script><!-- Flexslider plugin -->
-<script src="/js/scripts.js"></script><!-- Theme scripts -->
-<script src="/js/marked.js"></script>
-<!-- Initiate flexslider plugin -->
-<script type="text/javascript">
-    $(document).ready(function($) {
-      document.getElementById('mulu').innerHTML = marked('[TOC]');
-      $('.flexslider').flexslider({
-        animation: "fade",
-        prevText: "",
-        nextText: "",
-        directionNav: true
-      });
-    });
+  (function($){
+    $('.fancybox').fancybox();
+  })(jQuery);
 </script>
 
 </body>
