@@ -49,7 +49,7 @@
 <meta property="og:description" content="所有修改提交到这个分支上。本工作流只用到master这一个分支。先克隆中央仓库。在自己的项目拷贝中像SVN一样的编辑文件和提交修改；但修改是存在本地的，和中央仓库是完全隔离的。开发者可以把和上游的同步延后到一个方便时间点。
 要发布修改到正式项目中，开发者要把本地master分支的修改push到中央仓库中。这相当于svn commit操作，但push操作会把所有还不在中央仓库的本地提交都推上去。
 冲">
-<meta property="og:updated_time" content="2015-07-02T16:26:42.000Z">
+<meta property="og:updated_time" content="2015-07-14T16:39:39.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="集中式工作流">
 <meta name="twitter:description" content="所有修改提交到这个分支上。本工作流只用到master这一个分支。先克隆中央仓库。在自己的项目拷贝中像SVN一样的编辑文件和提交修改；但修改是存在本地的，和中央仓库是完全隔离的。开发者可以把和上游的同步延后到一个方便时间点。
@@ -200,7 +200,7 @@
       
         <span itemprop="articleBody"><h3 id="所有修改提交到这个分支上。本工作流只用到master这一个分支。">所有修改提交到这个分支上。本工作流只用到master这一个分支。</h3><p>先克隆中央仓库。在自己的项目拷贝中像SVN一样的编辑文件和提交修改；但修改是存在本地的，和中央仓库是完全隔离的。开发者可以把和上游的同步延后到一个方便时间点。</p>
 <p>要发布修改到正式项目中，开发者要把本地master分支的修改push到中央仓库中。这相当于svn commit操作，但push操作会把所有还不在中央仓库的本地提交都推上去。</p>
-<h4 id="冲突">冲突</h4><p>中央仓库代表了正式项目，所以提交历史应该被尊重且是稳定不变的。如果开发者本地的提交历史和中央仓库有分歧，Git会拒绝push提交否则会覆盖已经在中央库的正式提交。<br>在开发者提交自己功能修改到中央库前，需要先fetch在中央库的新增提交，rebase自己提交到中央库提交历史之上。</p>
+<h4 id="冲突">冲突</h4><p>中央仓库代表了正式项目，所以提交历史应该被尊重且是稳定不变的。如果开发者本地的提交历史和中央仓库有分歧，Git会拒绝push提交否则会覆盖已经在中央库的正式提交。<br>在开发者提交自己功能修改到中央库前，需要先fetch在中央库的新增提交，rebase自己提交到中央库提交历史之上。<br><a id="more"></a></p>
 <h3 id="示例">示例</h3><p>开发者小明和小红</p>
 <h4 id="第一步_在服务器上创建好中央仓库。">第一步 在服务器上创建好中央仓库。</h4><p>如果是新项目，你可以初始化一个空仓库；否则你要导入已有的Git或SVN仓库。<br>中央仓库应该是个裸仓库（bare repository），即没有工作目录（working directory）的仓库。可以用下面的命令创建：<br><figure class="highlight puppet"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ssh <span class="keyword">user</span>@<span class="keyword">host</span></span><br><span class="line">git init --bare /<span class="built_in">path</span>/to/repo.git</span><br></pre></td></tr></table></figure></p>
 <p>确保写上有效的user（SSH的用户名），host（服务器的域名或IP地址），/path/to/repo.git（你想存放仓库的位置）。<br>注意，为了表示是一个裸仓库，按照约定加上.git扩展名到仓库名上。</p>

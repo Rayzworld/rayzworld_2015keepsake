@@ -45,7 +45,7 @@
 <meta property="og:url" content="https://rayzworld.github.io/2015/06/16/功能分支工作流/index.html">
 <meta property="og:site_name" content="BaiHongRui's Blog">
 <meta property="og:description" content="功能分支工作流以集中式工作流为基础，不同的是为各个新功能分配一个专门的分支来开发。这样可以在把新功能集成到正式项目前，用Pull Requests的方式讨论变更。功能分支工作流背后的核心思路是所有的功能开发应该在一个专门的分支，而不是在master分支上。这个隔离可以方便多个开发者在各自的功能上开发而不会弄乱主干代码。另外，也保证了master分支的代码一定不会是有问题的，极大有利于集成环境。功能">
-<meta property="og:updated_time" content="2015-07-02T16:47:18.000Z">
+<meta property="og:updated_time" content="2015-07-14T16:39:20.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="功能分支工作流">
 <meta name="twitter:description" content="功能分支工作流以集中式工作流为基础，不同的是为各个新功能分配一个专门的分支来开发。这样可以在把新功能集成到正式项目前，用Pull Requests的方式讨论变更。功能分支工作流背后的核心思路是所有的功能开发应该在一个专门的分支，而不是在master分支上。这个隔离可以方便多个开发者在各自的功能上开发而不会弄乱主干代码。另外，也保证了master分支的代码一定不会是有问题的，极大有利于集成环境。功能">
@@ -193,9 +193,9 @@
 
       
         <span itemprop="articleBody"><blockquote>
-<p>功能分支工作流以集中式工作流为基础，不同的是为各个新功能分配一个专门的分支来开发。这样可以在把新功能集成到正式项目前，用Pull Requests的方式讨论变更。<br>功能分支工作流背后的核心思路是所有的功能开发应该在一个专门的分支，而不是在<em>master</em>分支上。<br>这个隔离可以方便多个开发者在各自的功能上开发而不会弄乱主干代码。<br>另外，也保证了master分支的代码一定不会是有问题的，极大有利于集成环境。<br>功能开发隔离也让pull requests工作流成功可能，<br>pull requests工作流能为每个分支发起一个讨论，在分支合入正式项目之前，给其它开发者有表示赞同的机会。<br>另外，如果你在功能开发中有问题卡住了，可以开一个pull requests来向同学们征求建议。<br>这些做法的重点就是，pull requests让团队成员之间互相评论工作变成非常方便！</p>
-</blockquote>
+<p>功能分支工作流以集中式工作流为基础，不同的是为各个新功能分配一个专门的分支来开发。这样可以在把新功能集成到正式项目前，用Pull Requests的方式讨论变更。<br>功能分支工作流背后的核心思路是所有的功能开发应该在一个专门的分支，而不是在<em>master</em>分支上。<br>这个隔离可以方便多个开发者在各自的功能上开发而不会弄乱主干代码。<br>另外，也保证了master分支的代码一定不会是有问题的，极大有利于集成环境。<br>功能开发隔离也让pull requests工作流成功可能，<br>pull requests工作流能为每个分支发起一个讨论，在分支合入正式项目之前，给其它开发者有表示赞同的机会。<br>另外，如果你在功能开发中有问题卡住了，可以开一个pull requests来向同学们征求建议。<br>这些做法的重点就是，pull requests让团队成员之间互相评论工作变成非常方便！<br><a id="more"></a></p>
 <h4 id="工作方式">工作方式</h4><p>功能分支工作流仍然用中央仓库，并且master分支还是代表了正式项目的历史。<br>但不是直接提交本地历史到各自的本地master分支，开发者每次在开始新功能前先创建一个新分支。<br>功能分支应该有个有描述性的名字，比如animated-menu-items或issue-#1061，这样可以让分支有个清楚且高聚焦的用途。</p>
+</blockquote>
 <p>在master分支和功能分支之间，Git是没有技术上的区别，所以开发者可以用和集中式工作流中完全一样的方式编辑、暂存和提交修改到功能分支上。</p>
 <p>另外，功能分支也可以（且应该）push到中央仓库中。这样不修改正式代码就可以和其它开发者分享提交的功能。<br>由于master仅有的一个『特殊』分支，在中央仓库上存多个功能分支不会有任何问题。当然，这样做也可以很方便地备份各自的本地提交。</p>
 <h4 id="Pull_Requests">Pull Requests</h4><p>功能分支除了可以隔离功能的开发，也使得通过Pull Requests讨论变更成为可能。<br>一旦某个开发完成一个功能，不是立即合并到master，而是push到中央仓库的功能分支上并发起一个Pull Request请求去合并修改到master。<br>在修改成为主干代码前，这让其它的开发者有机会先去Review变更。</p>

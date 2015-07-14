@@ -196,16 +196,13 @@
 
       
         
-          <span itemprop="articleBody"><h3 id="Slender">Slender</h3><blockquote>
-<p>Slender for mac 是那些适合整齐的开发和设计之间罕见的工具之一。Slender for mac 会扫描你的Xcode中或Web项目，并提供资产正在使用的信息。暴露retina 问题，闲置资产，浪费的空间，和设计师的错误。<br>Slender for mac 告诉你哪些资产文件不会被在Xcode项目中使用，同时你也看到哪些资产缺少他们的@1X同行，或者如果你的@2X图像有不正确的像素尺寸。不仅收缩你的 项目通过删除未使用的文件，它可以帮助他们更漂亮，而所有工作的非破坏性;一切都被保存到备份文件夹。<br><img src="/blogImage/hexo slender.png" alt="白洪瑞太帅了"></p>
-</blockquote>
-<h3 id="Prepo_如果你有个细致的设计师的话_maybe用不上">Prepo 如果你有个细致的设计师的话 maybe用不上  <img src="/blogImage/face/cry2.gif" alt="白洪瑞太帅了"></h3><p>我们设计只给了@3x的资源，@1x@2x我要使用Prepo切 %&gt;_&lt;%</p>
-<blockquote>
-<p>Prepo基于Mac和iOS的一款免费且方便的图标转化器，它可以帮助设计师快速的导出各种尺寸的图标。设计师通过Prepo把任何格式的图片文件转换成iOS可用的图片格式。此外，通过点击Prepo对话框底部“blogImagecopy plist”按钮，设计师可以轻松的把导出的文件复制到Xcode中，节省了设计师大量的工作时间。</p>
-<h4 id="主要特性：">主要特性：</h4><p>调节图像大小、转换图片格式<br>批量的处理@2x作品<br>自动的转换和重命名 @2x和@1x文件</p>
-</blockquote>
-<h4 id="了解更多图片、图标处理工具_请戳这里"><a href="http://www.csdn.net/article/2013-09-13/2816941-iOS-dev-tools-image-and-icons" target="_blank" rel="external">了解更多图片、图标处理工具 <strong>请戳这里</strong></a></h4><h4 id="最后补上常用图片资源命名规范，希望你们有一个贴心的设计师">最后补上常用图片资源命名规范，希望你们有一个贴心的设计师</h4><h4 id="iOS_及_Android_应用开发中，怎样命名和管理切图资源最科学？"><a href="http://www.zhihu.com/question/21348866" target="_blank" rel="external"><strong>iOS 及 Android 应用开发中，怎样命名和管理切图资源最科学？</strong></a></h4><p>命名模板为：缩写<em>主界面</em>功能部分<br>(一) 缩写：<br>ic ———————————icon<br>bg——————————-background<br>di———————————divider<br>sl———————————-selector<br>cl———————————-color<br>bt———————————button<br>ic主要用在app的图标<br>bg主要用于布局和子布局的背景<br>di主要用于分隔线，不仅包括Listview中的divider，还包括普通布局中的线<br>sl主要用于某一view多种状态，不仅包括Listview中的selector，还包括按钮的selector<br>cl主要用于颜色值<br>bt主要用于按钮的表示，有时我们会在ic和bt之间犹豫，简单的区分即是功能视图，如果一个view执行的时back或者confirm或者cancel的功能，则命名上则应该使用bt<br>(二) 主界面：<br>主要的功能页面，即app主要的Activity。对于Browser而言，例如BrowserActivity，BookmarkActivity，SettingActivity，AboutActivity。<br>(三) 功能部分：<br>即每一个主界面对应的功能区域，以BrowserActivity为例，包含的功能部分：1，titlebar，2，speedial 3，toolbar，4，menu等<br>在这里注意的是，功能的划分，是以在某一个界面所显示的内容特点来区分。例如，虽然，menu由toolbar来控制，但是不在toolbar下再细分。<br>(四) 后缀名<br>unit—————————————在使用xml的tilemode来配图片时，element图片使用此后缀<br>nor—————————————-图片的状态，代表普通状态<br>hl——————————————-图片的状态，代表高亮状态<br>press————————————-图片的状态，代表按下状态<br>select———————————图片的状态，代表其所占的view被选中<br>unselect—————————-图片的状态，代表其所占的view没有被选中</p>
-</span>
+          <h3 id="Slender">Slender</h3><blockquote>
+<p>Slender for mac 是那些适合整齐的开发和设计之间罕见的工具之一。Slender for mac 会扫描你的Xcode中或Web项目，并提供资产正在使用的信息。暴露retina 问题，闲置资产，浪费的空间，和设计师的错误。<br>Slender for mac 告诉你哪些资产文件不会被在Xcode项目中使用，同时你也看到哪些资产缺少他们的@1X同行，或者如果你的@2X图像有不正确的像素尺寸。不仅收缩你的 项目通过删除未使用的文件，它可以帮助他们更漂亮，而所有工作的非破坏性;一切都被保存到备份文件夹。<br><img src="/blogImage/hexo slender.png" alt="白洪瑞太帅了"><br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/06/04/Slender寻找Xcode闲置资产与图标转换器Prepo/#more" rel="contents">
+              閱讀全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -281,7 +278,7 @@
 <p>　所以在开发的时候，不区分常规屏幕还是Retina屏幕，在iPhone（3.5 inch）上都是（480 ，360）在Macbook（13 inch）上都是（1280 ，800）。</p>
 <p>在实际渲染到屏幕上时候，会有个scale 系数将 point 映射到物理 pixel，在传统屏幕上factor是等于1，Retina屏幕上是等于2。</p>
 <p> 　　对于字体上的磅（pt）转换到苹果设备上的方法。首先，将pt 和 px单位都统一到英尺</p>
-<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">pt</span>/<span class="number">72</span> = inch</span><br><span class="line">pixel/dpi = inch</span><br><span class="line">这样就可以简单的进行转换了</span><br><span class="line"><span class="keyword">pt</span> * dpi / <span class="number">72</span> = pixel</span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- more --&gt;</span></span><br><span class="line">pt/72 = inch</span><br><span class="line">pixel/dpi = inch</span><br><span class="line">这样就可以简单的进行转换了</span><br><span class="line">pt * dpi / 72 = pixel</span><br></pre></td></tr></table></figure>
 <p>　　对于传统屏幕，Macbook屏幕的dpi 是96，iPhone屏幕的dpi 是163。对于Retina屏幕，Macbook屏幕的dpi 是192，iPhone屏幕的dpi 是326。但是对于开发来说，绘制的图形依然是在以point 为单位</p>
 <h4 id="pt_dpi_/_72_scale_=_point">pt <em> dpi / 72 </em> scale = point</h4><p>　　最后发现，这也是不区分传统屏幕还是Retina屏幕的。</p>
 <p>　　如果要保证Macbook和iPhone上的实际长度相同，肯定不能用相同的point ，需要通过上述的公式进行换算。还有一点注意的是iPhone模拟器是按照Macbook的dpi来的，而macbook的dpi时低于iPhone的，也就是说Macbook的像素点比iPhone的要大，所以iPhone模拟器要比真机要大。在模拟器上的长度会比实际来的短。</p>
@@ -357,16 +354,15 @@
 
       
         
-          <span itemprop="articleBody"><h3 id="Git">Git</h3><blockquote>
+          <h3 id="Git">Git</h3><blockquote>
 <p>Git是一个开源的分布式版本控制系统，用以有效、高速的处理从很小到非常大的项目版本管理。</p>
 </blockquote>
-<p>你就当它是一个游戏存档好了，打Boss使用本地，可以组队，你想存档的时候例如过了Boss把进度上传到服务器，可以从存档跳转进度想打那个副本进哪个副本。<br>英语过硬练习请戳<strong><a href="http://pcottle.github.io/learnGitBranching/" target="_blank" rel="external">这里</a></strong></p>
-<p>以下是Git Commit的标准注解：<br>第1行：提交修改内容的摘要<br>第2行：空行<br>第3行以后：修改的理由</p>
-<h3 id="SourceTree"><a href="https://www.sourcetreeapp.com/" target="_blank" rel="external">SourceTree</a></h3><blockquote>
-<p>SourceTree 是 Windows 和Mac OS X 下免费的 Git 和 Hg 客户端，同时也是Mercurial和Subversion版本控制系统工具。支持创建、克隆、提交、push、pull 和合并等操作。<br>SourceTree拥有一个精美简洁的界面，大大简化了开发者与代码库之间的Git操作方式，这对于那些不熟悉Git命令的开发者来说非常实用。<br>SourceTree拥有完整的Git功能：<br>    通过一个简单的用户界面即可使用所有的Git命令<br>    通过一次单击，即可管理所有的Git库，无论是托管的还是本地的<br>    通过一次单击，即可进行commit、push、pull、merge等操作<br>    一些先进的功能，如补丁处理、rebase、shelve、cherry picking等<br>    可以连接到你托管在Bitbucket、Stash、Microsoft TFS或GitHub中的代码库</p>
-</blockquote>
-<p><a href="http://backlogtool.com/git-guide/cn/intro/intro1_1.html" target="_blank" rel="external">Git入门SourceTree使用请戳</a></p>
-</span>
+<p>你就当它是一个游戏存档好了，打Boss使用本地，可以组队，你想存档的时候例如过了Boss把进度上传到服务器，可以从存档跳转进度想打那个副本进哪个副本。<br>英语过硬练习请戳<strong><a href="http://pcottle.github.io/learnGitBranching/">这里</a></strong><br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/06/02/Git与SourceTree/#more" rel="contents">
+              閱讀全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -439,7 +435,7 @@
       
         
           <h3 id="类的头文件中尽量少的引用其他头文件"><em>类的头文件中尽量少的引用其他头文件</em></h3><p>不需要知道类的全部细节，只需要知道类使用@class</p>
-<h3 id="tableView中不要出现魔法数字"><em>tableView中不要出现魔法数字</em></h3><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 若tableview协议中使用section或row</span></span><br><span class="line"><span class="comment">// 不允许出现（Eg：indexPath.secion == 1)魔法数字</span></span><br><span class="line"><span class="comment">// 枚举命名使用前缀+枚举类型+属性/状态 ，首字母和单词首字母大写</span></span><br><span class="line"><span class="comment">// SDK 现在有一个 宏来鼓励和促进使用固定类型定义 - NS_ENUM()</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">enum</span> : <span class="built_in">NSUInteger</span> &#123;</span><br><span class="line">    SectionAvatar,</span><br><span class="line">    SectionInfo,</span><br><span class="line">&#125; SectionType;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">enum</span> : <span class="built_in">NSUInteger</span> &#123;</span><br><span class="line">    InfoRowNickname,</span><br><span class="line">    InfoRowGender,</span><br><span class="line">    InfoRowBirthday,</span><br><span class="line">    InfoRowBabyGender,</span><br><span class="line">    InfoRowCity,</span><br><span class="line">&#125; InfoRowType;</span><br><span class="line"></span><br><span class="line">- (<span class="built_in">UITableViewCell</span> *)tableView:(<span class="built_in">UITableView</span> *)tableView cellForRowAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath &#123;</span><br><span class="line">    <span class="keyword">if</span> (indexPath<span class="variable">.section</span> == SectionAvatar) &#123;</span><br><span class="line">        SelfAvatarTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:SelfAvatarCellIdentifier forIndexPath:indexPath];</span><br><span class="line">        <span class="keyword">return</span> cell;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        SelfInfoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:SelfInfoCellIdentifier forIndexPath:indexPath];</span><br><span class="line">        <span class="keyword">switch</span> (indexPath<span class="variable">.row</span>) &#123;</span><br><span class="line">        <span class="keyword">case</span> InfoRowNickname:</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> InfoRowGender:</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> InfoRowBirthday: </span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> InfoRowBabyGender:</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">default</span>:</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> cell;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="tableView中不要出现魔法数字"><em>tableView中不要出现魔法数字</em></h3>
           <div class="post-more-link text-center">
             <a class="btn" href="/2015/06/01/iOS代码规范养成/#more" rel="contents">
               閱讀全文 &raquo;
@@ -516,12 +512,15 @@
 
       
         
-          <span itemprop="articleBody"><blockquote>
-<p>Manages blocks of code that need to run once on version updates in iOS apps. This could be anything from data normalization routines, “What’s New In This Version” screens, or bug fixes.<br><a href="https://github.com/mysterioustrousers/MTMigration" target="_blank" rel="external">GitHub地址</a></p>
+          <blockquote>
+<p>Manages blocks of code that need to run once on version updates in iOS apps. This could be anything from data normalization routines, “What’s New In This Version” screens, or bug fixes.<br><a href="https://github.com/mysterioustrousers/MTMigration">GitHub地址</a></p>
 </blockquote>
-<h3 id="Talk_is_cheap-_Show_me_the_code"><em>Talk is cheap. Show me the code</em></h3><h4 id="之前的代码"><font color="orange">之前的代码</font></h4><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSDictionary</span> *infoDictionary = [[<span class="built_in">NSBundle</span> mainBundle] infoDictionary];</span><br><span class="line"><span class="built_in">NSString</span> *everVersion = [[<span class="built_in">NSUserDefaults</span> standardUserDefaults] valueForKey:<span class="string">@"AppVersion"</span>];</span><br><span class="line"><span class="built_in">NSString</span> *curVersion = infoDictionary[<span class="string">@"CFBundleShortVersionString"</span>];</span><br><span class="line"><span class="keyword">if</span> ([[<span class="built_in">NSUserDefaults</span> standardUserDefaults] boolForKey:<span class="string">@"firstLaunch"</span>] ||  </span><br><span class="line">([curVersion floatValue] &gt; [everVersion floatValue] ? <span class="literal">YES</span> : <span class="literal">NO</span>)) &#123;  </span><br><span class="line"><span class="comment">// write the code here     </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="使用MTMigration"><font color="orange">使用MTMigration</font></h4><figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">   <span class="collection">[MTMigration applicationUpdateBlock:<span class="comment">^&#123;</span><br><span class="line">// write the code here</span><br><span class="line">   &#125;</span>]</span><span class="comment">;</span></span><br></pre></td></tr></table></figure>
-</span>
+<h3 id="Talk_is_cheap-_Show_me_the_code"><em>Talk is cheap. Show me the code</em></h3>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/05/25/版本增量工具-MTMigration/#more" rel="contents">
+              閱讀全文 &raquo;
+            </a>
+          </div>
         
       
     </div>

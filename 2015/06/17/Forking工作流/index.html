@@ -45,7 +45,7 @@
 <meta property="og:url" content="https://rayzworld.github.io/2015/06/17/Forking工作流/index.html">
 <meta property="og:site_name" content="BaiHongRui's Blog">
 <meta property="og:description" content="Forking工作流是分布式工作流，充分利用了Git在分支和克隆上的优势。可以安全可靠地管理大团队的开发者（developer），并能接受不信任贡献者（contributor）的提交。Forking工作流和前面讨论的几种工作流有根本的不同，这种工作流不是使用单个服务端仓库作为『中央』代码基线，而让各个开发者都有一个服务端仓库。这意味着各个代码贡献者有2个Git仓库而不是1个：一个本地私有的，另一个">
-<meta property="og:updated_time" content="2015-07-02T16:45:58.000Z">
+<meta property="og:updated_time" content="2015-07-14T16:39:41.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Forking工作流">
 <meta name="twitter:description" content="Forking工作流是分布式工作流，充分利用了Git在分支和克隆上的优势。可以安全可靠地管理大团队的开发者（developer），并能接受不信任贡献者（contributor）的提交。Forking工作流和前面讨论的几种工作流有根本的不同，这种工作流不是使用单个服务端仓库作为『中央』代码基线，而让各个开发者都有一个服务端仓库。这意味着各个代码贡献者有2个Git仓库而不是1个：一个本地私有的，另一个">
@@ -195,8 +195,7 @@
         <span itemprop="articleBody"><blockquote>
 <p>Forking工作流是分布式工作流，充分利用了Git在分支和克隆上的优势。可以安全可靠地管理大团队的开发者（developer），并能接受不信任贡献者（contributor）的提交。<br>Forking工作流和前面讨论的几种工作流有根本的不同，这种工作流不是使用单个服务端仓库作为『中央』代码基线，而让各个开发者都有一个服务端仓库。这意味着各个代码贡献者有2个Git仓库而不是1个：一个本地私有的，另一个服务端公开的。</p>
 </blockquote>
-<p>Forking工作流的一个主要优势是，贡献的代码可以被集成，而不需要所有人都能push代码到仅有的中央仓库中。<br>开发者push到自己的服务端仓库，而只有项目维护者才能push到正式仓库。<br>这样项目维护者可以接受任何开发者的提交，但无需给他正式代码库的写权限。</p>
-<p>效果就是一个分布式的工作流，能为大型、自发性的团队（包括了不受信的第三方）提供灵活的方式来安全的协作。<br>也让这个工作流成为开源项目的理想工作流。</p>
+<p>Forking工作流的一个主要优势是，贡献的代码可以被集成，而不需要所有人都能push代码到仅有的中央仓库中。<br>开发者push到自己的服务端仓库，而只有项目维护者才能push到正式仓库。<br>这样项目维护者可以接受任何开发者的提交，但无需给他正式代码库的写权限。<br><a id="more"></a><br>效果就是一个分布式的工作流，能为大型、自发性的团队（包括了不受信的第三方）提供灵活的方式来安全的协作。<br>也让这个工作流成为开源项目的理想工作流。</p>
 <h4 id="工作方式">工作方式</h4><p>和其它的Git工作流一样，Forking工作流要先有一个公开的正式仓库存储在服务器上。<br>但一个新的开发者想要在项目上工作时，不是直接从正式仓库克隆，而是fork正式项目在服务器上创建一个拷贝。</p>
 <p>这个仓库拷贝作为他个人公开仓库 ——<br>其它开发者不允许push到这个仓库，但可以pull到修改（后面我们很快就会看这点很重要）。<br>在创建了自己服务端拷贝之后，和之前的工作流一样，开发者执行git clone命令克隆仓库到本地机器上，作为私有的开发环境。</p>
 <p>要提交本地修改时，push提交到自己公开仓库中 —— 而不是正式仓库中。<br>然后，给正式仓库发起一个pull request，让项目维护者知道有更新已经准备好可以集成了。<br>对于贡献的代码，pull request也可以很方便地作为一个讨论的地方。</p>

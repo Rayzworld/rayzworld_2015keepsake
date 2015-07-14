@@ -49,7 +49,7 @@
 <meta property="og:description" content="对于传统常规屏幕，1 point 映射物理屏幕1 pixel。对于Retina的高分屏，1point映射物理屏幕2 pixel。这样可以统一图形在同一种类不同型号设备上图形的大小。
 　所以在开发的时候，不区分常规屏幕还是Retina屏幕，在iPhone（3.5 inch）上都是（480 ，360）在Macbook（13 inch）上都是（1280 ，800）。
 在实际渲染到屏幕上时候，会有个sca">
-<meta property="og:updated_time" content="2015-06-03T13:05:08.000Z">
+<meta property="og:updated_time" content="2015-07-14T16:39:32.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="point与px转换">
 <meta name="twitter:description" content="对于传统常规屏幕，1 point 映射物理屏幕1 pixel。对于Retina的高分屏，1point映射物理屏幕2 pixel。这样可以统一图形在同一种类不同型号设备上图形的大小。
@@ -202,7 +202,7 @@
 <p>　所以在开发的时候，不区分常规屏幕还是Retina屏幕，在iPhone（3.5 inch）上都是（480 ，360）在Macbook（13 inch）上都是（1280 ，800）。</p>
 <p>在实际渲染到屏幕上时候，会有个scale 系数将 point 映射到物理 pixel，在传统屏幕上factor是等于1，Retina屏幕上是等于2。</p>
 <p> 　　对于字体上的磅（pt）转换到苹果设备上的方法。首先，将pt 和 px单位都统一到英尺</p>
-<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">pt</span>/<span class="number">72</span> = inch</span><br><span class="line">pixel/dpi = inch</span><br><span class="line">这样就可以简单的进行转换了</span><br><span class="line"><span class="keyword">pt</span> * dpi / <span class="number">72</span> = pixel</span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- more --&gt;</span></span><br><span class="line">pt/72 = inch</span><br><span class="line">pixel/dpi = inch</span><br><span class="line">这样就可以简单的进行转换了</span><br><span class="line">pt * dpi / 72 = pixel</span><br></pre></td></tr></table></figure>
 <p>　　对于传统屏幕，Macbook屏幕的dpi 是96，iPhone屏幕的dpi 是163。对于Retina屏幕，Macbook屏幕的dpi 是192，iPhone屏幕的dpi 是326。但是对于开发来说，绘制的图形依然是在以point 为单位</p>
 <h4 id="pt_dpi_/_72_scale_=_point">pt <em> dpi / 72 </em> scale = point</h4><p>　　最后发现，这也是不区分传统屏幕还是Retina屏幕的。</p>
 <p>　　如果要保证Macbook和iPhone上的实际长度相同，肯定不能用相同的point ，需要通过上述的公式进行换算。还有一点注意的是iPhone模拟器是按照Macbook的dpi来的，而macbook的dpi时低于iPhone的，也就是说Macbook的像素点比iPhone的要大，所以iPhone模拟器要比真机要大。在模拟器上的长度会比实际来的短。</p>
