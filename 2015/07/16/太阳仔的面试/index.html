@@ -1,0 +1,665 @@
+<!doctype html>
+<html class="theme-next use-motion theme-next-mist">
+<head>
+    
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.4"/>
+
+
+    <meta name="description" content="I am a slow walker,but I never walk backwards." />
+
+
+
+  <meta name="keywords" content="Hexo,next" />
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.4" />
+
+
+<meta name="description" content="作者简介： 孙源（sunnyxx），目前就职于百度，负责百度知道 iOS 客户端的开发工作，对技术喜欢刨根问底和总结最佳实践，热爱分享和开源，维护一个叫 forkingdog 的开源小组。
+近一年内陆续面试了不少人了，从面试者到面试官的转变让我对 iOS 招聘有了更多的感受。经过了前段时间的一大波面试，我们终于找到了志同道合的小伙伴，面试也暂时告一段落了。总结下面试人过程中的感受，你也可以读到我们">
+<meta property="og:type" content="article">
+<meta property="og:title" content="太阳仔的面试">
+<meta property="og:url" content="https://rayzworld.github.io/2015/07/16/太阳仔的面试/index.html">
+<meta property="og:site_name" content="HongRui's Blog">
+<meta property="og:description" content="作者简介： 孙源（sunnyxx），目前就职于百度，负责百度知道 iOS 客户端的开发工作，对技术喜欢刨根问底和总结最佳实践，热爱分享和开源，维护一个叫 forkingdog 的开源小组。
+近一年内陆续面试了不少人了，从面试者到面试官的转变让我对 iOS 招聘有了更多的感受。经过了前段时间的一大波面试，我们终于找到了志同道合的小伙伴，面试也暂时告一段落了。总结下面试人过程中的感受，你也可以读到我们">
+<meta property="og:image" content="https://rayzworld.github.io/blogImage/interview.jpg">
+<meta property="og:updated_time" content="2015-07-16T03:13:23.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="太阳仔的面试">
+<meta name="twitter:description" content="作者简介： 孙源（sunnyxx），目前就职于百度，负责百度知道 iOS 客户端的开发工作，对技术喜欢刨根问底和总结最佳实践，热爱分享和开源，维护一个叫 forkingdog 的开源小组。
+近一年内陆续面试了不少人了，从面试者到面试官的转变让我对 iOS 招聘有了更多的感受。经过了前段时间的一大波面试，我们终于找到了志同道合的小伙伴，面试也暂时告一段落了。总结下面试人过程中的感受，你也可以读到我们">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: 'always'
+  };
+</script>
+
+    <title> 太阳仔的面试 // HongRui's Blog </title>
+</head>
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+
+
+
+
+<div class="container one-column page-post-detail">
+    <div class="headband"></div>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+        <div class="header-inner"><h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand" rel="start">
+      <span class="logo">
+        <i class="icon-logo"></i>
+      </span>
+      <span class="site-title">HongRui's Blog</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon icon-home"></i> <br />
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            <i class="menu-item-icon icon-archives"></i> <br />
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            <i class="menu-item-icon icon-tags"></i> <br />
+            标签
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+        </div>
+    </header>
+
+    <main id="main" class="main">
+        <div class="main-inner">
+            <div id="content" class="content">
+                
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              太阳仔的面试
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2015-07-16T10:24:35+08:00" content="2015-07-16">
+            2015-07-16
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a></span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><p>作者简介： <a href="http://blog.sunnyxx.com" target="_blank" rel="external">孙源（sunnyxx）</a>，目前就职于百度，负责百度知道 iOS 客户端的开发工作，对技术喜欢刨根问底和总结最佳实践，热爱分享和开源，维护一个叫 forkingdog 的开源小组。</p>
+<p>近一年内陆续面试了不少人了，从面试者到面试官的转变让我对 iOS 招聘有了更多的感受。经过了前段时间的一大波面试，我们终于找到了志同道合的小伙伴，面试也暂时告一段落了。总结下面试人过程中的感受，你也可以读到我们对简历、算法、性格、iOS 基础、底层知识的看法和一些常问的面试题。</p>
+<h3 id="一个靠谱的简历">一个靠谱的简历</h3><p>简历非常能反映一个人的性格和水平，相比于你在学校获得多少奖项，工作经历、项目经历、熟悉的技术等更加关键，如果还有博客和一些 Github 上的项目，好感度++，但记得在去面试前收拾下，我们真的会挨个文件 review 你的开源代码的。我们还喜欢关注一些细节，比如简历里关键字的拼写，看似无关紧要但很能反映出对自己的要求，经常见一个简历中 iOS 这三个字母的拼写就出现 IOS、iOS、ios 三种的，非常不能忍，再列举几个常见问题：</p>
+<p>iPhone -&gt; IPHONE IPhone<br>Xcode -&gt; XCode xcode<br>Objective-C -&gt; Object-C<br>JSON -&gt; Json<br>HTTP -&gt; Http</p>
+<p>还有，注意中英文间用一个半角空格隔开，排版会漂亮很多，简历承载的不仅是内容，还有细节和态度，上面这些点往往都反映着面试者的代码风格、做事的认真程度。当然，简历写的很漂亮但面聊之后发现啥都不会的也有，甚至见过来面试上来就跟我说简历是假的，就想求个面试机会这种 - -<br><a id="more"></a></p>
+<h3 id="面试">面试</h3><p>别迟到，别迟到，别迟到，重要的事说三遍。有变动提前通知 HR，碰到过临时有事没来，和谁都不说一声，打电话过去还要求改个时间的，这种直接拜拜。<br>面试时最好准备纸、笔、简历，可能用不上，但很能体现认真程度。有条件的话带着 Mac 和源码，手机中装好所有在简历中出现的 App。</p>
+<h3 id="关于算法">关于算法</h3><p>我们是实用主义，iOS 开发中很少需要自己写复杂的算法，所以不在面试考核标准中。</p>
+<h3 id="代码规范">代码规范</h3><p>这是一个重点考察项，曾经在微博上发过一个风格纠错题：<br><img src="/blogImage/interview.jpg" alt="白洪瑞太帅了"><br>也曾在面试时让人当场改过，槽点不少，能够有 10 处以上修改的就基本达到标准了（处女座的人在这方面表现都很优秀</p>
+<h3 id="一个区分度很大的面试题">一个区分度很大的面试题</h3><p>考察一个面试者基础咋样，基本上问一个 @property 就够了：</p>
+<p>@property 后面可以有哪些修饰符？<br>什么情况使用 weak 关键字，相比 assign 有什么不同？<br>怎么用 copy 关键字？<br>这个写法会出什么问题： @property (copy) NSMutableArray *array;<br>如何让自己的类用 copy 修饰符？如何重写带 copy 关键字的 setter？<br>这一套问题区分度比较大，如果上面的问题都能回答正确，可以延伸问更深入点的：</p>
+<p>@property 的本质是什么？ivar、getter、setter 是如何生成并添加到这个类中的<br>@protocol 和 category 中如何使用 @property<br>runtime 如何实现 weak 属性<br>每个人擅长的领域不一样，我们一般会从简历上找自己写擅长的技术聊，假如自己并不是很熟，最好别写出来或扯出来，万一面试官刚好非常精通这里就露馅了。</p>
+<h3 id="Checklist">Checklist</h3><p>总结过些面试题，没坚持下去，后来把这些当 checklist，面试的时候实在没话聊的时候做个提醒，语言、框架、运行机制性质的：</p>
+<p>[※]@property中有哪些属性关键字？<br>[※]weak属性需要在dealloc中置nil么？<br>[※※]@synthesize和@dynamic分别有什么作用？<br>[※※※]ARC下，不显式指定任何属性关键字时，默认的关键字都有哪些？<br>[※※※]用@property声明的NSString（或NSArray，NSDictionary）经常使用copy关键字，为什么？如果改用strong关键字，可能造成什么问题？<br>[※※※]@synthesize合成实例变量的规则是什么？假如property名为foo，存在一个名为_foo的实例变量，那么还会自动合成新变量么？<br>[※※※※※]在有了自动合成属性实例变量之后，@synthesize还有哪些使用场景？</p>
+<p>[※※]objc中向一个nil对象发送消息将会发生什么？<br>[※※※]objc中向一个对象发送消息[obj foo]和objc_msgSend()函数之间有什么关系？<br>[※※※]什么时候会报unrecognized selector的异常？<br>[※※※※]一个objc对象如何进行内存布局？（考虑有父类的情况）<br>[※※※※]一个objc对象的isa的指针指向什么？有什么作用？<br>[※※※※]下面的代码输出什么？<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">Son</span> : <span class="title">Father</span></span></span><br><span class="line">- (<span class="keyword">id</span>)init</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">self</span> = [<span class="keyword">super</span> init];</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">self</span>) &#123;</span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, <span class="built_in">NSStringFromClass</span>([<span class="keyword">self</span> class]));</span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, <span class="built_in">NSStringFromClass</span>([<span class="keyword">super</span> class]));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">self</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure></p>
+<p>[※※※※]runtime如何通过selector找到对应的IMP地址？（分别考虑类方法和实例方法）<br>[※※※※]使用runtime Associate方法关联的对象，需要在主对象dealloc的时候释放么？<br>[※※※※※]objc中的类方法和实例方法有什么本质区别和联系？<br>[※※※※※]_objc_msgForward函数是做什么的，直接调用它将会发生什么？<br>[※※※※※]runtime如何实现weak变量的自动置nil？<br>[※※※※※]能否向编译后得到的类中增加实例变量？能否向运行时创建的类中添加实例变量？为什么？</p>
+<p>[※※※]runloop和线程有什么关系？<br>[※※※]runloop的mode作用是什么？<br>[※※※※]以+ scheduledTimerWithTimeInterval…的方式触发的timer，在滑动页面上的列表时，timer会暂定回调，为什么？如何解决？<br>[※※※※※]猜想runloop内部是如何实现的？</p>
+<p>[※]objc使用什么机制管理对象内存？<br>[※※※※]ARC通过什么方式帮助开发者管理内存？<br>[※※※※]不手动指定autoreleasepool的前提下，一个autorealese对象在什么时刻释放？（比如在一个vc的viewDidLoad中创建）<br>[※※※※]BAD_ACCESS在什么情况下出现？<br>[※※※※※]苹果是如何实现autoreleasepool的？</p>
+<p>[※※]使用block时什么情况会发生引用循环，如何解决？<br>[※※]在block内如何修改block外部变量？<br>[※※※]使用系统的某些block api（如UIView的block版本写动画时），是否也考虑引用循环问题？</p>
+<p>[※※]GCD的队列（dispatch_queue_t）分哪两种类型？<br>[※※※※]如何用GCD同步若干个异步调用？（如根据若干个url异步加载多张图片，然后在都下载完成后合成一张整图）<br>[※※※※]dispatch_barrier_async的作用是什么？<br>[※※※※※]苹果为什么要废弃dispatch_get_current_queue？<br>[※※※※※]以下代码运行结果如何？<br><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">- (void)viewDidLoad</span><br><span class="line">&#123;</span><br><span class="line">    <span class="attr_selector">[super viewDidLoad]</span>;</span><br><span class="line">    <span class="function">NSLog</span>(<span class="at_rule">@<span class="string">"1"</span>);</span></span><br><span class="line">    <span class="function">dispatch_sync</span>(<span class="function">dispatch_get_main_queue</span>(), ^&#123;</span><br><span class="line">        <span class="function">NSLog</span>(<span class="at_rule">@<span class="string">"2"</span>);</span></span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="function">NSLog</span>(<span class="at_rule">@<span class="string">"3"</span>);</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>[※※]addObserver:forKeyPath:options:context:各个参数的作用分别是什么，observer中需要实现哪个方法才能获得KVO回调？<br>[※※※]如何手动触发一个value的KVO<br>[※※※]若一个类有实例变量NSString *_foo，调用setValue:forKey:时，可以以foo还是_foo作为key？<br>[※※※※]KVC的keyPath中的集合运算符如何使用？<br>[※※※※]KVC和KVO的keyPath一定是属性么？<br>[※※※※※]如何关闭默认的KVO的默认实现，并进入自定义的KVO实现？<br>[※※※※※]apple用什么方式实现对一个对象的KVO？</p>
+<p>[※※]IBOutlet连出来的视图属性为什么可以被设置成weak?<br>[※※※※※]IB中User Defined Runtime Attributes如何使用？</p>
+<p>[※※※]如何调试BAD_ACCESS错误<br>[※※※]lldb（gdb）常用的调试命令？</p>
+<p>这些小题可以做为讨论的入口，根据面试者的回答再继续聊下去。其中一些题比较底层，是留给屌屌的面试者或者试探评级用的，一般情况并不是重点的考察内容。</p>
+<h3 id="业务能力">业务能力</h3><p>毕竟平常的工作内容不是 runtime、runloop，不怎么会用到底层的黑魔法，80% 的时间都是和搭建页面、写业务逻辑、网络请求打交道。<br>要求面试者能够熟练构建 UI，我会找一个面试者做过的页面让他分析下页面结构、约束或者 frame 布局的连法和计算方法；有时也会让面试者说说 UITableView 常用的几个 delegate 和 data source 代理方法，动态 Cell 高度计算什么的；接下来，在手机里随便找一个 App 的页面，让面试者当场说说如果是他写应该用哪些 UI 组件和布局方式等。问几个问题后就能大概了解业务能力了，我们这边重度使用 IB 和 AutoLayout，假如面试者依然使用代码码 UI 也到没关系，有“从良”意愿就很好~</p>
+<p>程序架构和一些设计模式如果面试者自己觉得还不错的话也会聊聊，但跪求别说 Singleton 了，用的越多对水平就越表示怀疑。对设计模式自信的我一般问一个问题，抽象工厂模式在 Cocoa SDK 中哪些类中体现？<br>架构上 MVC 还是 MVVM 还是 MVP 神马的到是可以聊聊各自的见解，反正也没有正确答案，只要别搞的太离谱就行，比如有的人说网络请求和数据库的操作最好放到 UIView 的子类里面干。</p>
+<p>网络请求、数据库等各家都有成熟的封装，基本知道咋用就行。除此之外，我们还会顺带的问下除了 iOS 开发外，还会什么其他编程语言、或者熟悉哪种脚本语言和 Terminal 操作等，甚至还问问是如何翻墙- -，相信这些技能都是很重要的。</p>
+<h3 id="性格">性格</h3><p>大家都是写程序的，没啥必要用奇怪的、很难的问题难为对方，更关键的还是性格，和 Team 的风格是不是和的来。一个心态良好的面试者需要有个平常心，不傲娇也不跪舔，表达要正常，经常遇到问一个问题后一两分钟一直处于沉思状态，一句话不说，交流像挤牙膏一样，很是憋屈；还有非常屌屌的，明明不懂仍然强行据理力争，镇得住面试官也罢，撞枪口上就别怪不客气了- - 。决定要不要一个人基本上聊 5 分钟就可以确定了，喜欢水到渠成的感觉，看对眼了挡都挡不住。</p>
+<p>招聘告一段落，后面将会有更精彩的事情发生。最后，再次感谢大家的支持和对我的信任。</p>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/07/01/安装测试版注意/" rel="next">给运营安装测试版注意</a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+            </div>
+
+            
+
+            
+              <div class="comments" id="comments">
+                
+              </div>
+            
+        </div>
+
+        
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/images/default_avatar.jpg" alt="白洪瑞" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">白洪瑞</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description">I am a slow walker,but I never walk backwards.</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">16</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            
+              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-name">分类</span>
+              
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">16</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Rayzworld" target="_blank">github</a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+            <p class="site-author-name">吧啦吧啦吧啦</p>
+            
+              <span class="links-of-author-item">
+              <a href="http://stackoverflow.com" target="_blank">StackOverflow</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://diwu.me" target="_blank">吴迪</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://www.objccn.io/" target="_blank">objc中国</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://blog.sunnyxx.com/" target="_blank">太阳仔</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://nshipster.cn/" target="_blank">NSHipster</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://www.raywenderlich.com" target="_blank">raywenderlich</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://blog.devtang.com/" target="_blank">唐巧</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://onevcat.com/" target="_blank">王巍</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://macshuo.com/" target="_blank">池建强</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://vinqon.com/" target="_blank">陈咏聪</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://dlog.dismory.com/" target="_blank">耿健桓</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://blog.csdn.net/justinjing0612" target="_blank">景总</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://nianxi.net/" target="_blank">念茜</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://iiiyu.com/" target="_blank">萧宸宇</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://beyondvincent.com/" target="_blank">破船</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://www.iwangke.me/" target="_blank">王轲</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://www.cnblogs.com/easonoutlook/" target="_blank">杨宇建</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://casatwy.com/" target="_blank">田伟宇</a>
+              </span>
+            
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一个靠谱的简历"><span class="nav-number">1.</span> <span class="nav-text">一个靠谱的简历</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#面试"><span class="nav-number">2.</span> <span class="nav-text">面试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关于算法"><span class="nav-number">3.</span> <span class="nav-text">关于算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码规范"><span class="nav-number">4.</span> <span class="nav-text">代码规范</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一个区分度很大的面试题"><span class="nav-number">5.</span> <span class="nav-text">一个区分度很大的面试题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Checklist"><span class="nav-number">6.</span> <span class="nav-text">Checklist</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#业务能力"><span class="nav-number">7.</span> <span class="nav-text">业务能力</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#性格"><span class="nav-number">8.</span> <span class="nav-text">性格</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+    </main>
+
+    <footer id="footer" class="footer">
+        <div class="footer-inner">
+            <div class="copyright" >
+  
+  &copy; &nbsp; 
+  <span itemprop="copyrightYear">2015</span>
+  <span class="with-love">
+    <i class="icon-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">白洪瑞</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a> 
+</div>
+
+<div class="theme-info">
+  Theme by -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+        </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+</div>
+
+<script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+    
+    
+
+  
+
+
+  
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.4"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.4"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.4" id="motion.global"></script>
+
+
+
+  <script type="text/javascript" src="/js/search-toggle.js"></script>
+
+
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.4" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+          var self = this;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      $(indicator).velocity('stop').velocity({
+        opacity: action === 'show' ? 0.4 : 0
+      }, { duration: 100 });
+    }
+
+  });
+</script>
+
+
+  <script type="text/javascript" id="sidebar.nav">
+    $(document).ready(function () {
+      var html = $('html');
+
+      $('.sidebar-nav li').on('click', function () {
+        var item = $(this);
+        var activeTabClassName = 'sidebar-nav-active';
+        var activePanelClassName = 'sidebar-panel-active';
+        if (item.hasClass(activeTabClassName)) {
+          return;
+        }
+
+        var currentTarget = $('.' + activePanelClassName);
+        var target = $('.' + item.data('target'));
+
+        currentTarget.velocity('transition.slideUpOut', 200, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', 200)
+            .addClass(activePanelClassName);
+        });
+
+        item.siblings().removeClass(activeTabClassName);
+        item.addClass(activeTabClassName);
+      });
+
+      $('.post-toc a').on('click', function (e) {
+        e.preventDefault();
+        var offset = $(escapeSelector(this.getAttribute('href'))).offset().top;
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        });
+      });
+
+      // Expand sidebar on post detail page by default, when post has a toc.
+      var $tocContent = $('.post-toc-content');
+      if (isDesktop() && CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          displaySidebar();
+        }
+      }
+    });
+  </script>
+
+
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        if (CONFIG.sidebar === 'always') {
+            displaySidebar();
+        }
+    });
+</script>
+
+
+
+
+
+
+
+
+<!-- lazyload -->
+<script type="text/javascript" src="/js/lazyload.js"></script>
+<script type="text/javascript">
+    jQuery(function () {
+        jQuery("#posts img").lazyload({
+            placeholder: "/images/loading.gif",
+            effect: "fadeIn"
+        });
+    });
+</script>
+</body>
+</html>
