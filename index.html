@@ -227,7 +227,9 @@
 
       
         
-          <p>-&gt;Mantle makes it easy to write a simple model layer for your Cocoa or Cocoa Touch application.<a href="https://github.com/Mantle/Mantle">Mantle</a></p>
+          <blockquote>
+<p>Mantle makes it easy to write a simple model layer for your Cocoa or Cocoa Touch application.<a href="https://github.com/Mantle/Mantle">Mantle</a></p>
+</blockquote>
 <h3 id="为什么唱吧iOS_6-0选择了Mantle"><a href="http://www.iwangke.me/2014/10/13/Why-Changba-iOS-choose-Mantle/">为什么唱吧iOS 6.0选择了Mantle</a></h3><h3 id="2-0_CHANGELOG"><a href="https://github.com/Mantle/Mantle/blob/2.0/CHANGELOG.md#explicit-json-key-paths">2.0 CHANGELOG</a></h3><h4 id="Explicit_JSON_key_paths_明确JSON路径">Explicit JSON key paths 明确JSON路径</h4><p>+JSONKeyPathsForPropertyKey 这里面必须写每一个属性映射，忽略任何属性将不会被考虑JSON序列化和反序列化。<br>可以使用+[NSDictionary mtl_identityPropertyMapWithModel：] 自动创建一个一对一的映射相匹配的以前的默认行为。</p>
 <h4 id="Predefined_transformers_now_part_of_JSON_adapter_预定义的transformers现在转移到了MTLJSONAdapter">Predefined transformers now part of JSON adapter 预定义的transformers现在转移到了MTLJSONAdapter</h4><p>+mtl_JSONDictionaryTransformerWithModelClass: 和 +mtl_JSONArrayWithModelClass:转移到了MTLJSONAdapter<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// +[NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:]  </span></span><br><span class="line">+[MTLJSONAdapter <span class="string">dictionaryTransformerWithModelClass:</span>]</span><br><span class="line"><span class="comment">// +[NSValueTransformer mtl_JSONArrayTransformerWithModelClass:]</span></span><br><span class="line">+[MTLJSONAdapter <span class="string">arrayTransformerWithModelClass:</span>]</span><br></pre></td></tr></table></figure></p>
           <div class="post-more-link text-center">
