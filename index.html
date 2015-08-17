@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="theme-next  ">
+<html class="theme-next use-motion theme-next-mist">
 <head>
     
 
@@ -16,19 +16,25 @@
 
 
 
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
 
 
 
-<link rel="stylesheet" type="text/css" href="//main.css?v="/>
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.4"/>
 
 
     <meta name="description" content="I am a slow walker,but I never walk backwards." />
 
 
 
+  <meta name="keywords" content="白洪瑞,baihongrui,rayzworld,blog,iOS" />
 
 
 
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.4" />
 
 
 <meta name="description" content="I am a slow walker,but I never walk backwards.">
@@ -44,8 +50,8 @@
 
 <script type="text/javascript" id="hexo.configuration">
   var CONFIG = {
-    scheme: '',
-    sidebar: ''
+    scheme: 'Mist',
+    sidebar: 'post'
   };
 </script>
 
@@ -92,6 +98,42 @@
 <nav class="site-nav">
   
 
+  
+    <ul id="menu" class="menu menu-left">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon icon-home"></i> <br />
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            <i class="menu-item-icon icon-categories"></i> <br />
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            <i class="menu-item-icon icon-archives"></i> <br />
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            <i class="menu-item-icon icon-tags"></i> <br />
+            标签
+          </a>
+        </li>
+      
+    </ul>
   
 
   
@@ -353,7 +395,7 @@
 <h3 id="为什么唱吧iOS_6-0选择了Mantle"><a href="http://www.iwangke.me/2014/10/13/Why-Changba-iOS-choose-Mantle/">为什么唱吧iOS 6.0选择了Mantle</a></h3><h3 id="2-0_CHANGELOG"><a href="https://github.com/Mantle/Mantle/blob/2.0/CHANGELOG.md#explicit-json-key-paths">2.0 CHANGELOG</a></h3><h4 id="Explicit_JSON_key_paths_明确JSON路径">Explicit JSON key paths 明确JSON路径</h4><p>+JSONKeyPathsForPropertyKey 这里面必须写每一个属性映射，忽略任何属性将不会被考虑JSON序列化和反序列化。<br>可以使用+[NSDictionary mtl_identityPropertyMapWithModel：] 自动创建一个一对一的映射相匹配的以前的默认行为。</p>
 <h4 id="Predefined_transformers_now_part_of_JSON_adapter_预定义的transformers现在转移到了MTLJSONAdapter">Predefined transformers now part of JSON adapter 预定义的transformers现在转移到了MTLJSONAdapter</h4><p>+mtl_JSONDictionaryTransformerWithModelClass: 和 +mtl_JSONArrayWithModelClass:转移到了MTLJSONAdapter<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// +[NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:]  </span></span><br><span class="line">+[MTLJSONAdapter <span class="string">dictionaryTransformerWithModelClass:</span>]</span><br><span class="line"><span class="comment">// +[NSValueTransformer mtl_JSONArrayTransformerWithModelClass:]</span></span><br><span class="line">+[MTLJSONAdapter <span class="string">arrayTransformerWithModelClass:</span>]</span><br></pre></td></tr></table></figure></p>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2015/07/20/Mantle2-0/" rel="contents">
+            <a class="btn" href="/2015/07/20/Mantle2-0/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -438,7 +480,7 @@
           <p>作者简介： <a href="http://blog.sunnyxx.com">孙源（sunnyxx）</a>，目前就职于百度，负责百度知道 iOS 客户端的开发工作，对技术喜欢刨根问底和总结最佳实践，热爱分享和开源，维护一个叫 forkingdog 的开源小组。</p>
 <p>近一年内陆续面试了不少人了，从面试者到面试官的转变让我对 iOS 招聘有了更多的感受。经过了前段时间的一大波面试，我们终于找到了志同道合的小伙伴，面试也暂时告一段落了。总结下面试人过程中的感受，你也可以读到我们对简历、算法、性格、iOS 基础、底层知识的看法和一些常问的面试题。<br>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2015/07/16/太阳仔的面试/" rel="contents">
+            <a class="btn" href="/2015/07/16/太阳仔的面试/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -514,7 +556,7 @@
 </blockquote>
 <p>所有的个人公开仓库实际上只是为了方便和其它的开发者共享分支。<br>各个开发者应该用分支隔离各个功能，就像在功能分支工作流和Gitflow工作流一样。<br>唯一的区别是这些分支被共享了。在Forking工作流中这些分支会被pull到另一个开发者的本地仓库中，而在功能分支工作流和Gitflow工作流中是直接被push到正式仓库中。<br>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2015/06/19/Pull Requests/" rel="contents">
+            <a class="btn" href="/2015/06/19/Pull Requests/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -685,7 +727,7 @@
 </blockquote>
 <p>Forking工作流的一个主要优势是，贡献的代码可以被集成，而不需要所有人都能push代码到仅有的中央仓库中。<br>开发者push到自己的服务端仓库，而只有项目维护者才能push到正式仓库。<br>这样项目维护者可以接受任何开发者的提交，但无需给他正式代码库的写权限。<br>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2015/06/17/Forking工作流/" rel="contents">
+            <a class="btn" href="/2015/06/17/Forking工作流/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -770,7 +812,7 @@
           <blockquote>
 <p>功能分支工作流以集中式工作流为基础，不同的是为各个新功能分配一个专门的分支来开发。这样可以在把新功能集成到正式项目前，用Pull Requests的方式讨论变更。<br>功能分支工作流背后的核心思路是所有的功能开发应该在一个专门的分支，而不是在<em>master</em>分支上。<br>这个隔离可以方便多个开发者在各自的功能上开发而不会弄乱主干代码。<br>另外，也保证了master分支的代码一定不会是有问题的，极大有利于集成环境。<br>功能开发隔离也让pull requests工作流成功可能，<br>pull requests工作流能为每个分支发起一个讨论，在分支合入正式项目之前，给其它开发者有表示赞同的机会。<br>另外，如果你在功能开发中有问题卡住了，可以开一个pull requests来向同学们征求建议。<br>这些做法的重点就是，pull requests让团队成员之间互相评论工作变成非常方便！<br>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2015/06/16/功能分支工作流/" rel="contents">
+            <a class="btn" href="/2015/06/16/功能分支工作流/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -856,7 +898,7 @@
 <p>要发布修改到正式项目中，开发者要把本地master分支的修改push到中央仓库中。这相当于svn commit操作，但push操作会把所有还不在中央仓库的本地提交都推上去。</p>
 <h4 id="冲突">冲突</h4><p>中央仓库代表了正式项目，所以提交历史应该被尊重且是稳定不变的。如果开发者本地的提交历史和中央仓库有分歧，Git会拒绝push提交否则会覆盖已经在中央库的正式提交。<br>在开发者提交自己功能修改到中央库前，需要先fetch在中央库的新增提交，rebase自己提交到中央库提交历史之上。<br>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2015/06/15/集中式工作流/" rel="contents">
+            <a class="btn" href="/2015/06/15/集中式工作流/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -940,7 +982,7 @@
         
           <h2 id="简单值">简单值</h2><p>􏱪􏱫􏰟􏰜􏰝􏰞􏰟􏱬􏲦􏲧􏳡􏲩􏰙􏱪􏱫􏰟􏱥􏰠􏰯􏰟􏱬􏲦􏲧􏲨􏲩􏰏􏱪􏱫􏰟􏰜􏰝􏰞􏰟􏱬􏲦􏲧􏳡􏲩􏰙􏱪􏱫􏰟􏱥􏰠􏰯􏰟􏱬􏲦􏲧􏲨􏲩􏰏􏱪􏱫􏰟􏰜􏰝􏰞􏰟􏱬􏲦􏲧􏳡􏲩􏰙􏱪􏱫􏰟􏱥􏰠􏰯􏰟􏱬􏲦􏲧􏲨􏲩􏰏􏱪􏱫􏰟􏰜􏰝􏰞􏰟􏱬􏲦􏲧􏳡􏲩􏰙􏱪􏱫􏰟􏱥􏰠􏰯􏰟􏱬􏲦􏲧􏲨􏲩􏰏􏱪􏱫􏰟􏰜􏰝􏰞􏰟􏱬􏲦􏲧􏳡􏲩􏰙􏱪􏱫􏰟􏱥􏰠􏰯􏰟􏱬􏲦􏲧􏲨􏲩􏰏<em>使用</em>let<em>来声明</em>常量<em>，使用</em>var<em>来声明变量。</em><br><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//一个常量的值，在编译的时候，并不需要有明确的值，但是你只能为它赋值一次。</span></span><br><span class="line"><span class="keyword">var</span> myVariable = <span class="number">42</span></span><br><span class="line"><span class="comment">//声明时类型是可选的，声明的同时赋值的话，编译器会自动推断类型。编译器推断出myVariable是一个整数（integer）因为它的初始值是整数。</span></span><br><span class="line">myVariable = <span class="number">50</span></span><br><span class="line"><span class="keyword">let</span> myConstant = <span class="number">42</span></span><br></pre></td></tr></table></figure></p>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2015/06/12/Swift初见/" rel="contents">
+            <a class="btn" href="/2015/06/12/Swift初见/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -994,30 +1036,30 @@
 
       <section class="site-overview">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" src="//default_avatar.jpg" alt="白洪瑞" itemprop="image"/>
+          <img class="site-author-image" src="/images/default_avatar.jpg" alt="白洪瑞" itemprop="image"/>
           <p class="site-author-name" itemprop="name">白洪瑞</p>
         </div>
         <p class="site-description motion-element" itemprop="description">I am a slow walker,but I never walk backwards.</p>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
-            <a href="/">
+            <a href="/archives">
               <span class="site-state-item-count">18</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
-            
+            <a href="/categories">
               <span class="site-state-item-count">5</span>
               <span class="site-state-item-name">分类</span>
-              
+              </a>
           </div>
 
           <div class="site-state-item site-state-tags">
-            
+            <a href="/tags">
               <span class="site-state-item-count">23</span>
               <span class="site-state-item-name">标签</span>
-              
+              </a>
           </div>
 
         </nav>
@@ -1169,7 +1211,7 @@
 <div class="theme-info">
   Theme by -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT
+    NexT.Mist
   </a>
 </div>
 
@@ -1181,7 +1223,7 @@
     <div class="back-to-top"></div>
 </div>
 
-<script type="text/javascript" src="//jquery/index.js?v=2.1.3"></script>
+<script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
 
   
   
@@ -1207,15 +1249,21 @@
   
 
   
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.4"></script>
 
-  <script type="text/javascript" src="//helpers.js?v="></script>
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.4"></script>
   
 
-  <script type="text/javascript" src="//motion_fallback.js?v=" id="motion.fallback"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.4" id="motion.global"></script>
 
 
 
-  <script type="text/javascript" src="//search-toggle.js"></script>
+  <script type="text/javascript" src="/js/search-toggle.js"></script>
 
 
 
@@ -1255,11 +1303,11 @@
 
 
 <!-- lazyload -->
-<script type="text/javascript" src="//lazyload.js"></script>
+<script type="text/javascript" src="/js/lazyload.js"></script>
 <script type="text/javascript">
     jQuery(function () {
         jQuery("#posts img").lazyload({
-            placeholder: "//loading.gif",
+            placeholder: "/images/loading.gif",
             effect: "fadeIn"
         });
     });

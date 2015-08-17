@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="theme-next  ">
+<html class="theme-next use-motion theme-next-mist">
 <head>
     
 
@@ -16,10 +16,12 @@
 
 
 
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
 
 
 
-<link rel="stylesheet" type="text/css" href="//main.css?v="/>
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.4"/>
 
 
     <meta name="description" content="I am a slow walker,but I never walk backwards." />
@@ -31,6 +33,8 @@
 
 
 
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.4" />
 
 
 <meta name="description" content="receiving collection element of type int is not an objective c object in iOS语法糖字典里value要是对象
@@ -53,8 +57,8 @@ writetofile fail路径要存在文件夹 光有路径无文件夹写入失败
 
 <script type="text/javascript" id="hexo.configuration">
   var CONFIG = {
-    scheme: '',
-    sidebar: ''
+    scheme: 'Mist',
+    sidebar: 'post'
   };
 </script>
 
@@ -99,6 +103,42 @@ writetofile fail路径要存在文件夹 光有路径无文件夹写入失败
 <nav class="site-nav">
   
 
+  
+    <ul id="menu" class="menu menu-left">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon icon-home"></i> <br />
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            <i class="menu-item-icon icon-categories"></i> <br />
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            <i class="menu-item-icon icon-archives"></i> <br />
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            <i class="menu-item-icon icon-tags"></i> <br />
+            标签
+          </a>
+        </li>
+      
+    </ul>
   
 
   
@@ -281,30 +321,30 @@ writetofile fail路径要存在文件夹 光有路径无文件夹写入失败
 
       <section class="site-overview">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" src="//default_avatar.jpg" alt="白洪瑞" itemprop="image"/>
+          <img class="site-author-image" src="/images/default_avatar.jpg" alt="白洪瑞" itemprop="image"/>
           <p class="site-author-name" itemprop="name">白洪瑞</p>
         </div>
         <p class="site-description motion-element" itemprop="description">I am a slow walker,but I never walk backwards.</p>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
-            <a href="/">
+            <a href="/archives">
               <span class="site-state-item-count">18</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
-            
+            <a href="/categories">
               <span class="site-state-item-count">5</span>
               <span class="site-state-item-name">分类</span>
-              
+              </a>
           </div>
 
           <div class="site-state-item site-state-tags">
-            
+            <a href="/tags">
               <span class="site-state-item-count">23</span>
               <span class="site-state-item-name">标签</span>
-              
+              </a>
           </div>
 
         </nav>
@@ -435,7 +475,7 @@ writetofile fail路径要存在文件夹 光有路径无文件夹写入失败
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#receiving_collection_element_of_type_int_is_not_an_objective_c_object_in_iOS"><span class="nav-text">receiving collection element of type int is not an objective c object in iOS</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#writetofile_fail"><span class="nav-text">writetofile fail</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#-_(BOOL)copyItemAtPath:(NSString_)srcPath_toPath:(NSString_)dstPath_error:(NSError_**)error"><span class="nav-text">- (BOOL)copyItemAtPath:(NSString )srcPath toPath:(NSString )dstPath error:(NSError **)error</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Message_from_debugger:_Terminated_due_to_Memory_Error"><span class="nav-text">Message from debugger: Terminated due to Memory Error</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Analyze提示:Value_stored_to_“xxx”is_never_read"><span class="nav-text">Analyze提示:Value stored to “xxx”is never read</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#删除cell_uncaught_exception_‘NSInternalInconsistencyException’,_reason:_‘Invalid_update:_invalid_number_of_rows_in_section_0-_The_number_of_rows_contained_in_an_existing_section_after_the_update_(0)_must_be_equal_to_the_number_of_rows_contained_in_that_section_before_the_update_(3),_plus_or_minus_the_number_of_rows_inserted_or_deleted_from_that_section_(0_inserted,_1_deleted)_and_plus_or_minus_the_number_of_rows_moved_into_or_out_of_that_section_(0_moved_in,_0_moved_out)-’"><span class="nav-text">删除cell uncaught exception ‘NSInternalInconsistencyException’, reason: ‘Invalid update: invalid number of rows in section 0.  The number of rows contained in an existing section after the update (0) must be equal to the number of rows contained in that section before the update (3), plus or minus the number of rows inserted or deleted from that section (0 inserted, 1 deleted) and plus or minus the number of rows moved into or out of that section (0 moved in, 0 moved out).’</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#process_launch_failed:_timed_out_waiting_for_app_to_launch"><span class="nav-text">process launch failed: timed out waiting for app to launch</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#receiving_collection_element_of_type_int_is_not_an_objective_c_object_in_iOS"><span class="nav-number">1.</span> <span class="nav-text">receiving collection element of type int is not an objective c object in iOS</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#writetofile_fail"><span class="nav-number">2.</span> <span class="nav-text">writetofile fail</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#-_(BOOL)copyItemAtPath:(NSString_)srcPath_toPath:(NSString_)dstPath_error:(NSError_**)error"><span class="nav-number">3.</span> <span class="nav-text">- (BOOL)copyItemAtPath:(NSString )srcPath toPath:(NSString )dstPath error:(NSError **)error</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Message_from_debugger:_Terminated_due_to_Memory_Error"><span class="nav-number">4.</span> <span class="nav-text">Message from debugger: Terminated due to Memory Error</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Analyze提示:Value_stored_to_“xxx”is_never_read"><span class="nav-number">5.</span> <span class="nav-text">Analyze提示:Value stored to “xxx”is never read</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#删除cell_uncaught_exception_‘NSInternalInconsistencyException’,_reason:_‘Invalid_update:_invalid_number_of_rows_in_section_0-_The_number_of_rows_contained_in_an_existing_section_after_the_update_(0)_must_be_equal_to_the_number_of_rows_contained_in_that_section_before_the_update_(3),_plus_or_minus_the_number_of_rows_inserted_or_deleted_from_that_section_(0_inserted,_1_deleted)_and_plus_or_minus_the_number_of_rows_moved_into_or_out_of_that_section_(0_moved_in,_0_moved_out)-’"><span class="nav-number">6.</span> <span class="nav-text">删除cell uncaught exception ‘NSInternalInconsistencyException’, reason: ‘Invalid update: invalid number of rows in section 0.  The number of rows contained in an existing section after the update (0) must be equal to the number of rows contained in that section before the update (3), plus or minus the number of rows inserted or deleted from that section (0 inserted, 1 deleted) and plus or minus the number of rows moved into or out of that section (0 moved in, 0 moved out).’</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#process_launch_failed:_timed_out_waiting_for_app_to_launch"><span class="nav-number">7.</span> <span class="nav-text">process launch failed: timed out waiting for app to launch</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
@@ -467,7 +507,7 @@ writetofile fail路径要存在文件夹 光有路径无文件夹写入失败
 <div class="theme-info">
   Theme by -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT
+    NexT.Mist
   </a>
 </div>
 
@@ -479,7 +519,7 @@ writetofile fail路径要存在文件夹 光有路径无文件夹写入失败
     <div class="back-to-top"></div>
 </div>
 
-<script type="text/javascript" src="//jquery/index.js?v=2.1.3"></script>
+<script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
 
   
   
@@ -505,19 +545,25 @@ writetofile fail路径要存在文件夹 光有路径无文件夹写入失败
     
   
   
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.4"></script>
 
-  <script type="text/javascript" src="//helpers.js?v="></script>
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.4"></script>
   
 
-  <script type="text/javascript" src="//motion_fallback.js?v=" id="motion.fallback"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.4" id="motion.global"></script>
 
 
 
-  <script type="text/javascript" src="//search-toggle.js"></script>
+  <script type="text/javascript" src="/js/search-toggle.js"></script>
 
 
   
-<script type="text/javascript" src="//bootstrap.scrollspy.js?v=" id="bootstrap.scrollspy.custom"></script>
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.4" id="bootstrap.scrollspy.custom"></script>
 
 
 <script type="text/javascript" id="sidebar.toc.highlight">
@@ -607,6 +653,51 @@ writetofile fail路径要存在文件夹 光有路径无文件夹写入失败
 </script>
 
 
+  <script type="text/javascript" id="sidebar.nav">
+    $(document).ready(function () {
+      var html = $('html');
+
+      $('.sidebar-nav li').on('click', function () {
+        var item = $(this);
+        var activeTabClassName = 'sidebar-nav-active';
+        var activePanelClassName = 'sidebar-panel-active';
+        if (item.hasClass(activeTabClassName)) {
+          return;
+        }
+
+        var currentTarget = $('.' + activePanelClassName);
+        var target = $('.' + item.data('target'));
+
+        currentTarget.velocity('transition.slideUpOut', 200, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', 200)
+            .addClass(activePanelClassName);
+        });
+
+        item.siblings().removeClass(activeTabClassName);
+        item.addClass(activeTabClassName);
+      });
+
+      $('.post-toc a').on('click', function (e) {
+        e.preventDefault();
+        var offset = $(escapeSelector(this.getAttribute('href'))).offset().top;
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        });
+      });
+
+      // Expand sidebar on post detail page by default, when post has a toc.
+      var $tocContent = $('.post-toc-content');
+      if (isDesktop() && CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          displaySidebar();
+        }
+      }
+    });
+  </script>
+
 
 
 
@@ -626,11 +717,11 @@ writetofile fail路径要存在文件夹 光有路径无文件夹写入失败
 
 
 <!-- lazyload -->
-<script type="text/javascript" src="//lazyload.js"></script>
+<script type="text/javascript" src="/js/lazyload.js"></script>
 <script type="text/javascript">
     jQuery(function () {
         jQuery("#posts img").lazyload({
-            placeholder: "//loading.gif",
+            placeholder: "/images/loading.gif",
             effect: "fadeIn"
         });
     });
