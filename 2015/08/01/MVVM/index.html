@@ -37,22 +37,26 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.4" />
 
 
-<meta name="description" content="MVVM,MVC,MVP理解的有点蒙，什么鬼MVC的一般流程是这样的：View（界面）触发事件—》Controller（业务）处理了业务，然后触发了数据更新—》不知道谁更新了Model的数据—》Model（带着数据）回到了View—》View更新数据
-MVP(Model-View-Presenter)切断的View和Model的联系，让View只和Presenter（原Controller）交互，">
+<meta name="description" content="MVVM,MVC,MVP理解的有点蒙，什么鬼 
+MVC的一般流程是这样的：View（界面）触发事件—》Controller（业务）处理了业务，然后触发了数据更新—》不知道谁更新了Model的数据—》Model（带着数据）回到了View—》View更新数据
+MVP(Model-View-Presenter)切断的View和Model的联系，让View只和Presenter（原Controller）交">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MVVM">
 <meta property="og:url" content="https://rayzworld.github.io/2015/08/01/MVVM/index.html">
 <meta property="og:site_name" content="HongRui's Blog">
-<meta property="og:description" content="MVVM,MVC,MVP理解的有点蒙，什么鬼MVC的一般流程是这样的：View（界面）触发事件—》Controller（业务）处理了业务，然后触发了数据更新—》不知道谁更新了Model的数据—》Model（带着数据）回到了View—》View更新数据
-MVP(Model-View-Presenter)切断的View和Model的联系，让View只和Presenter（原Controller）交互，">
+<meta property="og:description" content="MVVM,MVC,MVP理解的有点蒙，什么鬼 
+MVC的一般流程是这样的：View（界面）触发事件—》Controller（业务）处理了业务，然后触发了数据更新—》不知道谁更新了Model的数据—》Model（带着数据）回到了View—》View更新数据
+MVP(Model-View-Presenter)切断的View和Model的联系，让View只和Presenter（原Controller）交">
+<meta property="og:image" content="https://rayzworld.github.io/blogImage/face/doudoufei.gif">
 <meta property="og:image" content="https://rayzworld.github.io/blogImage/150801-1.png">
 <meta property="og:image" content="https://rayzworld.github.io/blogImage/150801-2.gif">
 <meta property="og:image" content="https://rayzworld.github.io/blogImage/150801-3.png">
-<meta property="og:updated_time" content="2015-08-18T17:18:51.000Z">
+<meta property="og:updated_time" content="2015-08-18T17:20:42.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MVVM">
-<meta name="twitter:description" content="MVVM,MVC,MVP理解的有点蒙，什么鬼MVC的一般流程是这样的：View（界面）触发事件—》Controller（业务）处理了业务，然后触发了数据更新—》不知道谁更新了Model的数据—》Model（带着数据）回到了View—》View更新数据
-MVP(Model-View-Presenter)切断的View和Model的联系，让View只和Presenter（原Controller）交互，">
+<meta name="twitter:description" content="MVVM,MVC,MVP理解的有点蒙，什么鬼 
+MVC的一般流程是这样的：View（界面）触发事件—》Controller（业务）处理了业务，然后触发了数据更新—》不知道谁更新了Model的数据—》Model（带着数据）回到了View—》View更新数据
+MVP(Model-View-Presenter)切断的View和Model的联系，让View只和Presenter（原Controller）交">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -229,7 +233,8 @@ MVP(Model-View-Presenter)切断的View和Model的联系，让View只和Presenter
       
 
       
-        <span itemprop="articleBody"><p>MVVM,MVC,MVP理解的有点蒙，什么鬼<br>MVC的一般流程是这样的：View（界面）触发事件—》Controller（业务）处理了业务，然后触发了数据更新—》不知道谁更新了Model的数据—》Model（带着数据）回到了View—》View更新数据</p>
+        <span itemprop="articleBody"><p>MVVM,MVC,MVP理解的有点蒙，什么鬼 <img src="/blogImage/face/doudoufei.gif" alt="白洪瑞太帅了"></p>
+<p>MVC的一般流程是这样的：View（界面）触发事件—》Controller（业务）处理了业务，然后触发了数据更新—》不知道谁更新了Model的数据—》Model（带着数据）回到了View—》View更新数据</p>
 <h3 id="MVP(Model-View-Presenter)">MVP(Model-View-Presenter)</h3><p>切断的View和Model的联系，让View只和Presenter（原Controller）交互，减少在需求变化中需要维护的对象的数量。</p>
 <h3 id="MVVM(Model_View_View-Model)">MVVM(Model View View-Model)</h3><a id="more"></a>
 <h4 id="Model_-_model"><strong>Model - model</strong></h4><p>在MVVM 中没有真正的变化，model可能会或可能不会封装一些额外的业务逻辑工作. 倾向于把它当做一个容纳表现数据-模型对象信息的结构体, 并在一个单独的管理类中维护的创建/管理模型的统一逻辑。</p>
