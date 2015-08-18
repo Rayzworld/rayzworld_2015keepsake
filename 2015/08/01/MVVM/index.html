@@ -37,16 +37,22 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.4" />
 
 
-<meta name="description">
+<meta name="description" content="MVVM,MVC,MVP理解的有点蒙，什么鬼MVC的一般流程是这样的：View（界面）触发事件—》Controller（业务）处理了业务，然后触发了数据更新—》不知道谁更新了Model的数据—》Model（带着数据）回到了View—》View更新数据
+MVP(Model-View-Presenter)切断的View和Model的联系，让View只和Presenter（原Controller）交互，">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MVVM">
 <meta property="og:url" content="https://rayzworld.github.io/2015/08/01/MVVM/index.html">
 <meta property="og:site_name" content="HongRui's Blog">
-<meta property="og:description">
-<meta property="og:updated_time" content="2015-08-11T16:37:40.000Z">
+<meta property="og:description" content="MVVM,MVC,MVP理解的有点蒙，什么鬼MVC的一般流程是这样的：View（界面）触发事件—》Controller（业务）处理了业务，然后触发了数据更新—》不知道谁更新了Model的数据—》Model（带着数据）回到了View—》View更新数据
+MVP(Model-View-Presenter)切断的View和Model的联系，让View只和Presenter（原Controller）交互，">
+<meta property="og:image" content="https://rayzworld.github.io/blogImage/150801-1.png">
+<meta property="og:image" content="https://rayzworld.github.io/blogImage/150801-2.gif">
+<meta property="og:image" content="https://rayzworld.github.io/blogImage/150801-3.png">
+<meta property="og:updated_time" content="2015-08-18T17:18:51.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MVVM">
-<meta name="twitter:description">
+<meta name="twitter:description" content="MVVM,MVC,MVP理解的有点蒙，什么鬼MVC的一般流程是这样的：View（界面）触发事件—》Controller（业务）处理了业务，然后触发了数据更新—》不知道谁更新了Model的数据—》Model（带着数据）回到了View—》View更新数据
+MVP(Model-View-Presenter)切断的View和Model的联系，让View只和Presenter（原Controller）交互，">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -223,7 +229,14 @@
       
 
       
-        <span itemprop="articleBody"><a id="more"></a></span>
+        <span itemprop="articleBody"><p>MVVM,MVC,MVP理解的有点蒙，什么鬼<br>MVC的一般流程是这样的：View（界面）触发事件—》Controller（业务）处理了业务，然后触发了数据更新—》不知道谁更新了Model的数据—》Model（带着数据）回到了View—》View更新数据</p>
+<h3 id="MVP(Model-View-Presenter)">MVP(Model-View-Presenter)</h3><p>切断的View和Model的联系，让View只和Presenter（原Controller）交互，减少在需求变化中需要维护的对象的数量。</p>
+<h3 id="MVVM(Model_View_View-Model)">MVVM(Model View View-Model)</h3><a id="more"></a>
+<h4 id="Model_-_model"><strong>Model - model</strong></h4><p>在MVVM 中没有真正的变化，model可能会或可能不会封装一些额外的业务逻辑工作. 倾向于把它当做一个容纳表现数据-模型对象信息的结构体, 并在一个单独的管理类中维护的创建/管理模型的统一逻辑。</p>
+<h4 id="View_-_view"><strong>View - view</strong></h4><p>包含实际UI本身(不论是 UIView 代码, storyboard 和 xib), 任何视图特定的逻辑, 和对用户输入的反馈. 在 iOS 中这不仅需要 UIView 代码和那些文件, 还包括很多需由 UIViewController 处理的工作。</p>
+<h4 id="View-Model"><strong>View-Model</strong></h4><p>作为一个表现视图显示自身所需数据的静态模型;但它也有收集, 解释和转换那些数据的责任. 这留给了 view (controller) 一个更加清晰明确的任务: 呈现由 view-model 提供的数据。<br>view-model 一词的确不能充分表达我们的意图. 一个更好的术语可能是 “View Coordinator”可以认为它就像是电视新闻主播背后的研究人员和作家团队。它从必要的资源(数据库, 网络服务调用, 等)中获取原始数据, 运用逻辑, 并处理成 view (controller) 的展示数据. 它(通常通过属性)暴露给视图控制器需要知道的仅关于显示视图工作的信息(理想地你不会暴漏你的 data-model 对象)。 它还负责对上游数据的修改(比如更新模型/数据库, API POST 调用)。<br><img src="/blogImage/150801-1.png" alt="白洪瑞太帅了"><br><img src="/blogImage/150801-2.gif" alt="白洪瑞太帅了"><br>实际上最终以 MVMCV 告终.<br>现在视图控制器仅关注于用 view-model 的数据配置和管理各种各样的视图, 并在先关用户输入时让 view-model 获知并需要向上游修改数据. 视图控制器不需要了解关于网络服务调用, Core Data, 模型对象等. (事实上有时通过 view-model 头文件而不是复制一大堆属性来暴漏 model 是很务实的, 后面还会有)<br><img src="/blogImage/150801-3.png" alt="白洪瑞太帅了"></p>
+<h4 id="参考">参考</h4><p><a href="http://objccn.io/issue-13-1/" target="_blank" rel="external">MVVM介绍</a><br><a href="http://www.cnblogs.com/indream/p/3602348.html" target="_blank" rel="external">从Script到Code Blocks、Code Behind到MVC、MVP、MVVM</a><br><a href="http://www.cnblogs.com/xueduanyang/p/3601471.html" target="_blank" rel="external">不要听吹牛逼什么前端MVVM框架就是好，其实都是一帮没学好分层设计的搞出来的，让你彻底看清前端MVVM的本质</a><br><a href="http://www.cocoachina.com/ios/20150526/11930.html" target="_blank" rel="external">ReactiveCocoa 和 MVVM 入门</a></p>
+</span>
       
     </div>
 
@@ -460,7 +473,7 @@
           <div class="post-toc">
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#MVP(Model-View-Presenter)"><span class="nav-number">1.</span> <span class="nav-text">MVP(Model-View-Presenter)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MVVM(Model_View_View-Model)"><span class="nav-number">2.</span> <span class="nav-text">MVVM(Model View View-Model)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Model_-_model"><span class="nav-number">2.1.</span> <span class="nav-text">Model - model</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#View_-_view"><span class="nav-number">2.2.</span> <span class="nav-text">View - view</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#View-Model"><span class="nav-number">2.3.</span> <span class="nav-text">View-Model</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#参考"><span class="nav-number">2.4.</span> <span class="nav-text">参考</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
