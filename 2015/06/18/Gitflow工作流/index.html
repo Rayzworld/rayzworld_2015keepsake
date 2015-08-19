@@ -51,7 +51,7 @@ Gitflow工作流没有用超出功能分支工作流的概念和命令，而是�
 Gitflow工作流定义了一个围绕项目发布的严格分支模型。虽然比功能分支工作流复杂几分，但提供了用于一个健壮的用于管理大型项目的框架。
 
 Gitflow工作流没有用超出功能分支工作流的概念和命令，而是为不同的分支分配一个很明确的角色，并定义分支之间如何和什么时候进行交互。除了使用功能分支，在做准备、维护和记录发布也使用各自的分支。当然你可以用上功能">
-<meta property="og:updated_time" content="2015-07-02T16:43:18.000Z">
+<meta property="og:updated_time" content="2015-08-19T19:28:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Gitflow工作流">
 <meta name="twitter:description" content="借鉴nvie的Vincent Driessen
@@ -240,6 +240,12 @@ Gitflow工作流没有用超出功能分支工作流的概念和命令，而是�
 <p>Gitflow工作流定义了一个围绕项目发布的严格分支模型。虽然比功能分支工作流复杂几分，但提供了用于一个健壮的用于管理大型项目的框架。</p>
 </blockquote>
 <p>Gitflow工作流没有用超出功能分支工作流的概念和命令，而是为不同的分支分配一个很明确的角色，并定义分支之间如何和什么时候进行交互。<br>除了使用功能分支，在做准备、维护和记录发布也使用各自的分支。<br>当然你可以用上功能分支工作流所有的好处：Pull Requests、隔离实验性开发和更高效的协作。</p>
+<h3 id="工作方式">工作方式</h3><p>Gitflow工作流仍然用中央仓库作为所有开发者的交互中心。和其它的工作流一样，开发者在本地工作并push分支到要中央仓库中。</p>
+<h3 id="历史分支">历史分支</h3><p>master分支存储了正式发布的历史，而develop分支作为功能的集成分支。</p>
+<h3 id="功能分支">功能分支</h3><p>Feature，使用develop分支作为父分支。当新功能完成时，合并回develop分支。</p>
+<h3 id="发布分支">发布分支</h3><p>Rlease,一旦develop分支上有了做一次发布（或者说快到了既定的发布日）的足够功能，就从develop分支上fork一个发布分支。<br>新建的分支用于开始发布循环，所以从这个时间点开始之后新的功能不能再加到这个分支上——<br>这个分支只应该做Bug修复、文档生成和其它面向发布任务。<br>一旦对外发布的工作都完成了，发布分支合并到master分支并分配一个版本号打好Tag。<br>另外，这些从新建发布分支以来的做的修改要合并回develop分支。</p>
+<h3 id="维护分支">维护分支</h3><p>维护分支或说是热修复（hotfix）分支用于生成快速给产品发布版本（production releases）打补丁，这是唯一可以直接从master分支fork出来的分支。<br>修复完成，修改应该马上合并回master分支和develop分支（当前的发布分支），master分支应该用新的版本号打好Tag。</p>
+<p>为Bug修复使用专门分支，让团队可以处理掉问题而不用打断其它工作或是等待下一个发布循环。<br>你可以把维护分支想成是一个直接在master分支上处理的临时发布。</p>
 </span>
       
     </div>
@@ -463,7 +469,7 @@ Gitflow工作流没有用超出功能分支工作流的概念和命令，而是�
           <div class="post-toc">
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#工作方式"><span class="nav-number">1.</span> <span class="nav-text">工作方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#历史分支"><span class="nav-number">2.</span> <span class="nav-text">历史分支</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#功能分支"><span class="nav-number">3.</span> <span class="nav-text">功能分支</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#发布分支"><span class="nav-number">4.</span> <span class="nav-text">发布分支</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#维护分支"><span class="nav-number">5.</span> <span class="nav-text">维护分支</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>

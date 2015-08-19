@@ -563,15 +563,11 @@
 
       
         
-          <blockquote>
+          <span itemprop="articleBody"><blockquote>
 <p>所有的个人公开仓库实际上只是为了方便和其它的开发者共享分支。<br>各个开发者应该用分支隔离各个功能，就像在功能分支工作流和Gitflow工作流一样。<br>唯一的区别是这些分支被共享了。在Forking工作流中这些分支会被pull到另一个开发者的本地仓库中，而在功能分支工作流和Gitflow工作流中是直接被push到正式仓库中。</p>
 </blockquote>
-<p>所有的个人公开仓库实际上只是为了方便和其它的开发者共享分支。<br>各个开发者应该用分支隔离各个功能，就像在功能分支工作流和Gitflow工作流一样。<br>唯一的区别是这些分支被共享了。在Forking工作流中这些分支会被pull到另一个开发者的本地仓库中，而在功能分支工作流和Gitflow工作流中是直接被push到正式仓库中。<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/06/19/Pull Requests/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+<h3 id="GitFlow+Pull_Request">GitFlow+Pull Request</h3><p>功能分支并不是马上合并到develop，当一个功能、发布或是热修复分支需要Review时，开发者开一个Pull Request发起功能的讨论，收到Pull Request后，项目维护者要决定如何做。如果功能没问题，就简单地合并到master分支，关闭Pull Request。<br>但如果提交的变更有问题，他可以在Pull Request中反馈。之后新加的提交也会评论之后接着显示出来。<br>在功能还没有完全开发完的时候，也可能发起一个Pull Request。<br>比如开发者在实现某个需求时碰到了麻烦，他可以发一个包含正在进行中工作的Pull Request。<br>其它的开发者可以在Pull Request提供建议，或者甚至直接添加提交来解决问题。</p>
+</span>
         
       
     </div>
@@ -655,6 +651,12 @@
 <p>Gitflow工作流定义了一个围绕项目发布的严格分支模型。虽然比功能分支工作流复杂几分，但提供了用于一个健壮的用于管理大型项目的框架。</p>
 </blockquote>
 <p>Gitflow工作流没有用超出功能分支工作流的概念和命令，而是为不同的分支分配一个很明确的角色，并定义分支之间如何和什么时候进行交互。<br>除了使用功能分支，在做准备、维护和记录发布也使用各自的分支。<br>当然你可以用上功能分支工作流所有的好处：Pull Requests、隔离实验性开发和更高效的协作。</p>
+<h3 id="工作方式">工作方式</h3><p>Gitflow工作流仍然用中央仓库作为所有开发者的交互中心。和其它的工作流一样，开发者在本地工作并push分支到要中央仓库中。</p>
+<h3 id="历史分支">历史分支</h3><p>master分支存储了正式发布的历史，而develop分支作为功能的集成分支。</p>
+<h3 id="功能分支">功能分支</h3><p>Feature，使用develop分支作为父分支。当新功能完成时，合并回develop分支。</p>
+<h3 id="发布分支">发布分支</h3><p>Rlease,一旦develop分支上有了做一次发布（或者说快到了既定的发布日）的足够功能，就从develop分支上fork一个发布分支。<br>新建的分支用于开始发布循环，所以从这个时间点开始之后新的功能不能再加到这个分支上——<br>这个分支只应该做Bug修复、文档生成和其它面向发布任务。<br>一旦对外发布的工作都完成了，发布分支合并到master分支并分配一个版本号打好Tag。<br>另外，这些从新建发布分支以来的做的修改要合并回develop分支。</p>
+<h3 id="维护分支">维护分支</h3><p>维护分支或说是热修复（hotfix）分支用于生成快速给产品发布版本（production releases）打补丁，这是唯一可以直接从master分支fork出来的分支。<br>修复完成，修改应该马上合并回master分支和develop分支（当前的发布分支），master分支应该用新的版本号打好Tag。</p>
+<p>为Bug修复使用专门分支，让团队可以处理掉问题而不用打断其它工作或是等待下一个发布循环。<br>你可以把维护分支想成是一个直接在master分支上处理的临时发布。</p>
 </span>
         
       
