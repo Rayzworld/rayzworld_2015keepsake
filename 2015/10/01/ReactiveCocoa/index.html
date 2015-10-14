@@ -1,0 +1,732 @@
+<!doctype html>
+<html class="theme-next use-motion theme-next-mist">
+<head>
+    
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.4"/>
+
+
+    <meta name="description" content="I am a slow walker,but I never walk backwards." />
+
+
+
+  <meta name="keywords" content="ReactiveCocoa,iOS," />
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.4" />
+
+
+<meta name="description" content="RACSignal
+RACSignal (信号)信号会为了控制通过应用的信息流而获得所有这些异步方法(委托, 回调 block, 通知, KVO, target/action 事件观察, 等)并将它们统一到一个接口下.
+
+信号发送的值是从哪获得的?信号是一些等待某事发生的异步代码, 然后把结果值发送给它们的订阅者. 你可以用 RACSignal 的类方法 createSignal: 手动创建信号:">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ReactiveCocoa">
+<meta property="og:url" content="https://rayzworld.github.io/2015/10/01/ReactiveCocoa/index.html">
+<meta property="og:site_name" content="HongRui's Blog">
+<meta property="og:description" content="RACSignal
+RACSignal (信号)信号会为了控制通过应用的信息流而获得所有这些异步方法(委托, 回调 block, 通知, KVO, target/action 事件观察, 等)并将它们统一到一个接口下.
+
+信号发送的值是从哪获得的?信号是一些等待某事发生的异步代码, 然后把结果值发送给它们的订阅者. 你可以用 RACSignal 的类方法 createSignal: 手动创建信号:">
+<meta property="og:updated_time" content="2015-10-14T10:42:12.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ReactiveCocoa">
+<meta name="twitter:description" content="RACSignal
+RACSignal (信号)信号会为了控制通过应用的信息流而获得所有这些异步方法(委托, 回调 block, 通知, KVO, target/action 事件观察, 等)并将它们统一到一个接口下.
+
+信号发送的值是从哪获得的?信号是一些等待某事发生的异步代码, 然后把结果值发送给它们的订阅者. 你可以用 RACSignal 的类方法 createSignal: 手动创建信号:">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: 'post'
+  };
+</script>
+
+    <title> ReactiveCocoa // HongRui's Blog </title>
+</head>
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+
+
+
+
+<div class="container one-column page-post-detail">
+    <div class="headband"></div>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+        <div class="header-inner"><h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand" rel="start">
+      <span class="logo">
+        <i class="icon-logo"></i>
+      </span>
+      <span class="site-title">HongRui's Blog</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu menu-left">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon icon-home"></i> <br />
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            <i class="menu-item-icon icon-categories"></i> <br />
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            <i class="menu-item-icon icon-archives"></i> <br />
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            <i class="menu-item-icon icon-tags"></i> <br />
+            标签
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+<form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'EHDHtw-j3DipDyhFHcz8','2.0.0');
+</script>
+
+<div class="site-search-toggle"></div>
+    </div>
+  
+</nav>
+
+
+        </div>
+    </header>
+
+    <main id="main" class="main">
+        <div class="main-inner">
+            <div id="content" class="content">
+                
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              ReactiveCocoa
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2015-10-01T13:56:30+08:00" content="2015-10-01">
+            2015-10-01
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a></span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2015/10/01/ReactiveCocoa/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/01/ReactiveCocoa/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><h3 id="RACSignal">RACSignal</h3><blockquote>
+<p>RACSignal (信号)信号会为了控制通过应用的信息流而获得所有这些异步方法(委托, 回调 block, 通知, KVO, target/action 事件观察, 等)并将它们统一到一个接口下.</p>
+</blockquote>
+<h4 id="信号发送的值是从哪获得的?">信号发送的值是从哪获得的?</h4><p>信号是一些等待某事发生的异步代码, 然后把结果值发送给它们的订阅者. 你可以用 RACSignal 的类方法 createSignal: 手动创建信号:<br><figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">RACSignal</span> *networkSignal = [<span class="type">RACSignal</span> createSignal:^<span class="type">RACDisposable</span> *(idsubscriber) &#123;</span><br><span class="line">        <span class="type">NetworkOperation</span> *operation = [<span class="type">NetworkOperation</span> getJSONOperationForURL:@<span class="string">"http://someurl"</span>];</span><br><span class="line">        [operation setCompletionBlockWithSuccess:^(<span class="type">NetworkOperation</span> *theOperation, id *<span class="literal">result</span>) &#123;</span><br><span class="line">            [subscriber sendNext:<span class="literal">result</span>];</span><br><span class="line">            [subscriber sendCompleted];</span><br><span class="line">        &#125; failure:^(<span class="type">NetworkOperation</span> *theOperation, <span class="type">NSError</span> *error) &#123;</span><br><span class="line">            [subscriber sendError:error];</span><br><span class="line">        &#125;];</span><br></pre></td></tr></table></figure></p>
+<p>在这用一个具有成功和失败 block (伪造)的网络操作创建了一个信号. (如果我想让信号在被订阅时才让网络请求发生, 还可以用 RACSignal 的类方法 defer. )我在成功的 block 里使用提供的 subscriber 对象调用 sendNext: 和 sendCompleted: 方法, 或在失败的 block 中调用 sendError:. 现在我可以订阅这个信号并将在响应返回时接收到 json 值或是 error.<br><a id="more"></a></p>
+<h3 id="RACObserve()">RACObserve()</h3><p>RAC 中对 KVO 中那些悲惨的 API 的替代. 你只需要传入对象和你想观察的那个对象某属性的 keypath. 给出这些参数后, RACObserve 会创建一个信号, 一旦它有了订阅者, 它就立刻发送那个属性的当前值, 并在发送那个属性在这之后的任何变化.<br><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">RACSignal *usernameValidSignal = RACObserve<span class="list">(<span class="keyword">self</span>. viewModel,  usernameIsValid)</span><span class="comment">;</span></span><br></pre></td></tr></table></figure></p>
+<p>这仅是提供用于创建信号的一个工具. 这里有几个立即可用的方式, 来从内置控制流机制中拉取信号:<br><figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">RACSignal</span> *controlUpdate = [myButton rac_signalForControlEvents:<span class="type">UIControlEventTouchUpInside</span>];</span><br><span class="line">    // signals <span class="keyword">for</span> <span class="type">UIControl</span> events send the control event value (<span class="type">UITextField</span>, <span class="type">UIButton</span>, <span class="type">UISlider</span>, etc)</span><br><span class="line">    // subscribeNext:^(<span class="type">UIButton</span> *button) &#123; <span class="type">NSLog</span>(@<span class="string">"%@"</span>, button); // <span class="type">UIButton</span> instance &#125;</span><br><span class="line">  </span><br><span class="line"><span class="type">RACSignal</span> *textChange = [myTextField rac_textSignal];</span><br><span class="line">    // some special methods are provided <span class="keyword">for</span> commonly needed control event values off certain controls</span><br><span class="line">    // subscribeNext:^(<span class="type">UITextField</span> *textfield) &#123; <span class="type">NSLog</span>(@<span class="string">"%@"</span>, textfield.text); // <span class="string">"Hello!"</span> &#125;</span><br><span class="line">  </span><br><span class="line"><span class="type">RACSignal</span> *alertButtonClicked = [myAlertView rac_buttonClickedSignal];</span><br><span class="line">    // signals <span class="keyword">for</span> some delegate methods send the delegate params <span class="keyword">as</span> the value</span><br><span class="line">    // e.g. <span class="type">UIAlertView</span>, <span class="type">UIActionSheet</span>, <span class="type">UIImagePickerControl</span>, etc</span><br><span class="line">    // (limited to methods that <span class="keyword">return</span> <span class="type">void</span>)</span><br><span class="line">    // subscribeNext:^(<span class="type">NSNumber</span> *buttonIndex) &#123; <span class="type">NSLog</span>(@<span class="string">"%@"</span>, buttonIndex); // <span class="string">"1"</span> &#125;</span><br><span class="line">  </span><br><span class="line"><span class="type">RACSignal</span> *viewAppeared = [self rac_signalForSelector:@selector(viewDidAppear:)];</span><br><span class="line">    // signals <span class="keyword">for</span> arbitrary selectors that <span class="keyword">return</span> <span class="type">void</span>, send the <span class="keyword">method</span> params <span class="keyword">as</span> the value</span><br><span class="line">    // works <span class="keyword">for</span> built <span class="keyword">in</span> <span class="keyword">or</span> your own methods</span><br><span class="line">    // subscribeNext:^(<span class="type">NSNumber</span> *animated) &#123; <span class="type">NSLog</span>(@<span class="string">"viewDidAppear %@"</span>, animated); // <span class="string">"viewDidAppear 1"</span> &#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="订阅者">订阅者</h3><p>订阅者就是一段代码, 它等待信号给它发送一些值, 然后订阅者就能处理这些值了. (它也可以作用于 “complete” 和 “error” 事件. )</p>
+<p>这有一个简单的订阅者, 是通过向信号的实例方法 subscribeNext 传入一个 block 来创建的. 我们在这通过 RACObserve() 宏创建信号来观察一个对象上属性的当前值, 并把它赋值给一个内部属性.<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>) viewDidLoad &#123;</span><br><span class="line">  <span class="comment">// . . . </span></span><br><span class="line">  <span class="comment">// create and get a reference to the signal</span></span><br><span class="line">  RACSignal *usernameValidSignal = RACObserve(<span class="keyword">self</span>. viewModel,  isUsernameValid);</span><br><span class="line">  <span class="comment">// update the local property when this value changes</span></span><br><span class="line">  [usernameValidSignal subscribeNext: ^(<span class="built_in">NSNumber</span> *isValidNumber) &#123;</span><br><span class="line">          <span class="keyword">self</span>. usernameIsValid = isValidNumber. boolValue</span><br><span class="line">      &#125;];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="注意_：RAC_只处理对象,_而不处理像_BOOL_这样的原始值-_不过不用担心,_RAC_通常会帮你这些转换-"><strong>注意 ：RAC 只处理对象, 而不处理像 BOOL 这样的原始值. 不过不用担心, RAC 通常会帮你这些转换.</strong></h4><p>所以他们提供了另一个宏 RAC(). 与 RACObserve() 相同, 你提供想要与即将到来的值绑定的对象和参数, 在其内部它所做的是创建一个订阅者并更新其属性的值. 我们的例子现在看起来像这样:<br><figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">- <span class="comment">(void)</span> viewDidLoad &#123;</span><br><span class="line">    <span class="comment">//. . . </span></span><br><span class="line">    RAC<span class="comment">(self,  usernameIsValid)</span> = RACObserve<span class="comment">(self. viewModel,  isUsernameValid)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="转换数据流">转换数据流</h4><p>利用 RACSignal 的实例方法 map.<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>) viewDidLoad &#123;</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">    RACSignal *usernameIsValidSignal = RACObserve(<span class="keyword">self</span><span class="variable">.viewModel</span>, isUsernameValid);</span><br><span class="line">    RAC(<span class="keyword">self</span><span class="variable">.goButton</span>, enabled) = usernameIsValidSignal;</span><br><span class="line">    RAC(<span class="keyword">self</span><span class="variable">.goButton</span>, alpha) = [usernameIsValidSignal</span><br><span class="line">        map:^<span class="keyword">id</span>(<span class="built_in">NSNumber</span> *usernameIsValid) &#123;</span><br><span class="line">            <span class="keyword">return</span> usernameIsValid<span class="variable">.boolValue</span> ? @<span class="number">1.0</span> : @<span class="number">0.5</span>;</span><br><span class="line">        &#125;];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>注意在这里我们返回的是一个 NSNumber 对象而不是原始float值.你需要负责为 RAC 将原始值转化为对象, 因为它不能帮你导出来.</p>
+<h4 id="多个订阅者">多个订阅者</h4><p>当信号需要发送一个新的值时, 它会遍历所有的订阅者并给每个订阅者发送那个值. </p>
+<h4 id="如何用_ReactiveCocoa_将_view-model_与视图控制器连接起来">如何用 ReactiveCocoa 将 view-model 与视图控制器连接起来</h4><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>) viewDidLoad &#123;</span><br><span class="line">    [<span class="keyword">super</span> viewDidLoad];</span><br><span class="line">  	<span class="comment">// 在这我们用 RAC 库中的方法从 UITextField 拉取一个信号. 这行代码将 view-model 上的可读写属性 username 绑定到文本框上的用户输入的任何更新.</span></span><br><span class="line">    RAC(<span class="keyword">self</span>. viewModel,  username) = [myTextfield rac_textSignal];</span><br><span class="line">  	<span class="comment">// 在 view-model 的 usernameValid 属性上创建了一个信号 usernameIsValidSignal. 无论何时属性发生变化, 它将会沿着管道发送一个新的 @YES 或 @NO. 我们拿到那个值并将其绑定到 goButton 的两个属性上. 首先我们将 alpha 分别对应 YES 或 NO 更新到1或0. 5(记着在这必须返回 NSNumber). 然后我们直接将信号绑定到 enabled 属性, 因为 YES 和 NO 在这无需转换就能完美地运作.</span></span><br><span class="line">    RACSignal *usernameIsValidSignal = RACObserve(<span class="keyword">self</span>. viewModel,  usernameValid);</span><br><span class="line">  </span><br><span class="line">    RAC(<span class="keyword">self</span>. goButton,  alpha) = [usernameIsValidSignal</span><br><span class="line">        map:  ^(<span class="built_in">NSNumber</span> *valid) &#123;</span><br><span class="line">            <span class="keyword">return</span> valid. boolValue ? @<span class="number">1</span> :  @<span class="number">0.</span> <span class="number">5</span>;</span><br><span class="line">        &#125;];</span><br><span class="line">  </span><br><span class="line">    RAC(<span class="keyword">self</span>. goButton,  enabled) = usernameIsValidSignal;</span><br><span class="line">  	<span class="comment">// 为表头的图像视图和用户标签创建绑定, 再次在 view-model 上对应的属性上用 RACObserve 宏创建信号.</span></span><br><span class="line">    RAC(<span class="keyword">self</span>. avatarImageView,  image) = RACObserve(<span class="keyword">self</span>. viewModel,  userAvatarImage);</span><br><span class="line">    RAC(<span class="keyword">self</span>. userNameLabel,  text) = RACObserve(<span class="keyword">self</span>. viewModel,  userFullName);</span><br><span class="line">  </span><br><span class="line">  	<span class="comment">// 想在 view-model 上 tweets 数组或 allTweetsLoaded 属性发生变化时更新表格视图. (在这个例子中, 我们要用一个简单的方法来重新加载整张表. )所以我们将这两个属性被观察后创建的两个信号合并成一个更大的信号, 当两个属性中有一个发生变化, 这个信号就会发送值. (你一贯认为信号的值是同类型的, 不会像这个信号有一样混杂的值. 这很可能在 Swift 版本的 RAC 中强制要求, 但在这我们不关心发出的真实值, 我们只是用它来触发表格式图的重新加载. )</span></span><br><span class="line">    @weakify(<span class="keyword">self</span>);</span><br><span class="line">    [[[RACSignal merge: @[RACObserve(<span class="keyword">self</span>. viewModel,  tweets), </span><br><span class="line">                        RACObserve(<span class="keyword">self</span>. viewModel,  allTweetsLoaded)]]</span><br><span class="line">        bufferWithTime: <span class="number">0</span> onScheduler: [RACScheduler mainThreadScheduler]]</span><br><span class="line">        subscribeNext: ^(<span class="keyword">id</span> value) &#123;</span><br><span class="line">            @strongify(<span class="keyword">self</span>);</span><br><span class="line">            [<span class="keyword">self</span>. tableView reloadData];</span><br><span class="line">        &#125;];</span><br><span class="line">     <span class="comment">// 注意我在这用 @weakify/@strongify 宏切换 strong 和 weak. 这在创建所有这些 block 时非常重要. 在 RAC 的 block 中使用 self 时self 将会被捕获为强引用并得到保留环, 除非你尤其意识到要破除保留环</span></span><br><span class="line">    [[<span class="keyword">self</span>. goButton rac_signalForControlEvents: <span class="built_in">UIControlEventTouchUpInside</span>]</span><br><span class="line">        subscribeNext:  ^(<span class="keyword">id</span> value) &#123;</span><br><span class="line">            @strongify(<span class="keyword">self</span>);</span><br><span class="line">            [<span class="keyword">self</span>. viewModel getTweetsForCurrentUsername];</span><br><span class="line">        &#125;];</span><br><span class="line">&#125;</span><br><span class="line">  </span><br><span class="line">-(<span class="built_in">UITableViewCell</span>*)tableView: (<span class="built_in">UITableView</span> *)tableView cellForRowAtIndexPath: (<span class="built_in">NSIndexPath</span> *)indexPath &#123;</span><br><span class="line">    <span class="comment">// if table section is the tweets section</span></span><br><span class="line">    <span class="keyword">if</span> (indexPath. section == <span class="number">0</span>) &#123;</span><br><span class="line">        MYTwitterUserCell *cell =</span><br><span class="line">        [<span class="keyword">self</span>. tableView dequeueReusableCellWithIdentifier: <span class="string">@"MYTwitterUserCell"</span> forIndexPath: indexPath];</span><br><span class="line">         </span><br><span class="line">        <span class="comment">// grab the cell view model from the vc view model and assign it</span></span><br><span class="line">        cell. viewModel = <span class="keyword">self</span>. viewModel. tweets[indexPath. row];</span><br><span class="line">        <span class="keyword">return</span> cell;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">// else if the section is our loading cell</span></span><br><span class="line">        MYLoadingCell *cell =</span><br><span class="line">        [<span class="keyword">self</span>. tableView dequeueReusableCellWithIdentifier: <span class="string">@"MYLoadingCell"</span> forIndexPath: indexPath];</span><br><span class="line">        [<span class="keyword">self</span>. viewModel loadMoreTweets];</span><br><span class="line">        <span class="keyword">return</span> cell;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// MYTwitterUserCell</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line">  </span><br><span class="line"><span class="comment">// this could also be in cell init</span></span><br><span class="line">- (<span class="keyword">void</span>) awakeFromNib &#123;</span><br><span class="line">    [<span class="keyword">super</span> awakeFromNib];</span><br><span class="line">     </span><br><span class="line">    RAC(<span class="keyword">self</span>. avatarImageView,  image) = RACObserve(<span class="keyword">self</span>,  viewModel. tweetAuthorAvatarImage);</span><br><span class="line">    RAC(<span class="keyword">self</span>. userNameLabel,  text) = RACObserve(<span class="keyword">self</span>,  viewModel. tweetAuthorFullName);</span><br><span class="line">    RAC(<span class="keyword">self</span>. tweetTextLabel,  text) = RACObserve(<span class="keyword">self</span>,  viewModel. tweetContent);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ReactiveCocoa/" rel="tag">#ReactiveCocoa</a>
+          
+            <a href="/tags/iOS/" rel="tag">#iOS</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/10/07/iOS9/" rel="prev">iOS9 Adaptation Tips</a>
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/09/23/正则regex/" rel="next">正则regex</a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+            </div>
+
+            
+
+            
+              <div class="comments" id="comments">
+                
+                  <div class="ds-thread" data-thread-key="2015/10/01/ReactiveCocoa/"
+                       data-title="ReactiveCocoa" data-url="https://rayzworld.github.io/2015/10/01/ReactiveCocoa/">
+                  </div>
+                
+              </div>
+            
+        </div>
+
+        
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/images/default_avatar.jpg" alt="白洪瑞" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">白洪瑞</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description">I am a slow walker,but I never walk backwards.</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">22</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">5</span>
+              <span class="site-state-item-name">分类</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">25</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Rayzworld" target="_blank">GitHub</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/2421652200" target="_blank">WeiBo</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/Rayzworld2015" target="_blank">Twitter</a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+            <p class="site-author-name">Talk is cheap, show me the code.</p>
+            
+              <span class="links-of-author-item">
+              <a href="http://diwu.me" target="_blank">吴迪</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://www.objccn.io/" target="_blank">objc中国</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://kittenyang.com/" target="_blank">KittenYang</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://blog.sunnyxx.com/" target="_blank">太阳仔</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://nshipster.cn/" target="_blank">NSHipster</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://www.raywenderlich.com" target="_blank">raywenderlich</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://blog.devtang.com/" target="_blank">唐巧</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://joeshang.github.io/" target="_blank">传人</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://onevcat.com/" target="_blank">瞄神</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://macshuo.com/" target="_blank">池建强</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://vinqon.com/" target="_blank">陈咏聪</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://dlog.dismory.com/" target="_blank">耿健桓</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://blog.csdn.net/justinjing0612" target="_blank">景总</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://nianxi.net/" target="_blank">念茜</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://iiiyu.com/" target="_blank">萧宸宇</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://beyondvincent.com/" target="_blank">破船</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://www.iwangke.me/" target="_blank">王轲</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://www.cnblogs.com/easonoutlook/" target="_blank">杨宇建</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://casatwy.com/" target="_blank">田伟宇</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://noark9.github.io/" target="_blank">诺基亚</a>
+              </span>
+            
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#RACSignal"><span class="nav-number">1.</span> <span class="nav-text">RACSignal</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#信号发送的值是从哪获得的?"><span class="nav-number">1.1.</span> <span class="nav-text">信号发送的值是从哪获得的?</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RACObserve()"><span class="nav-number">2.</span> <span class="nav-text">RACObserve()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#订阅者"><span class="nav-number">3.</span> <span class="nav-text">订阅者</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#注意_：RAC_只处理对象,_而不处理像_BOOL_这样的原始值-_不过不用担心,_RAC_通常会帮你这些转换-"><span class="nav-number">3.1.</span> <span class="nav-text">注意 ：RAC 只处理对象, 而不处理像 BOOL 这样的原始值. 不过不用担心, RAC 通常会帮你这些转换.</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#转换数据流"><span class="nav-number">3.2.</span> <span class="nav-text">转换数据流</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#多个订阅者"><span class="nav-number">3.3.</span> <span class="nav-text">多个订阅者</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#如何用_ReactiveCocoa_将_view-model_与视图控制器连接起来"><span class="nav-number">3.4.</span> <span class="nav-text">如何用 ReactiveCocoa 将 view-model 与视图控制器连接起来</span></a></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+    </main>
+
+    <footer id="footer" class="footer">
+        <div class="footer-inner">
+            <div class="copyright" >
+  
+  &copy; &nbsp;  2014 - 
+  <span itemprop="copyrightYear">2015</span>
+  <span class="with-love">
+    <i class="icon-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">白洪瑞</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a> 
+</div>
+
+<div class="theme-info">
+  Theme by -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+        </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+</div>
+
+<script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+    
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"rayzworld"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+    
+  
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.4"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.4"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.4" id="motion.global"></script>
+
+
+
+  <script type="text/javascript" src="/js/search-toggle.js"></script>
+
+
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.4" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+          var self = this;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      $(indicator).velocity('stop').velocity({
+        opacity: action === 'show' ? 0.4 : 0
+      }, { duration: 100 });
+    }
+
+  });
+</script>
+
+
+  <script type="text/javascript" id="sidebar.nav">
+    $(document).ready(function () {
+      var html = $('html');
+
+      $('.sidebar-nav li').on('click', function () {
+        var item = $(this);
+        var activeTabClassName = 'sidebar-nav-active';
+        var activePanelClassName = 'sidebar-panel-active';
+        if (item.hasClass(activeTabClassName)) {
+          return;
+        }
+
+        var currentTarget = $('.' + activePanelClassName);
+        var target = $('.' + item.data('target'));
+
+        currentTarget.velocity('transition.slideUpOut', 200, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', 200)
+            .addClass(activePanelClassName);
+        });
+
+        item.siblings().removeClass(activeTabClassName);
+        item.addClass(activeTabClassName);
+      });
+
+      $('.post-toc a').on('click', function (e) {
+        e.preventDefault();
+        var offset = $(escapeSelector(this.getAttribute('href'))).offset().top;
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        });
+      });
+
+      // Expand sidebar on post detail page by default, when post has a toc.
+      var $tocContent = $('.post-toc-content');
+      if (isDesktop() && CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          displaySidebar();
+        }
+      }
+    });
+  </script>
+
+
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        if (CONFIG.sidebar === 'always') {
+            displaySidebar();
+        }
+    });
+</script>
+
+
+
+
+
+
+
+
+<!-- lazyload -->
+<script type="text/javascript" src="/js/lazyload.js"></script>
+<script type="text/javascript">
+    jQuery(function () {
+        jQuery("#posts img").lazyload({
+            placeholder: "/images/loading.gif",
+            effect: "fadeIn"
+        });
+    });
+</script>
+</body>
+</html>

@@ -178,6 +178,371 @@
           
           
             
+              <a class="post-title-link" href="/2015/10/07/iOS9/" itemprop="url">
+                iOS9 Adaptation Tips
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2015-10-07T14:27:47+08:00" content="2015-10-07">
+            2015-10-07
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a></span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2015/10/07/iOS9/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/07/iOS9/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <h3 id="iOS9网络适配_ATS：改用更安全的HTTPS">iOS9网络适配_ATS：改用更安全的HTTPS</h3><blockquote>
+<p>为了强制增强数据访问安全， iOS9 默认会把 所有的http请求 所有从NSURLConnection 、 CFURL 、 NSURLSession发出的 HTTP 请求，都改为 HTTPS 请求：iOS9.x-SDK编译时，默认会让所有从NSURLConnection 、 CFURL 、 NSURLSession发出的 HTTP 请求统一采用TLS 1.2 协议。因为 AFNetworking 现在的版本底层使用了 NSURLConnection ，众多App将被影响（基于iOS8.x-SDK的App不受影响）。服务器因此需要更新，以解析相关数据。如不更新，可通过在 Info.plist 中声明，倒退回不安全的网络请求。而这一做法，官方文档称为ATS，全称为App Transport Security，是iOS9的一个新特性。</p>
+</blockquote>
+<p>一个符合 ATS 要求的 HTTPS，应该满足如下条件：<br>    1Transport Layer Security协议版本要求TLS1.2以上<br>    2服务的Ciphers配置要求支持Forward Secrecy等<br>    3证书签名算法符合ATS要求等</p>
+<p>方案一：立即让公司的服务端升级使用TLS 1.2，以解析相关数据。<br>方案二：虽Apple不建议，但可通过在 Info.plist 中声明，倒退回不安全的网络请求依然能让App访问指定http，甚至任意的http</p>
+<h4 id="1-HTTPS_Only_（只有HTTPS，所有情况下都使用ATS）">1.HTTPS Only （只有HTTPS，所有情况下都使用ATS）</h4><blockquote>
+<p>如果你的应用只基于支持HTTPS的服务器，那么你太幸运了。你的应用不需要做任何改变。但是，注意App Transport Security要求TLS 1.2而且它要求站点使用支持forward secrecy协议的密码。证书也要求是符合ATS规格的。因此慎重检查与你的应用交互的服务器是不是符合ATS的要求非常重要。</p>
+</blockquote>
+<p>如果你的应用只基于支持HTTPS的服务器，那么你太幸运了。你的应用不需要做任何改变。</p>
+<h4 id="2-Mix_&amp;_Match（混合）">2.Mix &amp; Match（混合）</h4><p>你的应用与一个不符合ATS要求的服务器工作是很有可能的，<br>当你遇到以下三个不符合 ATS 要求的服务器的域名时：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">api<span class="class">.insecuredomain</span><span class="class">.com</span></span><br><span class="line">cdn<span class="class">.domain</span><span class="class">.com</span></span><br><span class="line">thatotherdomain.com</span><br></pre></td></tr></table></figure></p>
+<p>你可以分别设置如下：<br>1.api.insecuredomain.com<br>Info.plist 配置中的XML源码如下所示:<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">key</span>&gt;</span>NSAppTransportSecurity<span class="tag">&lt;/<span class="title">key</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="title">dict</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="title">key</span>&gt;</span>NSExceptionDomains<span class="tag">&lt;/<span class="title">key</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="title">dict</span>&gt;</span></span><br><span class="line">             <span class="tag">&lt;<span class="title">key</span>&gt;</span>api.insecuredomain.com<span class="tag">&lt;/<span class="title">key</span>&gt;</span></span><br><span class="line">             <span class="tag">&lt;<span class="title">dict</span>&gt;</span></span><br><span class="line">                 <span class="tag">&lt;<span class="title">key</span>&gt;</span>NSExceptionAllowsInsecureHTTPLoads<span class="tag">&lt;/<span class="title">key</span>&gt;</span></span><br><span class="line">                 <span class="tag">&lt;<span class="title">false</span>/&gt;</span></span><br><span class="line">             <span class="tag">&lt;/<span class="title">dict</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;/<span class="title">dict</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;/<span class="title">dict</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>在 plist 文件里显示如下：</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/10/07/iOS9/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              <a class="post-title-link" href="/2015/10/01/ReactiveCocoa/" itemprop="url">
+                ReactiveCocoa
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2015-10-01T13:56:30+08:00" content="2015-10-01">
+            2015-10-01
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a></span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2015/10/01/ReactiveCocoa/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/01/ReactiveCocoa/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <h3 id="RACSignal">RACSignal</h3><blockquote>
+<p>RACSignal (信号)信号会为了控制通过应用的信息流而获得所有这些异步方法(委托, 回调 block, 通知, KVO, target/action 事件观察, 等)并将它们统一到一个接口下.</p>
+</blockquote>
+<h4 id="信号发送的值是从哪获得的?">信号发送的值是从哪获得的?</h4><p>信号是一些等待某事发生的异步代码, 然后把结果值发送给它们的订阅者. 你可以用 RACSignal 的类方法 createSignal: 手动创建信号:<br><figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">RACSignal</span> *networkSignal = [<span class="type">RACSignal</span> createSignal:^<span class="type">RACDisposable</span> *(idsubscriber) &#123;</span><br><span class="line">        <span class="type">NetworkOperation</span> *operation = [<span class="type">NetworkOperation</span> getJSONOperationForURL:@<span class="string">"http://someurl"</span>];</span><br><span class="line">        [operation setCompletionBlockWithSuccess:^(<span class="type">NetworkOperation</span> *theOperation, id *<span class="literal">result</span>) &#123;</span><br><span class="line">            [subscriber sendNext:<span class="literal">result</span>];</span><br><span class="line">            [subscriber sendCompleted];</span><br><span class="line">        &#125; failure:^(<span class="type">NetworkOperation</span> *theOperation, <span class="type">NSError</span> *error) &#123;</span><br><span class="line">            [subscriber sendError:error];</span><br><span class="line">        &#125;];</span><br></pre></td></tr></table></figure></p>
+<p>在这用一个具有成功和失败 block (伪造)的网络操作创建了一个信号. (如果我想让信号在被订阅时才让网络请求发生, 还可以用 RACSignal 的类方法 defer. )我在成功的 block 里使用提供的 subscriber 对象调用 sendNext: 和 sendCompleted: 方法, 或在失败的 block 中调用 sendError:. 现在我可以订阅这个信号并将在响应返回时接收到 json 值或是 error.<br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/10/01/ReactiveCocoa/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              <a class="post-title-link" href="/2015/09/23/正则regex/" itemprop="url">
+                正则regex
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2015-09-23T11:06:54+08:00" content="2015-09-23">
+            2015-09-23
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a></span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2015/09/23/正则regex/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/09/23/正则regex/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <blockquote>
+<p>正则表达式提供了一种在指定文本文档中按指定模式进行搜索，并能基于匹配模式进行修改文本的一种方式。这种模式匹配能让你做更有用的事，如验证字段（电话号码，邮箱地址），检查用户输入，执行更高级的文本操作等等。</p>
+</blockquote>
+<h3 id="Examples">Examples</h3><p>这是一个来匹配单词“jump”的正则表达式的例子:<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jump</span><br></pre></td></tr></table></figure></p>
+<p>匹配单词“jump”或“jumping”:<br><figure class="highlight erlang"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">jump</span><span class="params">(ing)</span>?</span></span><br></pre></td></tr></table></figure></p>
+<p>这是应用正则表达式支持的特殊字符的例子。这个圆括号创建了一个组，这个标志是说“匹配前面的元素（这种情况下的组）0次或1次”。<br>现在来看一个复杂的例子。它会匹配一对开合的HTML标签和他们之间的内容。<br><figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">]<span class="keyword">*</span>&gt;(.<span class="keyword">*</span>?)</span><br></pre></td></tr></table></figure></p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/09/23/正则regex/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              <a class="post-title-link" href="/2015/08/14/RunLoop/" itemprop="url">
+                RunLoop
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2015-08-14T15:05:23+08:00" content="2015-08-14">
+            2015-08-14
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a></span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2015/08/14/RunLoop/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/08/14/RunLoop/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <h3 id="从程序启动开始到view显示">从程序启动开始到view显示</h3><p>start-&gt;(加载framework，动态静态链接库，启动图片，Info.plist等)-&gt;main函数-&gt;UIApplicationMain函数：</p>
+<ul>
+<li>初始化UIApplication单例对象<ul>
+<li>初始化AppDelegate对象，并设为UIApplication对象的代理</li>
+<li>检查Info.plist设置的xib文件是否有效，如果有则解冻Nib文件并设置outlets，创建显示key window、rootViewController、与rootViewController关联的根view（没有关联则看rootViewController同名的xib），否则launch之后由程序员手动加载。</li>
+<li>建立一个主事件循环，其中包含UIApplication的Runloop来开始处理事件。</li>
+</ul>
+</li>
+</ul>
+<p>UIApplication：<br>1、通过window管理视图；<br>2、发送Runloop封装好的control消息给target；<br>3、处理URL，应用图标警告，联网状态，状态栏，远程事件等。<br>AppDelegate：<br>管理UIApplication生命周期和应用的五种状态(notRunning/inactive/active/background/suspend)。<br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/08/14/RunLoop/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
               <a class="post-title-link" href="/2015/08/12/修改hosts访问google/" itemprop="url">
                 修改hosts访问google
               </a>
@@ -676,353 +1041,11 @@
 
 
     
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2015/06/17/Forking工作流/" itemprop="url">
-                Forking工作流
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2015-06-17T15:51:21+08:00" content="2015-06-17">
-            2015-06-17
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/Git/" itemprop="url" rel="index"><span itemprop="name">Git</span></a></span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <a href="/2015/06/17/Forking工作流/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/06/17/Forking工作流/" itemprop="commentsCount"></span>
-              </a>
-            </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <blockquote>
-<p>Forking工作流是分布式工作流，充分利用了Git在分支和克隆上的优势。可以安全可靠地管理大团队的开发者（developer），并能接受不信任贡献者（contributor）的提交。<br>Forking工作流和前面讨论的几种工作流有根本的不同，这种工作流不是使用单个服务端仓库作为『中央』代码基线，而让各个开发者都有一个服务端仓库。这意味着各个代码贡献者有2个Git仓库而不是1个：一个本地私有的，另一个服务端公开的。</p>
-</blockquote>
-<p>Forking工作流的一个主要优势是，贡献的代码可以被集成，而不需要所有人都能push代码到仅有的中央仓库中。<br>开发者push到自己的服务端仓库，而只有项目维护者才能push到正式仓库。<br>这样项目维护者可以接受任何开发者的提交，但无需给他正式代码库的写权限。<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/06/17/Forking工作流/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2015/06/16/功能分支工作流/" itemprop="url">
-                功能分支工作流
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2015-06-16T15:50:38+08:00" content="2015-06-16">
-            2015-06-16
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/Git/" itemprop="url" rel="index"><span itemprop="name">Git</span></a></span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <a href="/2015/06/16/功能分支工作流/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/06/16/功能分支工作流/" itemprop="commentsCount"></span>
-              </a>
-            </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <blockquote>
-<p>功能分支工作流以集中式工作流为基础，不同的是为各个新功能分配一个专门的分支来开发。这样可以在把新功能集成到正式项目前，用Pull Requests的方式讨论变更。<br>功能分支工作流背后的核心思路是所有的功能开发应该在一个专门的分支，而不是在<em>master</em>分支上。<br>这个隔离可以方便多个开发者在各自的功能上开发而不会弄乱主干代码。<br>另外，也保证了master分支的代码一定不会是有问题的，极大有利于集成环境。<br>功能开发隔离也让pull requests工作流成功可能，<br>pull requests工作流能为每个分支发起一个讨论，在分支合入正式项目之前，给其它开发者有表示赞同的机会。<br>另外，如果你在功能开发中有问题卡住了，可以开一个pull requests来向同学们征求建议。<br>这些做法的重点就是，pull requests让团队成员之间互相评论工作变成非常方便！<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/06/16/功能分支工作流/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2015/06/15/集中式工作流/" itemprop="url">
-                集中式工作流
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2015-06-15T15:49:47+08:00" content="2015-06-15">
-            2015-06-15
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/Git/" itemprop="url" rel="index"><span itemprop="name">Git</span></a></span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <a href="/2015/06/15/集中式工作流/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/06/15/集中式工作流/" itemprop="commentsCount"></span>
-              </a>
-            </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <h3 id="所有修改提交到这个分支上。本工作流只用到master这一个分支。">所有修改提交到这个分支上。本工作流只用到master这一个分支。</h3><p>先克隆中央仓库。在自己的项目拷贝中像SVN一样的编辑文件和提交修改；但修改是存在本地的，和中央仓库是完全隔离的。开发者可以把和上游的同步延后到一个方便时间点。</p>
-<p>要发布修改到正式项目中，开发者要把本地master分支的修改push到中央仓库中。这相当于svn commit操作，但push操作会把所有还不在中央仓库的本地提交都推上去。</p>
-<h4 id="冲突">冲突</h4><p>中央仓库代表了正式项目，所以提交历史应该被尊重且是稳定不变的。如果开发者本地的提交历史和中央仓库有分歧，Git会拒绝push提交否则会覆盖已经在中央库的正式提交。<br>在开发者提交自己功能修改到中央库前，需要先fetch在中央库的新增提交，rebase自己提交到中央库提交历史之上。<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/06/15/集中式工作流/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2015/06/12/Swift初见/" itemprop="url">
-                Swift初见
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2015-06-12T10:21:53+08:00" content="2015-06-12">
-            2015-06-12
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/Swift/" itemprop="url" rel="index"><span itemprop="name">Swift</span></a></span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <a href="/2015/06/12/Swift初见/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/06/12/Swift初见/" itemprop="commentsCount"></span>
-              </a>
-            </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <h2 id="简单值">简单值</h2><p>􏱪􏱫􏰟􏰜􏰝􏰞􏰟􏱬􏲦􏲧􏳡􏲩􏰙􏱪􏱫􏰟􏱥􏰠􏰯􏰟􏱬􏲦􏲧􏲨􏲩􏰏􏱪􏱫􏰟􏰜􏰝􏰞􏰟􏱬􏲦􏲧􏳡􏲩􏰙􏱪􏱫􏰟􏱥􏰠􏰯􏰟􏱬􏲦􏲧􏲨􏲩􏰏􏱪􏱫􏰟􏰜􏰝􏰞􏰟􏱬􏲦􏲧􏳡􏲩􏰙􏱪􏱫􏰟􏱥􏰠􏰯􏰟􏱬􏲦􏲧􏲨􏲩􏰏􏱪􏱫􏰟􏰜􏰝􏰞􏰟􏱬􏲦􏲧􏳡􏲩􏰙􏱪􏱫􏰟􏱥􏰠􏰯􏰟􏱬􏲦􏲧􏲨􏲩􏰏􏱪􏱫􏰟􏰜􏰝􏰞􏰟􏱬􏲦􏲧􏳡􏲩􏰙􏱪􏱫􏰟􏱥􏰠􏰯􏰟􏱬􏲦􏲧􏲨􏲩􏰏<em>使用</em>let<em>来声明</em>常量<em>，使用</em>var<em>来声明变量。</em><br><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//一个常量的值，在编译的时候，并不需要有明确的值，但是你只能为它赋值一次。</span></span><br><span class="line"><span class="keyword">var</span> myVariable = <span class="number">42</span></span><br><span class="line"><span class="comment">//声明时类型是可选的，声明的同时赋值的话，编译器会自动推断类型。编译器推断出myVariable是一个整数（integer）因为它的初始值是整数。</span></span><br><span class="line">myVariable = <span class="number">50</span></span><br><span class="line"><span class="keyword">let</span> myConstant = <span class="number">42</span></span><br></pre></td></tr></table></figure></p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/06/12/Swift初见/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">&raquo;</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">&raquo;</a>
   </nav>
 
 
@@ -1057,7 +1080,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">18</span>
+              <span class="site-state-item-count">22</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1071,7 +1094,7 @@
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">23</span>
+              <span class="site-state-item-count">25</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>

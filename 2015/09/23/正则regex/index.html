@@ -1,0 +1,737 @@
+<!doctype html>
+<html class="theme-next use-motion theme-next-mist">
+<head>
+    
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.4"/>
+
+
+    <meta name="description" content="I am a slow walker,but I never walk backwards." />
+
+
+
+  <meta name="keywords" content="白洪瑞,baihongrui,rayzworld,blog,iOS,baijiajie,白佳杰，白佳洁" />
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.4" />
+
+
+<meta name="description" content="正则表达式提供了一种在指定文本文档中按指定模式进行搜索，并能基于匹配模式进行修改文本的一种方式。这种模式匹配能让你做更有用的事，如验证字段（电话号码，邮箱地址），检查用户输入，执行更高级的文本操作等等。
+
+Examples这是一个来匹配单词“jump”的正则表达式的例子:1jump
+匹配单词“jump”或“jumping”:1jump(ing)?
+这是应用正则表达式支持的特殊字符的例子。这个圆括号">
+<meta property="og:type" content="article">
+<meta property="og:title" content="正则regex">
+<meta property="og:url" content="https://rayzworld.github.io/2015/09/23/正则regex/index.html">
+<meta property="og:site_name" content="HongRui's Blog">
+<meta property="og:description" content="正则表达式提供了一种在指定文本文档中按指定模式进行搜索，并能基于匹配模式进行修改文本的一种方式。这种模式匹配能让你做更有用的事，如验证字段（电话号码，邮箱地址），检查用户输入，执行更高级的文本操作等等。
+
+Examples这是一个来匹配单词“jump”的正则表达式的例子:1jump
+匹配单词“jump”或“jumping”:1jump(ing)?
+这是应用正则表达式支持的特殊字符的例子。这个圆括号">
+<meta property="og:updated_time" content="2015-10-14T10:42:15.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="正则regex">
+<meta name="twitter:description" content="正则表达式提供了一种在指定文本文档中按指定模式进行搜索，并能基于匹配模式进行修改文本的一种方式。这种模式匹配能让你做更有用的事，如验证字段（电话号码，邮箱地址），检查用户输入，执行更高级的文本操作等等。
+
+Examples这是一个来匹配单词“jump”的正则表达式的例子:1jump
+匹配单词“jump”或“jumping”:1jump(ing)?
+这是应用正则表达式支持的特殊字符的例子。这个圆括号">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: 'post'
+  };
+</script>
+
+    <title> 正则regex // HongRui's Blog </title>
+</head>
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+
+
+
+
+<div class="container one-column page-post-detail">
+    <div class="headband"></div>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+        <div class="header-inner"><h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand" rel="start">
+      <span class="logo">
+        <i class="icon-logo"></i>
+      </span>
+      <span class="site-title">HongRui's Blog</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu menu-left">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon icon-home"></i> <br />
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            <i class="menu-item-icon icon-categories"></i> <br />
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            <i class="menu-item-icon icon-archives"></i> <br />
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            <i class="menu-item-icon icon-tags"></i> <br />
+            标签
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+<form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'EHDHtw-j3DipDyhFHcz8','2.0.0');
+</script>
+
+<div class="site-search-toggle"></div>
+    </div>
+  
+</nav>
+
+
+        </div>
+    </header>
+
+    <main id="main" class="main">
+        <div class="main-inner">
+            <div id="content" class="content">
+                
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              正则regex
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2015-09-23T11:06:54+08:00" content="2015-09-23">
+            2015-09-23
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a></span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2015/09/23/正则regex/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/09/23/正则regex/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><blockquote>
+<p>正则表达式提供了一种在指定文本文档中按指定模式进行搜索，并能基于匹配模式进行修改文本的一种方式。这种模式匹配能让你做更有用的事，如验证字段（电话号码，邮箱地址），检查用户输入，执行更高级的文本操作等等。</p>
+</blockquote>
+<h3 id="Examples">Examples</h3><p>这是一个来匹配单词“jump”的正则表达式的例子:<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jump</span><br></pre></td></tr></table></figure></p>
+<p>匹配单词“jump”或“jumping”:<br><figure class="highlight erlang"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">jump</span><span class="params">(ing)</span>?</span></span><br></pre></td></tr></table></figure></p>
+<p>这是应用正则表达式支持的特殊字符的例子。这个圆括号创建了一个组，这个标志是说“匹配前面的元素（这种情况下的组）0次或1次”。<br>现在来看一个复杂的例子。它会匹配一对开合的HTML标签和他们之间的内容。<br><figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">]<span class="keyword">*</span>&gt;(.<span class="keyword">*</span>?)</span><br></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<p><strong>字面字符（Literal characters）</strong>是最简单地一种正则表达式。你已经很熟悉他们了，比如，文字处理机或文本编辑器中得“find”操作。例如，单个字符的正则表达式 t 就会找到字母“t”出现的所有地方,正则表达式 jump 会找出所有出现“jump”的地方。<br>就像一种编程语言一样，正则表达式的语法中也有一些保留字，如下：<br><figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="collection">[</span><br><span class="line"><span class="list">( and )</span></span><br><span class="line">\</span><br><span class="line">*</span><br><span class="line">+</span><br><span class="line">?</span><br><span class="line"><span class="collection">&#123; and &#125;</span></span><br><span class="line">^</span><br><span class="line">$</span><br><span class="line">.</span><br><span class="line">| <span class="list">(<span class="keyword">pipe</span>)</span></span><br><span class="line">/</span></span><br></pre></td></tr></table></figure></p>
+<p>这些字符被用作高级模式匹配。如果你想搜索这些字符中的一个，你需要用反斜线（\）转义它,例如，为了搜索一个文本块中的句号，<strong>不是用.，而是用.。</strong><br>无论Objective-C还是Swift，你在字面量字符串中都需要转义一些特殊字符（在他们之前添加\字符）。这其中一个字符就是反斜线自身\！既然这个被用来创建正则表达式的模式也是字符串，在你处理String 和 NSRegularExpression，你需要转义反斜线时， 这就增加了复杂性。<br>这意味着在Swift（或者Objective-C）代码中标准的.将会显示为\.。<br>用以下两点来澄清以上概念：<br>字面的“\.”定义了一个字符串:.<br>正则表达式.则是匹配一个单个的句号字符.。</p>
+<p><strong>截获圆括号（capturing parentheses）</strong> 被用作组模式的一部分。例如：3 (pm|am)会匹配文本“3 pm” ,也会匹配“3 am”。竖线字符（|）执行的是或操作。只要你乐意，你可以包含多个竖线字符在你的正则表达式中。例如，(Tom|Dick|Harry)是一个有效的模式，它能匹配那三个名字中的任一个。</p>
+<p>当你需要选择性的匹配特定的字符串时，圆括号组用起来很方便。比方说你要在一个文本中查找“November”，但是它可能被简写为“Nov”.你就能定义一个模式 Nov(ember)?,在捕获圆括号（capturing parentheses）后加上问号，意味着这个圆括号内的内容是可选的。<br>这个圆括号（parentheses）被定义为术语捕获（capturing）因为他们捕获匹配的内容，并允许在你的正则表达式的其他地方引用它。</p>
+<p>举个例子，假使你有一个字符串“Say hi to Harry”.如果你创建一个搜索并替换的正则表达式，用that guy $1 来替换任一处出现的(Tom|Dick|Harry)，结果就会是“Say hi to that guy Harry”.$1允许你引用前面规则中的第一个截获组。</p>
+<p><strong>字符组（Character classes）</strong>相当于一组字符中匹配单个字符。字符组出现在中括号（[ 和 ]）之间。<br>例如，正则表达式 t[aeiou]会匹配“ta”、“te”、“ti”、“to”或“tu”。你可以放任意多的字符在中括号中，但是请记住，只能匹配一个字符。[aeiou]看起来是五个字符，但它真实意义却是“a”或”e“或”i“或”o“或”u“。<br>如果字符连续出现，你也能在字符组中定义一个范围。例如，为了搜索在100到109的数字，模式应该用10[0-9]。这和10[0123456789]会返回同样地结果，不过，使用范围来定义你的正则表达式看起来更简洁和易于理解。<br>字符组不止局限于数字，你同样可以用字符来这样做。比如，[a-f]会匹配”a“，”b“，”c“，”d“，”e“或”f“。<br>字符集通常包含你想要匹配的字符，但是如果你想明确指出不要匹配的字符该怎么办？同样你能定义除此之外的字符组，把^放在前面。例如，模式t[^o]就会匹配包含”t“并且后面紧跟的字符是非o的字符。</p>
+<h3 id="NSRegularExpressions_Cheat_Sheet"><a href="http://cdn5.raywenderlich.com/downloads/RW-NSRegularExpression-Cheatsheet.pdf" target="_blank" rel="external">NSRegularExpressions Cheat Sheet</a></h3><h4 id="-_匹配任一字符。">. 匹配任一字符。</h4><p>p.p匹配pop,pup,pmp,p@p等等。</p>
+<h4 id="\w_匹配任意“word-like”字符，包括数字，字母，下划线，不过不能匹配标点符号和其他字符。">\w 匹配任意“word-like”字符，包括数字，字母，下划线，不过不能匹配标点符号和其他字符。</h4><p>hello\w会匹配”hello_“,”hello9”和”helloo”,但不匹配”hello!”。</p>
+<h4 id="\d_匹配数字，大部分情况下是[0-9]。">\d 匹配数字，大部分情况下是[0-9]。</h4><p>\d\d?:\d\d会匹配时间格式的字符串，比如”9：30“和”12：45“。</p>
+<h4 id="\b_匹配额外的字符，例如空格，标点符号。">\b 匹配额外的字符，例如空格，标点符号。</h4><p>to\b 会匹配”to the moon”和“to!”中得“to”,但是不会匹配“tomorrow”。\b 用在整个单词的匹配方面和方便。</p>
+<h4 id="\s_会匹配空白字符，比如，空格，制表符，换行符。">\s 会匹配空白字符，比如，空格，制表符，换行符。</h4><p>hello\s 会匹配“Well,hello there!”中的 “hello ”。</p>
+<h4 id="^_用在一行的开始。">^ 用在一行的开始。</h4><p>记住，这个特殊的^不同于方括号中的^!例如，^Hello 会匹配字符串“Hello there”，而不会去匹配“He said Hello”。</p>
+<h4 id="$_用在一行的结束，">$ 用在一行的结束，</h4><p>例如，the end$ 会匹配“It was the end” 而不会去匹配 “the end was near”。</p>
+<h4 id="*_匹配_它之前的元素0次或多次。">* 匹配 它之前的元素0次或多次。</h4><p>12*3  会匹配 13, 123, 1223, 122223, 和 1222222223。</p>
+<h4 id="+_匹配_它之前的元素1次或多次-">+ 匹配 它之前的元素1次或多次.</h4><p>12+3  会匹配  123, 1223, 122223, 和 1222222223。</p>
+<h4 id="花括号{}_包含了匹配的最大和值最小个数。">花括号{} 包含了匹配的最大和值最小个数。</h4><p>例如，10{1，2}1会匹配“101”和“1001”，而不会匹配“10001”，因为匹配的最小个数为1，最大个数为2。He[LI]{2,}o会匹配“HeLLo”和“HellLLLIo”和任意其他的“hello”添加多个L的变种，所以没有限制，因为，最少的个数是2，最大的个数没有设置。</p>
+<h3 id="文本搜索/Search(_and_replace)?/">文本搜索/Search( and replace)?/</h3><h3 id="来源">来源</h3><p><a href="http://www.raywenderlich.com/86205/nsregularexpression-swift-tutorial" target="_blank" rel="external">NSRegularExpression Tutorial: Getting Started</a></p>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/10/01/ReactiveCocoa/" rel="prev">ReactiveCocoa</a>
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/08/14/RunLoop/" rel="next">RunLoop</a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+            </div>
+
+            
+
+            
+              <div class="comments" id="comments">
+                
+                  <div class="ds-thread" data-thread-key="2015/09/23/正则regex/"
+                       data-title="正则regex" data-url="https://rayzworld.github.io/2015/09/23/正则regex/">
+                  </div>
+                
+              </div>
+            
+        </div>
+
+        
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/images/default_avatar.jpg" alt="白洪瑞" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">白洪瑞</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description">I am a slow walker,but I never walk backwards.</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">22</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">5</span>
+              <span class="site-state-item-name">分类</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">25</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Rayzworld" target="_blank">GitHub</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/2421652200" target="_blank">WeiBo</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/Rayzworld2015" target="_blank">Twitter</a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+            <p class="site-author-name">Talk is cheap, show me the code.</p>
+            
+              <span class="links-of-author-item">
+              <a href="http://diwu.me" target="_blank">吴迪</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://www.objccn.io/" target="_blank">objc中国</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://kittenyang.com/" target="_blank">KittenYang</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://blog.sunnyxx.com/" target="_blank">太阳仔</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://nshipster.cn/" target="_blank">NSHipster</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://www.raywenderlich.com" target="_blank">raywenderlich</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://blog.devtang.com/" target="_blank">唐巧</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://joeshang.github.io/" target="_blank">传人</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://onevcat.com/" target="_blank">瞄神</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://macshuo.com/" target="_blank">池建强</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://vinqon.com/" target="_blank">陈咏聪</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://dlog.dismory.com/" target="_blank">耿健桓</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://blog.csdn.net/justinjing0612" target="_blank">景总</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://nianxi.net/" target="_blank">念茜</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://iiiyu.com/" target="_blank">萧宸宇</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://beyondvincent.com/" target="_blank">破船</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://www.iwangke.me/" target="_blank">王轲</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://www.cnblogs.com/easonoutlook/" target="_blank">杨宇建</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://casatwy.com/" target="_blank">田伟宇</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://noark9.github.io/" target="_blank">诺基亚</a>
+              </span>
+            
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Examples"><span class="nav-number">1.</span> <span class="nav-text">Examples</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NSRegularExpressions_Cheat_Sheet"><span class="nav-number">2.</span> <span class="nav-text">NSRegularExpressions Cheat Sheet</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#-_匹配任一字符。"><span class="nav-number">2.1.</span> <span class="nav-text">. 匹配任一字符。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#\w_匹配任意“word-like”字符，包括数字，字母，下划线，不过不能匹配标点符号和其他字符。"><span class="nav-number">2.2.</span> <span class="nav-text">\w 匹配任意“word-like”字符，包括数字，字母，下划线，不过不能匹配标点符号和其他字符。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#\d_匹配数字，大部分情况下是[0-9]。"><span class="nav-number">2.3.</span> <span class="nav-text">\d 匹配数字，大部分情况下是[0-9]。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#\b_匹配额外的字符，例如空格，标点符号。"><span class="nav-number">2.4.</span> <span class="nav-text">\b 匹配额外的字符，例如空格，标点符号。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#\s_会匹配空白字符，比如，空格，制表符，换行符。"><span class="nav-number">2.5.</span> <span class="nav-text">\s 会匹配空白字符，比如，空格，制表符，换行符。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#^_用在一行的开始。"><span class="nav-number">2.6.</span> <span class="nav-text">^ 用在一行的开始。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#$_用在一行的结束，"><span class="nav-number">2.7.</span> <span class="nav-text">$ 用在一行的结束，</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#*_匹配_它之前的元素0次或多次。"><span class="nav-number">2.8.</span> <span class="nav-text">* 匹配 它之前的元素0次或多次。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#+_匹配_它之前的元素1次或多次-"><span class="nav-number">2.9.</span> <span class="nav-text">+ 匹配 它之前的元素1次或多次.</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#花括号{}_包含了匹配的最大和值最小个数。"><span class="nav-number">2.10.</span> <span class="nav-text">花括号{} 包含了匹配的最大和值最小个数。</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文本搜索/Search(_and_replace)?/"><span class="nav-number">3.</span> <span class="nav-text">文本搜索/Search( and replace)?/</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#来源"><span class="nav-number">4.</span> <span class="nav-text">来源</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+    </main>
+
+    <footer id="footer" class="footer">
+        <div class="footer-inner">
+            <div class="copyright" >
+  
+  &copy; &nbsp;  2014 - 
+  <span itemprop="copyrightYear">2015</span>
+  <span class="with-love">
+    <i class="icon-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">白洪瑞</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a> 
+</div>
+
+<div class="theme-info">
+  Theme by -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+        </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+</div>
+
+<script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+    
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"rayzworld"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+    
+  
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.4"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.4"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.4" id="motion.global"></script>
+
+
+
+  <script type="text/javascript" src="/js/search-toggle.js"></script>
+
+
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.4" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+          var self = this;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      $(indicator).velocity('stop').velocity({
+        opacity: action === 'show' ? 0.4 : 0
+      }, { duration: 100 });
+    }
+
+  });
+</script>
+
+
+  <script type="text/javascript" id="sidebar.nav">
+    $(document).ready(function () {
+      var html = $('html');
+
+      $('.sidebar-nav li').on('click', function () {
+        var item = $(this);
+        var activeTabClassName = 'sidebar-nav-active';
+        var activePanelClassName = 'sidebar-panel-active';
+        if (item.hasClass(activeTabClassName)) {
+          return;
+        }
+
+        var currentTarget = $('.' + activePanelClassName);
+        var target = $('.' + item.data('target'));
+
+        currentTarget.velocity('transition.slideUpOut', 200, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', 200)
+            .addClass(activePanelClassName);
+        });
+
+        item.siblings().removeClass(activeTabClassName);
+        item.addClass(activeTabClassName);
+      });
+
+      $('.post-toc a').on('click', function (e) {
+        e.preventDefault();
+        var offset = $(escapeSelector(this.getAttribute('href'))).offset().top;
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        });
+      });
+
+      // Expand sidebar on post detail page by default, when post has a toc.
+      var $tocContent = $('.post-toc-content');
+      if (isDesktop() && CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          displaySidebar();
+        }
+      }
+    });
+  </script>
+
+
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        if (CONFIG.sidebar === 'always') {
+            displaySidebar();
+        }
+    });
+</script>
+
+
+
+
+
+
+
+
+<!-- lazyload -->
+<script type="text/javascript" src="/js/lazyload.js"></script>
+<script type="text/javascript">
+    jQuery(function () {
+        jQuery("#posts img").lazyload({
+            placeholder: "/images/loading.gif",
+            effect: "fadeIn"
+        });
+    });
+</script>
+</body>
+</html>
