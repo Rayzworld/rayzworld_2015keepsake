@@ -37,16 +37,25 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.4" />
 
 
-<meta name="description" content="I am a slow walker,but I never walk backwards.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="All tags">
-<meta property="og:url" content="https://rayzworld.github.io/tags/index.html">
+<meta name="description" content="Shell是Linux/Unix的一个外壳，你理解成衣服也行。它负责外界与Linux内核的交互，接收用户或其他应用程序的命令，然后把这些命令转化成内核能理解的语言，传给内核，内核是真正干活的，干完之后再把结果返回用户或应用程序。
+
+常用的Shell有这么几种，sh、bash、csh等，可以通过以下命令查看系统有几种shell, Mac会多一个 zsh1cat /etc/shells
+oh my z">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ZSH">
+<meta property="og:url" content="https://rayzworld.github.io/2015/10/29/ZSH/index.html">
 <meta property="og:site_name" content="HongRui's Blog">
-<meta property="og:description" content="I am a slow walker,but I never walk backwards.">
-<meta property="og:updated_time" content="2015-07-20T10:45:40.000Z">
+<meta property="og:description" content="Shell是Linux/Unix的一个外壳，你理解成衣服也行。它负责外界与Linux内核的交互，接收用户或其他应用程序的命令，然后把这些命令转化成内核能理解的语言，传给内核，内核是真正干活的，干完之后再把结果返回用户或应用程序。
+
+常用的Shell有这么几种，sh、bash、csh等，可以通过以下命令查看系统有几种shell, Mac会多一个 zsh1cat /etc/shells
+oh my z">
+<meta property="og:updated_time" content="2016-02-28T16:31:40.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="All tags">
-<meta name="twitter:description" content="I am a slow walker,but I never walk backwards.">
+<meta name="twitter:title" content="ZSH">
+<meta name="twitter:description" content="Shell是Linux/Unix的一个外壳，你理解成衣服也行。它负责外界与Linux内核的交互，接收用户或其他应用程序的命令，然后把这些命令转化成内核能理解的语言，传给内核，内核是真正干活的，干完之后再把结果返回用户或应用程序。
+
+常用的Shell有这么几种，sh、bash、csh等，可以通过以下命令查看系统有几种shell, Mac会多一个 zsh1cat /etc/shells
+oh my z">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -56,13 +65,7 @@
   };
 </script>
 
-    <title>
-  
-
-  
-    标签 // HongRui's Blog
-  
-</title>
+    <title> ZSH // HongRui's Blog </title>
 </head>
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 <!--[if lte IE 8]>
@@ -78,7 +81,7 @@
 
 
 
-<div class="container one-column ">
+<div class="container one-column page-post-detail">
     <div class="headband"></div>
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
         <div class="header-inner"><h1 class="site-meta">
@@ -173,16 +176,103 @@
 
   <div id="posts" class="posts-expand">
     
-    
-      <div class="tag-cloud">
-        <div class="tag-cloud-title">
-            目前共计 25 个标签
-        </div>
-        <div class="tag-cloud-tags">
-          <a href="/tags/Git/" style="font-size: 12px; color: #ccc">Git</a> <a href="/tags/MTMigration/" style="font-size: 12px; color: #ccc">MTMigration</a> <a href="/tags/MVVM/" style="font-size: 12px; color: #ccc">MVVM</a> <a href="/tags/Mantle/" style="font-size: 12px; color: #ccc">Mantle</a> <a href="/tags/ReactiveCocoa/" style="font-size: 12px; color: #ccc">ReactiveCocoa</a> <a href="/tags/RunLoop/" style="font-size: 12px; color: #ccc">RunLoop</a> <a href="/tags/Slender/" style="font-size: 12px; color: #ccc">Slender</a> <a href="/tags/SourceTree/" style="font-size: 12px; color: #ccc">SourceTree</a> <a href="/tags/Swift/" style="font-size: 12px; color: #ccc">Swift</a> <a href="/tags/Xcode闲置/" style="font-size: 12px; color: #ccc">Xcode闲置</a> <a href="/tags/cherry-pick/" style="font-size: 12px; color: #ccc">cherry pick</a> <a href="/tags/crash/" style="font-size: 12px; color: #ccc">crash</a> <a href="/tags/git/" style="font-size: 12px; color: #ccc">git</a> <a href="/tags/google/" style="font-size: 12px; color: #ccc">google</a> <a href="/tags/iOS/" style="font-size: 30px; color: #111">iOS</a> <a href="/tags/point/" style="font-size: 12px; color: #ccc">point</a> <a href="/tags/px/" style="font-size: 12px; color: #ccc">px</a> <a href="/tags/代码规范/" style="font-size: 12px; color: #ccc">代码规范</a> <a href="/tags/图标转换/" style="font-size: 12px; color: #ccc">图标转换</a> <a href="/tags/版本增量工具/" style="font-size: 12px; color: #ccc">版本增量工具</a> <a href="/tags/简历/" style="font-size: 12px; color: #ccc">简历</a> <a href="/tags/翻墙/" style="font-size: 12px; color: #ccc">翻墙</a> <a href="/tags/轮子/" style="font-size: 21px; color: #6f6f6f">轮子</a> <a href="/tags/错误/" style="font-size: 12px; color: #ccc">错误</a> <a href="/tags/面试/" style="font-size: 12px; color: #ccc">面试</a>
-        </div>
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              ZSH
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2015-10-29T00:13:20+08:00" content="2015-10-29">
+            2015-10-29
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/Shell/" itemprop="url" rel="index"><span itemprop="name">Shell</span></a></span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2015/10/29/ZSH/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/29/ZSH/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
       </div>
-    
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><blockquote>
+<p>Shell是Linux/Unix的一个外壳，你理解成衣服也行。它负责外界与Linux内核的交互，接收用户或其他应用程序的命令，然后把这些命令转化成内核能理解的语言，传给内核，内核是真正干活的，干完之后再把结果返回用户或应用程序。</p>
+</blockquote>
+<p>常用的Shell有这么几种，sh、bash、csh等，可以通过以下命令查看系统有几种shell, Mac会多一个 zsh<br><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat <span class="regexp">/etc/</span>shells</span><br></pre></td></tr></table></figure></p>
+<h3 id="oh_my_zsh"><a href="https://github.com/robbyrussell/oh-my-zsh" target="_blank" rel="external">oh my zsh</a></h3><h3 id="安装ZSH">安装ZSH</h3><p>Mac，自带<br>Redhat Linux，执行：sudo yum install zsh<br>Ubuntu Linux，执行：sudo apt-get install zsh<br>Windows……去洗洗睡吧。</p>
+<p>安装完成后设置当前用户使用 zsh：chsh -s /bin/zsh，根据提示输入当前用户的密码就可以了。</p>
+<h3 id="安装oh_my_zsh">安装oh my zsh</h3><p>首先安装 git，安装方式同上，把 zsh 换成 git 即可。安装「oh my zsh」可以自动安装也可以手动安装。自动安装：<br><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget http<span class="variable">s:</span>//github.<span class="keyword">com</span>/robbyrussell/oh-my-zsh/raw/master/tools/install.<span class="keyword">sh</span> -O - | <span class="keyword">sh</span></span><br></pre></td></tr></table></figure></p>
+<p>手动安装：</p>
+<figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh</span><br><span class="line">cp ~/.oh-my-zsh/templates/zshrc.zsh-<span class="keyword">template</span> ~/.zshrc</span><br></pre></td></tr></table></figure>
+<p>来源<br><a href="http://zhuanlan.zhihu.com/mactalk/19556676" target="_blank" rel="external">终极 Shell——ZSH</a><br><a id="more"></a></p>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/10/23/ComponentKit/" rel="next">ComponentKit</a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -190,6 +280,14 @@
 
             
 
+            
+              <div class="comments" id="comments">
+                
+                  <div class="ds-thread" data-thread-key="2015/10/29/ZSH/"
+                       data-title="ZSH" data-url="https://rayzworld.github.io/2015/10/29/ZSH/">
+                  </div>
+                
+              </div>
             
         </div>
 
@@ -206,6 +304,15 @@
   <aside id="sidebar" class="sidebar">
     <div class="sidebar-inner">
 
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
       
 
       <section class="site-overview">
@@ -351,6 +458,17 @@
       </section>
 
       
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#oh_my_zsh"><span class="nav-number">1.</span> <span class="nav-text">oh my zsh</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装ZSH"><span class="nav-number">2.</span> <span class="nav-text">安装ZSH</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装oh_my_zsh"><span class="nav-number">3.</span> <span class="nav-text">安装oh my zsh</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
 
     </div>
   </aside>
@@ -430,6 +548,144 @@
 
 
   <script type="text/javascript" src="/js/search-toggle.js"></script>
+
+
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.4" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+          var self = this;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      $(indicator).velocity('stop').velocity({
+        opacity: action === 'show' ? 0.4 : 0
+      }, { duration: 100 });
+    }
+
+  });
+</script>
+
+
+  <script type="text/javascript" id="sidebar.nav">
+    $(document).ready(function () {
+      var html = $('html');
+
+      $('.sidebar-nav li').on('click', function () {
+        var item = $(this);
+        var activeTabClassName = 'sidebar-nav-active';
+        var activePanelClassName = 'sidebar-panel-active';
+        if (item.hasClass(activeTabClassName)) {
+          return;
+        }
+
+        var currentTarget = $('.' + activePanelClassName);
+        var target = $('.' + item.data('target'));
+
+        currentTarget.velocity('transition.slideUpOut', 200, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', 200)
+            .addClass(activePanelClassName);
+        });
+
+        item.siblings().removeClass(activeTabClassName);
+        item.addClass(activeTabClassName);
+      });
+
+      $('.post-toc a').on('click', function (e) {
+        e.preventDefault();
+        var offset = $(escapeSelector(this.getAttribute('href'))).offset().top;
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        });
+      });
+
+      // Expand sidebar on post detail page by default, when post has a toc.
+      var $tocContent = $('.post-toc-content');
+      if (isDesktop() && CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          displaySidebar();
+        }
+      }
+    });
+  </script>
+
 
 
 

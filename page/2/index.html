@@ -178,6 +178,78 @@
           
           
             
+              <a class="post-title-link" href="/2015/06/19/Pull Requests/" itemprop="url">
+                Pull Requests
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2015-06-19T15:51:41+08:00" content="2015-06-19">
+            2015-06-19
+          </time>
+        </span>
+
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2015/06/19/Pull Requests/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/06/19/Pull Requests/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody"><blockquote>
+<p>所有的个人公开仓库实际上只是为了方便和其它的开发者共享分支。<br>各个开发者应该用分支隔离各个功能，就像在功能分支工作流和Gitflow工作流一样。<br>唯一的区别是这些分支被共享了。在Forking工作流中这些分支会被pull到另一个开发者的本地仓库中，而在功能分支工作流和Gitflow工作流中是直接被push到正式仓库中。</p>
+</blockquote>
+<h3 id="GitFlow+Pull_Request">GitFlow+Pull Request</h3><p>功能分支并不是马上合并到develop，当一个功能、发布或是热修复分支需要Review时，开发者开一个Pull Request发起功能的讨论，收到Pull Request后，项目维护者要决定如何做。如果功能没问题，就简单地合并到master分支，关闭Pull Request。<br>但如果提交的变更有问题，他可以在Pull Request中反馈。之后新加的提交也会评论之后接着显示出来。<br>在功能还没有完全开发完的时候，也可能发起一个Pull Request。<br>比如开发者在实现某个需求时碰到了麻烦，他可以发一个包含正在进行中工作的Pull Request。<br>其它的开发者可以在Pull Request提供建议，或者甚至直接添加提交来解决问题。</p>
+</span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
               <a class="post-title-link" href="/2015/06/18/Gitflow工作流/" itemprop="url">
                 Gitflow工作流
               </a>
@@ -938,93 +1010,6 @@
 
 
     
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2015/06/03/point与px转换/" itemprop="url">
-                point与px转换
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2015-06-03T20:48:46+08:00" content="2015-06-03">
-            2015-06-03
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a></span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <a href="/2015/06/03/point与px转换/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/06/03/point与px转换/" itemprop="commentsCount"></span>
-              </a>
-            </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <p>　对于传统常规屏幕，1 point 映射物理屏幕1 pixel。对于Retina的高分屏，1point映射物理屏幕2 pixel。这样可以统一图形在同一种类不同型号设备上图形的大小。</p>
-<p>　所以在开发的时候，不区分常规屏幕还是Retina屏幕，在iPhone（3.5 inch）上都是（480 ，360）在Macbook（13 inch）上都是（1280 ，800）。</p>
-<p>在实际渲染到屏幕上时候，会有个scale 系数将 point 映射到物理 pixel，在传统屏幕上factor是等于1，Retina屏幕上是等于2。</p>
-<p> 　　对于字体上的磅（pt）转换到苹果设备上的方法。首先，将pt 和 px单位都统一到英尺<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/06/03/point与px转换/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1064,14 +1049,14 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">23</span>
+              <span class="site-state-item-count">24</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             <a href="/categories">
-              <span class="site-state-item-count">5</span>
+              <span class="site-state-item-count">6</span>
               <span class="site-state-item-name">分类</span>
               </a>
           </div>
