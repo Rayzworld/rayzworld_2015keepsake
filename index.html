@@ -178,91 +178,6 @@
           
           
             
-              <a class="post-title-link" href="/2015/11/16/Swift/" itemprop="url">
-                OC到Swift
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2015-11-16T12:56:45+08:00" content="2015-11-16">
-            2015-11-16
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a></span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <a href="/2015/11/16/Swift/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/16/Swift/" itemprop="commentsCount"></span>
-              </a>
-            </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <h3 id="属性(property)和实例变量(instance_variable)">属性(property)和实例变量(instance variable)</h3><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">property</span> (strong,nonatomic) NSString *<span class="type">string</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">class</span> Shape &#123;</span><br><span class="line">    var <span class="property">name</span> = <span class="string">"hello world"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>注意</strong><br>strong: 在Swift中是默认的</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/11/16/Swift/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
               <a class="post-title-link" href="/2015/10/23/ComponentKit/" itemprop="url">
                 ComponentKit
               </a>
@@ -1037,6 +952,78 @@
 
 
     
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              <a class="post-title-link" href="/2015/06/19/Pull Requests/" itemprop="url">
+                Pull Requests
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2015-06-19T15:51:41+08:00" content="2015-06-19">
+            2015-06-19
+          </time>
+        </span>
+
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2015/06/19/Pull Requests/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/06/19/Pull Requests/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody"><blockquote>
+<p>所有的个人公开仓库实际上只是为了方便和其它的开发者共享分支。<br>各个开发者应该用分支隔离各个功能，就像在功能分支工作流和Gitflow工作流一样。<br>唯一的区别是这些分支被共享了。在Forking工作流中这些分支会被pull到另一个开发者的本地仓库中，而在功能分支工作流和Gitflow工作流中是直接被push到正式仓库中。</p>
+</blockquote>
+<h3 id="GitFlow+Pull_Request">GitFlow+Pull Request</h3><p>功能分支并不是马上合并到develop，当一个功能、发布或是热修复分支需要Review时，开发者开一个Pull Request发起功能的讨论，收到Pull Request后，项目维护者要决定如何做。如果功能没问题，就简单地合并到master分支，关闭Pull Request。<br>但如果提交的变更有问题，他可以在Pull Request中反馈。之后新加的提交也会评论之后接着显示出来。<br>在功能还没有完全开发完的时候，也可能发起一个Pull Request。<br>比如开发者在实现某个需求时碰到了麻烦，他可以发一个包含正在进行中工作的Pull Request。<br>其它的开发者可以在Pull Request提供建议，或者甚至直接添加提交来解决问题。</p>
+</span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
   </section>
 
   
@@ -1076,7 +1063,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">24</span>
+              <span class="site-state-item-count">23</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
