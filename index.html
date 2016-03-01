@@ -178,6 +178,169 @@
           
           
             
+              <a class="post-title-link" href="/2016/03/02/objc笔记-1/" itemprop="url">
+                objc笔记
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2016-03-02T02:08:18+08:00" content="2016-03-02">
+            2016-03-02
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a></span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2016/03/02/objc笔记-1/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/02/objc笔记-1/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody"><a id="more"></a></span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              <a class="post-title-link" href="/2015/11/02/objc笔记/" itemprop="url">
+                objc笔记(1)
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2015-11-02T00:49:32+08:00" content="2015-11-02">
+            2015-11-02
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a></span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2015/11/02/objc笔记/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/02/objc笔记/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <h4 id="更轻量的_View_Controllers"><a href="http://objccn.io/issue-1-1/">更轻量的 View Controllers</a></h4><p><strong>把 Data Source 和其他 Protocols 分离出来</strong>,把 UITableViewDataSource 的代码提取出来放到一个单独的类中（看到这个有些理解ComponentKit的写法了）<br><strong>将业务逻辑移到 Model 中</strong><br>有些代码不能被轻松地移动到 model 对象中，但明显和 model 代码紧密联系，对于这种情况，可以使用一个 Store：<br><strong>创建 Store 类</strong>，Store 对象会关心数据加载、缓存和设置数据栈。它也经常被称为服务层或者仓库。<br><strong>把网络请求逻辑移到 Model 层</strong>，不要在 view controller 中做网络请求的逻辑，通过使用回调（比如一个 completion 的 block）来请求网络。<br><strong>把 View 代码移到 View 层</strong>，不应该在 view controller 中构建复杂的 view 层次结构。可以使用 Interface Builder 或者把 views 封装到一个 UIView 子类当中。<br><strong>通讯</strong>，view controllers 和 model 对象之间的消息传递，已经有很多阐述得很好的技术（比如 KVO 和 fetched results controllers）。当一个 view controller 想把某个状态传递给多个其他 view controllers 时，就会出现消息传递不清晰的问题。较好的做法是把状态放到一个单独的对象里，然后把这个对象传递给其它 view controllers，它们观察和修改这个状态。这样的好处是消息传递都在一个地方（被观察的对象）进行，而且我们也不用纠结嵌套的 delegate 回调。<br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/11/02/objc笔记/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
               <a class="post-title-link" href="/2015/10/29/ZSH/" itemprop="url">
                 ZSH
               </a>
@@ -879,179 +1042,6 @@
 
 
     
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2015/07/20/Mantle2-0/" itemprop="url">
-                Mantle2.0
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2015-07-20T17:05:53+08:00" content="2015-07-20">
-            2015-07-20
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/iOS轮子/" itemprop="url" rel="index"><span itemprop="name">iOS轮子</span></a></span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <a href="/2015/07/20/Mantle2-0/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/07/20/Mantle2-0/" itemprop="commentsCount"></span>
-              </a>
-            </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <blockquote>
-<p>Mantle makes it easy to write a simple model layer for your Cocoa or Cocoa Touch application.<a href="https://github.com/Mantle/Mantle">Mantle</a></p>
-</blockquote>
-<h3 id="为什么唱吧iOS_6-0选择了Mantle"><a href="http://www.iwangke.me/2014/10/13/Why-Changba-iOS-choose-Mantle/">为什么唱吧iOS 6.0选择了Mantle</a></h3><h3 id="2-0_CHANGELOG"><a href="https://github.com/Mantle/Mantle/blob/2.0/CHANGELOG.md#explicit-json-key-paths">2.0 CHANGELOG</a></h3><h4 id="Explicit_JSON_key_paths_明确JSON路径">Explicit JSON key paths 明确JSON路径</h4><p>+JSONKeyPathsForPropertyKey 这里面必须写每一个属性映射，忽略任何属性将不会被考虑JSON序列化和反序列化。<br>可以使用+[NSDictionary mtl_identityPropertyMapWithModel：] 自动创建一个一对一的映射相匹配的以前的默认行为。</p>
-<h4 id="Predefined_transformers_now_part_of_JSON_adapter_预定义的transformers现在转移到了MTLJSONAdapter">Predefined transformers now part of JSON adapter 预定义的transformers现在转移到了MTLJSONAdapter</h4><p>+mtl_JSONDictionaryTransformerWithModelClass: 和 +mtl_JSONArrayWithModelClass:转移到了MTLJSONAdapter<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// +[NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:]  </span></span><br><span class="line">+[MTLJSONAdapter <span class="string">dictionaryTransformerWithModelClass:</span>]</span><br><span class="line"><span class="comment">// +[NSValueTransformer mtl_JSONArrayTransformerWithModelClass:]</span></span><br><span class="line">+[MTLJSONAdapter <span class="string">arrayTransformerWithModelClass:</span>]</span><br></pre></td></tr></table></figure></p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/07/20/Mantle2-0/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2015/07/16/太阳仔的面试/" itemprop="url">
-                太阳仔的面试
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2015-07-16T10:24:35+08:00" content="2015-07-16">
-            2015-07-16
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a></span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <a href="/2015/07/16/太阳仔的面试/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/07/16/太阳仔的面试/" itemprop="commentsCount"></span>
-              </a>
-            </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <p>作者简介： <a href="http://blog.sunnyxx.com">孙源（sunnyxx）</a>，目前就职于百度，负责百度知道 iOS 客户端的开发工作，对技术喜欢刨根问底和总结最佳实践，热爱分享和开源，维护一个叫 forkingdog 的开源小组。</p>
-<p>近一年内陆续面试了不少人了，从面试者到面试官的转变让我对 iOS 招聘有了更多的感受。经过了前段时间的一大波面试，我们终于找到了志同道合的小伙伴，面试也暂时告一段落了。总结下面试人过程中的感受，你也可以读到我们对简历、算法、性格、iOS 基础、底层知识的看法和一些常问的面试题。<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/07/16/太阳仔的面试/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1091,7 +1081,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">24</span>
+              <span class="site-state-item-count">26</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

@@ -1,0 +1,705 @@
+<!doctype html>
+<html class="theme-next use-motion theme-next-mist">
+<head>
+    
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.4"/>
+
+
+    <meta name="description" content="I am a slow walker,but I never walk backwards." />
+
+
+
+  <meta name="keywords" content="白洪瑞,baihongrui,rayzworld,blog,iOS,baijiajie,白佳杰，白佳洁" />
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.4" />
+
+
+<meta name="description" content="更轻量的 View Controllers把 Data Source 和其他 Protocols 分离出来,把 UITableViewDataSource 的代码提取出来放到一个单独的类中（看到这个有些理解ComponentKit的写法了）将业务逻辑移到 Model 中有些代码不能被轻松地移动到 model 对象中，但明显和 model 代码紧密联系，对于这种情况，可以使用一个 Store：创建">
+<meta property="og:type" content="article">
+<meta property="og:title" content="objc笔记(1)">
+<meta property="og:url" content="https://rayzworld.github.io/2015/11/02/objc笔记/index.html">
+<meta property="og:site_name" content="HongRui's Blog">
+<meta property="og:description" content="更轻量的 View Controllers把 Data Source 和其他 Protocols 分离出来,把 UITableViewDataSource 的代码提取出来放到一个单独的类中（看到这个有些理解ComponentKit的写法了）将业务逻辑移到 Model 中有些代码不能被轻松地移动到 model 对象中，但明显和 model 代码紧密联系，对于这种情况，可以使用一个 Store：创建">
+<meta property="og:updated_time" content="2016-03-01T18:06:47.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="objc笔记(1)">
+<meta name="twitter:description" content="更轻量的 View Controllers把 Data Source 和其他 Protocols 分离出来,把 UITableViewDataSource 的代码提取出来放到一个单独的类中（看到这个有些理解ComponentKit的写法了）将业务逻辑移到 Model 中有些代码不能被轻松地移动到 model 对象中，但明显和 model 代码紧密联系，对于这种情况，可以使用一个 Store：创建">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: 'post'
+  };
+</script>
+
+    <title> objc笔记(1) // HongRui's Blog </title>
+</head>
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+
+
+
+
+<div class="container one-column page-post-detail">
+    <div class="headband"></div>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+        <div class="header-inner"><h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand" rel="start">
+      <span class="logo">
+        <i class="icon-logo"></i>
+      </span>
+      <span class="site-title">HongRui's Blog</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu menu-left">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon icon-home"></i> <br />
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            <i class="menu-item-icon icon-categories"></i> <br />
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            <i class="menu-item-icon icon-archives"></i> <br />
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            <i class="menu-item-icon icon-tags"></i> <br />
+            标签
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+<form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'EHDHtw-j3DipDyhFHcz8','2.0.0');
+</script>
+
+<div class="site-search-toggle"></div>
+    </div>
+  
+</nav>
+
+
+        </div>
+    </header>
+
+    <main id="main" class="main">
+        <div class="main-inner">
+            <div id="content" class="content">
+                
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              objc笔记(1)
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2015-11-02T00:49:32+08:00" content="2015-11-02">
+            2015-11-02
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a></span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2015/11/02/objc笔记/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/02/objc笔记/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><h4 id="更轻量的_View_Controllers"><a href="http://objccn.io/issue-1-1/" target="_blank" rel="external">更轻量的 View Controllers</a></h4><p><strong>把 Data Source 和其他 Protocols 分离出来</strong>,把 UITableViewDataSource 的代码提取出来放到一个单独的类中（看到这个有些理解ComponentKit的写法了）<br><strong>将业务逻辑移到 Model 中</strong><br>有些代码不能被轻松地移动到 model 对象中，但明显和 model 代码紧密联系，对于这种情况，可以使用一个 Store：<br><strong>创建 Store 类</strong>，Store 对象会关心数据加载、缓存和设置数据栈。它也经常被称为服务层或者仓库。<br><strong>把网络请求逻辑移到 Model 层</strong>，不要在 view controller 中做网络请求的逻辑，通过使用回调（比如一个 completion 的 block）来请求网络。<br><strong>把 View 代码移到 View 层</strong>，不应该在 view controller 中构建复杂的 view 层次结构。可以使用 Interface Builder 或者把 views 封装到一个 UIView 子类当中。<br><strong>通讯</strong>，view controllers 和 model 对象之间的消息传递，已经有很多阐述得很好的技术（比如 KVO 和 fetched results controllers）。当一个 view controller 想把某个状态传递给多个其他 view controllers 时，就会出现消息传递不清晰的问题。较好的做法是把状态放到一个单独的对象里，然后把这个对象传递给其它 view controllers，它们观察和修改这个状态。这样的好处是消息传递都在一个地方（被观察的对象）进行，而且我们也不用纠结嵌套的 delegate 回调。<br><a id="more"></a></p>
+<h4 id="整洁的_Table_View_代码"><a href="http://objccn.io/issue-1-2/" target="_blank" rel="external">整洁的 Table View 代码</a></h4><blockquote>
+<p>Table view controllers 会在第一次显示 table view 的时候帮你加载其数据。另外，它还会帮你切换 table view 的编辑模式、响应键盘通知、以及一些小任务，比如闪现侧边的滑动提示条和清除选中时的背景色。为了让这些特性生效，当你在子类中覆写类似 viewWillAppear: 或者 viewDidAppear: 等事件方法时，需要调用 super 版本。<br>Table view controllers 相对于标准 view controllers 的一个特别的好处是它支持 Apple 实现的“下拉刷新”。<br><strong>Table View Controllers 的限制</strong>，Table view controllers 的 view 属性永远都是一个 table view。如果你稍后决定在 table view 旁边显示一些东西（比如一个地图），如果不依赖于那些奇怪的 hacks，估计就没什么办法了。<br>如果你是用代码或 .xib 文件来定义的界面，那么迁移到一个标准 view controller 将会非常简单。但是如果你使用了 storyboards，那么这个过程要多包含几个步骤。除非重新创建，否则你并不能在 storyboards 中将 table view controller 改成一个标准的 view controller。这意味着你必须将所有内容拷贝到新的 view controller，然后再重新连接一遍。<br>最后，你需要把迁移后丢失的 table view controller 的特性给补回来。<br><strong>使用 Child View Controllers</strong>，和完全抛弃 table view controller 不同，你还可以将它作为 child view controller 添加到其他 view controller 中，这样，parent view controller 在管理其他的你需要的新加的界面元素的同时，table view controller 还可以继续管理它的 table view。<br><strong>搭建 Model 对象和 Cells 之间的桥梁</strong>，有时我们需要将想显示的 model 层中的数据传到 view 层中去显示。最好分解出来，放到 cell 类的一个 category 中。<br><strong>让 Cells 可复用</strong>，有时多种 model 对象需要用同一类型的 cell 来表示，这种情况下，我们可以进一步让 cell 可以复用。首先，我们给 cell 定义一个 protocol，需要用这个 cell 显示的对象必须遵循这个 protocol。然后简单修改 category 中的设置方法，让它可以接受遵循这个 protocol 的任何对象。这些简单的步骤让 cell 和任何特殊的 model 对象之间得以解耦，让它可适应不同的数据类型。（类似ComponentKit，把一个cell拆成积木，需要什么拼什么）<br><strong>在 Cell 内部控制 Cell 的状态</strong>，把 view 层和 controller 层的实现细节分离开。delegate 肯定得清楚一个 view 该显示什么状态，但是它不应该了解如何修改 view 结构或者给某些 subviews 设置某些属性以获得正确的状态。所有这些逻辑都应该封装到 view 内部，然后给外部提供一个简单的 API。</p>
+<h4 id="测试_View_Controllers"><a href="http://objccn.io/issue-1-3/" target="_blank" rel="external">测试 View Controllers</a></h4></blockquote>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/03/02/objc笔记-1/" rel="prev">objc笔记</a>
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/10/29/ZSH/" rel="next">ZSH</a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+            </div>
+
+            
+
+            
+              <div class="comments" id="comments">
+                
+                  <div class="ds-thread" data-thread-key="2015/11/02/objc笔记/"
+                       data-title="objc笔记(1)" data-url="https://rayzworld.github.io/2015/11/02/objc笔记/">
+                  </div>
+                
+              </div>
+            
+        </div>
+
+        
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/images/default_avatar.jpg" alt="白洪瑞" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">白洪瑞</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description">I am a slow walker,but I never walk backwards.</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">26</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-name">分类</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">25</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Rayzworld" target="_blank">GitHub</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/2421652200" target="_blank">WeiBo</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/Rayzworld2015" target="_blank">Twitter</a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+            <p class="site-author-name">Talk is cheap, show me the code.</p>
+            
+              <span class="links-of-author-item">
+              <a href="http://diwu.me" target="_blank">吴迪</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://www.objccn.io/" target="_blank">objc中国</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://kittenyang.com/" target="_blank">KittenYang</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://blog.sunnyxx.com/" target="_blank">太阳仔</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://nshipster.cn/" target="_blank">NSHipster</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://www.raywenderlich.com" target="_blank">raywenderlich</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://blog.devtang.com/" target="_blank">唐巧</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://joeshang.github.io/" target="_blank">传人</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://onevcat.com/" target="_blank">瞄神</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://macshuo.com/" target="_blank">池建强</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://vinqon.com/" target="_blank">陈咏聪</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://dlog.dismory.com/" target="_blank">耿健桓</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://blog.csdn.net/justinjing0612" target="_blank">景总</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://nianxi.net/" target="_blank">念茜</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://iiiyu.com/" target="_blank">萧宸宇</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://beyondvincent.com/" target="_blank">破船</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://www.iwangke.me/" target="_blank">王轲</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://www.cnblogs.com/easonoutlook/" target="_blank">杨宇建</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://casatwy.com/" target="_blank">田伟宇</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://noark9.github.io/" target="_blank">诺基亚</a>
+              </span>
+            
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#更轻量的_View_Controllers"><span class="nav-number">1.</span> <span class="nav-text">更轻量的 View Controllers</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#整洁的_Table_View_代码"><span class="nav-number">2.</span> <span class="nav-text">整洁的 Table View 代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#测试_View_Controllers"><span class="nav-number">3.</span> <span class="nav-text">测试 View Controllers</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+    </main>
+
+    <footer id="footer" class="footer">
+        <div class="footer-inner">
+            <div class="copyright" >
+  
+  &copy; &nbsp;  2014 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="icon-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">白洪瑞</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a> 
+</div>
+
+<div class="theme-info">
+  Theme by -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+        </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+</div>
+
+<script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+    
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"rayzworld"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+    
+  
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.4"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.4"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.4" id="motion.global"></script>
+
+
+
+  <script type="text/javascript" src="/js/search-toggle.js"></script>
+
+
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.4" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+          var self = this;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      $(indicator).velocity('stop').velocity({
+        opacity: action === 'show' ? 0.4 : 0
+      }, { duration: 100 });
+    }
+
+  });
+</script>
+
+
+  <script type="text/javascript" id="sidebar.nav">
+    $(document).ready(function () {
+      var html = $('html');
+
+      $('.sidebar-nav li').on('click', function () {
+        var item = $(this);
+        var activeTabClassName = 'sidebar-nav-active';
+        var activePanelClassName = 'sidebar-panel-active';
+        if (item.hasClass(activeTabClassName)) {
+          return;
+        }
+
+        var currentTarget = $('.' + activePanelClassName);
+        var target = $('.' + item.data('target'));
+
+        currentTarget.velocity('transition.slideUpOut', 200, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', 200)
+            .addClass(activePanelClassName);
+        });
+
+        item.siblings().removeClass(activeTabClassName);
+        item.addClass(activeTabClassName);
+      });
+
+      $('.post-toc a').on('click', function (e) {
+        e.preventDefault();
+        var offset = $(escapeSelector(this.getAttribute('href'))).offset().top;
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        });
+      });
+
+      // Expand sidebar on post detail page by default, when post has a toc.
+      var $tocContent = $('.post-toc-content');
+      if (isDesktop() && CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          displaySidebar();
+        }
+      }
+    });
+  </script>
+
+
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        if (CONFIG.sidebar === 'always') {
+            displaySidebar();
+        }
+    });
+</script>
+
+
+
+
+
+
+
+
+<!-- lazyload -->
+<script type="text/javascript" src="/js/lazyload.js"></script>
+<script type="text/javascript">
+    jQuery(function () {
+        jQuery("#posts img").lazyload({
+            placeholder: "/images/loading.gif",
+            effect: "fadeIn"
+        });
+    });
+</script>
+</body>
+</html>
