@@ -227,7 +227,9 @@
 
       
         
-          <h3 id="#">#</h3>
+          <h4 id="Operation_Queues">Operation Queues</h4><p>NSOperationQueue 有两种不同类型的队列：主队列和自定义队列。主队列运行在主线程之上，而自定义队列在后台执行。在两种类型中，这些队列所处理的任务都使用 NSOperation 的子类来表述。</p>
+<p>你可以通过重写 main 或者 start 方法 来定义自己的 operations 。前一种方法非常简单，开发者不需要管理一些状态属性（例如 isExecuting 和 isFinished），当 main 方法返回的时候，这个 operation 就结束了。这种方式使用起来非常简单，但是灵活性相对重写 start 来说要少一些。如果你希望拥有更多的控制权，以及在一个操作中可以执行异步任务，那么就重写 start 方法。<br>为了能使用操作队列所提供的取消功能，你需要在长时间操作中时不时地检查 isCancelled 属性。<br>如果你重写 operation 的description 方法，就可以很容易的标示出在某个队列中当前被调度的所有操作 。<br>除了提供基本的调度操作或 block 外，操作队列还提供了在 GCD 中不太容易处理好的特性的功能。例如，你可以通过 maxConcurrentOperationCount 属性来控制一个特定队列中可以有多少个操作参与并发执行。将其设置为 1 的话，你将得到一个串行队列，这在以隔离为目的的时候会很有用。<br>另外还有一个方便的功能就是根据队列中 operation 的优先级对其进行排序，这不同于 GCD 的队列优先级，它只影响当前队列中所有被调度的 operation 的执行先后。如果你需要进一步在除了 5 个标准的优先级以外对 operation 的执行顺序进行控制的话，还可以在 operation 之间指定依赖关系</p>
+<p>从本质上来看，操作队列的性能比 GCD 要低那么一点，不过，大多数情况下这点负面影响可以忽略不计，操作队列是并发编程的首选工具。<br>
           <div class="post-more-link text-center">
             <a class="btn" href="/2015/11/05/objc笔记-1/#more" rel="contents">
               阅读全文 &raquo;
@@ -399,12 +401,7 @@
 <p>Shell是Linux/Unix的一个外壳，你理解成衣服也行。它负责外界与Linux内核的交互，接收用户或其他应用程序的命令，然后把这些命令转化成内核能理解的语言，传给内核，内核是真正干活的，干完之后再把结果返回用户或应用程序。</p>
 </blockquote>
 <p>常用的Shell有这么几种，sh、bash、csh等，可以通过以下命令查看系统有几种shell, Mac会多一个 zsh<br><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat <span class="regexp">/etc/</span>shells</span><br></pre></td></tr></table></figure></p>
-<h3 id="oh_my_zsh"><a href="https://github.com/robbyrussell/oh-my-zsh">oh my zsh</a></h3><h3 id="安装ZSH">安装ZSH</h3><p>Mac，自带<br>Redhat Linux，执行：sudo yum install zsh<br>Ubuntu Linux，执行：sudo apt-get install zsh<br>Windows……去洗洗睡吧。</p>
-<p>安装完成后设置当前用户使用 zsh：chsh -s /bin/zsh，根据提示输入当前用户的密码就可以了。</p>
-<h3 id="安装oh_my_zsh">安装oh my zsh</h3><p>首先安装 git，安装方式同上，把 zsh 换成 git 即可。安装「oh my zsh」可以自动安装也可以手动安装。自动安装：<br><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget http<span class="variable">s:</span>//github.<span class="keyword">com</span>/robbyrussell/oh-my-zsh/raw/master/tools/install.<span class="keyword">sh</span> -O - | <span class="keyword">sh</span></span><br></pre></td></tr></table></figure></p>
-<p>手动安装：</p>
-<figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh</span><br><span class="line">cp ~/.oh-my-zsh/templates/zshrc.zsh-<span class="keyword">template</span> ~/.zshrc</span><br></pre></td></tr></table></figure>
-<p>来源<br><a href="http://zhuanlan.zhihu.com/mactalk/19556676">终极 Shell——ZSH</a><br>
+<h3 id="oh_my_zsh"><a href="https://github.com/robbyrussell/oh-my-zsh">oh my zsh</a></h3>
           <div class="post-more-link text-center">
             <a class="btn" href="/2015/10/29/ZSH/#more" rel="contents">
               阅读全文 &raquo;

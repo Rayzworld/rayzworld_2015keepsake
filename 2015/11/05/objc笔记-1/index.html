@@ -37,16 +37,19 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.4" />
 
 
-<meta name="description" content="#">
+<meta name="description" content="Operation QueuesNSOperationQueue 有两种不同类型的队列：主队列和自定义队列。主队列运行在主线程之上，而自定义队列在后台执行。在两种类型中，这些队列所处理的任务都使用 NSOperation 的子类来表述。
+你可以通过重写 main 或者 start 方法 来定义自己的 operations 。前一种方法非常简单，开发者不需要管理一些状态属性（例如 isExecuti">
 <meta property="og:type" content="article">
 <meta property="og:title" content="objc笔记（2）">
 <meta property="og:url" content="https://rayzworld.github.io/2015/11/05/objc笔记-1/index.html">
 <meta property="og:site_name" content="HongRui's Blog">
-<meta property="og:description" content="#">
-<meta property="og:updated_time" content="2016-03-01T18:12:24.000Z">
+<meta property="og:description" content="Operation QueuesNSOperationQueue 有两种不同类型的队列：主队列和自定义队列。主队列运行在主线程之上，而自定义队列在后台执行。在两种类型中，这些队列所处理的任务都使用 NSOperation 的子类来表述。
+你可以通过重写 main 或者 start 方法 来定义自己的 operations 。前一种方法非常简单，开发者不需要管理一些状态属性（例如 isExecuti">
+<meta property="og:updated_time" content="2016-03-04T14:36:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="objc笔记（2）">
-<meta name="twitter:description" content="#">
+<meta name="twitter:description" content="Operation QueuesNSOperationQueue 有两种不同类型的队列：主队列和自定义队列。主队列运行在主线程之上，而自定义队列在后台执行。在两种类型中，这些队列所处理的任务都使用 NSOperation 的子类来表述。
+你可以通过重写 main 或者 start 方法 来定义自己的 operations 。前一种方法非常简单，开发者不需要管理一些状态属性（例如 isExecuti">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -223,7 +226,12 @@
       
 
       
-        <span itemprop="articleBody"><h3 id="#">#</h3><a id="more"></a></span>
+        <span itemprop="articleBody"><h4 id="Operation_Queues">Operation Queues</h4><p>NSOperationQueue 有两种不同类型的队列：主队列和自定义队列。主队列运行在主线程之上，而自定义队列在后台执行。在两种类型中，这些队列所处理的任务都使用 NSOperation 的子类来表述。</p>
+<p>你可以通过重写 main 或者 start 方法 来定义自己的 operations 。前一种方法非常简单，开发者不需要管理一些状态属性（例如 isExecuting 和 isFinished），当 main 方法返回的时候，这个 operation 就结束了。这种方式使用起来非常简单，但是灵活性相对重写 start 来说要少一些。如果你希望拥有更多的控制权，以及在一个操作中可以执行异步任务，那么就重写 start 方法。<br>为了能使用操作队列所提供的取消功能，你需要在长时间操作中时不时地检查 isCancelled 属性。<br>如果你重写 operation 的description 方法，就可以很容易的标示出在某个队列中当前被调度的所有操作 。<br>除了提供基本的调度操作或 block 外，操作队列还提供了在 GCD 中不太容易处理好的特性的功能。例如，你可以通过 maxConcurrentOperationCount 属性来控制一个特定队列中可以有多少个操作参与并发执行。将其设置为 1 的话，你将得到一个串行队列，这在以隔离为目的的时候会很有用。<br>另外还有一个方便的功能就是根据队列中 operation 的优先级对其进行排序，这不同于 GCD 的队列优先级，它只影响当前队列中所有被调度的 operation 的执行先后。如果你需要进一步在除了 5 个标准的优先级以外对 operation 的执行顺序进行控制的话，还可以在 operation 之间指定依赖关系</p>
+<p>从本质上来看，操作队列的性能比 GCD 要低那么一点，不过，大多数情况下这点负面影响可以忽略不计，操作队列是并发编程的首选工具。<br><a id="more"></a></p>
+<h4 id="Run_Loops">Run Loops</h4><p>实际上，Run loop并不像 GCD 或者操作队列那样是一种并发机制，因为它并不能并行执行任务。不过在主 dispatch/operation 队列中， run loop 将直接配合任务的执行，它提供了一种异步执行代码的机制。<br>Run loop 比起操作队列或者 GCD 来说容易使用得多，因为通过 run loop ，你不必处理并发中的复杂情况，就能异步地执行任务。一个 run loop 总是绑定到某个特定的线程中。main run loop 是与主线程相关的，在每一个 Cocoa 和 CocoaTouch 程序中，这个 main run loop 都扮演了一个核心角色，它负责处理 UI 事件、计时器，以及其它内核相关事件。无论你什么时候设置计时器、使用 NSURLConnection 或者调用 performSelector:withObject:afterDelay:，其实背后都是 run loop 在处理这些异步任务。</p>
+<p>无论何时你使用 run loop 来执行一个方法的时候，都需要记住一点：<strong>run loop 可以运行在不同的模式中，每种模式都定义了一组事件，供 run loop 做出响应。这在对应 main run loop 中暂时性的将某个任务优先执行这种任务上是一种聪明的做法。</strong><br>如果你真需要在别的线程中添加一个 run loop ，那么不要忘记在 run loop 中至少添加一个 input source 。如果 run loop 中没有设置好的 input source，那么每次运行这个 run loop ，它都会立即退出。</p>
+</span>
       
     </div>
 
@@ -444,7 +452,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="##"><span class="nav-number">1.</span> <span class="nav-text">#</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Operation_Queues"><span class="nav-number">1.</span> <span class="nav-text">Operation Queues</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Run_Loops"><span class="nav-number">2.</span> <span class="nav-text">Run Loops</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
