@@ -37,16 +37,16 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.4" />
 
 
-<meta name="description" content="Forking工作流是分布式工作流，充分利用了Git在分支和克隆上的优势。可以安全可靠地管理大团队的开发者（developer），并能接受不信任贡献者（contributor）的提交。Forking工作流和前面讨论的几种工作流有根本的不同，这种工作流不是使用单个服务端仓库作为『中央』代码基线，而让各个开发者都有一个服务端仓库。这意味着各个代码贡献者有2个Git仓库而不是1个：一个本地私有的，另一个">
+<meta name="description" content="Views绘制像素到屏幕上不透明 VS 透明，当源纹理是完全不透明的时候，目标像素就等于源纹理。但是没有方法能告诉 GPU 纹理上的像素是透明还是不透明的。CALayer 有一个叫做 opaque 的属性了。如果这个属性为 YES，GPU 将不会做任何合成，而是简单从这个层拷贝，不需要考虑它下方的任何东西(因为都被它遮挡住了)。如果你加载一个没有 alpha 通道的图片，并且将它显示在 UIIma">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Forking工作流">
-<meta property="og:url" content="https://rayzworld.github.io/2015/06/17/Forking工作流/index.html">
+<meta property="og:title" content="objc笔记（3）">
+<meta property="og:url" content="https://rayzworld.github.io/2015/11/10/objc笔记-2/index.html">
 <meta property="og:site_name" content="HongRui's Blog">
-<meta property="og:description" content="Forking工作流是分布式工作流，充分利用了Git在分支和克隆上的优势。可以安全可靠地管理大团队的开发者（developer），并能接受不信任贡献者（contributor）的提交。Forking工作流和前面讨论的几种工作流有根本的不同，这种工作流不是使用单个服务端仓库作为『中央』代码基线，而让各个开发者都有一个服务端仓库。这意味着各个代码贡献者有2个Git仓库而不是1个：一个本地私有的，另一个">
-<meta property="og:updated_time" content="2015-07-14T16:39:41.000Z">
+<meta property="og:description" content="Views绘制像素到屏幕上不透明 VS 透明，当源纹理是完全不透明的时候，目标像素就等于源纹理。但是没有方法能告诉 GPU 纹理上的像素是透明还是不透明的。CALayer 有一个叫做 opaque 的属性了。如果这个属性为 YES，GPU 将不会做任何合成，而是简单从这个层拷贝，不需要考虑它下方的任何东西(因为都被它遮挡住了)。如果你加载一个没有 alpha 通道的图片，并且将它显示在 UIIma">
+<meta property="og:updated_time" content="2016-03-11T06:26:43.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Forking工作流">
-<meta name="twitter:description" content="Forking工作流是分布式工作流，充分利用了Git在分支和克隆上的优势。可以安全可靠地管理大团队的开发者（developer），并能接受不信任贡献者（contributor）的提交。Forking工作流和前面讨论的几种工作流有根本的不同，这种工作流不是使用单个服务端仓库作为『中央』代码基线，而让各个开发者都有一个服务端仓库。这意味着各个代码贡献者有2个Git仓库而不是1个：一个本地私有的，另一个">
+<meta name="twitter:title" content="objc笔记（3）">
+<meta name="twitter:description" content="Views绘制像素到屏幕上不透明 VS 透明，当源纹理是完全不透明的时候，目标像素就等于源纹理。但是没有方法能告诉 GPU 纹理上的像素是透明还是不透明的。CALayer 有一个叫做 opaque 的属性了。如果这个属性为 YES，GPU 将不会做任何合成，而是简单从这个层拷贝，不需要考虑它下方的任何东西(因为都被它遮挡住了)。如果你加载一个没有 alpha 通道的图片，并且将它显示在 UIIma">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -56,7 +56,7 @@
   };
 </script>
 
-    <title> Forking工作流 // HongRui's Blog </title>
+    <title> objc笔记（3） // HongRui's Blog </title>
 </head>
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 <!--[if lte IE 8]>
@@ -177,7 +177,7 @@
           
           
             
-              Forking工作流
+              objc笔记（3）
             
           
         </h1>
@@ -186,8 +186,8 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2015-06-17T15:51:21+08:00" content="2015-06-17">
-            2015-06-17
+          <time itemprop="dateCreated" datetime="2015-11-10T13:59:38+08:00" content="2015-11-10">
+            2015-11-10
           </time>
         </span>
 
@@ -195,7 +195,7 @@
           <span class="post-category" >
             &nbsp; | &nbsp; 分类于
             
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/Git/" itemprop="url" rel="index"><span itemprop="name">Git</span></a></span>
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a></span>
 
               
               
@@ -208,8 +208,8 @@
           
             <span class="post-comments-count">
               &nbsp; | &nbsp;
-              <a href="/2015/06/17/Forking工作流/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/06/17/Forking工作流/" itemprop="commentsCount"></span>
+              <a href="/2015/11/10/objc笔记-2/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/10/objc笔记-2/" itemprop="commentsCount"></span>
               </a>
             </span>
           
@@ -223,17 +223,18 @@
       
 
       
-        <span itemprop="articleBody"><blockquote>
-<p>Forking工作流是分布式工作流，充分利用了Git在分支和克隆上的优势。可以安全可靠地管理大团队的开发者（developer），并能接受不信任贡献者（contributor）的提交。<br>Forking工作流和前面讨论的几种工作流有根本的不同，这种工作流不是使用单个服务端仓库作为『中央』代码基线，而让各个开发者都有一个服务端仓库。这意味着各个代码贡献者有2个Git仓库而不是1个：一个本地私有的，另一个服务端公开的。</p>
-</blockquote>
-<p>Forking工作流的一个主要优势是，贡献的代码可以被集成，而不需要所有人都能push代码到仅有的中央仓库中。<br>开发者push到自己的服务端仓库，而只有项目维护者才能push到正式仓库。<br>这样项目维护者可以接受任何开发者的提交，但无需给他正式代码库的写权限。<br><a id="more"></a><br>效果就是一个分布式的工作流，能为大型、自发性的团队（包括了不受信的第三方）提供灵活的方式来安全的协作。<br>也让这个工作流成为开源项目的理想工作流。</p>
-<h4 id="工作方式">工作方式</h4><p>和其它的Git工作流一样，Forking工作流要先有一个公开的正式仓库存储在服务器上。<br>但一个新的开发者想要在项目上工作时，不是直接从正式仓库克隆，而是fork正式项目在服务器上创建一个拷贝。</p>
-<p>这个仓库拷贝作为他个人公开仓库 ——<br>其它开发者不允许push到这个仓库，但可以pull到修改（后面我们很快就会看这点很重要）。<br>在创建了自己服务端拷贝之后，和之前的工作流一样，开发者执行git clone命令克隆仓库到本地机器上，作为私有的开发环境。</p>
-<p>要提交本地修改时，push提交到自己公开仓库中 —— 而不是正式仓库中。<br>然后，给正式仓库发起一个pull request，让项目维护者知道有更新已经准备好可以集成了。<br>对于贡献的代码，pull request也可以很方便地作为一个讨论的地方。</p>
-<p>为了集成功能到正式代码库，维护者pull贡献者的变更到自己的本地仓库中，检查变更以确保不会让项目出错，<br>合并变更到自己本地的master分支，<br>然后pushmaster分支到服务器的正式仓库中。<br>到此，贡献的提交成为了项目的一部分，其它的开发者应该执行pull操作与正式仓库同步自己本地仓库。</p>
-<h4 id="正式仓库">正式仓库</h4><p>在Forking工作流中，『官方』仓库的叫法只是一个约定，理解这点很重要。<br>从技术上来看，各个开发者仓库和正式仓库在Git看来没有任何区别。<br>事实上，让正式仓库之所以正式的唯一原因是它是项目维护者的公开仓库。</p>
-<h4 id="Forking工作流的分支使用方式">Forking工作流的分支使用方式</h4><p>所有的个人公开仓库实际上只是为了方便和其它的开发者共享分支。<br>各个开发者应该用分支隔离各个功能，就像在功能分支工作流和Gitflow工作流一样。<br>唯一的区别是这些分支被共享了。在Forking工作流中这些分支会被pull到另一个开发者的本地仓库中，而在功能分支工作流和Gitflow工作流中是直接被push到正式仓库中。</p>
-<h4 id="本文内容抄自深入理解学习Git工作流">本文内容抄自<em>深入理解学习Git工作流</em></h4></span>
+        <span itemprop="articleBody"><h3 id="Views">Views</h3><h4 id="绘制像素到屏幕上">绘制像素到屏幕上</h4><p><strong>不透明 VS 透明</strong>，当源纹理是完全不透明的时候，目标像素就等于源纹理。但是没有方法能告诉 GPU 纹理上的像素是透明还是不透明的。CALayer 有一个叫做 opaque 的属性了。如果这个属性为 YES，GPU 将不会做任何合成，而是简单从这个层拷贝，不需要考虑它下方的任何东西(因为都被它遮挡住了)。如果你加载一个没有 alpha 通道的图片，并且将它显示在 UIImageView 上，这将会自动发生。但是要记住如果一个图片没有 alpha 通道和一个图片每个地方的 alpha 都是100%，这将会产生很大的不同。<br><strong>像素对齐 VS 不重合在一起</strong>，当一个 layer 上所有的像素和屏幕上的像素完美的对应整齐，那这个 layer 就是像素对齐的。主要有两个原因可能会造成不对齐。第一个便是滚动；当一个纹理上下滚动的时候，纹理的像素便不会和屏幕的像素排列对齐。另一个原因便是当纹理的起点不在一个像素的边界上。在这两种情况下，GPU需要再做额外的计算。它需要将源纹理上多个像素混合起来，生成一个用来合成的值。当所有的像素都是对齐的时候，GPU 只剩下很少的工作要做。<br><strong>mask</strong>，mask 是一个拥有 alpha 值的位图，当像素要和它下面包含的像素合并之前都会把 mask 应用到图层的像素上去。当你要设置一个图层的圆角半径时，你可以有效的在图层上面设置一个 mask。但是也可以指定任意一个蒙板。比如，一个字母 A 形状的 mask。最终只有在 mask 中显示出来的(即图层中的部分)才会被渲染出来。<br><a id="more"></a><br><strong>离屏渲染(Offscreen Rendering)</strong>，离屏渲染可以被CoreAnimation自动触发，或者被应用程序强制触发。屏幕外的渲染会合并/渲染图层树的一部分到一个新的缓冲区，然后该缓冲区被渲染到屏幕上。</p>
+<p>一种好的方法就是缓存合成的纹理/图层。如果你的渲染树非常复杂(所有的纹理，以及如何组合在一起)，你可以强制离屏渲染缓存那些图层，然后可以用缓存作为合成的结果放到屏幕上。<br>如果你的程序混合了很多图层，并且想要他们一起做动画，GPU 通常会为每一帧(1/60s)重复合成所有的图层。当使用离屏渲染时，GPU 第一次会混合所有图层到一个基于新的纹理的位图缓存上，然后使用这个纹理来绘制到屏幕上。现在，当这些图层一起移动的时候，GPU 便可以复用这个位图缓存，并且只需要做很少的工作。需要注意的是，只有当那些图层不改变时，这才可以用。如果那些图层改变了，GPU 需要重新创建位图缓存。你可以通过设置shouldRasterize为YES来触发这个行为。这可能会使事情变得更慢。创建额外的屏幕外缓冲区是 GPU 需要多做的一步操作，特殊情况下这个位图可能再也不需要被复用，这便是一个无用功了。然而，可以被复用的位图，GPU 也有可能将它卸载了。所以你需要计算 GPU 的利用率和帧的速率来判断这个位图是否有用。</p>
+<p>如果你正在直接或者间接的将mask应用到一个图层上，Core Animation 为了应用这个 mask，会强制进行屏幕外渲染。这会对 GPU 产生重负。通常情况下 mask 只能被直接渲染到帧的缓冲区中(在屏幕内)。</p>
+<p>Instrument 的 Core Animation 工具有一个叫做 Color Offscreen-Rendered Yellow 的选项，它会将已经被渲染到屏幕外缓冲区的区域标注为黄色(这个选项在模拟器中也可以用)。同时记得检查 Color Hits Green and Misses Red 选项。绿色代表无论何时一个屏幕外缓冲区被复用，而红色代表当缓冲区被重新创建。<br>直接将图层合成到帧的缓冲区中(在屏幕上)比先创建屏幕外缓冲区，然后渲染到纹理中，最后将结果渲染到帧的缓冲区中要廉价很多。</p>
+<p>当你打开 Color Offscreen-Rendered Yellow 后看到黄色，这便是一个警告，但这不一定是不好的。如果 Core Animation 能够复用屏幕外渲染的结果，这便能够提升性能。<br>rasterized layer 的空间是有限的。苹果暗示大概有屏幕大小两倍的空间来存储 rasterized layer/屏幕外缓冲区。</p>
+<p>如果你使用 layer 的方式会通过屏幕外渲染，你最好摆脱这种方式。为 layer 使用蒙板或者设置圆角半径会造成屏幕外渲染，产生阴影也会如此。</p>
+<p>至于 mask，圆角半径(特殊的mask)和 clipsToBounds/masksToBounds，你可以简单的为一个已经拥有 mask 的 layer 创建内容，比如，已经应用了 mask 的 layer 使用一张图片。如果你想根据 layer 的内容为其应用一个长方形 mask，你可以使用 contentsRect 来代替蒙板。</p>
+<p>如果你最后设置了 shouldRasterize 为 YES，那也要记住设置 rasterizationScale 为 contentsScale。</p>
+<p><strong>Core Animation OpenGL ES</strong>，Core Animation 的 layer 可以有子 layer，所以最终你得到的是一个图层树。Core Animation 所需要做的最繁重的任务便是判断出哪些图层需要被(重新)绘制，而 OpenGL ES 需要做的便是将图层合并、显示到屏幕上。举个例子，当你设置一个 layer 的内容为 CGImageRef 时，Core Animation 会创建一个 OpenGL 纹理，并确保在这个图层中的位图被上传到对应的纹理中。以及当你重写 -drawInContext 方法时，Core Animation 会请求分配一个纹理，同时确保 Core Graphics 会将你所做的(即你在drawInContext中绘制的东西)放入到纹理的位图数据中。一个图层的性质和 CALayer 的子类会影响到 OpenGL 的渲染结果，许多低等级的 OpenGL ES 行为被简单易懂地封装到 CALayer 概念中。</p>
+<p>Core Animation 通过 Core Graphics 的一端和 OpenGL ES 的另一端，精心策划基于 CPU 的位图绘制。因为 Core Animation 处在渲染过程中的重要位置上，所以你如何使用 Core Animation 将会对性能产生极大的影响。</p>
+<p><strong>CPU限制 VS GPU限制</strong>，为了每秒达到 60 帧，你需要确定 CPU 和 GPU 不能过载。此外，即使你当前能达到 60fps(frame per second),你还是要把尽可能多的绘制工作交给 GPU 做，而让 CPU 尽可能的来执行应用程序。通常，GPU 的渲染性能要比 CPU 高效很多，同时对系统的负载和消耗也更低一些。果是 GPU 限制了你的性能，你可以使用 OpenGL ES Driver instrument。点击上面那个小的 i 按钮，配置一下，同时注意勾选 Device Utilization %。现在，当你运行你的 app 时，你可以看到你 GPU 的负荷。如果这个值靠近 100%，那么你就需要把你工作的重心放在GPU方面了。</p>
+</span>
       
     </div>
 
@@ -244,13 +245,13 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/06/18/Gitflow工作流/" rel="prev">Gitflow工作流</a>
+              <a href="/2015/11/11/objc笔记-3/" rel="prev">objc笔记 (4)</a>
             
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/06/16/功能分支工作流/" rel="next">功能分支工作流</a>
+              <a href="/2015/11/05/objc笔记-1/" rel="next">objc笔记（2）</a>
             
           </div>
         </div>
@@ -276,8 +277,8 @@
             
               <div class="comments" id="comments">
                 
-                  <div class="ds-thread" data-thread-key="2015/06/17/Forking工作流/"
-                       data-title="Forking工作流" data-url="https://rayzworld.github.io/2015/06/17/Forking工作流/">
+                  <div class="ds-thread" data-thread-key="2015/11/10/objc笔记-2/"
+                       data-title="objc笔记（3）" data-url="https://rayzworld.github.io/2015/11/10/objc笔记-2/">
                   </div>
                 
               </div>
@@ -456,7 +457,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#工作方式"><span class="nav-number">1.</span> <span class="nav-text">工作方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#正式仓库"><span class="nav-number">2.</span> <span class="nav-text">正式仓库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Forking工作流的分支使用方式"><span class="nav-number">3.</span> <span class="nav-text">Forking工作流的分支使用方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#本文内容抄自深入理解学习Git工作流"><span class="nav-number">4.</span> <span class="nav-text">本文内容抄自深入理解学习Git工作流</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Views"><span class="nav-number">1.</span> <span class="nav-text">Views</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#绘制像素到屏幕上"><span class="nav-number">1.1.</span> <span class="nav-text">绘制像素到屏幕上</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>

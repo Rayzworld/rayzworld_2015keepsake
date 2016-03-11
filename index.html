@@ -178,8 +178,8 @@
           
           
             
-              <a class="post-title-link" href="/2016/03/10/objc笔记-2/" itemprop="url">
-                objc笔记（3）
+              <a class="post-title-link" href="/2015/11/11/objc笔记-3/" itemprop="url">
+                objc笔记 (4)
               </a>
             
           
@@ -189,8 +189,8 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2016-03-10T13:59:38+08:00" content="2016-03-10">
-            2016-03-10
+          <time itemprop="dateCreated" datetime="2015-11-11T10:54:00+08:00" content="2015-11-11">
+            2015-11-11
           </time>
         </span>
 
@@ -211,8 +211,93 @@
           
             <span class="post-comments-count">
               &nbsp; | &nbsp;
-              <a href="/2016/03/10/objc笔记-2/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/10/objc笔记-2/" itemprop="commentsCount"></span>
+              <a href="/2015/11/11/objc笔记-3/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/11/objc笔记-3/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <h4 id="Core_Data">Core Data</h4><p><strong>创建对象</strong>，通过 NSEntityDescription 的方法来插入：<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">+ (<span class="keyword">id</span>)insertNewObjectForEntityForName:(<span class="built_in">NSString</span> *)entityName </span><br><span class="line">               inManagedObjectContext:(<span class="built_in">NSManagedObjectContext</span> *)context;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 增加两个方便的方法到你的模型类中：</span></span><br><span class="line">+ (<span class="built_in">NSString</span> *)entityName</span><br><span class="line">&#123;</span><br><span class="line">   <span class="keyword">return</span> @“Item”;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">+ (instancetype)insertNewObjectInManagedObjectContext:(<span class="built_in">NSManagedObjectContext</span> *)moc;</span><br><span class="line">&#123;</span><br><span class="line">   <span class="keyword">return</span> [<span class="built_in">NSEntityDescription</span> insertNewObjectForEntityForName:[<span class="keyword">self</span> entityName] </span><br><span class="line">                                        inManagedObjectContext:moc];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 插入我们的根对象</span></span><br><span class="line">Item *rootItem = [Item insertNewObjectInManagedObjectContext:managedObjectContext];</span><br></pre></td></tr></table></figure></p>
+<p>在我们的 managed object context 中有一个唯一的 item。Context 知道这是一个新插入进来需要被管理的对象，并且被管理的对象 rootItem 知道这个 Context（它有一个 -managedObjectContext 方法）。<br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/11/11/objc笔记-3/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              <a class="post-title-link" href="/2015/11/10/objc笔记-2/" itemprop="url">
+                objc笔记（3）
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2015-11-10T13:59:38+08:00" content="2015-11-10">
+            2015-11-10
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a></span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2015/11/10/objc笔记-2/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/10/objc笔记-2/" itemprop="commentsCount"></span>
               </a>
             </span>
           
@@ -229,7 +314,7 @@
         
           <h3 id="Views">Views</h3><h4 id="绘制像素到屏幕上">绘制像素到屏幕上</h4><p><strong>不透明 VS 透明</strong>，当源纹理是完全不透明的时候，目标像素就等于源纹理。但是没有方法能告诉 GPU 纹理上的像素是透明还是不透明的。CALayer 有一个叫做 opaque 的属性了。如果这个属性为 YES，GPU 将不会做任何合成，而是简单从这个层拷贝，不需要考虑它下方的任何东西(因为都被它遮挡住了)。如果你加载一个没有 alpha 通道的图片，并且将它显示在 UIImageView 上，这将会自动发生。但是要记住如果一个图片没有 alpha 通道和一个图片每个地方的 alpha 都是100%，这将会产生很大的不同。<br><strong>像素对齐 VS 不重合在一起</strong>，当一个 layer 上所有的像素和屏幕上的像素完美的对应整齐，那这个 layer 就是像素对齐的。主要有两个原因可能会造成不对齐。第一个便是滚动；当一个纹理上下滚动的时候，纹理的像素便不会和屏幕的像素排列对齐。另一个原因便是当纹理的起点不在一个像素的边界上。在这两种情况下，GPU需要再做额外的计算。它需要将源纹理上多个像素混合起来，生成一个用来合成的值。当所有的像素都是对齐的时候，GPU 只剩下很少的工作要做。<br><strong>mask</strong>，mask 是一个拥有 alpha 值的位图，当像素要和它下面包含的像素合并之前都会把 mask 应用到图层的像素上去。当你要设置一个图层的圆角半径时，你可以有效的在图层上面设置一个 mask。但是也可以指定任意一个蒙板。比如，一个字母 A 形状的 mask。最终只有在 mask 中显示出来的(即图层中的部分)才会被渲染出来。<br>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/03/10/objc笔记-2/#more" rel="contents">
+            <a class="btn" href="/2015/11/10/objc笔记-2/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -954,93 +1039,6 @@
 
 
     
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2015/08/12/修改hosts访问google/" itemprop="url">
-                修改hosts访问google
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2015-08-12T00:24:20+08:00" content="2015-08-12">
-            2015-08-12
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/翻墙/" itemprop="url" rel="index"><span itemprop="name">翻墙</span></a></span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <a href="/2015/08/12/修改hosts访问google/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/08/12/修改hosts访问google/" itemprop="commentsCount"></span>
-              </a>
-            </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <p>VPN不稳定的情况下寻找新的Google方式</p>
-<h3 id="修改hosts之后，使用https进行访问,Ex:https://www-google-com">修改hosts之后，使用https进行访问,Ex:<a href="https://www.google.com">https://www.google.com</a></h3><p><a href="http://pan.baidu.com/s/1mgBxbg0">hosts下载</a></p>
-<h3 id="Mac系统hosts修改">Mac系统hosts修改</h3><h4 id="1-切换到root用户">1.切换到root用户</h4><p>sudo -i</p>
-<h4 id="2-找到下载的hosts文件路径">2.找到下载的hosts文件路径</h4><p>cd /Users/Hooray2015/Downloads/<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/08/12/修改hosts访问google/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1080,7 +1078,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">27</span>
+              <span class="site-state-item-count">28</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
