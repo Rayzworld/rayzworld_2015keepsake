@@ -178,6 +178,178 @@
           
           
             
+              <a class="post-title-link" href="/2015/06/15/集中式工作流/" itemprop="url">
+                集中式工作流
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2015-06-15T15:49:47+08:00" content="2015-06-15">
+            2015-06-15
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/Git/" itemprop="url" rel="index"><span itemprop="name">Git</span></a></span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2015/06/15/集中式工作流/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/06/15/集中式工作流/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <h3 id="所有修改提交到这个分支上。本工作流只用到master这一个分支。">所有修改提交到这个分支上。本工作流只用到master这一个分支。</h3><p>先克隆中央仓库。在自己的项目拷贝中像SVN一样的编辑文件和提交修改；但修改是存在本地的，和中央仓库是完全隔离的。开发者可以把和上游的同步延后到一个方便时间点。</p>
+<p>要发布修改到正式项目中，开发者要把本地master分支的修改push到中央仓库中。这相当于svn commit操作，但push操作会把所有还不在中央仓库的本地提交都推上去。</p>
+<h4 id="冲突">冲突</h4><p>中央仓库代表了正式项目，所以提交历史应该被尊重且是稳定不变的。如果开发者本地的提交历史和中央仓库有分歧，Git会拒绝push提交否则会覆盖已经在中央库的正式提交。<br>在开发者提交自己功能修改到中央库前，需要先fetch在中央库的新增提交，rebase自己提交到中央库提交历史之上。<br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/06/15/集中式工作流/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              <a class="post-title-link" href="/2015/06/12/Swift初见/" itemprop="url">
+                Swift初见
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2015-06-12T10:21:53+08:00" content="2015-06-12">
+            2015-06-12
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/Swift/" itemprop="url" rel="index"><span itemprop="name">Swift</span></a></span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2015/06/12/Swift初见/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/06/12/Swift初见/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <h3 id="属性(property)和实例变量(instance_variable)">属性(property)和实例变量(instance variable)</h3><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@property (strong,nonatomic) NSString *<span class="keyword">string</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title">Shape</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> name = <span class="string">"shape"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">weak <span class="keyword">var</span> <span class="keyword">delegate</span>: UITextFieldDelegate?</span><br></pre></td></tr></table></figure>
+<p>strong: 在Swift中是默认的<br>weak: 通过weak关键词申明<br>readonly,readwrie 直接通过声明常量let,声明变量var的方式来指明<br>copy 通过@NSCopying指令声明。<br>String,Array和Dictionary在Swift是以值类型(value type)而不是引用类型(reference type)出现,因此它们在赋值,初始化,参数传递中都是以拷贝的方式进行<br>onatomic,atomic 所有的Swift properties 都是nonatomic。</p>
+<p>在Objective-C中,我们只能通过单例,或者static变量加类方法来自己构造类变量,在Swift中<br>通过static定义的类变量无法在子类重写,通过class定义的类变量则可在子类重写。<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> SomeStructure &#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">var</span> storedTypeProperty = <span class="string">"Some value."</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">var</span> computedTypeProperty: Int &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">class</span> <span class="title">var</span> <span class="title">overrideableComputedTypeProperty</span>: <span class="title">Int</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">107</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 单例</span></span><br><span class="line"><span class="keyword">class</span> <span class="title">singletonClass</span> &#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">let</span> sharedInstance = singletonClass()</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">init</span>(<span class="params"></span>) </span>&#123;&#125; <span class="comment">// 这就阻止其他对象使用这个类的默认的'()'初始化方法</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 通过static定义的类变量类似java中的类变量,是无法被继承的,父类与子类的类变量指向的都是同一个静态变量。</span></span><br><span class="line"><span class="keyword">class</span> <span class="title">SomeStructure</span> &#123;</span><br><span class="line">    <span class="keyword">class</span> <span class="title">var</span> <span class="title">storedTypeProperty</span> = <span class="string">"Some value."</span></span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="comment">//Swift 2.0 </span></span><br><span class="line">Error: Class stored properties not yet supported <span class="keyword">in</span> classes</span><br></pre></td></tr></table></figure></p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/06/12/Swift初见/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
               <a class="post-title-link" href="/2015/06/10/iOS报错积累/" itemprop="url">
                 iOS错误积累
               </a>
@@ -890,7 +1062,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">28</span>
+              <span class="site-state-item-count">30</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

@@ -178,6 +178,188 @@
           
           
             
+              <a class="post-title-link" href="/2015/09/23/正则regex/" itemprop="url">
+                正则regex
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2015-09-23T11:06:54+08:00" content="2015-09-23">
+            2015-09-23
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a></span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2015/09/23/正则regex/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/09/23/正则regex/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <blockquote>
+<p>正则表达式提供了一种在指定文本文档中按指定模式进行搜索，并能基于匹配模式进行修改文本的一种方式。这种模式匹配能让你做更有用的事，如验证字段（电话号码，邮箱地址），检查用户输入，执行更高级的文本操作等等。</p>
+</blockquote>
+<h3 id="Examples">Examples</h3><p>这是一个来匹配单词“jump”的正则表达式的例子:<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jump</span><br></pre></td></tr></table></figure></p>
+<p>匹配单词“jump”或“jumping”:<br><figure class="highlight erlang"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">jump</span><span class="params">(ing)</span>?</span></span><br></pre></td></tr></table></figure></p>
+<p>这是应用正则表达式支持的特殊字符的例子。这个圆括号创建了一个组，这个标志是说“匹配前面的元素（这种情况下的组）0次或1次”。<br>现在来看一个复杂的例子。它会匹配一对开合的HTML标签和他们之间的内容。<br><figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">]<span class="keyword">*</span>&gt;(.<span class="keyword">*</span>?)</span><br></pre></td></tr></table></figure></p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/09/23/正则regex/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              <a class="post-title-link" href="/2015/08/14/RunLoop/" itemprop="url">
+                RunLoop
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2015-08-14T15:05:23+08:00" content="2015-08-14">
+            2015-08-14
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a></span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2015/08/14/RunLoop/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/08/14/RunLoop/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <h3 id="从程序启动开始到view显示">从程序启动开始到view显示</h3><p>start-&gt;(加载framework，动态静态链接库，启动图片，Info.plist等)-&gt;main函数-&gt;UIApplicationMain函数：</p>
+<ul>
+<li>初始化UIApplication单例对象<ul>
+<li>初始化AppDelegate对象，并设为UIApplication对象的代理</li>
+<li>检查Info.plist设置的xib文件是否有效，如果有则解冻Nib文件并设置outlets，创建显示key window、rootViewController、与rootViewController关联的根view（没有关联则看rootViewController同名的xib），否则launch之后由程序员手动加载。</li>
+<li>建立一个主事件循环，其中包含UIApplication的Runloop来开始处理事件。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">UIApplication：</span><br><span class="line">1、通过<span class="keyword">window</span>管理视图；</span><br><span class="line">2、发送Runloop封装好的control消息给target；</span><br><span class="line">3、处理URL，应用图标警告，联网状态，状态栏，远程事件等。</span><br><span class="line">AppDelegate：</span><br><span class="line">管理UIApplication生命周期和应用的五种状态(notRunning/inactive/active/background/suspend)。</span><br><span class="line">Key <span class="keyword">Window</span>：</span><br><span class="line">1、显示<span class="keyword">view</span>；</span><br><span class="line">2、管理rootViewcontroller生命周期；</span><br><span class="line">3、发送UIApplication传来的事件消息给<span class="keyword">view</span>。</span><br><span class="line">rootViewController：</span><br><span class="line">1、管理<span class="keyword">view</span>（<span class="keyword">view</span>生命周期；<span class="keyword">view</span>的数据源/代理；<span class="keyword">view</span>与superView之间事件响应nextResponder的“备胎”）;</span><br><span class="line">2、界面跳转与传值；</span><br><span class="line">3、状态栏，屏幕旋转。</span><br><span class="line"><span class="keyword">view</span>：</span><br><span class="line">1、通过作为CALayer的代理，管理layer的渲染（顺序大概是先更新约束，再layout再<span class="keyword">display</span>）和动画（默认layer的属性可动画，<span class="keyword">view</span>默认禁止，在UIView的block分类方法里才打开动画）。layer是RGBA纹理，通过和mask位图（含<span class="keyword">alpha</span>属性）关联将合成后的layer纹理填充在像素点内，GPU每1/60秒将计算出的纹理<span class="keyword">display</span>在像素点中。</span><br><span class="line">2、布局子控件（屏幕旋转或者子视图布局变动时，<span class="keyword">view</span>会重新布局）。</span><br><span class="line">3、事件响应：event和guesture。</span><br><span class="line">插播控制器生命周期</span><br><span class="line">runloop:</span><br><span class="line">1、（要让马儿跑）通过<span class="keyword">do</span>-<span class="keyword">while</span>死循环让程序持续运行：接收用户输入，调度处理事件时间。</span><br><span class="line">2、（要让马儿少吃草）通过mach_msg()让runloop没事时进入trap状态，节省CPU资源。</span><br></pre></td></tr></table></figure>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/08/14/RunLoop/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
               <a class="post-title-link" href="/2015/08/12/修改hosts访问google/" itemprop="url">
                 修改hosts访问google
               </a>
@@ -848,178 +1030,6 @@
 
 
     
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2015/06/15/集中式工作流/" itemprop="url">
-                集中式工作流
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2015-06-15T15:49:47+08:00" content="2015-06-15">
-            2015-06-15
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/Git/" itemprop="url" rel="index"><span itemprop="name">Git</span></a></span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <a href="/2015/06/15/集中式工作流/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/06/15/集中式工作流/" itemprop="commentsCount"></span>
-              </a>
-            </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <h3 id="所有修改提交到这个分支上。本工作流只用到master这一个分支。">所有修改提交到这个分支上。本工作流只用到master这一个分支。</h3><p>先克隆中央仓库。在自己的项目拷贝中像SVN一样的编辑文件和提交修改；但修改是存在本地的，和中央仓库是完全隔离的。开发者可以把和上游的同步延后到一个方便时间点。</p>
-<p>要发布修改到正式项目中，开发者要把本地master分支的修改push到中央仓库中。这相当于svn commit操作，但push操作会把所有还不在中央仓库的本地提交都推上去。</p>
-<h4 id="冲突">冲突</h4><p>中央仓库代表了正式项目，所以提交历史应该被尊重且是稳定不变的。如果开发者本地的提交历史和中央仓库有分歧，Git会拒绝push提交否则会覆盖已经在中央库的正式提交。<br>在开发者提交自己功能修改到中央库前，需要先fetch在中央库的新增提交，rebase自己提交到中央库提交历史之上。<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/06/15/集中式工作流/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2015/06/12/Swift初见/" itemprop="url">
-                Swift初见
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2015-06-12T10:21:53+08:00" content="2015-06-12">
-            2015-06-12
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/Swift/" itemprop="url" rel="index"><span itemprop="name">Swift</span></a></span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <a href="/2015/06/12/Swift初见/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/06/12/Swift初见/" itemprop="commentsCount"></span>
-              </a>
-            </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <h3 id="属性(property)和实例变量(instance_variable)">属性(property)和实例变量(instance variable)</h3><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@property (strong,nonatomic) NSString *<span class="keyword">string</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title">Shape</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> name = <span class="string">"shape"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">weak <span class="keyword">var</span> <span class="keyword">delegate</span>: UITextFieldDelegate?</span><br></pre></td></tr></table></figure>
-<p>strong: 在Swift中是默认的<br>weak: 通过weak关键词申明<br>readonly,readwrie 直接通过声明常量let,声明变量var的方式来指明<br>copy 通过@NSCopying指令声明。<br>String,Array和Dictionary在Swift是以值类型(value type)而不是引用类型(reference type)出现,因此它们在赋值,初始化,参数传递中都是以拷贝的方式进行<br>onatomic,atomic 所有的Swift properties 都是nonatomic。</p>
-<p>在Objective-C中,我们只能通过单例,或者static变量加类方法来自己构造类变量,在Swift中<br>通过static定义的类变量无法在子类重写,通过class定义的类变量则可在子类重写。<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> SomeStructure &#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">var</span> storedTypeProperty = <span class="string">"Some value."</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">var</span> computedTypeProperty: Int &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">class</span> <span class="title">var</span> <span class="title">overrideableComputedTypeProperty</span>: <span class="title">Int</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">107</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 单例</span></span><br><span class="line"><span class="keyword">class</span> <span class="title">singletonClass</span> &#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">let</span> sharedInstance = singletonClass()</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">init</span>(<span class="params"></span>) </span>&#123;&#125; <span class="comment">// 这就阻止其他对象使用这个类的默认的'()'初始化方法</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 通过static定义的类变量类似java中的类变量,是无法被继承的,父类与子类的类变量指向的都是同一个静态变量。</span></span><br><span class="line"><span class="keyword">class</span> <span class="title">SomeStructure</span> &#123;</span><br><span class="line">    <span class="keyword">class</span> <span class="title">var</span> <span class="title">storedTypeProperty</span> = <span class="string">"Some value."</span></span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="comment">//Swift 2.0 </span></span><br><span class="line">Error: Class stored properties not yet supported <span class="keyword">in</span> classes</span><br></pre></td></tr></table></figure></p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/06/12/Swift初见/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1059,7 +1069,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">28</span>
+              <span class="site-state-item-count">30</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
