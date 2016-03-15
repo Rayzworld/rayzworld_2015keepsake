@@ -306,7 +306,7 @@
 
       
         
-          <p><strong>设置 hyphenationFactor 属性就可以启用断字。</strong><br><a href="https://github.com/objcio/issue-5-textkit">issue-5-textkit</a></p>
+          <h2 id="TextKit">TextKit</h2><p><strong>设置 hyphenationFactor 属性就可以启用断字。</strong><br><a href="https://github.com/objcio/issue-5-textkit">issue-5-textkit</a></p>
 <ul>
 <li>一个 Text Storage 可以拥有多个 Layout Manager，一个 Layout Manager 也可以拥有多个 Text Container。 将多个 Layout Manager 附加到同一个 Text Storage 上，可以产生相同文本的多种视觉表现，而且可以把它们放到一起来显示。每一个表现都有独立的位置和大小。如果相应的 Text View 可编辑，那么在某个 Text View 上做的所有修改都会马上反映到所有 Text View 上。</li>
 <li>将多个 Text Container 附加到同一个 Layout Manager 上，这样可以将一个文本分布到多个视图展现出来。很有用的一个例子，基于页面的布局：每个页面包含一个单独的 Text View。所有这些视图的 Text Container 都引用同一个 Layout Manager，这时这个 Layout Manager 就可以将文本分布到这些视图上来显示。</li>
