@@ -1,0 +1,664 @@
+<!doctype html>
+<html class="theme-next use-motion theme-next-mist">
+<head>
+    
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.4"/>
+
+
+    <meta name="description" content="I am a slow walker,but I never walk backwards." />
+
+
+
+  <meta name="keywords" content="白洪瑞,baihongrui,rayzworld,blog,iOS,baijiajie,白佳杰，白佳洁" />
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/icon.ico?v=0.4.4" />
+
+
+<meta name="description" content="多任务后台获取开启后台获取的第一步是在 info plist 文件中对 UIBackgroundModes 键指定特定的值。最简单的途径是在 project editor 中的 Capabilities 标签页中设置，这个标签页包含了后台模式部分，可以方便配置多任务选项。1234&amp;lt;key&amp;gt;UIBackgroundModes&amp;lt;/key&amp;gt;&amp;lt;array&amp;gt;    &amp;lt">
+<meta property="og:type" content="article">
+<meta property="og:title" content="objc笔记 (6)">
+<meta property="og:url" content="https://rayzworld.github.io/2015/06/18/objc笔记-5/index.html">
+<meta property="og:site_name" content="HongRui's Blog">
+<meta property="og:description" content="多任务后台获取开启后台获取的第一步是在 info plist 文件中对 UIBackgroundModes 键指定特定的值。最简单的途径是在 project editor 中的 Capabilities 标签页中设置，这个标签页包含了后台模式部分，可以方便配置多任务选项。1234&amp;lt;key&amp;gt;UIBackgroundModes&amp;lt;/key&amp;gt;&amp;lt;array&amp;gt;    &amp;lt">
+<meta property="og:updated_time" content="2016-03-21T10:18:37.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="objc笔记 (6)">
+<meta name="twitter:description" content="多任务后台获取开启后台获取的第一步是在 info plist 文件中对 UIBackgroundModes 键指定特定的值。最简单的途径是在 project editor 中的 Capabilities 标签页中设置，这个标签页包含了后台模式部分，可以方便配置多任务选项。1234&amp;lt;key&amp;gt;UIBackgroundModes&amp;lt;/key&amp;gt;&amp;lt;array&amp;gt;    &amp;lt">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: 'post'
+  };
+</script>
+
+    <title> objc笔记 (6) // HongRui's Blog </title>
+</head>
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+
+
+
+
+<div class="container one-column page-post-detail">
+    <div class="headband"></div>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+        <div class="header-inner"><h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand" rel="start">
+      <span class="logo">
+        <i class="icon-logo"></i>
+      </span>
+      <span class="site-title">HongRui's Blog</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu menu-left">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon icon-home"></i> <br />
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            <i class="menu-item-icon icon-categories"></i> <br />
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            <i class="menu-item-icon icon-archives"></i> <br />
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            <i class="menu-item-icon icon-tags"></i> <br />
+            标签
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+<form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'EHDHtw-j3DipDyhFHcz8','2.0.0');
+</script>
+
+<div class="site-search-toggle"></div>
+    </div>
+  
+</nav>
+
+
+        </div>
+    </header>
+
+    <main id="main" class="main">
+        <div class="main-inner">
+            <div id="content" class="content">
+                
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              objc笔记 (6)
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2015-06-18T23:48:06+08:00" content="2015-06-18">
+            2015-06-18
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a></span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2015/06/18/objc笔记-5/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/06/18/objc笔记-5/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><h2 id="多任务">多任务</h2><h3 id="后台获取">后台获取</h3><p>开启后台获取的第一步是在 info plist 文件中对 UIBackgroundModes 键指定特定的值。最简单的途径是在 project editor 中的 Capabilities 标签页中设置，这个标签页包含了后台模式部分，可以方便配置多任务选项。<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">key</span>&gt;</span>UIBackgroundModes<span class="tag">&lt;/<span class="title">key</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">array</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">string</span>&gt;</span>fetch<span class="tag">&lt;/<span class="title">string</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">array</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>告诉 iOS 多久进行一次数据获取<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">BOOL</span>)application:(<span class="built_in">UIApplication</span> *)application didFinishLaunchingWithOptions:(<span class="built_in">NSDictionary</span> *)launchOptions</span><br><span class="line">&#123;</span><br><span class="line">    [application setMinimumBackgroundFetchInterval:<span class="built_in">UIApplicationBackgroundFetchIntervalMinimum</span>];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>iOS 默认不进行后台获取，所以你需要设置一个时间间隔，否则，你的应用程序永远不能在后台被唤醒。UIApplicationBackgroundFetchIntervalMinimum 这个值要求系统尽可能频繁地去管理你的程序到底什么时候应该被唤醒，但如果你不需要这样的话，你也应该指定一个你想要的的时间间隔。</p>
+<p>如果你的应用允许用户退出登录，那么就没有获取新数据的需要了，你应该把 minimumBackgroundFetchInterval 设置为 UIApplicationBackgroundFetchIntervalNever，这样可以节省资源。<br><a id="more"></a><br>最后一步是在应用程序委托中实现下列方法：<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)application:(<span class="built_in">UIApplication</span> *)application </span><br><span class="line">  performFetchWithCompletionHandler:(<span class="keyword">void</span> (^)(<span class="built_in">UIBackgroundFetchResult</span>))completionHandler</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSURLSessionConfiguration</span> *sessionConfiguration = [<span class="built_in">NSURLSessionConfiguration</span> defaultSessionConfiguration];</span><br><span class="line">    <span class="built_in">NSURLSession</span> *session = [<span class="built_in">NSURLSession</span> sessionWithConfiguration:sessionConfiguration];</span><br><span class="line"></span><br><span class="line">    <span class="built_in">NSURL</span> *url = [[<span class="built_in">NSURL</span> alloc] initWithString:<span class="string">@"http://yourserver.com/data.json"</span>];</span><br><span class="line">    <span class="built_in">NSURLSessionDataTask</span> *task = [session dataTaskWithURL:url </span><br><span class="line">                                        completionHandler:^(<span class="built_in">NSData</span> *data, <span class="built_in">NSURLResponse</span> *response, <span class="built_in">NSError</span> *error) &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (error) &#123;</span><br><span class="line">            completionHandler(<span class="built_in">UIBackgroundFetchResultFailed</span>);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 解析响应/数据以决定新内容是否可用</span></span><br><span class="line">        <span class="built_in">BOOL</span> hasNewData = ...</span><br><span class="line">        <span class="keyword">if</span> (hasNewData) &#123;</span><br><span class="line">            completionHandler(<span class="built_in">UIBackgroundFetchResultNewData</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            completionHandler(<span class="built_in">UIBackgroundFetchResultNoData</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;];</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 开始任务</span></span><br><span class="line">    [task resume];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>系统唤醒应用程序后将会执行这个委托方法。需要注意的是，你<strong>只有 30 秒的时间来确定获取的新内容是否可用</strong>，然后处理新内容并更新界面。30 秒时间应该足够去从网络获取数据和获取界面的缩略图，但是最多只有 30 秒。当完成了网络请求和更新界面后，你应该执行完成的回调。</p>
+<p>完成回调的执行有两个目的。首先，系统会估量你的进程消耗的电量，并根据你传递的 UIBackgroundFetchResult 参数记录新数据是否可用。其次，当你调用完成的处理代码时，应用的界面缩略图会被采用，并更新应用程序切换器。当用户在应用间切换时，用户将会看到新内容。<br>在实际应用中，你应该将 completionHandler 传递到应用程序的子组件，然后在处理完数据和更新界面后调用。</p>
+<p>如果应用程序处于挂起状态，系统会先唤醒应用，然后再调用 application: performFetchWithCompletionHandler:。如果应用程序还没有启动，系统将会启动它，然后调用常见的委托方法，包括 application: didFinishLaunchingWithOptions:。</p>
+<p>可以通过查看 UIApplication 的 applicationState 属性来判断应用是不是从后台启动。<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">BOOL</span>)application:(<span class="built_in">UIApplication</span> *)application didFinishLaunchingWithOptions:(<span class="built_in">NSDictionary</span> *)launchOptions</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"Launched in background %d"</span>, <span class="built_in">UIApplicationStateBackground</span> == application<span class="variable">.applicationState</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="远程通知">远程通知</h3><h4 id="发送远程通知">发送远程通知</h4><p>当接收到一条带有 content－available 的推送通知时，下面的方法会被调用：</p>
+<ul>
+<li><p>(void)application:(UIApplication <em>)application<br>didReceiveRemoteNotification:(NSDictionary </em>)userInfo </p>
+<pre><code>fetchCompletionHandler:<span class="params">(void <span class="params">(^)</span><span class="params">(UIBackgroundFetchResult)</span>)</span>completionHandler
+</code></pre><p>{<br>  NSLog(@”Remote Notification userInfo is %@”, userInfo);</p>
+<p>  NSNumber *contentID = userInfo[@”content-id”];<br>  // 根据 content ID 进行操作<br>  completionHandler(UIBackgroundFetchResultNewData);<br>}</p>
+</li>
+</ul>
+<h4 id="NSURLSession_和_后台传输服务">NSURLSession 和 后台传输服务</h4><p>首先，先处理一条远程通知，并把一个 NSURLSessionDownloadTask 添加到后台传输服务的队列。在 backgroundURLSession 方法中，我们根据后台会话配置，创建一个 NSURLSession 对象，并把 application delegate 作为会话的委托对象。文档不建议对于相同的标识符 (identifier) 创建多个会话对象，所以使用 dispatch_once 来避免潜在的问题：<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">NSURLSession</span> *)backgroundURLSession</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="built_in">NSURLSession</span> *session = <span class="literal">nil</span>;</span><br><span class="line">    <span class="keyword">static</span> <span class="built_in">dispatch_once_t</span> onceToken;</span><br><span class="line">    <span class="built_in">dispatch_once</span>(&amp;onceToken, ^&#123;</span><br><span class="line">        <span class="built_in">NSString</span> *identifier = <span class="string">@"io.objc.backgroundTransferExample"</span>;</span><br><span class="line">        <span class="built_in">NSURLSessionConfiguration</span>* sessionConfig = [<span class="built_in">NSURLSessionConfiguration</span> backgroundSessionConfiguration:identifier];</span><br><span class="line">        session = [<span class="built_in">NSURLSession</span> sessionWithConfiguration:sessionConfig </span><br><span class="line">                                                delegate:<span class="keyword">self</span> </span><br><span class="line">                                           delegateQueue:[<span class="built_in">NSOperationQueue</span> mainQueue]];</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> session;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)           application:(<span class="built_in">UIApplication</span> *)application </span><br><span class="line">  didReceiveRemoteNotification:(<span class="built_in">NSDictionary</span> *)userInfo </span><br><span class="line">        fetchCompletionHandler:(<span class="keyword">void</span> (^)(<span class="built_in">UIBackgroundFetchResult</span>))completionHandler</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"Received remote notification with userInfo %@"</span>, userInfo);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">NSNumber</span> *contentID = userInfo[<span class="string">@"content-id"</span>];</span><br><span class="line">    <span class="built_in">NSString</span> *downloadURLString = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"http://yourserver.com/downloads/%d.mp3"</span>, [contentID intValue]];</span><br><span class="line">    <span class="built_in">NSURL</span>* downloadURL = [<span class="built_in">NSURL</span> URLWithString:downloadURLString];</span><br><span class="line"></span><br><span class="line">    <span class="built_in">NSURLRequest</span> *request = [<span class="built_in">NSURLRequest</span> requestWithURL:downloadURL];</span><br><span class="line">    <span class="built_in">NSURLSessionDownloadTask</span> *task = [[<span class="keyword">self</span> backgroundURLSession] downloadTaskWithRequest:request];</span><br><span class="line">    task<span class="variable">.taskDescription</span> = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"Podcast Episode %d"</span>, [contentID intValue]];</span><br><span class="line">    [task resume];</span><br><span class="line"></span><br><span class="line">    completionHandler(<span class="built_in">UIBackgroundFetchResultNewData</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>需要实现 NSURLSessionDownloadDelegate 的委托方法，当下载完成时，调用回调函数。如果你需要处理认证或会话生命周期的其他事件，可能还需要实现 NSURLSessionDelegate 或 NSURLSessionTaskDelegate 的方法。<br>NSURLSessionDownloadDelegate 中的委托方法全部是必须实现的，尽管在这个例子中我们只需要用到 [NSURLSession downloadTask:didFinishDownloadingToURL:]。任务完成下载时，你会得到一个磁盘上该文件的临时 URL。你必须把这个文件移动或复制你的应用程序空间，当从这个委托方法返回时，该文件将从临时存储中删除。<br><figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">#</span>Pragma Mark - NSURLSessionDownloadDelegate</span><br><span class="line"></span><br><span class="line">- <span class="params">(void)</span>         URLSession:<span class="params">(NSURLSession *)</span>session </span><br><span class="line">               downloadTask:<span class="params">(NSURLSessionDownloadTask *)</span>downloadTask</span><br><span class="line">  didFinishDownloadingToURL:<span class="params">(NSURL *)</span>location</span><br><span class="line">&#123;</span><br><span class="line">    NSLog<span class="params">(@<span class="string">"downloadTask:%@ didFinishDownloadingToURL:%@"</span>, downloadTask.taskDescription, location)</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 用 NSFileManager 将文件复制到应用的存储中</span></span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 通知 UI 刷新</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- <span class="params">(void)</span>  URLSession:<span class="params">(NSURLSession *)</span>session </span><br><span class="line">        downloadTask:<span class="params">(NSURLSessionDownloadTask *)</span>downloadTask </span><br><span class="line">   didResumeAtOffset:<span class="params">(int64_t)</span>fileOffset </span><br><span class="line">  expectedTotalBytes:<span class="params">(int64_t)</span>expectedTotalBytes</span><br><span class="line">&#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- <span class="params">(void)</span>         URLSession:<span class="params">(NSURLSession *)</span>session </span><br><span class="line">               downloadTask:<span class="params">(NSURLSessionDownloadTask *)</span>downloadTask </span><br><span class="line">               didWriteData:<span class="params">(int64_t)</span>bytesWritten totalBytesWritten:<span class="params">(int64_t)</span>totalBytesWritten </span><br><span class="line">  totalBytesExpectedToWrite:<span class="params">(int64_t)</span>totalBytesExpectedToWrite</span><br><span class="line">&#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 当后台会话任务完成时，如果你应用程序仍然在前台运行，上面的代码已经足够了。在没有运行，或者在后台被挂起情况下，你必须实现应用程序委托的两个方法。该应用程序委托会被调用两次，因为会话和任务委托可能会收到一系列消息。app delegate 的：handleEventsForBackgroundURLSession： 方法会在这些 NSURLSession 委托的消息发送前被调用，然后，URLSessionDidFinishEventsForBackgroundURLSession 在随后被调用。在前面的方法中，包含了一个后台完成的回调（completionHandler），并在后面的方法中执行回调以便更新界面:</span></span><br><span class="line">- <span class="params">(void)</span>                  application:<span class="params">(UIApplication *)</span>application </span><br><span class="line">  handleEventsForBackgroundURLSession:<span class="params">(NSString *)</span>identifier completionHandler:<span class="params">(void <span class="params">(^)</span><span class="params">()</span>)</span>completionHandler</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 你必须重新建立一个后台 seesiong 的参照</span></span><br><span class="line">    <span class="comment">// 否则 NSURLSessionDownloadDelegate 和 NSURLSessionDelegate 方法会因为</span></span><br><span class="line">    <span class="comment">// 没有 对 session 的 delegate 设定而不会被调用。参见上面的 backgroundURLSession</span></span><br><span class="line">    NSURLSession <span class="built_in">*</span>backgroundSession = [self backgroundURLSession];</span><br><span class="line"></span><br><span class="line">    NSLog<span class="params">(@<span class="string">"Rejoining session with identifier %@ %@"</span>, identifier, backgroundSession)</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 保存 completion handler 以在处理 session 事件后更新 UI</span></span><br><span class="line">    [self addCompletionHandler:completionHandler forSession:identifier];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- <span class="params">(void)</span>URLSessionDidFinishEventsForBackgroundURLSession:<span class="params">(NSURLSession *)</span>session</span><br><span class="line">&#123;</span><br><span class="line">    NSLog<span class="params">(@<span class="string">"Background URL session %@ finished events.\n"</span>, session)</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> <span class="params">(session.configuration.identifier)</span> &#123;</span><br><span class="line">        <span class="comment">// 调用在 -application:handleEventsForBackgroundURLSession: 中保存的 handler</span></span><br><span class="line">        [self callCompletionHandlerForSession:session.configuration.identifier];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- <span class="params">(void)</span>addCompletionHandler:<span class="params">(CompletionHandlerType)</span>handler forSession:<span class="params">(NSString *)</span>identifier</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> <span class="params">([self.completionHandlerDictionary objectForKey:identifier])</span> &#123;</span><br><span class="line">        NSLog<span class="params">(@<span class="string">"Error: Got multiple handlers for a single session identifier.  This should not happen.\n"</span>)</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    [self.completionHandlerDictionary setObject:handler forKey:identifier];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- <span class="params">(void)</span>callCompletionHandlerForSession: <span class="params">(NSString *)</span>identifier</span><br><span class="line">&#123;</span><br><span class="line">    CompletionHandlerType handler = [self.completionHandlerDictionary objectForKey: identifier];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> <span class="params">(handler)</span> &#123;</span><br><span class="line">        [self.completionHandlerDictionary removeObjectForKey: identifier];</span><br><span class="line">        NSLog<span class="params">(@<span class="string">"Calling completion handler for session %@"</span>, identifier)</span>;</span><br><span class="line"></span><br><span class="line">        handler<span class="params">()</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 如果当后台传输完成时，应用程序根本没有在运行，iOS 将会在后台启动该应用程序，然后前面的应用程序和会话的委托方法会在 application:didFinishLaunchingWithOptions: 方法被调用之后被调用。</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="配置和限制">配置和限制</h4><p>NSURLSessionTasks 通过 NSURLSessionConfiguration 的 timeoutIntervalForResource 属性，支持资源超时特性。你可以使用这个特性指定你允许完成一个传输所需的最长时间。内容只在有限的时间可用，或者在用户只有有限 Wifi 带宽的时间内无法下载或上传资源的情况下，也可以使用这个特性。<br>如果当传输完成时你的应用程序不需要在后台运行，一个比较好的做法是，把 NSURLSessionConfiguration 的 sessionSendsLaunchEvents 属性设置为 NO。<br>NSURLSessionDataTasks 是完全不支持的，你应该只出于短期的，小请求为目的使用这些任务，而不是用来下载或上传。</p>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/06/19/Pull Requests/" rel="prev">Pull Requests</a>
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/06/18/Gitflow工作流/" rel="next">Gitflow工作流</a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+            </div>
+
+            
+
+            
+              <div class="comments" id="comments">
+                
+                  <div class="ds-thread" data-thread-key="2015/06/18/objc笔记-5/"
+                       data-title="objc笔记 (6)" data-url="https://rayzworld.github.io/2015/06/18/objc笔记-5/">
+                  </div>
+                
+              </div>
+            
+        </div>
+
+        
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/images/default_avatar.jpg" alt="白洪瑞" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">白洪瑞</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description">I am a slow walker,but I never walk backwards.</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">31</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">7</span>
+              <span class="site-state-item-name">分类</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">26</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Rayzworld" target="_blank">GitHub</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/2421652200" target="_blank">WeiBo</a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+            <p class="site-author-name">步子不要迈太大，会扯到蛋的。</p>
+            
+              <span class="links-of-author-item">
+              <a href="http://diwu.me" target="_blank">吴迪</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://kittenyang.com/" target="_blank">KittenYang</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://blog.sunnyxx.com/" target="_blank">太阳仔</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://nshipster.cn/" target="_blank">NSHipster</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://www.raywenderlich.com" target="_blank">raywenderlich</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://onevcat.com/" target="_blank">瞄神</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://nianxi.net/" target="_blank">念茜</a>
+              </span>
+            
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#多任务"><span class="nav-number">1.</span> <span class="nav-text">多任务</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#后台获取"><span class="nav-number">1.1.</span> <span class="nav-text">后台获取</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#远程通知"><span class="nav-number">1.2.</span> <span class="nav-text">远程通知</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#发送远程通知"><span class="nav-number">1.2.1.</span> <span class="nav-text">发送远程通知</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#NSURLSession_和_后台传输服务"><span class="nav-number">1.2.2.</span> <span class="nav-text">NSURLSession 和 后台传输服务</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置和限制"><span class="nav-number">1.2.3.</span> <span class="nav-text">配置和限制</span></a></li></ol></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+    </main>
+
+    <footer id="footer" class="footer">
+        <div class="footer-inner">
+            <div class="copyright" >
+  
+  &copy; &nbsp;  2014 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="icon-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">白洪瑞</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a> 
+</div>
+
+<div class="theme-info">
+  Theme by -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+        </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+</div>
+
+<script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+    
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"rayzworld"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+    
+  
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.4"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.4"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.4" id="motion.global"></script>
+
+
+
+  <script type="text/javascript" src="/js/search-toggle.js"></script>
+
+
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.4" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+          var self = this;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      $(indicator).velocity('stop').velocity({
+        opacity: action === 'show' ? 0.4 : 0
+      }, { duration: 100 });
+    }
+
+  });
+</script>
+
+
+  <script type="text/javascript" id="sidebar.nav">
+    $(document).ready(function () {
+      var html = $('html');
+
+      $('.sidebar-nav li').on('click', function () {
+        var item = $(this);
+        var activeTabClassName = 'sidebar-nav-active';
+        var activePanelClassName = 'sidebar-panel-active';
+        if (item.hasClass(activeTabClassName)) {
+          return;
+        }
+
+        var currentTarget = $('.' + activePanelClassName);
+        var target = $('.' + item.data('target'));
+
+        currentTarget.velocity('transition.slideUpOut', 200, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', 200)
+            .addClass(activePanelClassName);
+        });
+
+        item.siblings().removeClass(activeTabClassName);
+        item.addClass(activeTabClassName);
+      });
+
+      $('.post-toc a').on('click', function (e) {
+        e.preventDefault();
+        var offset = $(escapeSelector(this.getAttribute('href'))).offset().top;
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        });
+      });
+
+      // Expand sidebar on post detail page by default, when post has a toc.
+      var $tocContent = $('.post-toc-content');
+      if (isDesktop() && CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          displaySidebar();
+        }
+      }
+    });
+  </script>
+
+
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        if (CONFIG.sidebar === 'always') {
+            displaySidebar();
+        }
+    });
+</script>
+
+
+
+
+
+
+
+
+<!-- lazyload -->
+<script type="text/javascript" src="/js/lazyload.js"></script>
+<script type="text/javascript">
+    jQuery(function () {
+        jQuery("#posts img").lazyload({
+            placeholder: "/images/loading.gif",
+            effect: "fadeIn"
+        });
+    });
+</script>
+</body>
+</html>
