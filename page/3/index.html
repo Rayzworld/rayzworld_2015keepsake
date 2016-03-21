@@ -178,263 +178,6 @@
           
           
             
-              <a class="post-title-link" href="/2015/06/16/功能分支工作流/" itemprop="url">
-                功能分支工作流
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2015-06-16T15:50:38+08:00" content="2015-06-16">
-            2015-06-16
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/Git/" itemprop="url" rel="index"><span itemprop="name">Git</span></a></span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <a href="/2015/06/16/功能分支工作流/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/06/16/功能分支工作流/" itemprop="commentsCount"></span>
-              </a>
-            </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <blockquote>
-<p>功能分支工作流以集中式工作流为基础，不同的是为各个新功能分配一个专门的分支来开发。这样可以在把新功能集成到正式项目前，用Pull Requests的方式讨论变更。<br>功能分支工作流背后的核心思路是所有的功能开发应该在一个专门的分支，而不是在<em>master</em>分支上。<br>这个隔离可以方便多个开发者在各自的功能上开发而不会弄乱主干代码。<br>另外，也保证了master分支的代码一定不会是有问题的，极大有利于集成环境。<br>功能开发隔离也让pull requests工作流成功可能，<br>pull requests工作流能为每个分支发起一个讨论，在分支合入正式项目之前，给其它开发者有表示赞同的机会。<br>另外，如果你在功能开发中有问题卡住了，可以开一个pull requests来向同学们征求建议。<br>这些做法的重点就是，pull requests让团队成员之间互相评论工作变成非常方便！<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/06/16/功能分支工作流/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2015/06/15/集中式工作流/" itemprop="url">
-                集中式工作流
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2015-06-15T15:49:47+08:00" content="2015-06-15">
-            2015-06-15
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/Git/" itemprop="url" rel="index"><span itemprop="name">Git</span></a></span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <a href="/2015/06/15/集中式工作流/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/06/15/集中式工作流/" itemprop="commentsCount"></span>
-              </a>
-            </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <h3 id="所有修改提交到这个分支上。本工作流只用到master这一个分支。">所有修改提交到这个分支上。本工作流只用到master这一个分支。</h3><p>先克隆中央仓库。在自己的项目拷贝中像SVN一样的编辑文件和提交修改；但修改是存在本地的，和中央仓库是完全隔离的。开发者可以把和上游的同步延后到一个方便时间点。</p>
-<p>要发布修改到正式项目中，开发者要把本地master分支的修改push到中央仓库中。这相当于svn commit操作，但push操作会把所有还不在中央仓库的本地提交都推上去。</p>
-<h4 id="冲突">冲突</h4><p>中央仓库代表了正式项目，所以提交历史应该被尊重且是稳定不变的。如果开发者本地的提交历史和中央仓库有分歧，Git会拒绝push提交否则会覆盖已经在中央库的正式提交。<br>在开发者提交自己功能修改到中央库前，需要先fetch在中央库的新增提交，rebase自己提交到中央库提交历史之上。<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/06/15/集中式工作流/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2015/06/12/Swift初见/" itemprop="url">
-                Swift初见
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2015-06-12T10:21:53+08:00" content="2015-06-12">
-            2015-06-12
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/Swift/" itemprop="url" rel="index"><span itemprop="name">Swift</span></a></span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <a href="/2015/06/12/Swift初见/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/06/12/Swift初见/" itemprop="commentsCount"></span>
-              </a>
-            </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <h3 id="属性(property)和实例变量(instance_variable)">属性(property)和实例变量(instance variable)</h3><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@property (strong,nonatomic) NSString *<span class="keyword">string</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title">Shape</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> name = <span class="string">"shape"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">weak <span class="keyword">var</span> <span class="keyword">delegate</span>: UITextFieldDelegate?</span><br></pre></td></tr></table></figure>
-<p>strong: 在Swift中是默认的<br>weak: 通过weak关键词申明<br>readonly,readwrie 直接通过声明常量let,声明变量var的方式来指明<br>copy 通过@NSCopying指令声明。<br>String,Array和Dictionary在Swift是以值类型(value type)而不是引用类型(reference type)出现,因此它们在赋值,初始化,参数传递中都是以拷贝的方式进行<br>onatomic,atomic 所有的Swift properties 都是nonatomic。</p>
-<p>在Objective-C中,我们只能通过单例,或者static变量加类方法来自己构造类变量,在Swift中<br>通过static定义的类变量无法在子类重写,通过class定义的类变量则可在子类重写。<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> SomeStructure &#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">var</span> storedTypeProperty = <span class="string">"Some value."</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">var</span> computedTypeProperty: Int &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">class</span> <span class="title">var</span> <span class="title">overrideableComputedTypeProperty</span>: <span class="title">Int</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">107</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 单例</span></span><br><span class="line"><span class="keyword">class</span> <span class="title">singletonClass</span> &#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">let</span> sharedInstance = singletonClass()</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">init</span>(<span class="params"></span>) </span>&#123;&#125; <span class="comment">// 这就阻止其他对象使用这个类的默认的'()'初始化方法</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 通过static定义的类变量类似java中的类变量,是无法被继承的,父类与子类的类变量指向的都是同一个静态变量。</span></span><br><span class="line"><span class="keyword">class</span> <span class="title">SomeStructure</span> &#123;</span><br><span class="line">    <span class="keyword">class</span> <span class="title">var</span> <span class="title">storedTypeProperty</span> = <span class="string">"Some value."</span></span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="comment">//Swift 2.0 </span></span><br><span class="line">Error: Class stored properties not yet supported <span class="keyword">in</span> classes</span><br></pre></td></tr></table></figure></p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/06/12/Swift初见/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
               <a class="post-title-link" href="/2015/06/10/iOS报错积累/" itemprop="url">
                 iOS错误积累
               </a>
@@ -489,6 +232,176 @@
 <h4 id="-_(BOOL)copyItemAtPath:(NSString_)srcPath_toPath:(NSString_)dstPath_error:(NSError_**)error">- (BOOL)copyItemAtPath:(NSString <em>)srcPath toPath:(NSString </em>)dstPath error:(NSError **)error</h4><p>新路径下要有一个相同名字的文件 否则不成功<br>
           <div class="post-more-link text-center">
             <a class="btn" href="/2015/06/10/iOS报错积累/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              <a class="post-title-link" href="/2015/06/10/objc笔记-2/" itemprop="url">
+                objc笔记（3）
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2015-06-10T13:59:38+08:00" content="2015-06-10">
+            2015-06-10
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a></span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2015/06/10/objc笔记-2/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/06/10/objc笔记-2/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <h3 id="Views">Views</h3><h4 id="绘制像素到屏幕上">绘制像素到屏幕上</h4><p><strong>不透明 VS 透明</strong>，当源纹理是完全不透明的时候，目标像素就等于源纹理。但是没有方法能告诉 GPU 纹理上的像素是透明还是不透明的。CALayer 有一个叫做 opaque 的属性了。如果这个属性为 YES，GPU 将不会做任何合成，而是简单从这个层拷贝，不需要考虑它下方的任何东西(因为都被它遮挡住了)。如果你加载一个没有 alpha 通道的图片，并且将它显示在 UIImageView 上，这将会自动发生。但是要记住如果一个图片没有 alpha 通道和一个图片每个地方的 alpha 都是100%，这将会产生很大的不同。<br><strong>像素对齐 VS 不重合在一起</strong>，当一个 layer 上所有的像素和屏幕上的像素完美的对应整齐，那这个 layer 就是像素对齐的。主要有两个原因可能会造成不对齐。第一个便是滚动；当一个纹理上下滚动的时候，纹理的像素便不会和屏幕的像素排列对齐。另一个原因便是当纹理的起点不在一个像素的边界上。在这两种情况下，GPU需要再做额外的计算。它需要将源纹理上多个像素混合起来，生成一个用来合成的值。当所有的像素都是对齐的时候，GPU 只剩下很少的工作要做。<br><strong>mask</strong>，mask 是一个拥有 alpha 值的位图，当像素要和它下面包含的像素合并之前都会把 mask 应用到图层的像素上去。当你要设置一个图层的圆角半径时，你可以有效的在图层上面设置一个 mask。但是也可以指定任意一个蒙板。比如，一个字母 A 形状的 mask。最终只有在 mask 中显示出来的(即图层中的部分)才会被渲染出来。<br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/06/10/objc笔记-2/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              <a class="post-title-link" href="/2015/06/05/objc笔记-1/" itemprop="url">
+                objc笔记（2）
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2015-06-05T12:08:18+08:00" content="2015-06-05">
+            2015-06-05
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a></span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2015/06/05/objc笔记-1/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/06/05/objc笔记-1/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <h4 id="Operation_Queues">Operation Queues</h4><p>NSOperationQueue 有两种不同类型的队列：主队列和自定义队列。主队列运行在主线程之上，而自定义队列在后台执行。在两种类型中，这些队列所处理的任务都使用 NSOperation 的子类来表述。</p>
+<p>你可以通过重写 main 或者 start 方法 来定义自己的 operations 。前一种方法非常简单，开发者不需要管理一些状态属性（例如 isExecuting 和 isFinished），当 main 方法返回的时候，这个 operation 就结束了。这种方式使用起来非常简单，但是灵活性相对重写 start 来说要少一些。如果你希望拥有更多的控制权，以及在一个操作中可以执行异步任务，那么就重写 start 方法。<br>为了能使用操作队列所提供的取消功能，你需要在长时间操作中时不时地检查 isCancelled 属性。<br>如果你重写 operation 的description 方法，就可以很容易的标示出在某个队列中当前被调度的所有操作 。<br>除了提供基本的调度操作或 block 外，操作队列还提供了在 GCD 中不太容易处理好的特性的功能。例如，你可以通过 maxConcurrentOperationCount 属性来控制一个特定队列中可以有多少个操作参与并发执行。将其设置为 1 的话，你将得到一个串行队列，这在以隔离为目的的时候会很有用。<br>另外还有一个方便的功能就是根据队列中 operation 的优先级对其进行排序，这不同于 GCD 的队列优先级，它只影响当前队列中所有被调度的 operation 的执行先后。如果你需要进一步在除了 5 个标准的优先级以外对 operation 的执行顺序进行控制的话，还可以在 operation 之间指定依赖关系</p>
+<p>从本质上来看，操作队列的性能比 GCD 要低那么一点，不过，大多数情况下这点负面影响可以忽略不计，操作队列是并发编程的首选工具。<br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/06/05/objc笔记-1/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -827,6 +740,90 @@
 <p> 　　对于字体上的磅（pt）转换到苹果设备上的方法。首先，将pt 和 px单位都统一到英尺<br>
           <div class="post-more-link text-center">
             <a class="btn" href="/2015/06/03/point与px转换/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              <a class="post-title-link" href="/2015/06/02/objc笔记/" itemprop="url">
+                objc笔记（1）
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2015-06-02T00:49:32+08:00" content="2015-06-02">
+            2015-06-02
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a></span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2015/06/02/objc笔记/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/06/02/objc笔记/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <h4 id="更轻量的_View_Controllers"><a href="http://objccn.io/issue-1-1/">更轻量的 View Controllers</a></h4><p><strong>把 Data Source 和其他 Protocols 分离出来</strong>,把 UITableViewDataSource 的代码提取出来放到一个单独的类中（看到这个有些理解ComponentKit的写法了）<br><strong>将业务逻辑移到 Model 中</strong><br>有些代码不能被轻松地移动到 model 对象中，但明显和 model 代码紧密联系，对于这种情况，可以使用一个 Store：<br><strong>创建 Store 类</strong>，Store 对象会关心数据加载、缓存和设置数据栈。它也经常被称为服务层或者仓库。<br><strong>把网络请求逻辑移到 Model 层</strong>，不要在 view controller 中做网络请求的逻辑，通过使用回调（比如一个 completion 的 block）来请求网络。<br><strong>把 View 代码移到 View 层</strong>，不应该在 view controller 中构建复杂的 view 层次结构。可以使用 Interface Builder 或者把 views 封装到一个 UIView 子类当中。<br><strong>通讯</strong>，view controllers 和 model 对象之间的消息传递，已经有很多阐述得很好的技术（比如 KVO 和 fetched results controllers）。当一个 view controller 想把某个状态传递给多个其他 view controllers 时，就会出现消息传递不清晰的问题。较好的做法是把状态放到一个单独的对象里，然后把这个对象传递给其它 view controllers，它们观察和修改这个状态。这样的好处是消息传递都在一个地方（被观察的对象）进行，而且我们也不用纠结嵌套的 delegate 回调。<br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/06/02/objc笔记/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>

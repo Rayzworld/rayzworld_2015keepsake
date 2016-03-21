@@ -178,538 +178,6 @@
           
           
             
-              <a class="post-title-link" href="/2015/10/01/ReactiveCocoa/" itemprop="url">
-                ReactiveCocoa
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2015-10-01T13:56:30+08:00" content="2015-10-01">
-            2015-10-01
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a></span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <a href="/2015/10/01/ReactiveCocoa/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/01/ReactiveCocoa/" itemprop="commentsCount"></span>
-              </a>
-            </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <h3 id="RACSignal">RACSignal</h3><blockquote>
-<p>RACSignal (信号)信号会为了控制通过应用的信息流而获得所有这些异步方法(委托, 回调 block, 通知, KVO, target/action 事件观察, 等)并将它们统一到一个接口下.</p>
-</blockquote>
-<h4 id="信号发送的值是从哪获得的?">信号发送的值是从哪获得的?</h4><p>信号是一些等待某事发生的异步代码, 然后把结果值发送给它们的订阅者. 你可以用 RACSignal 的类方法 createSignal: 手动创建信号:<br><figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">RACSignal</span> *networkSignal = [<span class="type">RACSignal</span> createSignal:^<span class="type">RACDisposable</span> *(idsubscriber) &#123;</span><br><span class="line">        <span class="type">NetworkOperation</span> *operation = [<span class="type">NetworkOperation</span> getJSONOperationForURL:@<span class="string">"http://someurl"</span>];</span><br><span class="line">        [operation setCompletionBlockWithSuccess:^(<span class="type">NetworkOperation</span> *theOperation, id *<span class="literal">result</span>) &#123;</span><br><span class="line">            [subscriber sendNext:<span class="literal">result</span>];</span><br><span class="line">            [subscriber sendCompleted];</span><br><span class="line">        &#125; failure:^(<span class="type">NetworkOperation</span> *theOperation, <span class="type">NSError</span> *error) &#123;</span><br><span class="line">            [subscriber sendError:error];</span><br><span class="line">        &#125;];</span><br></pre></td></tr></table></figure></p>
-<p>在这用一个具有成功和失败 block (伪造)的网络操作创建了一个信号. (如果我想让信号在被订阅时才让网络请求发生, 还可以用 RACSignal 的类方法 defer. )我在成功的 block 里使用提供的 subscriber 对象调用 sendNext: 和 sendCompleted: 方法, 或在失败的 block 中调用 sendError:. 现在我可以订阅这个信号并将在响应返回时接收到 json 值或是 error.<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/10/01/ReactiveCocoa/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2015/09/23/正则regex/" itemprop="url">
-                正则regex
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2015-09-23T11:06:54+08:00" content="2015-09-23">
-            2015-09-23
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a></span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <a href="/2015/09/23/正则regex/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/09/23/正则regex/" itemprop="commentsCount"></span>
-              </a>
-            </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <blockquote>
-<p>正则表达式提供了一种在指定文本文档中按指定模式进行搜索，并能基于匹配模式进行修改文本的一种方式。这种模式匹配能让你做更有用的事，如验证字段（电话号码，邮箱地址），检查用户输入，执行更高级的文本操作等等。</p>
-</blockquote>
-<h3 id="Examples">Examples</h3><p>这是一个来匹配单词“jump”的正则表达式的例子:<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jump</span><br></pre></td></tr></table></figure></p>
-<p>匹配单词“jump”或“jumping”:<br><figure class="highlight erlang"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">jump</span><span class="params">(ing)</span>?</span></span><br></pre></td></tr></table></figure></p>
-<p>这是应用正则表达式支持的特殊字符的例子。这个圆括号创建了一个组，这个标志是说“匹配前面的元素（这种情况下的组）0次或1次”。<br>现在来看一个复杂的例子。它会匹配一对开合的HTML标签和他们之间的内容。<br><figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">]<span class="keyword">*</span>&gt;(.<span class="keyword">*</span>?)</span><br></pre></td></tr></table></figure></p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/09/23/正则regex/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2015/08/14/RunLoop/" itemprop="url">
-                RunLoop
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2015-08-14T15:05:23+08:00" content="2015-08-14">
-            2015-08-14
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a></span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <a href="/2015/08/14/RunLoop/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/08/14/RunLoop/" itemprop="commentsCount"></span>
-              </a>
-            </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <h3 id="从程序启动开始到view显示">从程序启动开始到view显示</h3><p>start-&gt;(加载framework，动态静态链接库，启动图片，Info.plist等)-&gt;main函数-&gt;UIApplicationMain函数：</p>
-<ul>
-<li>初始化UIApplication单例对象<ul>
-<li>初始化AppDelegate对象，并设为UIApplication对象的代理</li>
-<li>检查Info.plist设置的xib文件是否有效，如果有则解冻Nib文件并设置outlets，创建显示key window、rootViewController、与rootViewController关联的根view（没有关联则看rootViewController同名的xib），否则launch之后由程序员手动加载。</li>
-<li>建立一个主事件循环，其中包含UIApplication的Runloop来开始处理事件。</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">UIApplication：</span><br><span class="line">1、通过<span class="keyword">window</span>管理视图；</span><br><span class="line">2、发送Runloop封装好的control消息给target；</span><br><span class="line">3、处理URL，应用图标警告，联网状态，状态栏，远程事件等。</span><br><span class="line">AppDelegate：</span><br><span class="line">管理UIApplication生命周期和应用的五种状态(notRunning/inactive/active/background/suspend)。</span><br><span class="line">Key <span class="keyword">Window</span>：</span><br><span class="line">1、显示<span class="keyword">view</span>；</span><br><span class="line">2、管理rootViewcontroller生命周期；</span><br><span class="line">3、发送UIApplication传来的事件消息给<span class="keyword">view</span>。</span><br><span class="line">rootViewController：</span><br><span class="line">1、管理<span class="keyword">view</span>（<span class="keyword">view</span>生命周期；<span class="keyword">view</span>的数据源/代理；<span class="keyword">view</span>与superView之间事件响应nextResponder的“备胎”）;</span><br><span class="line">2、界面跳转与传值；</span><br><span class="line">3、状态栏，屏幕旋转。</span><br><span class="line"><span class="keyword">view</span>：</span><br><span class="line">1、通过作为CALayer的代理，管理layer的渲染（顺序大概是先更新约束，再layout再<span class="keyword">display</span>）和动画（默认layer的属性可动画，<span class="keyword">view</span>默认禁止，在UIView的block分类方法里才打开动画）。layer是RGBA纹理，通过和mask位图（含<span class="keyword">alpha</span>属性）关联将合成后的layer纹理填充在像素点内，GPU每1/60秒将计算出的纹理<span class="keyword">display</span>在像素点中。</span><br><span class="line">2、布局子控件（屏幕旋转或者子视图布局变动时，<span class="keyword">view</span>会重新布局）。</span><br><span class="line">3、事件响应：event和guesture。</span><br><span class="line">插播控制器生命周期</span><br><span class="line">runloop:</span><br><span class="line">1、（要让马儿跑）通过<span class="keyword">do</span>-<span class="keyword">while</span>死循环让程序持续运行：接收用户输入，调度处理事件时间。</span><br><span class="line">2、（要让马儿少吃草）通过mach_msg()让runloop没事时进入trap状态，节省CPU资源。</span><br></pre></td></tr></table></figure>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/08/14/RunLoop/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2015/08/12/修改hosts访问google/" itemprop="url">
-                修改hosts访问google
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2015-08-12T00:24:20+08:00" content="2015-08-12">
-            2015-08-12
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/翻墙/" itemprop="url" rel="index"><span itemprop="name">翻墙</span></a></span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <a href="/2015/08/12/修改hosts访问google/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/08/12/修改hosts访问google/" itemprop="commentsCount"></span>
-              </a>
-            </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <p>VPN不稳定的情况下寻找新的Google方式</p>
-<h3 id="修改hosts之后，使用https进行访问,Ex:https://www-google-com">修改hosts之后，使用https进行访问,Ex:<a href="https://www.google.com">https://www.google.com</a></h3><p><a href="http://pan.baidu.com/s/1mgBxbg0">hosts下载</a></p>
-<h3 id="Mac系统hosts修改">Mac系统hosts修改</h3><h4 id="1-切换到root用户">1.切换到root用户</h4><p>sudo -i</p>
-<h4 id="2-找到下载的hosts文件路径">2.找到下载的hosts文件路径</h4><p>cd /Users/Hooray2015/Downloads/<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/08/12/修改hosts访问google/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2015/08/01/MVVM/" itemprop="url">
-                MVVM
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2015-08-01T17:38:41+08:00" content="2015-08-01">
-            2015-08-01
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a></span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <a href="/2015/08/01/MVVM/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/08/01/MVVM/" itemprop="commentsCount"></span>
-              </a>
-            </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <p>MVVM,MVC,MVP理解的有点蒙，什么鬼 <img src="/blogImage/face/doudoufei.gif" alt="白洪瑞太帅了"></p>
-<p>MVC的一般流程是这样的：View（界面）触发事件—》Controller（业务）处理了业务，然后触发了数据更新—》不知道谁更新了Model的数据—》Model（带着数据）回到了View—》View更新数据</p>
-<h3 id="MVP(Model-View-Presenter)">MVP(Model-View-Presenter)</h3><p>切断的View和Model的联系，让View只和Presenter（原Controller）交互，减少在需求变化中需要维护的对象的数量。</p>
-<h3 id="MVVM(Model_View_View-Model)">MVVM(Model View View-Model)</h3>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/08/01/MVVM/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2015/07/20/Mantle2-0/" itemprop="url">
-                Mantle2.0
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2015-07-20T17:05:53+08:00" content="2015-07-20">
-            2015-07-20
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/iOS轮子/" itemprop="url" rel="index"><span itemprop="name">iOS轮子</span></a></span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <a href="/2015/07/20/Mantle2-0/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/07/20/Mantle2-0/" itemprop="commentsCount"></span>
-              </a>
-            </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <blockquote>
-<p>Mantle makes it easy to write a simple model layer for your Cocoa or Cocoa Touch application.<a href="https://github.com/Mantle/Mantle">Mantle</a></p>
-</blockquote>
-<h3 id="为什么唱吧iOS_6-0选择了Mantle"><a href="http://www.iwangke.me/2014/10/13/Why-Changba-iOS-choose-Mantle/">为什么唱吧iOS 6.0选择了Mantle</a></h3><h3 id="2-0_CHANGELOG"><a href="https://github.com/Mantle/Mantle/blob/2.0/CHANGELOG.md#explicit-json-key-paths">2.0 CHANGELOG</a></h3><h4 id="Explicit_JSON_key_paths_明确JSON路径">Explicit JSON key paths 明确JSON路径</h4><p>+JSONKeyPathsForPropertyKey 这里面必须写每一个属性映射，忽略任何属性将不会被考虑JSON序列化和反序列化。<br>可以使用+[NSDictionary mtl_identityPropertyMapWithModel：] 自动创建一个一对一的映射相匹配的以前的默认行为。</p>
-<h4 id="Predefined_transformers_now_part_of_JSON_adapter_预定义的transformers现在转移到了MTLJSONAdapter">Predefined transformers now part of JSON adapter 预定义的transformers现在转移到了MTLJSONAdapter</h4><p>+mtl_JSONDictionaryTransformerWithModelClass: 和 +mtl_JSONArrayWithModelClass:转移到了MTLJSONAdapter<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// +[NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:]  </span></span><br><span class="line">+[MTLJSONAdapter <span class="string">dictionaryTransformerWithModelClass:</span>]</span><br><span class="line"><span class="comment">// +[NSValueTransformer mtl_JSONArrayTransformerWithModelClass:]</span></span><br><span class="line">+[MTLJSONAdapter <span class="string">arrayTransformerWithModelClass:</span>]</span><br></pre></td></tr></table></figure></p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/07/20/Mantle2-0/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
               <a class="post-title-link" href="/2015/07/16/太阳仔的面试/" itemprop="url">
                 太阳仔的面试
               </a>
@@ -1012,6 +480,517 @@
 <p>Forking工作流的一个主要优势是，贡献的代码可以被集成，而不需要所有人都能push代码到仅有的中央仓库中。<br>开发者push到自己的服务端仓库，而只有项目维护者才能push到正式仓库。<br>这样项目维护者可以接受任何开发者的提交，但无需给他正式代码库的写权限。<br>
           <div class="post-more-link text-center">
             <a class="btn" href="/2015/06/17/Forking工作流/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              <a class="post-title-link" href="/2015/06/16/功能分支工作流/" itemprop="url">
+                功能分支工作流
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2015-06-16T15:50:38+08:00" content="2015-06-16">
+            2015-06-16
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/Git/" itemprop="url" rel="index"><span itemprop="name">Git</span></a></span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2015/06/16/功能分支工作流/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/06/16/功能分支工作流/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <blockquote>
+<p>功能分支工作流以集中式工作流为基础，不同的是为各个新功能分配一个专门的分支来开发。这样可以在把新功能集成到正式项目前，用Pull Requests的方式讨论变更。<br>功能分支工作流背后的核心思路是所有的功能开发应该在一个专门的分支，而不是在<em>master</em>分支上。<br>这个隔离可以方便多个开发者在各自的功能上开发而不会弄乱主干代码。<br>另外，也保证了master分支的代码一定不会是有问题的，极大有利于集成环境。<br>功能开发隔离也让pull requests工作流成功可能，<br>pull requests工作流能为每个分支发起一个讨论，在分支合入正式项目之前，给其它开发者有表示赞同的机会。<br>另外，如果你在功能开发中有问题卡住了，可以开一个pull requests来向同学们征求建议。<br>这些做法的重点就是，pull requests让团队成员之间互相评论工作变成非常方便！<br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/06/16/功能分支工作流/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              <a class="post-title-link" href="/2015/06/15/集中式工作流/" itemprop="url">
+                集中式工作流
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2015-06-15T15:49:47+08:00" content="2015-06-15">
+            2015-06-15
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/Git/" itemprop="url" rel="index"><span itemprop="name">Git</span></a></span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2015/06/15/集中式工作流/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/06/15/集中式工作流/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <h3 id="所有修改提交到这个分支上。本工作流只用到master这一个分支。">所有修改提交到这个分支上。本工作流只用到master这一个分支。</h3><p>先克隆中央仓库。在自己的项目拷贝中像SVN一样的编辑文件和提交修改；但修改是存在本地的，和中央仓库是完全隔离的。开发者可以把和上游的同步延后到一个方便时间点。</p>
+<p>要发布修改到正式项目中，开发者要把本地master分支的修改push到中央仓库中。这相当于svn commit操作，但push操作会把所有还不在中央仓库的本地提交都推上去。</p>
+<h4 id="冲突">冲突</h4><p>中央仓库代表了正式项目，所以提交历史应该被尊重且是稳定不变的。如果开发者本地的提交历史和中央仓库有分歧，Git会拒绝push提交否则会覆盖已经在中央库的正式提交。<br>在开发者提交自己功能修改到中央库前，需要先fetch在中央库的新增提交，rebase自己提交到中央库提交历史之上。<br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/06/15/集中式工作流/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              <a class="post-title-link" href="/2015/06/14/objc笔记-5/" itemprop="url">
+                objc笔记 (6)
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2015-06-14T23:48:06+08:00" content="2015-06-14">
+            2015-06-14
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a></span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2015/06/14/objc笔记-5/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/06/14/objc笔记-5/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody"><a id="more"></a></span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              <a class="post-title-link" href="/2015/06/14/objc笔记-4/" itemprop="url">
+                objc笔记（5）
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2015-06-14T23:47:43+08:00" content="2015-06-14">
+            2015-06-14
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a></span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2015/06/14/objc笔记-4/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/06/14/objc笔记-4/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <h2 id="TextKit">TextKit</h2><p><strong>设置 hyphenationFactor 属性就可以启用断字。</strong><br><a href="https://github.com/objcio/issue-5-textkit">issue-5-textkit</a></p>
+<ul>
+<li>一个 Text Storage 可以拥有多个 Layout Manager，一个 Layout Manager 也可以拥有多个 Text Container。 将多个 Layout Manager 附加到同一个 Text Storage 上，可以产生相同文本的多种视觉表现，而且可以把它们放到一起来显示。每一个表现都有独立的位置和大小。如果相应的 Text View 可编辑，那么在某个 Text View 上做的所有修改都会马上反映到所有 Text View 上。</li>
+<li>将多个 Text Container 附加到同一个 Layout Manager 上，这样可以将一个文本分布到多个视图展现出来。很有用的一个例子，基于页面的布局：每个页面包含一个单独的 Text View。所有这些视图的 Text Container 都引用同一个 Layout Manager，这时这个 Layout Manager 就可以将文本分布到这些视图上来显示。</li>
+</ul>
+<h3 id="配置">配置</h3><p>在 Storyboard 或者 Interface 文件中实例化 UITextView 时，它会预配置一个文本系统：一个 Text Storage，引用一个 Layout Manager，而后者又引用一个 Text Container。同样地，一个文本系统栈也可以通过代码直接创建：<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSTextStorage</span> *textStorage = [<span class="built_in">NSTextStorage</span> new];</span><br><span class="line"></span><br><span class="line"><span class="built_in">NSLayoutManager</span> *layoutManager = [<span class="built_in">NSLayoutManager</span> new];</span><br><span class="line">[textStorage addLayoutManager: layoutManager];</span><br><span class="line"></span><br><span class="line"><span class="built_in">NSTextContainer</span> *textContainer = [<span class="built_in">NSTextContainer</span> new];</span><br><span class="line">[layoutManager addTextContainer: textContainer];</span><br><span class="line"></span><br><span class="line"><span class="built_in">UITextView</span> *textView = [[<span class="built_in">UITextView</span> alloc] initWithFrame:someFrame</span><br><span class="line">textContainer:textContainer];</span><br></pre></td></tr></table></figure></p>
+<p><strong>手工创建一个文本系统，唯一需要记住的事情是你的 View Controller 必须 retain 这个 Text Storage。在栈底的 Text View 只保留了对 Text Storage 和 Layout Manager 的弱引用。当 Text Storage 被释放时，Layout Manager 也被释放了，这样留给 Text View 的就只有一个断开的 Text Container 了。</strong><br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/06/14/objc笔记-4/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              <a class="post-title-link" href="/2015/06/12/Swift初见/" itemprop="url">
+                Swift初见
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2015-06-12T10:21:53+08:00" content="2015-06-12">
+            2015-06-12
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/Swift/" itemprop="url" rel="index"><span itemprop="name">Swift</span></a></span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2015/06/12/Swift初见/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/06/12/Swift初见/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <h3 id="属性(property)和实例变量(instance_variable)">属性(property)和实例变量(instance variable)</h3><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@property (strong,nonatomic) NSString *<span class="keyword">string</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title">Shape</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> name = <span class="string">"shape"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">weak <span class="keyword">var</span> <span class="keyword">delegate</span>: UITextFieldDelegate?</span><br></pre></td></tr></table></figure>
+<p>strong: 在Swift中是默认的<br>weak: 通过weak关键词申明<br>readonly,readwrie 直接通过声明常量let,声明变量var的方式来指明<br>copy 通过@NSCopying指令声明。<br>String,Array和Dictionary在Swift是以值类型(value type)而不是引用类型(reference type)出现,因此它们在赋值,初始化,参数传递中都是以拷贝的方式进行<br>onatomic,atomic 所有的Swift properties 都是nonatomic。</p>
+<p>在Objective-C中,我们只能通过单例,或者static变量加类方法来自己构造类变量,在Swift中<br>通过static定义的类变量无法在子类重写,通过class定义的类变量则可在子类重写。<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> SomeStructure &#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">var</span> storedTypeProperty = <span class="string">"Some value."</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">var</span> computedTypeProperty: Int &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">class</span> <span class="title">var</span> <span class="title">overrideableComputedTypeProperty</span>: <span class="title">Int</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">107</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 单例</span></span><br><span class="line"><span class="keyword">class</span> <span class="title">singletonClass</span> &#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">let</span> sharedInstance = singletonClass()</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">init</span>(<span class="params"></span>) </span>&#123;&#125; <span class="comment">// 这就阻止其他对象使用这个类的默认的'()'初始化方法</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 通过static定义的类变量类似java中的类变量,是无法被继承的,父类与子类的类变量指向的都是同一个静态变量。</span></span><br><span class="line"><span class="keyword">class</span> <span class="title">SomeStructure</span> &#123;</span><br><span class="line">    <span class="keyword">class</span> <span class="title">var</span> <span class="title">storedTypeProperty</span> = <span class="string">"Some value."</span></span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="comment">//Swift 2.0 </span></span><br><span class="line">Error: Class stored properties not yet supported <span class="keyword">in</span> classes</span><br></pre></td></tr></table></figure></p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/06/12/Swift初见/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              <a class="post-title-link" href="/2015/06/11/objc笔记-3/" itemprop="url">
+                objc笔记 (4)
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2015-06-11T10:54:00+08:00" content="2015-06-11">
+            2015-06-11
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a></span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2015/06/11/objc笔记-3/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/06/11/objc笔记-3/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <h4 id="Core_Data">Core Data</h4><p><strong>创建对象</strong>，通过 NSEntityDescription 的方法来插入：<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">+ (<span class="keyword">id</span>)insertNewObjectForEntityForName:(<span class="built_in">NSString</span> *)entityName </span><br><span class="line">               inManagedObjectContext:(<span class="built_in">NSManagedObjectContext</span> *)context;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 增加两个方便的方法到你的模型类中：</span></span><br><span class="line">+ (<span class="built_in">NSString</span> *)entityName</span><br><span class="line">&#123;</span><br><span class="line">   <span class="keyword">return</span> @“Item”;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">+ (instancetype)insertNewObjectInManagedObjectContext:(<span class="built_in">NSManagedObjectContext</span> *)moc;</span><br><span class="line">&#123;</span><br><span class="line">   <span class="keyword">return</span> [<span class="built_in">NSEntityDescription</span> insertNewObjectForEntityForName:[<span class="keyword">self</span> entityName] </span><br><span class="line">                                        inManagedObjectContext:moc];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 插入我们的根对象</span></span><br><span class="line">Item *rootItem = [Item insertNewObjectInManagedObjectContext:managedObjectContext];</span><br></pre></td></tr></table></figure></p>
+<p>在我们的 managed object context 中有一个唯一的 item。Context 知道这是一个新插入进来需要被管理的对象，并且被管理的对象 rootItem 知道这个 Context（它有一个 -managedObjectContext 方法）。<br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/06/11/objc笔记-3/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>

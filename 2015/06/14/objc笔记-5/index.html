@@ -37,16 +37,16 @@
   <link rel="shorticon icon" type="image/x-icon" href="/icon.ico?v=0.4.4" />
 
 
-<meta name="description" content="Views绘制像素到屏幕上不透明 VS 透明，当源纹理是完全不透明的时候，目标像素就等于源纹理。但是没有方法能告诉 GPU 纹理上的像素是透明还是不透明的。CALayer 有一个叫做 opaque 的属性了。如果这个属性为 YES，GPU 将不会做任何合成，而是简单从这个层拷贝，不需要考虑它下方的任何东西(因为都被它遮挡住了)。如果你加载一个没有 alpha 通道的图片，并且将它显示在 UIIma">
+<meta name="description">
 <meta property="og:type" content="article">
-<meta property="og:title" content="objc笔记（3）">
-<meta property="og:url" content="https://rayzworld.github.io/2015/11/10/objc笔记-2/index.html">
+<meta property="og:title" content="objc笔记 (6)">
+<meta property="og:url" content="https://rayzworld.github.io/2015/06/14/objc笔记-5/index.html">
 <meta property="og:site_name" content="HongRui's Blog">
-<meta property="og:description" content="Views绘制像素到屏幕上不透明 VS 透明，当源纹理是完全不透明的时候，目标像素就等于源纹理。但是没有方法能告诉 GPU 纹理上的像素是透明还是不透明的。CALayer 有一个叫做 opaque 的属性了。如果这个属性为 YES，GPU 将不会做任何合成，而是简单从这个层拷贝，不需要考虑它下方的任何东西(因为都被它遮挡住了)。如果你加载一个没有 alpha 通道的图片，并且将它显示在 UIIma">
-<meta property="og:updated_time" content="2016-03-11T06:26:43.000Z">
+<meta property="og:description">
+<meta property="og:updated_time" content="2016-03-21T09:46:38.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="objc笔记（3）">
-<meta name="twitter:description" content="Views绘制像素到屏幕上不透明 VS 透明，当源纹理是完全不透明的时候，目标像素就等于源纹理。但是没有方法能告诉 GPU 纹理上的像素是透明还是不透明的。CALayer 有一个叫做 opaque 的属性了。如果这个属性为 YES，GPU 将不会做任何合成，而是简单从这个层拷贝，不需要考虑它下方的任何东西(因为都被它遮挡住了)。如果你加载一个没有 alpha 通道的图片，并且将它显示在 UIIma">
+<meta name="twitter:title" content="objc笔记 (6)">
+<meta name="twitter:description">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -56,7 +56,7 @@
   };
 </script>
 
-    <title> objc笔记（3） // HongRui's Blog </title>
+    <title> objc笔记 (6) // HongRui's Blog </title>
 </head>
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 <!--[if lte IE 8]>
@@ -177,7 +177,7 @@
           
           
             
-              objc笔记（3）
+              objc笔记 (6)
             
           
         </h1>
@@ -186,8 +186,8 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2015-11-10T13:59:38+08:00" content="2015-11-10">
-            2015-11-10
+          <time itemprop="dateCreated" datetime="2015-06-14T23:48:06+08:00" content="2015-06-14">
+            2015-06-14
           </time>
         </span>
 
@@ -208,8 +208,8 @@
           
             <span class="post-comments-count">
               &nbsp; | &nbsp;
-              <a href="/2015/11/10/objc笔记-2/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/10/objc笔记-2/" itemprop="commentsCount"></span>
+              <a href="/2015/06/14/objc笔记-5/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/06/14/objc笔记-5/" itemprop="commentsCount"></span>
               </a>
             </span>
           
@@ -223,18 +223,7 @@
       
 
       
-        <span itemprop="articleBody"><h3 id="Views">Views</h3><h4 id="绘制像素到屏幕上">绘制像素到屏幕上</h4><p><strong>不透明 VS 透明</strong>，当源纹理是完全不透明的时候，目标像素就等于源纹理。但是没有方法能告诉 GPU 纹理上的像素是透明还是不透明的。CALayer 有一个叫做 opaque 的属性了。如果这个属性为 YES，GPU 将不会做任何合成，而是简单从这个层拷贝，不需要考虑它下方的任何东西(因为都被它遮挡住了)。如果你加载一个没有 alpha 通道的图片，并且将它显示在 UIImageView 上，这将会自动发生。但是要记住如果一个图片没有 alpha 通道和一个图片每个地方的 alpha 都是100%，这将会产生很大的不同。<br><strong>像素对齐 VS 不重合在一起</strong>，当一个 layer 上所有的像素和屏幕上的像素完美的对应整齐，那这个 layer 就是像素对齐的。主要有两个原因可能会造成不对齐。第一个便是滚动；当一个纹理上下滚动的时候，纹理的像素便不会和屏幕的像素排列对齐。另一个原因便是当纹理的起点不在一个像素的边界上。在这两种情况下，GPU需要再做额外的计算。它需要将源纹理上多个像素混合起来，生成一个用来合成的值。当所有的像素都是对齐的时候，GPU 只剩下很少的工作要做。<br><strong>mask</strong>，mask 是一个拥有 alpha 值的位图，当像素要和它下面包含的像素合并之前都会把 mask 应用到图层的像素上去。当你要设置一个图层的圆角半径时，你可以有效的在图层上面设置一个 mask。但是也可以指定任意一个蒙板。比如，一个字母 A 形状的 mask。最终只有在 mask 中显示出来的(即图层中的部分)才会被渲染出来。<br><a id="more"></a><br><strong>离屏渲染(Offscreen Rendering)</strong>，离屏渲染可以被CoreAnimation自动触发，或者被应用程序强制触发。屏幕外的渲染会合并/渲染图层树的一部分到一个新的缓冲区，然后该缓冲区被渲染到屏幕上。</p>
-<p>一种好的方法就是缓存合成的纹理/图层。如果你的渲染树非常复杂(所有的纹理，以及如何组合在一起)，你可以强制离屏渲染缓存那些图层，然后可以用缓存作为合成的结果放到屏幕上。<br>如果你的程序混合了很多图层，并且想要他们一起做动画，GPU 通常会为每一帧(1/60s)重复合成所有的图层。当使用离屏渲染时，GPU 第一次会混合所有图层到一个基于新的纹理的位图缓存上，然后使用这个纹理来绘制到屏幕上。现在，当这些图层一起移动的时候，GPU 便可以复用这个位图缓存，并且只需要做很少的工作。需要注意的是，只有当那些图层不改变时，这才可以用。如果那些图层改变了，GPU 需要重新创建位图缓存。你可以通过设置shouldRasterize为YES来触发这个行为。这可能会使事情变得更慢。创建额外的屏幕外缓冲区是 GPU 需要多做的一步操作，特殊情况下这个位图可能再也不需要被复用，这便是一个无用功了。然而，可以被复用的位图，GPU 也有可能将它卸载了。所以你需要计算 GPU 的利用率和帧的速率来判断这个位图是否有用。</p>
-<p>如果你正在直接或者间接的将mask应用到一个图层上，Core Animation 为了应用这个 mask，会强制进行屏幕外渲染。这会对 GPU 产生重负。通常情况下 mask 只能被直接渲染到帧的缓冲区中(在屏幕内)。</p>
-<p>Instrument 的 Core Animation 工具有一个叫做 Color Offscreen-Rendered Yellow 的选项，它会将已经被渲染到屏幕外缓冲区的区域标注为黄色(这个选项在模拟器中也可以用)。同时记得检查 Color Hits Green and Misses Red 选项。绿色代表无论何时一个屏幕外缓冲区被复用，而红色代表当缓冲区被重新创建。<br>直接将图层合成到帧的缓冲区中(在屏幕上)比先创建屏幕外缓冲区，然后渲染到纹理中，最后将结果渲染到帧的缓冲区中要廉价很多。</p>
-<p>当你打开 Color Offscreen-Rendered Yellow 后看到黄色，这便是一个警告，但这不一定是不好的。如果 Core Animation 能够复用屏幕外渲染的结果，这便能够提升性能。<br>rasterized layer 的空间是有限的。苹果暗示大概有屏幕大小两倍的空间来存储 rasterized layer/屏幕外缓冲区。</p>
-<p>如果你使用 layer 的方式会通过屏幕外渲染，你最好摆脱这种方式。为 layer 使用蒙板或者设置圆角半径会造成屏幕外渲染，产生阴影也会如此。</p>
-<p>至于 mask，圆角半径(特殊的mask)和 clipsToBounds/masksToBounds，你可以简单的为一个已经拥有 mask 的 layer 创建内容，比如，已经应用了 mask 的 layer 使用一张图片。如果你想根据 layer 的内容为其应用一个长方形 mask，你可以使用 contentsRect 来代替蒙板。</p>
-<p>如果你最后设置了 shouldRasterize 为 YES，那也要记住设置 rasterizationScale 为 contentsScale。</p>
-<p><strong>Core Animation OpenGL ES</strong>，Core Animation 的 layer 可以有子 layer，所以最终你得到的是一个图层树。Core Animation 所需要做的最繁重的任务便是判断出哪些图层需要被(重新)绘制，而 OpenGL ES 需要做的便是将图层合并、显示到屏幕上。举个例子，当你设置一个 layer 的内容为 CGImageRef 时，Core Animation 会创建一个 OpenGL 纹理，并确保在这个图层中的位图被上传到对应的纹理中。以及当你重写 -drawInContext 方法时，Core Animation 会请求分配一个纹理，同时确保 Core Graphics 会将你所做的(即你在drawInContext中绘制的东西)放入到纹理的位图数据中。一个图层的性质和 CALayer 的子类会影响到 OpenGL 的渲染结果，许多低等级的 OpenGL ES 行为被简单易懂地封装到 CALayer 概念中。</p>
-<p>Core Animation 通过 Core Graphics 的一端和 OpenGL ES 的另一端，精心策划基于 CPU 的位图绘制。因为 Core Animation 处在渲染过程中的重要位置上，所以你如何使用 Core Animation 将会对性能产生极大的影响。</p>
-<p><strong>CPU限制 VS GPU限制</strong>，为了每秒达到 60 帧，你需要确定 CPU 和 GPU 不能过载。此外，即使你当前能达到 60fps(frame per second),你还是要把尽可能多的绘制工作交给 GPU 做，而让 CPU 尽可能的来执行应用程序。通常，GPU 的渲染性能要比 CPU 高效很多，同时对系统的负载和消耗也更低一些。果是 GPU 限制了你的性能，你可以使用 OpenGL ES Driver instrument。点击上面那个小的 i 按钮，配置一下，同时注意勾选 Device Utilization %。现在，当你运行你的 app 时，你可以看到你 GPU 的负荷。如果这个值靠近 100%，那么你就需要把你工作的重心放在GPU方面了。</p>
-</span>
+        <span itemprop="articleBody"><a id="more"></a></span>
       
     </div>
 
@@ -245,13 +234,13 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/11/11/objc笔记-3/" rel="prev">objc笔记 (4)</a>
+              <a href="/2015/06/15/集中式工作流/" rel="prev">集中式工作流</a>
             
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/11/05/objc笔记-1/" rel="next">objc笔记（2）</a>
+              <a href="/2015/06/14/objc笔记-4/" rel="next">objc笔记（5）</a>
             
           </div>
         </div>
@@ -277,8 +266,8 @@
             
               <div class="comments" id="comments">
                 
-                  <div class="ds-thread" data-thread-key="2015/11/10/objc笔记-2/"
-                       data-title="objc笔记（3）" data-url="https://rayzworld.github.io/2015/11/10/objc笔记-2/">
+                  <div class="ds-thread" data-thread-key="2015/06/14/objc笔记-5/"
+                       data-title="objc笔记 (6)" data-url="https://rayzworld.github.io/2015/06/14/objc笔记-5/">
                   </div>
                 
               </div>
@@ -401,7 +390,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Views"><span class="nav-number">1.</span> <span class="nav-text">Views</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#绘制像素到屏幕上"><span class="nav-number">1.1.</span> <span class="nav-text">绘制像素到屏幕上</span></a></li></ol></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
