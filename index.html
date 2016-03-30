@@ -234,7 +234,7 @@
 <li>向属性说再见。如果你想要 setter 和 getter，你只能实际地创建一个 getVariableName()方法，并显式的调用它。使用 this.object 不会调用你自定义地getter，你必须使用 this.getObjct。</li>
 <li>同样的，给方法名加上 get 和 set 前缀来更好的识别 getter 和 setter 。Java 方法通常写为动作和查询，例如 getCell()，而不是 cellForRowAtIndexPath:。</li>
 </ul>
-<h3 id="项目结构">项目结构</h3><p>Android 应用主要分为两个部分，第一部分是 Java 源代码。源代码通过 Java 包的方式进行组织。一个常见的实践是为 Activity、Fragment、View、Adapter 和 Data（模型和管理器）使用顶层的类别（top-level categories）。<br>第二个主要部分是 res 文件夹，也就是资源文件夹。res 文件夹包含有图像、 XML 布局文件，以及 XML 值文件，它们构成了大部分非代码资源。在 iOS 上，图像可有@2X版本，但在 Android 上有好几种不同的屏幕密度文件夹要考虑。Android 使用文件夹来组织文件、字符串以及其他与屏幕密度相关的值。res 文件夹还包含有 XML 布局文件，就像 xib 文件一样。最后，还有其他 XML 文件存储了字符串、整数和样式资源。<br>
+<h3 id="项目结构">项目结构</h3><p>Android 应用主要分为两个部分，第一部分是 Java 源代码。源代码通过 Java 包的方式进行组织。一个常见的实践是为 Activity、Fragment、View、Adapter 和 Data（模型和管理器）使用顶层的类别（top-level categories）。<br>第二个主要部分是 res 文件夹，也就是资源文件夹。res 文件夹包含有图像、 XML 布局文件，以及 XML 值文件，它们构成了大部分非代码资源。在 iOS 上，图像可有@2X版本，但在 Android 上有好几种不同的屏幕密度文件夹要考虑。Android 使用文件夹来组织文件、字符串以及其他与屏幕密度相关的值。res 文件夹还包含有 XML 布局文件，就像 xib 文件一样。最后，还有其他 XML 文件存储了字符串、整数和样式资源。<br>最后一个与项目结构相关的是 AndroidManifest.xml 文件。这个文件等同于 iOS 上的 Project-Info.plist 文件，它存储着 Activity 信息、应用名字，并设置应用能处理的 Intent（系统级事件）。<br>
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/01/12/Android初见/#more" rel="contents">
               阅读全文 &raquo;

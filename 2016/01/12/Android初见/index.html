@@ -51,7 +51,7 @@ Null 检查！Objective-C能妥善处理向nil发送消息，但Java不行。
 实例变量的前缀是 m，不是 _。尽可能多的在代码里使用JavaDoc来写方法和类描述，它能让你和其他人更舒服些。
 Null 检查！Objective-C能妥善处理向nil发送消息，但Java不行。
 向属性说再见。如果你想要 setter 和 getter，你只能实际地创建一个">
-<meta property="og:updated_time" content="2016-03-30T14:33:37.000Z">
+<meta property="og:updated_time" content="2016-03-30T15:05:48.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android初见">
 <meta name="twitter:description" content="Java
@@ -242,7 +242,8 @@ Null 检查！Objective-C能妥善处理向nil发送消息，但Java不行。
 <li>向属性说再见。如果你想要 setter 和 getter，你只能实际地创建一个 getVariableName()方法，并显式的调用它。使用 this.object 不会调用你自定义地getter，你必须使用 this.getObjct。</li>
 <li>同样的，给方法名加上 get 和 set 前缀来更好的识别 getter 和 setter 。Java 方法通常写为动作和查询，例如 getCell()，而不是 cellForRowAtIndexPath:。</li>
 </ul>
-<h3 id="项目结构">项目结构</h3><p>Android 应用主要分为两个部分，第一部分是 Java 源代码。源代码通过 Java 包的方式进行组织。一个常见的实践是为 Activity、Fragment、View、Adapter 和 Data（模型和管理器）使用顶层的类别（top-level categories）。<br>第二个主要部分是 res 文件夹，也就是资源文件夹。res 文件夹包含有图像、 XML 布局文件，以及 XML 值文件，它们构成了大部分非代码资源。在 iOS 上，图像可有@2X版本，但在 Android 上有好几种不同的屏幕密度文件夹要考虑。Android 使用文件夹来组织文件、字符串以及其他与屏幕密度相关的值。res 文件夹还包含有 XML 布局文件，就像 xib 文件一样。最后，还有其他 XML 文件存储了字符串、整数和样式资源。<br><a id="more"></a></p>
+<h3 id="项目结构">项目结构</h3><p>Android 应用主要分为两个部分，第一部分是 Java 源代码。源代码通过 Java 包的方式进行组织。一个常见的实践是为 Activity、Fragment、View、Adapter 和 Data（模型和管理器）使用顶层的类别（top-level categories）。<br>第二个主要部分是 res 文件夹，也就是资源文件夹。res 文件夹包含有图像、 XML 布局文件，以及 XML 值文件，它们构成了大部分非代码资源。在 iOS 上，图像可有@2X版本，但在 Android 上有好几种不同的屏幕密度文件夹要考虑。Android 使用文件夹来组织文件、字符串以及其他与屏幕密度相关的值。res 文件夹还包含有 XML 布局文件，就像 xib 文件一样。最后，还有其他 XML 文件存储了字符串、整数和样式资源。<br>最后一个与项目结构相关的是 AndroidManifest.xml 文件。这个文件等同于 iOS 上的 Project-Info.plist 文件，它存储着 Activity 信息、应用名字，并设置应用能处理的 Intent（系统级事件）。<br><a id="more"></a></p>
+<h3 id="Activity">Activity</h3><p>Activity 是 Android 应用的基本显示单元，就像 UIViewController 是iOS的基本显示组件一样。作为 UINavigationController 的替代，Android 由系统来维护一个 Activity 栈。当应用完成加载，系统将应用的主 Activity（main activity）压到栈上。注意你也可以加载其他应用的 Activity 并将它们放在栈里。默认，Android 上的返回（back）按钮将从系统的 Activity 栈中弹出 Activity，所以当用户不停地按下返回时，他可以见到多个曾经加载过的应用。</p>
 </span>
       
     </div>
@@ -408,7 +409,7 @@ Null 检查！Objective-C能妥善处理向nil发送消息，但Java不行。
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Java"><span class="nav-number">1.</span> <span class="nav-text">Java</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#项目结构"><span class="nav-number">2.</span> <span class="nav-text">项目结构</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Java"><span class="nav-number">1.</span> <span class="nav-text">Java</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#项目结构"><span class="nav-number">2.</span> <span class="nav-text">项目结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Activity"><span class="nav-number">3.</span> <span class="nav-text">Activity</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
