@@ -1,0 +1,657 @@
+<!doctype html>
+<html class="theme-next use-motion theme-next-mist">
+<head>
+    
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.4"/>
+
+
+    <meta name="description" content="I am a slow walker,but I never walk backwards." />
+
+
+
+  <meta name="keywords" content="白洪瑞,baihongrui,rayzworld,blog,iOS,baijiajie,白佳杰，白佳洁" />
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/icon.ico?v=0.4.4" />
+
+
+<meta name="description" content="12345678910111213141516171819// 根据需要任意定制样式 drawRect:+ (instancetype)bezierPath;// 根据一个矩形画贝塞尔曲线+ (instancetype)bezierPathWithRect:(CGRect)rect;// 根据一个矩形画内切曲线。通常用它来画圆或者椭圆。+ (instancetype)bezierPathWithO">
+<meta property="og:type" content="article">
+<meta property="og:title" content="UIBezierPath">
+<meta property="og:url" content="https://rayzworld.github.io/2015/11/21/UIBezierPath/index.html">
+<meta property="og:site_name" content="HongRui's Blog">
+<meta property="og:description" content="12345678910111213141516171819// 根据需要任意定制样式 drawRect:+ (instancetype)bezierPath;// 根据一个矩形画贝塞尔曲线+ (instancetype)bezierPathWithRect:(CGRect)rect;// 根据一个矩形画内切曲线。通常用它来画圆或者椭圆。+ (instancetype)bezierPathWithO">
+<meta property="og:updated_time" content="2016-03-31T03:28:02.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="UIBezierPath">
+<meta name="twitter:description" content="12345678910111213141516171819// 根据需要任意定制样式 drawRect:+ (instancetype)bezierPath;// 根据一个矩形画贝塞尔曲线+ (instancetype)bezierPathWithRect:(CGRect)rect;// 根据一个矩形画内切曲线。通常用它来画圆或者椭圆。+ (instancetype)bezierPathWithO">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: 'post'
+  };
+</script>
+
+    <title> UIBezierPath // HongRui's Blog </title>
+</head>
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+
+
+
+
+<div class="container one-column page-post-detail">
+    <div class="headband"></div>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+        <div class="header-inner"><h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand" rel="start">
+      <span class="logo">
+        <i class="icon-logo"></i>
+      </span>
+      <span class="site-title">HongRui's Blog</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu menu-left">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon icon-home"></i> <br />
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            <i class="menu-item-icon icon-categories"></i> <br />
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            <i class="menu-item-icon icon-archives"></i> <br />
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            <i class="menu-item-icon icon-tags"></i> <br />
+            标签
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+<form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'EHDHtw-j3DipDyhFHcz8','2.0.0');
+</script>
+
+<div class="site-search-toggle"></div>
+    </div>
+  
+</nav>
+
+
+        </div>
+    </header>
+
+    <main id="main" class="main">
+        <div class="main-inner">
+            <div id="content" class="content">
+                
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              UIBezierPath
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2015-11-21T10:58:30+08:00" content="2015-11-21">
+            2015-11-21
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a></span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2015/11/21/UIBezierPath/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/21/UIBezierPath/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 根据需要任意定制样式 drawRect:</span></span><br><span class="line">+ <span class="params">(instancetype)</span>bezierPath;</span><br><span class="line"><span class="comment">// 根据一个矩形画贝塞尔曲线</span></span><br><span class="line">+ <span class="params">(instancetype)</span>bezierPathWithRect:<span class="params">(CGRect)</span>rect;</span><br><span class="line"><span class="comment">// 根据一个矩形画内切曲线。通常用它来画圆或者椭圆。</span></span><br><span class="line">+ <span class="params">(instancetype)</span>bezierPathWithOvalInRect:<span class="params">(CGRect)</span>rect;</span><br><span class="line"><span class="comment">// 第一个工厂方法是画矩形，但是这个矩形是可以画圆角的。第一个参数是矩形，第二个参数是圆角大小。 第二个工厂方法功能一样,可以指定某一个角画成圆角。</span></span><br><span class="line">+ <span class="params">(instancetype)</span>bezierPathWithRoundedRect:<span class="params">(CGRect)</span>rect</span><br><span class="line">                            cornerRadius:<span class="params">(CGFloat)</span>cornerRadius;</span><br><span class="line">+ <span class="params">(instancetype)</span>bezierPathWithRoundedRect:<span class="params">(CGRect)</span>rect</span><br><span class="line">                        byRoundingCorners:<span class="params">(UIRectCorner)</span>corners </span><br><span class="line">                              cornerRadii:<span class="params">(CGSize)</span>cornerRadii;</span><br><span class="line"><span class="comment">// 这个工厂方法用于画弧，参数说明如下： center: 弧线中心点的坐标 radius: 弧线所在圆的半径 startAngle: 弧线开始的角度值 endAngle: 弧线结束的角度值clockwise: 是否顺时针画弧线</span></span><br><span class="line">+ <span class="params">(instancetype)</span>bezierPathWithArcCenter:<span class="params">(CGPoint)</span>center </span><br><span class="line">                                 radius:<span class="params">(CGFloat)</span>radius </span><br><span class="line">                             startAngle:<span class="params">(CGFloat)</span>startAngle </span><br><span class="line">                               endAngle:<span class="params">(CGFloat)</span>endAngle </span><br><span class="line">                              clockwise:<span class="params">(BOOL)</span>clockwise;</span><br><span class="line">+ <span class="params">(instancetype)</span>bezierPathWithCGPath:<span class="params">(CGPathRef)</span>CGPath;</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h3 id="画三角形">画三角形</h3><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)drawTrianglePath &#123;</span><br><span class="line">  </span><br><span class="line">  <span class="built_in">UIBezierPath</span> *path = [<span class="built_in">UIBezierPath</span> bezierPath];</span><br><span class="line">  [path moveToPoint:<span class="built_in">CGPointMake</span>(<span class="number">20</span>, <span class="number">20</span>)];</span><br><span class="line">  [path addLineToPoint:<span class="built_in">CGPointMake</span>(<span class="keyword">self</span><span class="variable">.frame</span><span class="variable">.size</span><span class="variable">.width</span> - <span class="number">40</span>, <span class="number">20</span>)];</span><br><span class="line">  [path addLineToPoint:<span class="built_in">CGPointMake</span>(<span class="keyword">self</span><span class="variable">.frame</span><span class="variable">.size</span><span class="variable">.width</span> / <span class="number">2</span>, <span class="keyword">self</span><span class="variable">.frame</span><span class="variable">.size</span><span class="variable">.height</span> - <span class="number">20</span>)];</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 最后的闭合线是可以通过调用closePath方法来自动生成的，也可以调用-addLineToPoint:方法来添加</span></span><br><span class="line">  <span class="comment">//  [path addLineToPoint:CGPointMake(20, 20)];</span></span><br><span class="line">  </span><br><span class="line">  [path closePath];</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 设置线宽</span></span><br><span class="line">  path<span class="variable">.lineWidth</span> = <span class="number">1.5</span>;</span><br><span class="line"> </span><br><span class="line">  <span class="comment">// 设置填充颜色 在设置画笔颜色之前先设置填充颜色，否则画笔颜色就被填充颜色替代了。</span></span><br><span class="line">  <span class="built_in">UIColor</span> *fillColor = [<span class="built_in">UIColor</span> greenColor];</span><br><span class="line">  [fillColor set];</span><br><span class="line">  [path fill];</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 设置画笔颜色 通过set</span></span><br><span class="line">  <span class="built_in">UIColor</span> *strokeColor = [<span class="built_in">UIColor</span> blueColor];</span><br><span class="line">  [strokeColor set];</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 根据我们设置的各个点连线</span></span><br><span class="line">  [path stroke];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="画矩形">画矩形</h3><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)drawRectPath &#123;</span><br><span class="line">  <span class="built_in">UIBezierPath</span> *path = [<span class="built_in">UIBezierPath</span> bezierPathWithRect:<span class="built_in">CGRectMake</span>(<span class="number">20</span>, <span class="number">20</span>, <span class="keyword">self</span><span class="variable">.frame</span><span class="variable">.size</span><span class="variable">.width</span> - <span class="number">40</span>, <span class="keyword">self</span><span class="variable">.frame</span><span class="variable">.size</span><span class="variable">.height</span> - <span class="number">40</span>)];</span><br><span class="line">  </span><br><span class="line">  path<span class="variable">.lineWidth</span> = <span class="number">1.5</span>;</span><br><span class="line">  path<span class="variable">.lineCapStyle</span> = k<span class="built_in">CGLineCapRound</span>;</span><br><span class="line">  path<span class="variable">.lineJoinStyle</span> = k<span class="built_in">CGLineJoinBevel</span>;</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 设置填充颜色</span></span><br><span class="line">  <span class="built_in">UIColor</span> *fillColor = [<span class="built_in">UIColor</span> greenColor];</span><br><span class="line">  [fillColor set];</span><br><span class="line">  [path fill];</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 设置画笔颜色</span></span><br><span class="line">  <span class="built_in">UIColor</span> *strokeColor = [<span class="built_in">UIColor</span> blueColor];</span><br><span class="line">  [strokeColor set];</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 根据我们设置的各个点连线</span></span><br><span class="line">  [path stroke];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Line cap styles. */</span></span><br><span class="line"><span class="comment">// 第一个是默认的，第二个是轻微圆角，第三个正方形。</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="built_in">CF_ENUM</span>(int32_t, <span class="built_in">CGLineCap</span>) &#123;</span><br><span class="line">    k<span class="built_in">CGLineCapButt</span>,</span><br><span class="line">    k<span class="built_in">CGLineCapRound</span>,</span><br><span class="line">    k<span class="built_in">CGLineCapSquare</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Line join styles. */</span></span><br><span class="line"><span class="comment">// 第一个是默认的表示斜接，第二个是圆滑衔接，第三个是斜角连接。</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="built_in">CF_ENUM</span>(int32_t, <span class="built_in">CGLineJoin</span>) &#123;</span><br><span class="line">    k<span class="built_in">CGLineJoinMiter</span>,</span><br><span class="line">    k<span class="built_in">CGLineJoinRound</span>,</span><br><span class="line">    k<span class="built_in">CGLineJoinBevel</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="画弧">画弧</h3><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#define   kDegreesToRadians(degrees)  ((pi * degrees)/ 180)</span></span><br><span class="line">- (<span class="keyword">void</span>)drawARCPath &#123;</span><br><span class="line">  <span class="keyword">const</span> <span class="built_in">CGFloat</span> pi = <span class="number">3.14159265359</span>;</span><br><span class="line"> </span><br><span class="line">  <span class="built_in">CGPoint</span> center = <span class="built_in">CGPointMake</span>(<span class="keyword">self</span><span class="variable">.frame</span><span class="variable">.size</span><span class="variable">.width</span> / <span class="number">2</span>, <span class="keyword">self</span><span class="variable">.frame</span><span class="variable">.size</span><span class="variable">.height</span> / <span class="number">2</span>);</span><br><span class="line">  <span class="comment">// 参数startAngle和endAngle使用的是弧度，而不是角度</span></span><br><span class="line">  <span class="comment">// 设置的clockwise:YES是逆时针方向绘制</span></span><br><span class="line">  <span class="built_in">UIBezierPath</span> *path = [<span class="built_in">UIBezierPath</span> bezierPathWithArcCenter:center</span><br><span class="line">                                                      radius:<span class="number">100</span></span><br><span class="line">                                                  startAngle:<span class="number">0</span></span><br><span class="line">                                                    endAngle:kDegreesToRadians(<span class="number">135</span>)</span><br><span class="line">                                                   clockwise:<span class="literal">YES</span>];</span><br><span class="line">  </span><br><span class="line">  path<span class="variable">.lineCapStyle</span> = k<span class="built_in">CGLineCapRound</span>;</span><br><span class="line">  path<span class="variable">.lineJoinStyle</span> = k<span class="built_in">CGLineJoinRound</span>;</span><br><span class="line">  path<span class="variable">.lineWidth</span> = <span class="number">5.0</span>;</span><br><span class="line">  </span><br><span class="line">  <span class="built_in">UIColor</span> *strokeColor = [<span class="built_in">UIColor</span> redColor];</span><br><span class="line">  [strokeColor set];</span><br><span class="line">  </span><br><span class="line">  [path stroke];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="二次贝塞尔曲线">二次贝塞尔曲线</h3><ol>
+<li>先设置一个起始点，也就是通过-moveToPoint:设置</li>
+<li>调用-addQuadCurveToPoint:controlPoint:方法设置终端点和控制点，以画二次曲线</li>
+</ol>
+<figure class="highlight erlang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">  // <span class="keyword">end</span><span class="variable">Point</span>：终端点 control<span class="variable">Point</span>：控制点，对于二次贝塞尔曲线，只有一个控制点</span><br><span class="line"><span class="pp">- <span class="params">(void)</span>addQuadCurveToPoint:<span class="params">(<span class="variable">CGPoint</span>)</span>endPoint controlPoint:<span class="params">(<span class="variable">CGPoint</span>)</span>controlPoint</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)drawSecondBezierPath &#123;</span><br><span class="line">  <span class="built_in">UIBezierPath</span> *path = [<span class="built_in">UIBezierPath</span> bezierPath];</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 首先设置一个起始点</span></span><br><span class="line">  [path moveToPoint:<span class="built_in">CGPointMake</span>(<span class="number">20</span>, <span class="keyword">self</span><span class="variable">.frame</span><span class="variable">.size</span><span class="variable">.height</span> - <span class="number">100</span>)];</span><br><span class="line"> </span><br><span class="line">  <span class="comment">// 添加二次曲线</span></span><br><span class="line">  [path addQuadCurveToPoint:<span class="built_in">CGPointMake</span>(<span class="keyword">self</span><span class="variable">.frame</span><span class="variable">.size</span><span class="variable">.width</span> - <span class="number">20</span>, <span class="keyword">self</span><span class="variable">.frame</span><span class="variable">.size</span><span class="variable">.height</span> - <span class="number">100</span>)</span><br><span class="line">               controlPoint:<span class="built_in">CGPointMake</span>(<span class="keyword">self</span><span class="variable">.frame</span><span class="variable">.size</span><span class="variable">.width</span> / <span class="number">2</span>, <span class="number">0</span>)];</span><br><span class="line">  </span><br><span class="line">  path<span class="variable">.lineCapStyle</span> = k<span class="built_in">CGLineCapRound</span>;</span><br><span class="line">  path<span class="variable">.lineJoinStyle</span> = k<span class="built_in">CGLineJoinRound</span>;</span><br><span class="line">  path<span class="variable">.lineWidth</span> = <span class="number">5.0</span>;</span><br><span class="line">  </span><br><span class="line">  <span class="built_in">UIColor</span> *strokeColor = [<span class="built_in">UIColor</span> redColor];</span><br><span class="line">  [strokeColor set];</span><br><span class="line">  </span><br><span class="line">  [path stroke];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="三次贝塞尔曲线">三次贝塞尔曲线</h3><p>贝塞尔曲线必定通过首尾两个点，称为端点；中间两个点虽然未必要通过，但却起到牵制曲线形状路径的作用，称作控制点。 其组成是起始端点+控制点1+控制点2+终止端点,以三个点画一段曲线，一般和-moveToPoint:配合使用。<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)drawThirdBezierPath &#123;</span><br><span class="line">  <span class="built_in">UIBezierPath</span> *path = [<span class="built_in">UIBezierPath</span> bezierPath];</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 设置起始端点</span></span><br><span class="line">  [path moveToPoint:<span class="built_in">CGPointMake</span>(<span class="number">20</span>, <span class="number">150</span>)];</span><br><span class="line">  </span><br><span class="line">  [path addCurveToPoint:<span class="built_in">CGPointMake</span>(<span class="number">300</span>, <span class="number">150</span>)</span><br><span class="line">          controlPoint1:<span class="built_in">CGPointMake</span>(<span class="number">160</span>, <span class="number">0</span>)</span><br><span class="line">          controlPoint2:<span class="built_in">CGPointMake</span>(<span class="number">160</span>, <span class="number">250</span>)];</span><br><span class="line">  </span><br><span class="line">  path<span class="variable">.lineCapStyle</span> = k<span class="built_in">CGLineCapRound</span>;</span><br><span class="line">  path<span class="variable">.lineJoinStyle</span> = k<span class="built_in">CGLineJoinRound</span>;</span><br><span class="line">  path<span class="variable">.lineWidth</span> = <span class="number">5.0</span>;</span><br><span class="line">  </span><br><span class="line">  <span class="built_in">UIColor</span> *strokeColor = [<span class="built_in">UIColor</span> redColor];</span><br><span class="line">  [strokeColor set];</span><br><span class="line">  </span><br><span class="line">  [path stroke];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/01/12/Android初见/" rel="prev">Android初见</a>
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/11/16/css片段/" rel="next">css片段</a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+            </div>
+
+            
+
+            
+              <div class="comments" id="comments">
+                
+                  <div class="ds-thread" data-thread-key="2015/11/21/UIBezierPath/"
+                       data-title="UIBezierPath" data-url="https://rayzworld.github.io/2015/11/21/UIBezierPath/">
+                  </div>
+                
+              </div>
+            
+        </div>
+
+        
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/images/default_avatar.jpg" alt="白洪瑞" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">白洪瑞</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description">I am a slow walker,but I never walk backwards.</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">33</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-name">分类</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">27</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Rayzworld" target="_blank">GitHub</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/2421652200" target="_blank">WeiBo</a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+            <p class="site-author-name">在早上把你叫醒的，不应该是闹钟，不应该是梦想，而应该是昨天早睡。</p>
+            
+              <span class="links-of-author-item">
+              <a href="http://diwu.me" target="_blank">吴迪</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://kittenyang.com/" target="_blank">KittenYang</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://blog.sunnyxx.com/" target="_blank">太阳仔</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://nshipster.cn/" target="_blank">NSHipster</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://www.raywenderlich.com" target="_blank">raywenderlich</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://onevcat.com/" target="_blank">瞄神</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://nianxi.net/" target="_blank">念茜</a>
+              </span>
+            
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#画三角形"><span class="nav-number">1.</span> <span class="nav-text">画三角形</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#画矩形"><span class="nav-number">2.</span> <span class="nav-text">画矩形</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#画弧"><span class="nav-number">3.</span> <span class="nav-text">画弧</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二次贝塞尔曲线"><span class="nav-number">4.</span> <span class="nav-text">二次贝塞尔曲线</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三次贝塞尔曲线"><span class="nav-number">5.</span> <span class="nav-text">三次贝塞尔曲线</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+    </main>
+
+    <footer id="footer" class="footer">
+        <div class="footer-inner">
+            <div class="copyright" >
+  
+  &copy; &nbsp;  2014 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="icon-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">白洪瑞</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a> 
+</div>
+
+<div class="theme-info">
+  Theme by -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+        </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+</div>
+
+<script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+    
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"rayzworld"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+    
+  
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.4"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.4"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.4" id="motion.global"></script>
+
+
+
+  <script type="text/javascript" src="/js/search-toggle.js"></script>
+
+
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.4" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+          var self = this;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      $(indicator).velocity('stop').velocity({
+        opacity: action === 'show' ? 0.4 : 0
+      }, { duration: 100 });
+    }
+
+  });
+</script>
+
+
+  <script type="text/javascript" id="sidebar.nav">
+    $(document).ready(function () {
+      var html = $('html');
+
+      $('.sidebar-nav li').on('click', function () {
+        var item = $(this);
+        var activeTabClassName = 'sidebar-nav-active';
+        var activePanelClassName = 'sidebar-panel-active';
+        if (item.hasClass(activeTabClassName)) {
+          return;
+        }
+
+        var currentTarget = $('.' + activePanelClassName);
+        var target = $('.' + item.data('target'));
+
+        currentTarget.velocity('transition.slideUpOut', 200, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', 200)
+            .addClass(activePanelClassName);
+        });
+
+        item.siblings().removeClass(activeTabClassName);
+        item.addClass(activeTabClassName);
+      });
+
+      $('.post-toc a').on('click', function (e) {
+        e.preventDefault();
+        var offset = $(escapeSelector(this.getAttribute('href'))).offset().top;
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        });
+      });
+
+      // Expand sidebar on post detail page by default, when post has a toc.
+      var $tocContent = $('.post-toc-content');
+      if (isDesktop() && CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          displaySidebar();
+        }
+      }
+    });
+  </script>
+
+
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        if (CONFIG.sidebar === 'always') {
+            displaySidebar();
+        }
+    });
+</script>
+
+
+
+
+
+
+
+
+<!-- lazyload -->
+<script type="text/javascript" src="/js/lazyload.js"></script>
+<script type="text/javascript">
+    jQuery(function () {
+        jQuery("#posts img").lazyload({
+            placeholder: "/images/loading.gif",
+            effect: "fadeIn"
+        });
+    });
+</script>
+</body>
+</html>

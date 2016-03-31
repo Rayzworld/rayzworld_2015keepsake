@@ -269,6 +269,90 @@
           
           
             
+              <a class="post-title-link" href="/2015/11/21/UIBezierPath/" itemprop="url">
+                UIBezierPath
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2015-11-21T10:58:30+08:00" content="2015-11-21">
+            2015-11-21
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a></span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2015/11/21/UIBezierPath/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/21/UIBezierPath/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 根据需要任意定制样式 drawRect:</span></span><br><span class="line">+ <span class="params">(instancetype)</span>bezierPath;</span><br><span class="line"><span class="comment">// 根据一个矩形画贝塞尔曲线</span></span><br><span class="line">+ <span class="params">(instancetype)</span>bezierPathWithRect:<span class="params">(CGRect)</span>rect;</span><br><span class="line"><span class="comment">// 根据一个矩形画内切曲线。通常用它来画圆或者椭圆。</span></span><br><span class="line">+ <span class="params">(instancetype)</span>bezierPathWithOvalInRect:<span class="params">(CGRect)</span>rect;</span><br><span class="line"><span class="comment">// 第一个工厂方法是画矩形，但是这个矩形是可以画圆角的。第一个参数是矩形，第二个参数是圆角大小。 第二个工厂方法功能一样,可以指定某一个角画成圆角。</span></span><br><span class="line">+ <span class="params">(instancetype)</span>bezierPathWithRoundedRect:<span class="params">(CGRect)</span>rect</span><br><span class="line">                            cornerRadius:<span class="params">(CGFloat)</span>cornerRadius;</span><br><span class="line">+ <span class="params">(instancetype)</span>bezierPathWithRoundedRect:<span class="params">(CGRect)</span>rect</span><br><span class="line">                        byRoundingCorners:<span class="params">(UIRectCorner)</span>corners </span><br><span class="line">                              cornerRadii:<span class="params">(CGSize)</span>cornerRadii;</span><br><span class="line"><span class="comment">// 这个工厂方法用于画弧，参数说明如下： center: 弧线中心点的坐标 radius: 弧线所在圆的半径 startAngle: 弧线开始的角度值 endAngle: 弧线结束的角度值clockwise: 是否顺时针画弧线</span></span><br><span class="line">+ <span class="params">(instancetype)</span>bezierPathWithArcCenter:<span class="params">(CGPoint)</span>center </span><br><span class="line">                                 radius:<span class="params">(CGFloat)</span>radius </span><br><span class="line">                             startAngle:<span class="params">(CGFloat)</span>startAngle </span><br><span class="line">                               endAngle:<span class="params">(CGFloat)</span>endAngle </span><br><span class="line">                              clockwise:<span class="params">(BOOL)</span>clockwise;</span><br><span class="line">+ <span class="params">(instancetype)</span>bezierPathWithCGPath:<span class="params">(CGPathRef)</span>CGPath;</span><br></pre></td></tr></table></figure>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/11/21/UIBezierPath/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
               <a class="post-title-link" href="/2015/11/16/css片段/" itemprop="url">
                 css片段
               </a>
@@ -963,93 +1047,6 @@
 
 
     
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2015/08/01/MVVM/" itemprop="url">
-                MVVM
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2015-08-01T17:38:41+08:00" content="2015-08-01">
-            2015-08-01
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a></span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <a href="/2015/08/01/MVVM/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/08/01/MVVM/" itemprop="commentsCount"></span>
-              </a>
-            </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <p>MVVM,MVC,MVP理解的有点蒙，什么鬼 <img src="/blogImage/face/doudoufei.gif" alt="白洪瑞太帅了"></p>
-<p>MVC的一般流程是这样的：View（界面）触发事件—》Controller（业务）处理了业务，然后触发了数据更新—》不知道谁更新了Model的数据—》Model（带着数据）回到了View—》View更新数据</p>
-<h3 id="MVP(Model-View-Presenter)">MVP(Model-View-Presenter)</h3><p>切断的View和Model的联系，让View只和Presenter（原Controller）交互，减少在需求变化中需要维护的对象的数量。</p>
-<h3 id="MVVM(Model_View_View-Model)">MVVM(Model View View-Model)</h3>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/08/01/MVVM/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1089,7 +1086,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">32</span>
+              <span class="site-state-item-count">33</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
