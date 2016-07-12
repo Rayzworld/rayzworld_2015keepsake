@@ -178,6 +178,90 @@
           
           
             
+              <a class="post-title-link" href="/2015/06/02/objc笔记/" itemprop="url">
+                objc笔记（1）
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2015-06-02T00:49:32+08:00" content="2015-06-02">
+            2015-06-02
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a></span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2015/06/02/objc笔记/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/06/02/objc笔记/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <h4 id="更轻量的_View_Controllers"><a href="http://objccn.io/issue-1-1/">更轻量的 View Controllers</a></h4><p><strong>把 Data Source 和其他 Protocols 分离出来</strong>,把 UITableViewDataSource 的代码提取出来放到一个单独的类中（看到这个有些理解ComponentKit的写法了）<br><strong>将业务逻辑移到 Model 中</strong><br>有些代码不能被轻松地移动到 model 对象中，但明显和 model 代码紧密联系，对于这种情况，可以使用一个 Store：<br><strong>创建 Store 类</strong>，Store 对象会关心数据加载、缓存和设置数据栈。它也经常被称为服务层或者仓库。<br><strong>把网络请求逻辑移到 Model 层</strong>，不要在 view controller 中做网络请求的逻辑，通过使用回调（比如一个 completion 的 block）来请求网络。<br><strong>把 View 代码移到 View 层</strong>，不应该在 view controller 中构建复杂的 view 层次结构。可以使用 Interface Builder 或者把 views 封装到一个 UIView 子类当中。<br><strong>通讯</strong>，view controllers 和 model 对象之间的消息传递，已经有很多阐述得很好的技术（比如 KVO 和 fetched results controllers）。当一个 view controller 想把某个状态传递给多个其他 view controllers 时，就会出现消息传递不清晰的问题。较好的做法是把状态放到一个单独的对象里，然后把这个对象传递给其它 view controllers，它们观察和修改这个状态。这样的好处是消息传递都在一个地方（被观察的对象）进行，而且我们也不用纠结嵌套的 delegate 回调。<br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/06/02/objc笔记/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
               <a class="post-title-link" href="/2015/06/02/Git与SourceTree/" itemprop="url">
                 Git与SourceTree了解
               </a>
@@ -466,7 +550,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">33</span>
+              <span class="site-state-item-count">34</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -480,7 +564,7 @@
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">27</span>
+              <span class="site-state-item-count">28</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
