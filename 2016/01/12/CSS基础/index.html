@@ -1,0 +1,741 @@
+<!doctype html>
+<html class="theme-next use-motion theme-next-mist">
+<head>
+    
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.4"/>
+
+
+    <meta name="description" content="I am a slow walker,but I never walk backwards." />
+
+
+
+  <meta name="keywords" content="CSS基本样式," />
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/icon.ico?v=0.4.4" />
+
+
+<meta name="description" content="div 块~ Example
+  块12345 &amp;lt;div style=&quot;width:200px;height:200px;background:yellow; font-size:12px; color:#ccc; text-align:center;&quot;&amp;gt;块&amp;lt;/div&amp;gt; &amp;lt;!--行间样式 写在标签的style属性   属性名=&quot;属性值&quot;--&amp;gt;
+~">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS基础">
+<meta property="og:url" content="https://rayzworld.github.io/2016/01/12/CSS基础/index.html">
+<meta property="og:site_name" content="HongRui's Blog">
+<meta property="og:description" content="div 块~ Example
+  块12345 &amp;lt;div style=&quot;width:200px;height:200px;background:yellow; font-size:12px; color:#ccc; text-align:center;&quot;&amp;gt;块&amp;lt;/div&amp;gt; &amp;lt;!--行间样式 写在标签的style属性   属性名=&quot;属性值&quot;--&amp;gt;
+~">
+<meta property="og:updated_time" content="2016-07-13T16:55:02.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSS基础">
+<meta name="twitter:description" content="div 块~ Example
+  块12345 &amp;lt;div style=&quot;width:200px;height:200px;background:yellow; font-size:12px; color:#ccc; text-align:center;&quot;&amp;gt;块&amp;lt;/div&amp;gt; &amp;lt;!--行间样式 写在标签的style属性   属性名=&quot;属性值&quot;--&amp;gt;
+~">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: 'post'
+  };
+</script>
+
+    <title> CSS基础 // HongRui's Blog </title>
+</head>
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+
+
+
+
+<div class="container one-column page-post-detail">
+    <div class="headband"></div>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+        <div class="header-inner"><h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand" rel="start">
+      <span class="logo">
+        <i class="icon-logo"></i>
+      </span>
+      <span class="site-title">HongRui's Blog</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu menu-left">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon icon-home"></i> <br />
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            <i class="menu-item-icon icon-categories"></i> <br />
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            <i class="menu-item-icon icon-archives"></i> <br />
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            <i class="menu-item-icon icon-tags"></i> <br />
+            标签
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+<form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'EHDHtw-j3DipDyhFHcz8','2.0.0');
+</script>
+
+<div class="site-search-toggle"></div>
+    </div>
+  
+</nav>
+
+
+        </div>
+    </header>
+
+    <main id="main" class="main">
+        <div class="main-inner">
+            <div id="content" class="content">
+                
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              CSS基础
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2016-01-12T23:14:48+08:00" content="2016-01-12">
+            2016-01-12
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/CSS/" itemprop="url" rel="index"><span itemprop="name">CSS</span></a></span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2016/01/12/CSS基础/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/12/CSS基础/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><h3 id="div_块">div 块</h3><p>~ Example</p>
+<p>  <div style="width:200px;height:200px;background:yellow; font-size:12px; color:#ccc; text-align:center;">块</div><br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"> <span class="tag">&lt;<span class="title">div</span> <span class="attribute">style</span>=<span class="value">"width:200px;height:200px;background:yellow; font-size:12px; color:#ccc; text-align:center;"</span>&gt;</span>块<span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"> <span class="comment">&lt;!--</span><br><span class="line">行间样式 写在标签的style属性</span><br><span class="line">   属性名="属性值"</span><br><span class="line">--&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>~<br><a id="more"></a></p>
+<h3 id="style_样式表_link">style 样式表 link</h3><p>效果同上<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">style</span>&gt;</span><span class="css"></span><br><span class="line"><span class="id">#div1</span><span class="rules">&#123;<span class="rule"><span class="attribute">width</span>:<span class="value"><span class="number">200px</span></span></span>;<span class="rule"><span class="attribute">height</span>:<span class="value"><span class="number">200px</span></span></span>;<span class="rule"><span class="attribute">background</span>:<span class="value">yellow</span></span>; <span class="rule"><span class="attribute">font-size</span>:<span class="value"><span class="number">12px</span></span></span>; <span class="rule"><span class="attribute">color</span>:<span class="value"><span class="hexcolor">#ccc</span></span></span>; <span class="rule"><span class="attribute">text-align</span>:<span class="value">center</span></span>;&#125;</span></span><br><span class="line"></span><span class="tag">&lt;/<span class="title">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"div1"</span>&gt;</span>块<span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- </span><br><span class="line">写在页面内部，专门的style标签里,内部样式表 </span><br><span class="line">id="id名" #id名&#123;&#125;  ！！同一个页面ID时不能重名的 </span><br><span class="line">--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">link</span> <span class="attribute">href</span>=<span class="value">"index.css"</span> <span class="attribute">rel</span>=<span class="value">"stylesheet"</span> /&gt;</span></span><br><span class="line">  <span class="comment">&lt;!--</span><br><span class="line">写在单独css里边，通过link引入当前页面 外部样式表</span><br><span class="line">    &lt;link href="样式表的路径" rel="stylesheet" /&gt;</span><br><span class="line">--&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="单位(px像素)">单位(px像素)</h4><pre><code><span class="variable">width</span> 宽度
+<span class="variable">height</span> 高度
+</code></pre><h4 id="border_边框（集合样式）">border 边框（集合样式）</h4><pre><code><span class="attribute">border-top</span>
+<span class="attribute">border-right</span>
+<span class="attribute">border-bottom</span>
+<span class="attribute">border-left</span>
+<span class="attribute">border-width</span> 边框宽度
+    <span class="attribute">border-top-width</span>
+    <span class="attribute">border-right-width</span>
+    <span class="attribute">border-bottom-width</span>
+    <span class="attribute">border-left-width</span>
+<span class="attribute">border-style</span> 边框样式  solid实线 dashed虚线 dotted点线
+    <span class="attribute">border-top-style</span>
+    <span class="attribute">border-right-style</span>
+    <span class="attribute">border-bottom-style</span>
+    <span class="attribute">border-left-style</span>
+<span class="attribute">border-color</span> 边框颜色
+    <span class="attribute">border-top-color</span>
+    <span class="attribute">border-right-color</span>
+    <span class="attribute">border-bottom-color</span>
+    <span class="attribute">border-left-color</span>
+    关键字 
+    rgb
+    十六进制(<span class="number">0</span>-<span class="number">9</span>,<span class="tag">a</span>,<span class="tag">b</span>,c,d,e,f)，六位或者三位的数字
+</code></pre><p>同一个元素两边边框相交的地方是斜线</p>
+<h4 id="background_背景">background 背景</h4><pre><code><span class="attribute">background-color</span> 背景颜色
+<span class="attribute">background-image</span> 背景图片 <span class="function"><span class="title">url</span><span class="params">(图片路径)</span></span>
+<span class="attribute">background-repeat</span> 背景平铺
+    repeat 平铺
+    no-repeat不平铺    
+    repeat-x 水平平铺
+    repeat-y 垂直平铺    
+<span class="attribute">background-position</span> 背景图定位
+关键字
+x: <span class="attribute">left</span> 图的左侧和元素的左侧对齐
+   center 图的中间和元素的中间对齐
+   <span class="attribute">right</span> 图的右侧和元素的右侧对齐
+y: <span class="attribute">top</span> 图的顶部和顶部的左侧对齐
+   center 图的中间和元素的中间对齐
+   <span class="attribute">bottom</span> 图的底部和元素的底部对齐
+具体值
+x: 正值从左向右移动,负值从右向左移动
+y: 正值从下向上移动,负值从上向下移动   
+</code></pre><h4 id="font">font</h4><pre><code><span class="attribute">font-size</span> 文字大小
+<span class="attribute">font-weight</span> 文字加粗(bold加粗/<span class="attribute">normal</span>正常)
+<span class="attribute">font-style</span> 文字倾斜(italic倾斜/<span class="attribute">normal</span>正常)
+<span class="attribute">line-height</span> 行高 （文字在一行上下居中）
+<span class="attribute">font-family</span> 字体 
+
+<span class="attribute">font</span>:<span class="attribute">font-size</span> <span class="function"><span class="title">font-family</span><span class="params">(必须要写)</span></span> 
+
+<span class="attribute">color</span> 文字颜色
+<span class="attribute">text-indent</span> 首行缩进 (<span class="number">1em</span>=<span class="number">1</span>个文字大小)
+<span class="attribute">text-align</span> 文本对齐方式(<span class="attribute">left</span>/center/<span class="attribute">right</span>)
+<span class="attribute">text-decoration</span> 文本修饰(underline下划线/line-through 删除线/overline 上划线/<span class="attribute">none</span>)
+<span class="attribute">letter-spacing</span> 字母间距(字间距)
+</code></pre><h4 id="padding_内填充">padding 内填充</h4><pre><code>(<span class="attribute">padding</span>在元素的边框以内，内容之外，<span class="attribute">padding</span>同样显示元素的背景)
+<span class="attribute">padding-top</span>
+<span class="attribute">padding-right</span>
+<span class="attribute">padding-bottom</span>
+<span class="attribute">padding-left</span>
+可视宽(高)<span class="value">:可视宽(高)=border+padding+<span class="function">width</span>(height);</span>
+</code></pre><h4 id="margin_外边距(margin元素的边框之外不显示元素背景)">margin 外边距(margin元素的边框之外不显示元素背景)</h4><pre><code><span class="attribute">margin</span><span class="value">:<span class="number">10px</span> <span class="number">20px</span>;</span>
+<span class="attribute">margin</span><span class="value">:<span class="number">10px</span> <span class="number">20px</span> <span class="number">40px</span>;</span>
+<span class="attribute">margin</span><span class="value">:<span class="number">10px</span> <span class="number">20px</span> <span class="number">40px</span> <span class="number">60px</span>;</span>
+<span class="attribute">margin-top</span>
+<span class="attribute">margin-right</span>
+<span class="attribute">margin-bottom</span>
+<span class="attribute">margin-left</span>
+
+<span class="attribute">margin</span>叠加相邻两个元素的上下<span class="attribute">margin</span>是叠加在一起
+<span class="attribute">margin</span>传递，子元素的上下<span class="attribute">margin</span>会传递给父级
+</code></pre><h3 id="href">href</h3><h4 id="a_链接">a 链接</h4><pre><code>href 页面地址的话 (跳转页面)
+     压缩包（下载）
+     <span class="property">id</span>，点击之后会直接跳转到<span class="property">id</span>所在的位置 锚点    
+</code></pre><p><a href="http://www.baidu.com" target="_blank" rel="external">百度</a> <a href="http://www.sohu.com/#sohuTools" target="_blank" rel="external">搜狐</a> <a href="http://www.baidu.com" target="_blank">新窗口百度</a><br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"http://www.baidu.com"</span>&gt;</span>百度<span class="tag">&lt;/<span class="title">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"http://www.sohu.com/#sohuTools"</span>&gt;</span>搜狐<span class="tag">&lt;/<span class="title">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"http://www.qq.com"</span> <span class="attribute">target</span>=<span class="value">"_blank"</span>&gt;</span>qq<span class="tag">&lt;/<span class="title">a</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--</span><br><span class="line">	target="_blank" 新窗口打开</span><br><span class="line">    target="_self" 当前窗口打开</span><br><span class="line">--&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="设置默认"><base target="_blank" href="http://www.baidu.com"> 设置默认</h3><h3 id="标签">标签</h3><h4 id="section_版块">section 版块</h4><p>用于划分页面上的不同区域,或者划分文章里不同的节</p>
+<h4 id="header">header</h4><p>页面头部或者版块（section）头部 </p>
+<h4 id="footer">footer</h4><p>页面底部或者（section）底部</p>
+<h4 id="nav_导航_（包含链接的的一个列表）">nav 导航 （包含链接的的一个列表）</h4><h4 id="article_用来在页面中表示一套结构完整且独立的内容部分">article    用来在页面中表示一套结构完整且独立的内容部分</h4><p>可以用来呈现论坛的一个帖子，杂志或报纸中的一篇文章，一篇博客，用户提交的评论内容，可互动的页面模块挂件等。</p>
+<h4 id="aside_元素标签可以包含与当前页面或主要内容相关的引用、侧边栏、广告、nav元素组，以及其他类似的有别与主要内容的部分">aside 元素标签可以包含与当前页面或主要内容相关的引用、侧边栏、广告、nav元素组，以及其他类似的有别与主要内容的部分</h4><pre><code>1，被包含在<span class="tag">&lt;<span class="title">article</span>&gt;</span>中作为主要内容的附属信息部分，其中的内容 以是与当前文章有关的引用、词汇列表等
+2，在<span class="tag">&lt;<span class="title">article</span>&gt;</span>之外使用，作为页面或站点全局的附属信息部分；最典型的形式是侧边栏(sidebar)，其中的内容可以是友情链接、附属导航或广告单元等。
+</code></pre><h4 id="h1-h6_标题">h1-h6 标题</h4><h4 id="ul_无序列表">ul 无序列表</h4><h4 id="ol_有序列表">ol 有序列表</h4><h4 id="li_ul或者ol的列表项">li ul或者ol的列表项</h4><h4 id="dl_定义列表">dl 定义列表</h4><h4 id="dt_定义列表的项目">dt 定义列表的项目</h4><h4 id="dd_对dt展开的描述扩展">dd 对dt展开的描述扩展</h4><h4 id="p_段落">p 段落</h4><h4 id="time_时间">time 时间</h4><h4 id="em_倾斜_强调一个词或者一段话">em 倾斜 强调一个词或者一段话</h4><h4 id="strong_加粗_强调一个词或者一段话">strong 加粗 强调一个词或者一段话</h4><h4 id="img_图片">img 图片</h4></span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/CSS基本样式/" rel="tag">#CSS基本样式</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/01/12/Android初见/" rel="next">Android初见</a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+            </div>
+
+            
+
+            
+              <div class="comments" id="comments">
+                
+                  <div class="ds-thread" data-thread-key="2016/01/12/CSS基础/"
+                       data-title="CSS基础" data-url="https://rayzworld.github.io/2016/01/12/CSS基础/">
+                  </div>
+                
+              </div>
+            
+        </div>
+
+        
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/images/default_avatar.jpg" alt="白洪瑞" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">白洪瑞</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description">I am a slow walker,but I never walk backwards.</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">34</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-name">分类</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">28</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Rayzworld" target="_blank">GitHub</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/2421652200" target="_blank">WeiBo</a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+            <p class="site-author-name">在早上把你叫醒的，不应该是闹钟，不应该是梦想，而应该是昨天早睡。</p>
+            
+              <span class="links-of-author-item">
+              <a href="http://diwu.me" target="_blank">吴迪</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://kittenyang.com/" target="_blank">KittenYang</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://blog.sunnyxx.com/" target="_blank">太阳仔</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://nshipster.cn/" target="_blank">NSHipster</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://www.raywenderlich.com" target="_blank">raywenderlich</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://onevcat.com/" target="_blank">瞄神</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://nianxi.net/" target="_blank">念茜</a>
+              </span>
+            
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#div_块"><span class="nav-number">1.</span> <span class="nav-text">div 块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#style_样式表_link"><span class="nav-number">2.</span> <span class="nav-text">style 样式表 link</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#单位(px像素)"><span class="nav-number">2.1.</span> <span class="nav-text">单位(px像素)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#border_边框（集合样式）"><span class="nav-number">2.2.</span> <span class="nav-text">border 边框（集合样式）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#background_背景"><span class="nav-number">2.3.</span> <span class="nav-text">background 背景</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#font"><span class="nav-number">2.4.</span> <span class="nav-text">font</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#padding_内填充"><span class="nav-number">2.5.</span> <span class="nav-text">padding 内填充</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#margin_外边距(margin元素的边框之外不显示元素背景)"><span class="nav-number">2.6.</span> <span class="nav-text">margin 外边距(margin元素的边框之外不显示元素背景)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#href"><span class="nav-number">3.</span> <span class="nav-text">href</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#a_链接"><span class="nav-number">3.1.</span> <span class="nav-text">a 链接</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置默认"><span class="nav-number">4.</span> <span class="nav-text"> 设置默认</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#标签"><span class="nav-number">5.</span> <span class="nav-text">标签</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#section_版块"><span class="nav-number">5.1.</span> <span class="nav-text">section 版块</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#header"><span class="nav-number">5.2.</span> <span class="nav-text">header</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#footer"><span class="nav-number">5.3.</span> <span class="nav-text">footer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#nav_导航_（包含链接的的一个列表）"><span class="nav-number">5.4.</span> <span class="nav-text">nav 导航 （包含链接的的一个列表）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#article_用来在页面中表示一套结构完整且独立的内容部分"><span class="nav-number">5.5.</span> <span class="nav-text">article    用来在页面中表示一套结构完整且独立的内容部分</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#aside_元素标签可以包含与当前页面或主要内容相关的引用、侧边栏、广告、nav元素组，以及其他类似的有别与主要内容的部分"><span class="nav-number">5.6.</span> <span class="nav-text">aside 元素标签可以包含与当前页面或主要内容相关的引用、侧边栏、广告、nav元素组，以及其他类似的有别与主要内容的部分</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#h1-h6_标题"><span class="nav-number">5.7.</span> <span class="nav-text">h1-h6 标题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ul_无序列表"><span class="nav-number">5.8.</span> <span class="nav-text">ul 无序列表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ol_有序列表"><span class="nav-number">5.9.</span> <span class="nav-text">ol 有序列表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#li_ul或者ol的列表项"><span class="nav-number">5.10.</span> <span class="nav-text">li ul或者ol的列表项</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#dl_定义列表"><span class="nav-number">5.11.</span> <span class="nav-text">dl 定义列表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#dt_定义列表的项目"><span class="nav-number">5.12.</span> <span class="nav-text">dt 定义列表的项目</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#dd_对dt展开的描述扩展"><span class="nav-number">5.13.</span> <span class="nav-text">dd 对dt展开的描述扩展</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#p_段落"><span class="nav-number">5.14.</span> <span class="nav-text">p 段落</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#time_时间"><span class="nav-number">5.15.</span> <span class="nav-text">time 时间</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#em_倾斜_强调一个词或者一段话"><span class="nav-number">5.16.</span> <span class="nav-text">em 倾斜 强调一个词或者一段话</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#strong_加粗_强调一个词或者一段话"><span class="nav-number">5.17.</span> <span class="nav-text">strong 加粗 强调一个词或者一段话</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#img_图片"><span class="nav-number">5.18.</span> <span class="nav-text">img 图片</span></a></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+    </main>
+
+    <footer id="footer" class="footer">
+        <div class="footer-inner">
+            <div class="copyright" >
+  
+  &copy; &nbsp;  2014 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="icon-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">白洪瑞</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a> 
+</div>
+
+<div class="theme-info">
+  Theme by -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+        </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+</div>
+
+<script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+    
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"rayzworld"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+    
+  
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.4"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.4"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.4" id="motion.global"></script>
+
+
+
+  <script type="text/javascript" src="/js/search-toggle.js"></script>
+
+
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.4" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+          var self = this;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      $(indicator).velocity('stop').velocity({
+        opacity: action === 'show' ? 0.4 : 0
+      }, { duration: 100 });
+    }
+
+  });
+</script>
+
+
+  <script type="text/javascript" id="sidebar.nav">
+    $(document).ready(function () {
+      var html = $('html');
+
+      $('.sidebar-nav li').on('click', function () {
+        var item = $(this);
+        var activeTabClassName = 'sidebar-nav-active';
+        var activePanelClassName = 'sidebar-panel-active';
+        if (item.hasClass(activeTabClassName)) {
+          return;
+        }
+
+        var currentTarget = $('.' + activePanelClassName);
+        var target = $('.' + item.data('target'));
+
+        currentTarget.velocity('transition.slideUpOut', 200, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', 200)
+            .addClass(activePanelClassName);
+        });
+
+        item.siblings().removeClass(activeTabClassName);
+        item.addClass(activeTabClassName);
+      });
+
+      $('.post-toc a').on('click', function (e) {
+        e.preventDefault();
+        var offset = $(escapeSelector(this.getAttribute('href'))).offset().top;
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        });
+      });
+
+      // Expand sidebar on post detail page by default, when post has a toc.
+      var $tocContent = $('.post-toc-content');
+      if (isDesktop() && CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          displaySidebar();
+        }
+      }
+    });
+  </script>
+
+
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        if (CONFIG.sidebar === 'always') {
+            displaySidebar();
+        }
+    });
+</script>
+
+
+
+
+
+
+
+
+<!-- lazyload -->
+<script type="text/javascript" src="/js/lazyload.js"></script>
+<script type="text/javascript">
+    jQuery(function () {
+        jQuery("#posts img").lazyload({
+            placeholder: "/images/loading.gif",
+            effect: "fadeIn"
+        });
+    });
+</script>
+</body>
+</html>
